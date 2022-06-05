@@ -1,0 +1,45 @@
+name: GitHub Pages
+on:
+  workflow_dispatch:
+    inputs: {}
+  push:
+    branches: [master]
+    paths:
+      - ".github/workflows/pages.yml"
+      - "archetypes/**"
+      - "config.toml"
+      - "content/**"
+      - "data/**"
+      - "layouts/**"
+      - "static/**"
+      - "themes/**"
+  pull_request:
+    branches: [master]
+jobs:
+  pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull Source Code
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+          fetch-depth: 0
+      - name: Set-up Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+      - name: Cache
+        uses: actions/cache@v2
+        with:
+          path: /tmp/hugo_cache
+          key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-hugomod-
+      - name: Build
+        run: hugo --minify
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/master'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
