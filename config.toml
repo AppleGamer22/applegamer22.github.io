@@ -6,8 +6,7 @@ theme = "gokarna"
 enableRobotsTXT = true
 pygmentsStyle = "monokai"
 [params]
-favicon = "favicon-32x32.png"
-avatarURL = "favicon.png"
+avatarURL = "/favicon.png"
 showPostsOnHomePage = "recent"
 socialIcons = [
     {name = "github", url = "https://github.com/AppleGamer22"},
