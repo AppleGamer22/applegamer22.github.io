@@ -8,6 +8,7 @@ pygmentsStyle = "monokai"
 [params]
 avatarURL = "/favicon.png"
 showPostsOnHomePage = "recent"
+
 socialIcons = [
     {name = "github", url = "https://github.com/AppleGamer22"},
     {name = "linkedin", url = "https://www.linkedin.com/in/omri-bornstein/"},
