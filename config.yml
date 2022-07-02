@@ -5,9 +5,15 @@ baseURL: https://applegamer22.github.io
 languageCode: en-au
 defaultContentLanguage: en
 title: Omri Bornstein
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
 params:
   enableCodeCopy: true
-  # mainSections: ["posts"]
+  enableSearch: true
+  mainSections: ["posts"]
   homepage:
     layout: profile
     showRecent: true
@@ -43,8 +49,11 @@ languages:
       links:
         - github: https://github.com/AppleGamer22
         - linkedin: https://www.linkedin.com/in/omri-bornstein/
+        - email: mailto:omribor@gmail.com
         - gitlab: https://gitlab.com/AppleGamer22
         - stack-overflow: https://stackoverflow.com/users/7148921/
+        - dev: https://dev.to/applegamer22
+        - hashnode: https://applegamer22.hashnode.dev
         - twitter: https://twitter.com/AppleGamer22
     menu:
       main:
