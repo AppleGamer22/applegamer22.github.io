@@ -29,7 +29,6 @@ from typing import List
 from doctest import testmod
 from textwrap import wrap
 
-
 def xor(s: List[int], t: List[int]) -> List[int]:
 	"""
 	:param s: list of non-negative integers
