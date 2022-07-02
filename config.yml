@@ -1,0 +1,68 @@
+module:
+  imports:
+    - path: github.com/jpanther/congo/v2
+baseURL: https://applegamer22.github.io
+languageCode: en-au
+defaultContentLanguage: en
+title: Omri Bornstein
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+params:
+  enableCodeCopy: true
+  enableSearch: true
+  mainSections: ["posts"]
+  homepage:
+    layout: profile
+    showRecent: true
+  article:
+    showBreadcrumbs: true
+    showTableOfContents: true
+    showTaxonomies: true
+    showWordCount: true
+    showEdit: true
+    editAppendPath: false
+    editURL: https://github.com/AppleGamer22/applegamer22.github.io
+    sharingLinks:
+      - reddit
+      - twitter
+      - email
+  list:
+    showTableOfContents: true
+  footer:
+    showAppearanceSwitcher: true
+markup:
+  tableOfContents:
+    startLevel: 1
+    endLevel: 4
+    ordered: false
+languages:
+  en:
+    languageName: English
+    author:
+      name: Omri Bornstein
+      image: "/author.png"
+      # headline: "A generally awesome human"
+      # bio: "A little bit about me"
+      links:
+        - github: https://github.com/AppleGamer22
+        - linkedin: https://www.linkedin.com/in/omri-bornstein/
+        - email: mailto:omribor@gmail.com
+        - gitlab: https://gitlab.com/AppleGamer22
+        - stack-overflow: https://stackoverflow.com/users/7148921/
+        - dev: https://dev.to/applegamer22
+        - hashnode: https://applegamer22.hashnode.dev
+        - twitter: https://twitter.com/AppleGamer22
+    menu:
+      main:
+        - name: Blog
+          pageRef: posts
+          weight: 1
+        - name: Projects
+          pageRef: projects
+          weight: 2
+        - name: Tags
+          pageRef: tags
+          weight: 3
