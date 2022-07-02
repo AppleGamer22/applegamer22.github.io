@@ -41,6 +41,7 @@ markup:
 languages:
   en:
     languageName: English
+    # dateFormat: 02-01-2006
     author:
       name: Omri Bornstein
       image: "/author.png"
