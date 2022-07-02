@@ -1,0 +1,30 @@
+<!-- based on https://github.com/jpanther/congo/discussions/23#discussioncomment-1550774 -->
+<!-- based on https://github.com/jpanther/congo/blob/dev/layouts/partials/vendor.html -->
+{{$katexCSS := resources.Get "lib/katex/katex.min.css"}}
+{{$katexCSS := $katexCSS | resources.Fingerprint "sha512"}}
+<link type="text/css" rel="stylesheet" href="{{$katexCSS.RelPermalink}}" integrity="{{$katexCSS.Data.Integrity}}">
+{{$katexJS := resources.Get "lib/katex/katex.min.js"}}
+{{$katexJS := $katexJS | resources.Fingerprint "sha512"}}
+<script defer src="{{$katexJS.RelPermalink}}" integrity="{{$katexJS.Data.Integrity}}"></script>
+{{$katexRenderJS := resources.Get "lib/katex/auto-render.min.js"}}
+{{$katexRenderJS := $katexRenderJS | resources.Fingerprint "sha512"}}
+<script defer src="{{$katexRenderJS.RelPermalink}}" integrity="{{$katexRenderJS.Data.Integrity}}"></script>
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		renderMathInElement(document.body, {
+			delimiters: [
+				{
+					left: '$$',
+					right: '$$',
+					display: true
+				},
+				{
+					left: '$',
+					right: '$',
+					display: false
+				},
+			],
+			throwOnError: false
+		});
+	});
+</script>
