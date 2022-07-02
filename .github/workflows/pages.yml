@@ -4,15 +4,6 @@ on:
     inputs: {}
   push:
     branches: [master]
-    paths:
-      - ".github/workflows/pages.yml"
-      - "archetypes/**"
-      - "config.toml"
-      - "content/**"
-      - "data/**"
-      - "layouts/**"
-      - "static/**"
-      - "themes/**"
   pull_request:
     branches: [master]
 jobs:
@@ -32,14 +23,14 @@ jobs:
         uses: actions/cache@v2
         with:
           path: /tmp/hugo_cache
-          key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
+          key: ${{runner.os}}-hugomod-${{hashFiles('**/go.sum')}}
           restore-keys: |
-            ${{ runner.os }}-hugomod-
+            ${{runner.os}}-hugomod-
       - name: Build
         run: hugo --minify
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/master'
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{secrets.GITHUB_TOKEN}}
           publish_dir: ./public

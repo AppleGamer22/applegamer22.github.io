@@ -5,9 +5,9 @@ baseURL: https://applegamer22.github.io
 languageCode: en-au
 defaultContentLanguage: en
 title: Omri Bornstein
-enableRobotsTXT: true
 params:
   enableCodeCopy: true
+  # mainSections: ["posts"]
   homepage:
     layout: profile
     showRecent: true
@@ -16,6 +16,15 @@ params:
     showTableOfContents: true
     showTaxonomies: true
     showWordCount: true
+    showEdit: true
+    editAppendPath: false
+    editURL: https://github.com/AppleGamer22/applegamer22.github.io
+    sharingLinks:
+      - reddit
+      - twitter
+      - email
+  list:
+    showTableOfContents: true
   footer:
     showAppearanceSwitcher: true
 markup:
@@ -37,12 +46,14 @@ languages:
         - gitlab: https://gitlab.com/AppleGamer22
         - stack-overflow: https://stackoverflow.com/users/7148921/
         - twitter: https://twitter.com/AppleGamer22
-      menu:
-        weight: 0
-        main:
-          - name: Posts
-            pageRef: posts
-            weight: 1
-          - name: Tags
-            pageRef: tags
-            weight: 2
+    menu:
+      main:
+        - name: Blog
+          pageRef: posts
+          weight: 1
+        - name: Projects
+          pageRef: projects
+          weight: 2
+        - name: Tags
+          pageRef: tags
+          weight: 3
