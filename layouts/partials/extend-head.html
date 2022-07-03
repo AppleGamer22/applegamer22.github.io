@@ -1,5 +1,5 @@
 <!-- based on https://github.com/jpanther/congo/discussions/23#discussioncomment-1550774 -->
-<!-- based on https://github.com/jpanther/congo/blob/dev/layouts/partials/vendor.html -->
+<!-- based on https://github.com/jpanther/congo/blob/stable/layouts/partials/vendor.html -->
 {{$katexCSS := resources.Get "lib/katex/katex.min.css"}}
 {{$katexCSS := $katexCSS | resources.Fingerprint "sha512"}}
 <link type="text/css" rel="stylesheet" href="{{$katexCSS.RelPermalink}}" integrity="{{$katexCSS.Data.Integrity}}">
