@@ -6,5 +6,13 @@
 }
 
 code {
-	font-family: monospace !important;
+	font-family: 'Fira Code', monospace !important;
+}
+
+.prose :where(code):not(:where([class~="not-prose"] *))::before {
+	content: unset !important;
+}
+
+.prose :where(code):not(:where([class~="not-prose"] *))::after {
+	content: unset !important;
 }
