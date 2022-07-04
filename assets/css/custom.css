@@ -1,7 +1,7 @@
 @media (max-width: 640px) {
 	body, html {
-		max-width: 100%;
-		overflow-x: hidden;
+		max-width: 100% !important;
+		overflow-x: hidden !important;
 	}
 }
 
@@ -9,10 +9,19 @@ code {
 	font-family: 'Fira Code', monospace !important;
 }
 
+
 .prose :where(code):not(:where([class~="not-prose"] *))::before {
 	content: unset !important;
 }
 
 .prose :where(code):not(:where([class~="not-prose"] *))::after {
 	content: unset !important;
+}
+
+.max-w-7xl {
+	max-width: 100rem !important;
+}
+
+.max-w-prose {
+	max-width: 100ch !important;
 }

@@ -45,8 +45,8 @@ The following CSS was added to `assets/css/custom.css` (based on [Congo Theme's 
 ```css
 @media (max-width: 640px) {
 	body, html {
-		max-width: 100%;
-		overflow-x: hidden;
+		max-width: 100% !important;
+		overflow-x: hidden !important;
 	}
 }
 ```
@@ -70,5 +70,18 @@ The following CSS was added to `assets/css/custom.css` in order to revert [Congo
 
 .prose :where(code):not(:where([class~="not-prose"] *))::after {
 	content: unset !important;
+}
+```
+
+### Content Width
+The following CSS was added to `assets/css/custom.css` in order to increase the content width. Based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/dev/assets/css/compiled/main.css#L1946-L1956).
+
+```css
+.max-w-7xl {
+	max-width: 100rem !important;
+}
+
+.max-w-prose {
+	max-width: 100ch !important;
 }
 ```
