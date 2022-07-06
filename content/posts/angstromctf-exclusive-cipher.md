@@ -19,7 +19,7 @@ In an XOR Cipher, it is known that `possible_key = ciphertext ^ known_cleartext`
 2. computes `possible_key = ciphertext ^ known_cleartext`, for a known substring of `actf{`,
 3. expands the key to the ASCII length of the message,
 4. rotates the key to deal with cases where the known clear text is not in an index that is a multiple of the key length.
-   * Thanks to [@Levon](https://hashnode.com/@Levon) for this suggestion.
+	* Thanks to [@Levon](https://hashnode.com/@Levon) for this suggestion.
 5. recomputes the XOR to possibly decode the message
 6. and prints the possible message as ASCII.
 

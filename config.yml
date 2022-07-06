@@ -49,7 +49,7 @@ languages:
       name: Omri Bornstein
       image: "/author.png"
       headline: Computer Science Student, Gopher, TeXnician
-      # bio: 
+      bio: Computer Science Student, Gopher, TeXnician
       links:
         - linkedin: https://www.linkedin.com/in/omri-bornstein/
         - email: mailto:omribor@gmail.com
