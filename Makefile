@@ -7,4 +7,4 @@ watch:
 	hugo server --baseURL http://localhost:1313
 
 clean:
-	rm -rf public .hugo_build.lock
+	rm -rf public resources/_gen assets/jsconfig.json hugo_stats.json .hugo_build.lock

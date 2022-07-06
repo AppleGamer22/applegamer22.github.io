@@ -48,8 +48,8 @@ languages:
     author:
       name: Omri Bornstein
       image: "/author.png"
-      # headline: "A generally awesome human"
-      # bio: "A little bit about me"
+      headline: Computer Science Student, Gopher, TeXnician
+      # bio: 
       links:
         - linkedin: https://www.linkedin.com/in/omri-bornstein/
         - email: mailto:omribor@gmail.com
