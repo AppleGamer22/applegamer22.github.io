@@ -9,22 +9,30 @@
 {{$katexRenderJS := resources.Get "lib/katex/auto-render.min.js"}}
 {{$katexRenderJS := $katexRenderJS | resources.Fingerprint "sha512"}}
 <script defer src="{{$katexRenderJS.RelPermalink}}" integrity="{{$katexRenderJS.Data.Integrity}}"></script>
+
+<!-- {{$mermaidLib := resources.Get "lib/mermaid/mermaid.min.js"}}
+{{$mermaidConfig := resources.Get "js/mermaid.js"}}
+{{$mermaidConfig := $mermaidConfig | resources.Minify}}
+{{$mermaidJS := slice $mermaidLib $mermaidConfig | resources.Concat "js/mermaid.bundle.js" | resources.Fingerprint "sha512"}}
+<script defer type="text/javascript" src="{{$mermaidJS.RelPermalink}}" integrity="{{$mermaidJS.Data.Integrity}}"></script> -->
+
 <script>
 	document.addEventListener("DOMContentLoaded", () => {
 		renderMathInElement(document.body, {
 			delimiters: [
 				{
-					left: '$$',
-					right: '$$',
+					left: "$$",
+					right: "$$",
 					display: true
 				},
 				{
-					left: '$',
-					right: '$',
+					left: "$",
+					right: "$",
 					display: false
 				},
 			],
 			throwOnError: false
 		});
+		// mermaid.init({startOnLoad:true}, ".language-mermaid");
 	});
 </script>

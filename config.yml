@@ -3,7 +3,7 @@ module:
   imports:
     - path: github.com/jpanther/congo/v2
 baseURL: https://applegamer22.github.io
-languageCode: en-au
+timeZone: Australia/Melbourne
 defaultContentLanguage: en
 title: Omri Bornstein
 outputs:
