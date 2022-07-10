@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://json.schemastore.org/hugo.json
 module:
   imports:
     - path: github.com/jpanther/congo/v2
