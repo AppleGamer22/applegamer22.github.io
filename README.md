@@ -40,13 +40,13 @@ This change makes the KaTeX CSS and JavaScript files to load by default, and it 
 
 ## CSS
 ### Horizontal Scroll on Small-Width Screens
-The following CSS was added to `assets/css/custom.css` (based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/dev/assets/css/compiled/main.css#L72856)) in order to disable horizontal scrolling in small-width screens.
+The following CSS was added to `assets/css/custom.css` (based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/dev/assets/css/compiled/main.css#L72856)) in order to (indirectly) disable horizontal scrolling in small-width screens. It turns out that the horizontal scroll is enabled to to `a` HTML tag styling that did not limit their width to the screen width.
 
 ```css
 @media (max-width: 640px) {
-	body, html {
-		max-width: 100% !important;
-		overflow-x: hidden !important;
+	a {
+		max-width: 100vw !important;
+		word-wrap: break-word !important;
 	}
 }
 ```
