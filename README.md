@@ -38,6 +38,13 @@ The following `layouts/partials/extend-head.html` code is based [this comment](h
 
 This change makes the KaTeX CSS and JavaScript files to load by default, and it also enables the single `$` delimiter to be used with less future configuration.
 
+## Hyperlinks
+The following HTML code was added `layouts/partials/extend-head.html` in order to make all hyperlinks open in a new browser tab.
+
+```html
+<base target="_blank">
+```
+
 ## CSS
 ### Horizontal Scroll on Small-Width Screens
 The following CSS was added to `assets/css/custom.css` (based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/dev/assets/css/compiled/main.css#L72856)) in order to (indirectly) disable horizontal scrolling in small-width screens. It turns out that the horizontal scroll is enabled to to `a` HTML tag styling that did not limit their width to the screen width.
