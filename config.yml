@@ -13,6 +13,7 @@ outputs:
     - JSON
 params:
   colorScheme: fruit
+  defaultAppearance: dark
   enableCodeCopy: true
   enableSearch: true
   mainSections: ["posts"]
@@ -51,7 +52,11 @@ markup:
 languages:
   en:
     languageName: English
-    # dateFormat: 02-01-2006
+    isoCode: en
+    rtl: false
+    weight: 1
+    title: Omri Bornstein
+    description: Omri Bornstein's personal website
     author:
       name: Omri Bornstein
       image: "/author.png"
