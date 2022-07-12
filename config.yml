@@ -30,6 +30,8 @@ params:
     editURL: https://github.com/AppleGamer22/applegamer22.github.io
     sharingLinks:
       - email
+      - github
+      - gitlab
       - linkedin
       - reddit
       - twitter
@@ -56,12 +58,12 @@ languages:
       headline: Computer Science Student, Gopher, TeXnician
       bio: Computer Science Student, Gopher, TeXnician
       links:
-        - linkedin: https://www.linkedin.com/in/omri-bornstein/
         - email: mailto:omribor@gmail.com
+        - linkedin: https://www.linkedin.com/in/omri-bornstein/
         - github: https://github.com/AppleGamer22
         - gitlab: https://gitlab.com/AppleGamer22
         - stack-overflow: https://stackoverflow.com/users/7148921/
-        # - orcid: https://orcid.org/0000-0001-8645-6321
+        - orcid: https://orcid.org/0000-0001-8645-6321
         - dev: https://dev.to/applegamer22
         - hashnode: https://applegamer22.hashnode.dev
         - medium: https://medium.com/@AppleGamer22
