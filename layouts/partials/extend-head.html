@@ -1,6 +1,7 @@
-<!-- <base target="_blank"> -->
 <!-- based on https://github.com/jpanther/congo/discussions/23#discussioncomment-1550774 -->
 <!-- based on https://github.com/jpanther/congo/blob/stable/layouts/partials/vendor.html -->
+<!-- based on https://github.com/google/docsy/blob/main/assets/js/mermaid.js#L5-L8 -->
+<!-- <base target="_blank"> -->
 {{$katexCSS := resources.Get "lib/katex/katex.min.css"}}
 {{$katexCSS := $katexCSS | resources.Fingerprint "sha512"}}
 <link type="text/css" rel="stylesheet" href="{{$katexCSS.RelPermalink}}" integrity="{{$katexCSS.Data.Integrity}}">
@@ -11,11 +12,11 @@
 {{$katexRenderJS := $katexRenderJS | resources.Fingerprint "sha512"}}
 <script defer src="{{$katexRenderJS.RelPermalink}}" integrity="{{$katexRenderJS.Data.Integrity}}"></script>
 
-<!-- {{$mermaidLib := resources.Get "lib/mermaid/mermaid.min.js"}}
+{{$mermaidLib := resources.Get "lib/mermaid/mermaid.min.js"}}
 {{$mermaidConfig := resources.Get "js/mermaid.js"}}
 {{$mermaidConfig := $mermaidConfig | resources.Minify}}
 {{$mermaidJS := slice $mermaidLib $mermaidConfig | resources.Concat "js/mermaid.bundle.js" | resources.Fingerprint "sha512"}}
-<script defer type="text/javascript" src="{{$mermaidJS.RelPermalink}}" integrity="{{$mermaidJS.Data.Integrity}}"></script> -->
+<script defer type="text/javascript" src="{{$mermaidJS.RelPermalink}}" integrity="{{$mermaidJS.Data.Integrity}}"></script>
 
 <script>
 	document.addEventListener("DOMContentLoaded", () => {
@@ -34,6 +35,27 @@
 			],
 			throwOnError: false
 		});
-		// mermaid.init({startOnLoad:true}, ".language-mermaid");
+		for (const diagram of document.querySelectorAll("code.language-mermaid")) {
+			const text = diagram.textContent;
+			const pre = document.createElement("pre");
+			pre.classList.add("mermaid");
+			pre.textContent = text;
+			diagram.parentElement.replaceWith(pre);
+		}
+		mermaid.initialize({
+			theme: "base",
+			themeVariables: {
+				background: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-neutral")})`,
+				primaryColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-primary-200")})`,
+				secondaryColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-secondary-200")})`,
+				tertiaryColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-neutral-100")})`,
+				primaryBorderColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-primary-400")})`,
+				secondaryBorderColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-secondary-400")})`,
+				tertiaryBorderColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-neutral-400")})`,
+				lineColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-neutral-600")})`,
+				fontFamily: "ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,noto sans,sans-serif",
+				fontSize: "16px"
+			}
+		});
 	});
 </script>

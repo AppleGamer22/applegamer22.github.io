@@ -1,5 +1,5 @@
 # applegamer22.github.io
-My [personal website](https://applegamer22.github.io), built with [Hugo](http://gohugo.io/) and [Congo](https://jpanther.github.io/congo/).
+My [personal website](https://applegamer22.github.io), built with [Hugo](https://gohugo.io) and [Congo](https://jpanther.github.io/congo/).
 
 # Changes to Default Congo Theme
 ## KaTeX
@@ -38,12 +38,51 @@ The following `layouts/partials/extend-head.html` code is based [this comment](h
 
 This change makes the KaTeX CSS and JavaScript files to load by default, and it also enables the single `$` delimiter to be used with less future configuration.
 
-<!-- ## Hyperlinks
-The following HTML code was added `layouts/partials/extend-head.html` in order to make all hyperlinks open in a new browser tab.
+## Technical Diagrams
+The following `layouts/partials/extend-head.html` code is based on [Docsy's diagram support](https://www.docsy.dev/docs/adding-content/diagrams-and-formulae/#diagrams-with-mermaid), and implemented similarly to [Docsy's implementation](https://github.com/google/docsy/blob/main/assets/js/mermaid.js#L5-L8), and [Congo's implementation](https://github.com/jpanther/congo/blob/stable/assets/js/mermaid.js).
 
 ```html
-<base target="_blank">
-``` -->
+{{$mermaidLib := resources.Get "lib/mermaid/mermaid.min.js"}}
+{{$mermaidConfig := resources.Get "js/mermaid.js"}}
+{{$mermaidConfig := $mermaidConfig | resources.Minify}}
+{{$mermaidJS := slice $mermaidLib $mermaidConfig | resources.Concat "js/mermaid.bundle.js" | resources.Fingerprint "sha512"}}
+<script defer type="text/javascript" src="{{$mermaidJS.RelPermalink}}" integrity="{{$mermaidJS.Data.Integrity}}"></script>
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		for (const diagram of document.querySelectorAll("code.language-mermaid")) {
+			const text = diagram.textContent;
+			const pre = document.createElement("pre");
+			pre.classList.add("mermaid");
+			pre.textContent = text;
+			diagram.parentElement.replaceWith(pre);
+		}
+		mermaid.initialize({
+			theme: "base",
+			themeVariables: {
+				background: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-neutral")})`,
+				primaryColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-primary-200")})`,
+				secondaryColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-secondary-200")})`,
+				tertiaryColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-neutral-100")})`,
+				primaryBorderColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-primary-400")})`,
+				secondaryBorderColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-secondary-400")})`,
+				tertiaryBorderColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-neutral-400")})`,
+				lineColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-neutral-600")})`,
+				fontFamily: "ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,noto sans,sans-serif",
+				fontSize: "16px"
+			}
+		});
+	});
+</script>
+```
+
+The following CSS was added to `assets/css/custom.css`, in order to make the diagram's background colour transparent.
+
+```css
+pre.mermaid {
+	background-color: transparent !important;
+}
+```
 
 ## CSS
 ### Horizontal Scroll on Small-Width Screens
