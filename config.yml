@@ -16,7 +16,9 @@ params:
   defaultAppearance: dark
   enableCodeCopy: true
   enableSearch: true
-  mainSections: ["posts"]
+  mainSections:
+    - "posts"
+    # - "projects"
   homepage:
     layout: profile
     showRecent: true
