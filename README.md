@@ -39,7 +39,7 @@ The following `layouts/partials/extend-head.html` code is based [this comment](h
 This change makes the KaTeX CSS and JavaScript files to load by default, and it also enables the single `$` delimiter to be used with less future configuration.
 
 ## Technical Diagrams
-The following `layouts/partials/extend-head.html` code is based on [Docsy's diagram support](https://www.docsy.dev/docs/adding-content/diagrams-and-formulae/#diagrams-with-mermaid), and implemented similarly to [Docsy's implementation](https://github.com/google/docsy/blob/main/assets/js/mermaid.js#L5-L8), and [Congo's implementation](https://github.com/jpanther/congo/blob/stable/assets/js/mermaid.js).
+The following `layouts/partials/extend-head.html` code is based on [Docsy's diagram support](https://www.docsy.dev/docs/adding-content/diagrams-and-formulae/#diagrams-with-mermaid), and implemented similarly to [Docsy's implementation](https://github.com/google/docsy/blob/main/assets/js/mermaid.js#L5-L8), and [Congo's implementation](https://github.com/jpanther/congo/blob/stable/assets/js/mermaid.js), the theme settings are based on [Mermaid's documentation](https://mermaid-js.github.io/mermaid/#/theming).
 
 ```html
 {{$mermaidLib := resources.Get "lib/mermaid/mermaid.min.js"}}
@@ -68,6 +68,15 @@ The following `layouts/partials/extend-head.html` code is based on [Docsy's diag
 				secondaryBorderColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-secondary-400")})`,
 				tertiaryBorderColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-neutral-400")})`,
 				lineColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-neutral-600")})`,
+				textColor: (() => {
+					switch (document.documentElement.classList.contains("dark")) {
+					case true:
+						return "white";
+					case false:
+						return "black";
+					}
+				})(),
+				primaryTextColor: "black",
 				fontFamily: "ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,noto sans,sans-serif",
 				fontSize: "16px"
 			}

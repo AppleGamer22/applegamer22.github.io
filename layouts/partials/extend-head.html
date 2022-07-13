@@ -53,6 +53,15 @@
 				secondaryBorderColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-secondary-400")})`,
 				tertiaryBorderColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-neutral-400")})`,
 				lineColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-neutral-600")})`,
+				textColor: (() => {
+					switch (document.documentElement.classList.contains("dark")) {
+					case true:
+						return "white";
+					case false:
+						return "black";
+					}
+				})(),
+				primaryTextColor: "black",
 				fontFamily: "ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,noto sans,sans-serif",
 				fontSize: "16px"
 			}
