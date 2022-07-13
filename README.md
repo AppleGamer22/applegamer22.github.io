@@ -1,7 +1,7 @@
 # applegamer22.github.io
 My [personal website](https://applegamer22.github.io), built with [Hugo](https://gohugo.io) and [Congo](https://jpanther.github.io/congo/).
 
-# Changes to Default Congo Theme
+# Additions to Default Congo Theme
 ## KaTeX
 The following `layouts/partials/extend-head.html` code is based [this comment](https://github.com/jpanther/congo/discussions/23#discussioncomment-1550774) from the Congo Theme discussion board, and [this file](https://github.com/jpanther/congo/blob/stable/layouts/partials/vendor.html) from Congo Theme's codebase.
 
@@ -15,6 +15,10 @@ The following `layouts/partials/extend-head.html` code is based [this comment](h
 {{$katexRenderJS := resources.Get "lib/katex/auto-render.min.js"}}
 {{$katexRenderJS := $katexRenderJS | resources.Fingerprint "sha512"}}
 <script defer src="{{$katexRenderJS.RelPermalink}}" integrity="{{$katexRenderJS.Data.Integrity}}"></script>
+{{ $katexFonts := resources.Match "lib/katex/fonts/*" }}
+{{ range $katexFonts }}
+	<!-- {{ .RelPermalink }} -->
+{{ end }}
 <script>
 	document.addEventListener("DOMContentLoaded", () => {
 		renderMathInElement(document.body, {
@@ -49,6 +53,13 @@ The following `layouts/partials/extend-head.html` code is based on [Docsy's diag
 <script defer type="text/javascript" src="{{$mermaidJS.RelPermalink}}" integrity="{{$mermaidJS.Data.Integrity}}"></script>
 
 <script>
+	/**
+	 * @type {string} color an RGB tuple that represents a colour in CSS
+	 * @returns an RGB CSS function form of the variable
+	*/
+	function tuple2RGB(color) {
+		return `rgb(${getComputedStyle(document.documentElement).getPropertyValue(color)})`;
+	}
 	document.addEventListener("DOMContentLoaded", () => {
 		for (const diagram of document.querySelectorAll("code.language-mermaid")) {
 			const text = diagram.textContent;
@@ -60,14 +71,14 @@ The following `layouts/partials/extend-head.html` code is based on [Docsy's diag
 		mermaid.initialize({
 			theme: "base",
 			themeVariables: {
-				background: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-neutral")})`,
-				primaryColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-primary-200")})`,
-				secondaryColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-secondary-200")})`,
-				tertiaryColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-neutral-100")})`,
-				primaryBorderColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-primary-400")})`,
-				secondaryBorderColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-secondary-400")})`,
-				tertiaryBorderColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-neutral-400")})`,
-				lineColor: `rgb(${getComputedStyle(document.documentElement).getPropertyValue("--color-neutral-600")})`,
+				background: tuple2RGB("--color-neutral"),
+				primaryColor: tuple2RGB("--color-primary-200"),
+				secondaryColor: tuple2RGB("--color-secondary-200"),
+				tertiaryColor: tuple2RGB("--color-neutral-100"),
+				primaryBorderColor: tuple2RGB("--color-primary-400"),
+				secondaryBorderColor: tuple2RGB("--color-secondary-400"),
+				tertiaryBorderColor: tuple2RGB("--color-neutral-400"),
+				lineColor: tuple2RGB("--color-neutral-600"),
 				textColor: (() => {
 					switch (document.documentElement.classList.contains("dark")) {
 					case true:
