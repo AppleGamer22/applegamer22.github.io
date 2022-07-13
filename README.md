@@ -124,9 +124,13 @@ The following CSS was added to `assets/css/custom.css` (based on [Congo Theme's 
 ```
 
 ### Fixed-Width Font
-The following CSS was added to `assets/css/custom.css` in order to set [Fira Code](https://github.com/tonsky/FiraCode) (or the OS's default) as the fixed-width font, used in code snippets.
+The following CSS was added to `assets/css/custom.css` (based on [this Stack Overflow comment](https://stackoverflow.com/a/68522798/7148921)) in order to set [Fira Code](https://github.com/tonsky/FiraCode) (or the OS's default) as the fixed-width font, used in code snippets.
 
 ```css
+@font-face {
+	font-family: 'Fira Code';
+	src: local('Fira Code'), local('FiraCode-Regular'), url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+}
 code {
 	font-family: 'Fira Code', monospace !important;
 }
@@ -139,7 +143,6 @@ The following CSS was added to `assets/css/custom.css` in order to revert [Congo
 .prose :where(code):not(:where([class~="not-prose"] *))::before {
 	content: unset !important;
 }
-
 .prose :where(code):not(:where([class~="not-prose"] *))::after {
 	content: unset !important;
 }
@@ -152,7 +155,6 @@ The following CSS was added to `assets/css/custom.css` in order to increase the 
 .max-w-7xl {
 	max-width: 100rem !important;
 }
-
 .max-w-prose {
 	max-width: 100ch !important;
 }
