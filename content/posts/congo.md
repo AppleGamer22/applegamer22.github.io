@@ -1,7 +1,14 @@
-# applegamer22.github.io
-My [personal website](https://applegamer22.github.io), built with [Hugo](https://gohugo.io) and [Congo](https://jpanther.github.io/congo/).
+---
+title: My Hugo & Congo Configuration
+date: 2022-07-13
+description: My attempt at the XOR cipher question from the 2021 ångstromCTF
+tags: [hugo, congo, yaml, markdown, tex, html, css, javascript, typesetting, fonts]
+---
+This document summarises how I set-up this website's layout, fonts and typesetting. As a result, I highly recommend the [Congo](https://github.com/jpanther/congo) theme for the [Hugo](http://gohugo.io) static site generator due to its layout, styling and extensibility.
 
 # Additions to Congo
+I added some features because I'm not pleased with how [Hugo's Shortcode syntax](https://gohugo.io/content-management/shortcodes/) prevents some content from being rendered correctly on external Markdown platforms such as [GitHub](https://github.com) and [GitLab](https://gitlab.com).
+
 ## KaTeX
 The following `layouts/partials/extend-head.html` code is based [this comment](https://github.com/jpanther/congo/discussions/23#discussioncomment-1550774) from the Congo Theme discussion board, and [this file](https://github.com/jpanther/congo/blob/stable/layouts/partials/vendor.html) from Congo Theme's codebase.
 
@@ -42,6 +49,29 @@ The following `layouts/partials/extend-head.html` code is based [this comment](h
 
 This change makes the KaTeX CSS and JavaScript files to load by default, and it also enables the single `$` delimiter to be used with less future configuration.
 
+### Result
+With these configurations added, graphically-complex inline math expressions such as the following can be rendered:
+
+* A second order polynomial euqation can be solved with the formula $\displaystyle x = \frac{-b \pm \sqrt{b^2 -  4ac}}{2a}$ for a quadratic equation of the form $ax^2 + bx + c = 0$.
+* On a spherical surface, the area of a triangle with angles $\alpha$, $\beta$ and $\gamma$ (all measured in radians) is described by the formula $A_t = r^2(\alpha + \beta + \gamma - \pi)$, when $r$ is the radius of the sphere.
+* [Binet's Formula](https://en.wikipedia.org/wiki/Fibonacci_number#Relation_to_the_golden_ratio) for calculating arbitrary Fibonacci numbers states that $\displaystyle F_n = \frac{\phi^2 - (1 - \phi)^2}{\sqrt{5}}$, when $\displaystyle \phi = \frac{1 + \sqrt{5}}{2}$.
+* The integral of a polynomial of degree $n \neq -1$ can be calculated by the formula $\displaystyle \int x^n dx = \frac{x^{n + 1}}{n + 1} + C$
+
+In addition, blocks of multi-line mathematical expressions can be rendered:
+
+$$
+\begin{aligned}
+	x &= \frac{1}{x - 1} & \text{definition of } \phi \\\
+	x(x - 1) &= 1 & \times (x - 1) \\\
+	x^2 - x &= 1 & a(b \pm c) = ab \pm ac \\\
+	x^2 - x - 1 &= 0 & -1 \\\
+	x &= \frac{-(-1) \pm \sqrt{(-1)^2 - 4 \cdot (-1)}}{2} & \text{using } x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \\\
+	&& \text{when } ax^2 + bx +c = 0 \wedge a \neq 0 \\\
+	&= \frac{1 \pm \sqrt{1 + 4}}{2} & \text{simplification} \\\
+	&= \frac{1 \pm \sqrt{5}}{2} & \text{simplification}
+\end{aligned}
+$$
+
 Due to Hugo use of the `\`  character for text escaping, The sequence `\\\` is required instead of `\\` (at the source-code level) in order to correctly render a line break. This change does not seem tp affect $\TeX$ rendering in other platforms.
 
 ## Technical Diagrams
@@ -62,15 +92,6 @@ The following `layouts/partials/extend-head.html` code is based on [Docsy's diag
 	function tuple2RGB(color) {
 		return `rgb(${getComputedStyle(document.documentElement).getPropertyValue(color)})`;
 	}
-	/** @returns text colour appropriate for colour theme */
-	function textColor() {
-		switch (document.documentElement.classList.contains("dark")) {
-		case true:
-			return "white";
-		case false:
-			return "black";
-		}
-	}
 	document.addEventListener("DOMContentLoaded", () => {
 		for (const diagram of document.querySelectorAll("code.language-mermaid")) {
 			const text = diagram.textContent;
@@ -90,8 +111,14 @@ The following `layouts/partials/extend-head.html` code is based on [Docsy's diag
 				secondaryBorderColor: tuple2RGB("--color-secondary-400"),
 				tertiaryBorderColor: tuple2RGB("--color-neutral-400"),
 				lineColor: tuple2RGB("--color-neutral-600"),
-				textColor: textColor(),
-				loopTextColor: textColor(),
+				textColor: (() => {
+					switch (document.documentElement.classList.contains("dark")) {
+					case true:
+						return "white";
+					case false:
+						return "black";
+					}
+				})(),
 				primaryTextColor: "black",
 				fontFamily: "ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,noto sans,sans-serif",
 				fontSize: "16px"
@@ -109,7 +136,26 @@ pre.mermaid {
 }
 ```
 
+### Result
+With these configurations added, diagrams such as the one below can be rendered:
+
+```mermaid
+sequenceDiagram
+	participant Alice
+	participant Bob
+	Alice->>John: Hello John, how are you?
+	loop Healthcheck
+		John->>John: Fight against hypochondria
+	end
+	Note right of John: Rational thoughts <br/>prevail!
+	John-->>Alice: Great!
+	John->>Bob: How about you?
+	Bob-->>John: Jolly good!
+```
+
 # Changes to Congo
+I was not completely satisfied with some of the styling of the default [Congo theme](https://github.com/jpanther/congo), but luckily, it supports extensive customisations.
+
 ## CSS
 ### Horizontal Scroll on Small-Width Screens
 The following CSS was added to `assets/css/custom.css` (based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/dev/assets/css/compiled/main.css#L72856)) in order to (indirectly) disable horizontal scrolling in small-width screens. It turns out that the horizontal scroll is enabled to to `a` HTML tag styling that did not limit their width to the screen width.
@@ -133,6 +179,20 @@ The following CSS was added to `assets/css/custom.css` (based on [this Stack Ove
 }
 code {
 	font-family: 'Fira Code', monospace !important;
+}
+```
+
+#### Result
+If [Fira Code](https://github.com/tonsky/FiraCode) is installed and configured as the default fixed-width font for your browser, multi-character syntax tokens such as `:=`, `++`, `!=` and `<-` should be rendered in a more graphic manner.
+
+```go
+func main() {
+	q := make(chan int)
+	for i := 1; i < 5; i++ {
+		if i != 2 {
+			q <- i
+		}
+	}
 }
 ```
 
@@ -199,4 +259,133 @@ The following CSS was added to `assets/css/schemes/fruit.css` (based on Congo's 
 	--color-secondary-800: 159, 18, 57;
 	--color-secondary-900: 136, 19, 55;
 }
+```
+
+# Configuration
+## Hugo
+The following YAML snippets are taken from my [`config.yml`](https://github.com/AppleGamer22/applegamer22.github.io/blob/post/congo/config.yml), and always start from the root level of the YAML tree.
+
+### Dependencies
+I import the Congo library using [Hugo Modules](https://gohugo.io/hugo-modules/).
+
+```yaml
+module:
+imports:
+	- path: github.com/jpanther/congo/v2
+```
+
+### Markup
+* Syntax highlighting is configured to enable the copy button.
+* The table of contents renders every heading in order.
+
+```yaml
+markup:
+  highlight:
+    noClasses: false
+  tableOfContents:
+    startLevel: 1
+    endLevel: 6
+```
+
+### Other
+* I set the base URL for GitHub Pages compatibility.
+* I set the timezone, in order to prevent pages with "future" dates from not rendering immediately.
+* Hugo outputs are configured in order to enable content search.
+
+
+```yaml
+baseURL: https://applegamer22.github.io
+timeZone: Australia/Melbourne
+defaultContentLanguage: en
+title: Omri Bornstein
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+```
+
+## Congo
+### Metadata
+Basic information about me and the website is configured such that browser citation plugins can get the correct information.
+
+```yaml
+languages:
+  en:
+    languageName: English
+    isoCode: en
+    rtl: false
+    weight: 1
+    title: Omri Bornstein
+    description: Omri Bornstein's personal website
+    author:
+      name: Omri Bornstein
+```
+### Menu
+The menu links and their order are set-up as follows:
+
+```yaml
+languages:
+  en:
+    menu:
+      main:
+        - name: Blog
+          pageRef: posts
+          weight: 1
+        - name: Projects
+          pageRef: projects
+          weight: 2
+        - name: Tags
+          pageRef: tags
+          weight: 3
+```
+
+### Articles
+* The following article metadata is shown:
+	* table of contents
+	* taxonomies
+	* word count
+	* date added/updated
+	* `git` repository hyperlink
+
+```yaml
+params:
+  article:
+    showBreadcrumbs: true
+    showTableOfContents: true
+    showTaxonomies: true
+    showWordCount: true
+    showEdit: true
+    showDateUpdated: true
+    editAppendPath: false
+    editURL: https://github.com/AppleGamer22/applegamer22.github.io
+```
+
+### Other
+These configurations are in this section because they do not fit in a coherent category:
+
+* [Colour scheme](#colour-scheme)
+* The dark mode appearance is marked as preferred
+* The code copying button is enabled on multi-line code blocks
+* Content search is enabled
+* Recent posts from the blog are shown in the homepage
+* The homepage is rendered as profile configuration
+* A table of contents is shown for every [list page](https://gohugo.io/templates/lists/)
+* Dark/light mode appearance switch is shown at the footer
+
+```yaml
+params:
+  colorScheme: fruit
+  defaultAppearance: dark
+  enableCodeCopy: true
+  enableSearch: true
+  mainSections:
+    - "posts"
+  homepage:
+    layout: profile
+    showRecent: true
+  list:
+    showTableOfContents: true
+  footer:
+    showAppearanceSwitcher: true
 ```
