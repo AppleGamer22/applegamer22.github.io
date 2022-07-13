@@ -4,6 +4,8 @@ date: 2022-07-13
 description: My attempt at the XOR cipher question from the 2021 ångstromCTF
 tags: [hugo, congo, yaml, markdown, tex, html, css, javascript, typesetting, fonts]
 ---
+This document summarises how I set-up this website's layout, fonts and typesetting. As a result, I highly recommend the [Congo](https://github.com/jpanther/congo) theme for the [Hugo](http://gohugo.io) static site generator due to its layout, styling and extensibility.
+
 # Additions to Congo
 I added some features because I'm not pleased with how [Hugo's Shortcode syntax](https://gohugo.io/content-management/shortcodes/) prevents some content from being rendered correctly on external Markdown platforms such as [GitHub](https://github.com) and [GitLab](https://gitlab.com).
 
@@ -59,13 +61,14 @@ In addition, blocks of multi-line mathematical expressions can be rendered:
 
 $$
 \begin{aligned}
-	x &= \frac{1}{x - 1} \\\
-	x(x - 1) &= 1 \\\
-	x^2 - x &= 1 \\\
-	x^2 - x - 1 &= 0 \\\
-	x &= \frac{-(-1) \pm \sqrt{(-1)^2 - 4 \cdot (-1)}}{2} \\\
-	&= \frac{1 \pm \sqrt{1 + 4}}{2} \\\
-	&= \frac{1 \pm \sqrt{5}}{2}
+	x &= \frac{1}{x - 1} & \text{definition of } \phi \\\
+	x(x - 1) &= 1 & \times (x - 1) \\\
+	x^2 - x &= 1 & a(b \pm c) = ab \pm ac \\\
+	x^2 - x - 1 &= 0 & -1 \\\
+	x &= \frac{-(-1) \pm \sqrt{(-1)^2 - 4 \cdot (-1)}}{2} & \text{using } x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \\\
+	&& \text{when } ax^2 + bx +c = 0 \wedge a \neq 0 \\\
+	&= \frac{1 \pm \sqrt{1 + 4}}{2} & \text{simplification} \\\
+	&= \frac{1 \pm \sqrt{5}}{2} & \text{simplification}
 \end{aligned}
 $$
 
