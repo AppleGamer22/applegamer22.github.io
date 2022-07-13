@@ -1,7 +1,7 @@
 ---
 title: My Hugo & Congo Configuration
 date: 2022-07-13
-description: My attempt at the XOR cipher question from the 2021 ångstromCTF
+description: My changes, additions and set-up of this Hugo-Congo website
 tags: [hugo, congo, yaml, markdown, tex, html, css, javascript, typesetting, fonts]
 ---
 This document summarises how I set-up this website's layout, fonts and typesetting. As a result, I highly recommend the [Congo](https://github.com/jpanther/congo) theme for the [Hugo](http://gohugo.io) static site generator due to its layout, styling and extensibility.
@@ -72,7 +72,7 @@ $$
 \end{aligned}
 $$
 
-Due to Hugo use of the `\`  character for text escaping, The sequence `\\\` is required instead of `\\` (at the source-code level) in order to correctly render a line break. This change does not seem tp affect $\TeX$ rendering in other platforms.
+Due to Hugo's use of the `\`  character for text escaping, the sequence `\\\` is required instead of `\\` (at the source-code level) in order to correctly render a line break. This change does not seem to affect $\TeX$ rendering in other platforms.
 
 ## Technical Diagrams
 The following `layouts/partials/extend-head.html` code is based on [Docsy's diagram support](https://www.docsy.dev/docs/adding-content/diagrams-and-formulae/#diagrams-with-mermaid), and implemented similarly to [Docsy's implementation](https://github.com/google/docsy/blob/main/assets/js/mermaid.js#L5-L8), and [Congo's implementation](https://github.com/jpanther/congo/blob/stable/assets/js/mermaid.js), the theme settings are based on [Mermaid's documentation](https://mermaid-js.github.io/mermaid/#/theming).
@@ -270,8 +270,8 @@ I import the Congo library using [Hugo Modules](https://gohugo.io/hugo-modules/)
 
 ```yaml
 module:
-imports:
-	- path: github.com/jpanther/congo/v2
+  imports:
+    - path: github.com/jpanther/congo/v2
 ```
 
 ### Markup
