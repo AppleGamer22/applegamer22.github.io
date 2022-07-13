@@ -4,7 +4,7 @@ date: 2022-07-13
 description: My attempt at the XOR cipher question from the 2021 ångstromCTF
 tags: [hugo, congo, yaml, markdown, tex, html, css, javascript]
 ---
-# Additions
+# Additions to Congo
 I added some features because I'm not pleased with how [Hugo's Shortcode syntax](https://gohugo.io/content-management/shortcodes/) prevents some content from being rendered correctly on external Markdown platforms such as [GitHub](https://github.com) and [GitLab](https://gitlab.com).
 
 ## KaTeX
@@ -150,7 +150,7 @@ sequenceDiagram
 	Bob-->>John: Jolly good!
 ```
 
-# Changes
+# Changes to Congo
 I was not completely satisfied with some of the styling of the default [Congo theme](https://github.com/jpanther/congo), but luckily, it supports extensive customisations.
 
 ## CSS
@@ -254,4 +254,133 @@ The following CSS was added to `assets/css/schemes/fruit.css` (based on Congo's 
 	--color-secondary-800: 159, 18, 57;
 	--color-secondary-900: 136, 19, 55;
 }
+```
+
+# Configuration
+## Hugo
+The following YAML snippets are taken from my [`config.yml`](https://github.com/AppleGamer22/applegamer22.github.io/blob/post/congo/config.yml), and always start from the root level of the YAML tree.
+
+### Dependencies
+I import the Congo library using [Hugo Modules](https://gohugo.io/hugo-modules/).
+
+```yaml
+module:
+imports:
+	- path: github.com/jpanther/congo/v2
+```
+
+### Markup
+* Syntax highlighting is configured to enable the copy button.
+* The table of contents renders every heading in order.
+
+```yaml
+markup:
+  highlight:
+    noClasses: false
+  tableOfContents:
+    startLevel: 1
+    endLevel: 6
+```
+
+### Other
+* I set the base URL for GitHub Pages compatibility.
+* I set the timezone, in order to prevent pages with "future" dates from not rendering immediately.
+* Hugo outputs are configured in order to enable content search.
+
+
+```yaml
+baseURL: https://applegamer22.github.io
+timeZone: Australia/Melbourne
+defaultContentLanguage: en
+title: Omri Bornstein
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+```
+
+## Congo
+### Metadata
+Basic information about me and the website is configured such that browser citation plugins can get the correct information.
+
+```yaml
+languages:
+  en:
+    languageName: English
+    isoCode: en
+    rtl: false
+    weight: 1
+    title: Omri Bornstein
+    description: Omri Bornstein's personal website
+    author:
+      name: Omri Bornstein
+```
+### Menu
+The menu links and their order are set-up as follows:
+
+```yaml
+languages:
+  en:
+    menu:
+      main:
+        - name: Blog
+          pageRef: posts
+          weight: 1
+        - name: Projects
+          pageRef: projects
+          weight: 2
+        - name: Tags
+          pageRef: tags
+          weight: 3
+```
+
+### Articles
+* The following article metadata is shown:
+	* table of contents
+	* taxonomies
+	* word count
+	* date added/updated
+	* `git` repository hyperlink
+
+```yaml
+params:
+  article:
+    showBreadcrumbs: true
+    showTableOfContents: true
+    showTaxonomies: true
+    showWordCount: true
+    showEdit: true
+    showDateUpdated: true
+    editAppendPath: false
+    editURL: https://github.com/AppleGamer22/applegamer22.github.io
+```
+
+### Other
+These configurations are in this section because they do not fit in a coherent category:
+
+* [Colour scheme](#colour-scheme)
+* The dark mode appearance is marked as preferred
+* The code copying button is enabled on multi-line code blocks
+* Content search is enabled
+* Recent posts from the blog are shown in the homepage
+* The homepage is rendered as profile configuration
+* A table of contents is shown for every [list page](https://gohugo.io/templates/lists/)
+* Dark/light mode appearance switch is shown at the footer
+
+```yaml
+params:
+  colorScheme: fruit
+  defaultAppearance: dark
+  enableCodeCopy: true
+  enableSearch: true
+  mainSections:
+    - "posts"
+  homepage:
+    layout: profile
+    showRecent: true
+  list:
+    showTableOfContents: true
+  footer:
+    showAppearanceSwitcher: true
 ```

@@ -1,7 +1,7 @@
 # applegamer22.github.io
 My [personal website](https://applegamer22.github.io), built with [Hugo](https://gohugo.io) and [Congo](https://jpanther.github.io/congo/).
 
-# Additions to Default Congo Theme
+# Additions to Congo
 ## KaTeX
 The following `layouts/partials/extend-head.html` code is based [this comment](https://github.com/jpanther/congo/discussions/23#discussioncomment-1550774) from the Congo Theme discussion board, and [this file](https://github.com/jpanther/congo/blob/stable/layouts/partials/vendor.html) from Congo Theme's codebase.
 
@@ -109,7 +109,7 @@ pre.mermaid {
 }
 ```
 
-# Changes
+# Changes to Congo
 ## CSS
 ### Horizontal Scroll on Small-Width Screens
 The following CSS was added to `assets/css/custom.css` (based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/dev/assets/css/compiled/main.css#L72856)) in order to (indirectly) disable horizontal scrolling in small-width screens. It turns out that the horizontal scroll is enabled to to `a` HTML tag styling that did not limit their width to the screen width.
