@@ -65,13 +65,13 @@ $$
 	x(x - 1) &= 1 & \times (x - 1) \\\
 	x^2 - x &= 1 & a(b \pm c) = ab \pm ac \\\
 	x^2 - x - 1 &= 0 & -1 \\\
-	x &= \frac{-(-1) \pm \sqrt{(-1)^2 - 4 \cdot (-1)}}{2} & \text{using } x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \\\
+	x &= \frac{-(-1) \pm \sqrt{(-1)^2 - 4 \cdot (-1)}}{2}
+	& \text{using } x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \\\
 	&& \text{when } ax^2 + bx +c = 0 \wedge a \neq 0 \\\
 	&= \frac{1 \pm \sqrt{1 + 4}}{2} & \text{simplification} \\\
 	&= \frac{1 \pm \sqrt{5}}{2} & \text{simplification}
 \end{aligned}
 $$
-
 Due to Hugo's use of the `\`  character for text escaping, the sequence `\\\` is required instead of `\\` (at the source-code level) in order to correctly render a line break. This change does not seem to affect $\TeX$ rendering in other platforms.
 
 ## Technical Diagrams
