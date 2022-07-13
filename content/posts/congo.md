@@ -1,7 +1,12 @@
-# applegamer22.github.io
-My [personal website](https://applegamer22.github.io), built with [Hugo](https://gohugo.io) and [Congo](https://jpanther.github.io/congo/).
+---
+title: My Hugo & Congo Configuration
+date: 2022-07-13
+description: My attempt at the XOR cipher question from the 2021 ångstromCTF
+tags: [hugo, congo, yaml, markdown, tex, html, css, javascript]
+---
+# Additions
+I added some features because I'm not pleased with how [Hugo's Shortcode syntax](https://gohugo.io/content-management/shortcodes/) prevents some content from being rendered correctly on external Markdown platforms such as [GitHub](https://github.com) and [GitLab](https://gitlab.com).
 
-# Additions to Default Congo Theme
 ## KaTeX
 The following `layouts/partials/extend-head.html` code is based [this comment](https://github.com/jpanther/congo/discussions/23#discussioncomment-1550774) from the Congo Theme discussion board, and [this file](https://github.com/jpanther/congo/blob/stable/layouts/partials/vendor.html) from Congo Theme's codebase.
 
@@ -42,6 +47,28 @@ The following `layouts/partials/extend-head.html` code is based [this comment](h
 
 This change makes the KaTeX CSS and JavaScript files to load by default, and it also enables the single `$` delimiter to be used with less future configuration.
 
+### Result
+With these configurations added, graphically-complex inline math expressions such as the following can be rendered:
+
+* A second order polynomial euqation can be solved with the formula $\displaystyle x = \frac{-b \pm \sqrt{b^2 -  4ac}}{2a}$ for a quadratic equation of the form $ax^2 + bx + c = 0$.
+* On a spherical surface, the area of a triangle with angles $\alpha$, $\beta$ and $\gamma$ (all measured in radians) is described by the formula $A_t = r^2(\alpha + \beta + \gamma - \pi)$, when $r$ is the radius of the sphere.
+* [Binet's Formula](https://en.wikipedia.org/wiki/Fibonacci_number#Relation_to_the_golden_ratio) for calculating arbitrary Fibonacci numbers states that $\displaystyle F_n = \frac{\phi^2 - (1 - \phi)^2}{\sqrt{5}}$, when $\displaystyle \phi = \frac{1 + \sqrt{5}}{2}$.
+* The integral of a polynomial of degree $n \neq -1$ can be calculated by the formula $\displaystyle \int x^n dx = \frac{x^{n + 1}}{n + 1} + C$
+
+In addition, blocks of multi-line mathematical expressions can be rendered:
+
+$$
+\begin{aligned}
+	x &= \frac{1}{x - 1} \\\
+	x(x - 1) &= 1 \\\
+	x^2 - x &= 1 \\\
+	x^2 - x - 1 &= 0 \\\
+	x &= \frac{-(-1) \pm \sqrt{(-1)^2 - 4 \cdot (-1)}}{2} \\\
+	&= \frac{1 \pm \sqrt{1 + 4}}{2} \\\
+	&= \frac{1 \pm \sqrt{5}}{2}
+\end{aligned}
+$$
+
 Due to Hugo use of the `\`  character for text escaping, The sequence `\\\` is required instead of `\\` (at the source-code level) in order to correctly render a line break. This change does not seem tp affect $\TeX$ rendering in other platforms.
 
 ## Technical Diagrams
@@ -62,15 +89,6 @@ The following `layouts/partials/extend-head.html` code is based on [Docsy's diag
 	function tuple2RGB(color) {
 		return `rgb(${getComputedStyle(document.documentElement).getPropertyValue(color)})`;
 	}
-	/** @returns text colour appropriate for colour theme */
-	function textColor() {
-		switch (document.documentElement.classList.contains("dark")) {
-		case true:
-			return "white";
-		case false:
-			return "black";
-		}
-	}
 	document.addEventListener("DOMContentLoaded", () => {
 		for (const diagram of document.querySelectorAll("code.language-mermaid")) {
 			const text = diagram.textContent;
@@ -90,8 +108,14 @@ The following `layouts/partials/extend-head.html` code is based on [Docsy's diag
 				secondaryBorderColor: tuple2RGB("--color-secondary-400"),
 				tertiaryBorderColor: tuple2RGB("--color-neutral-400"),
 				lineColor: tuple2RGB("--color-neutral-600"),
-				textColor: textColor(),
-				loopTextColor: textColor(),
+				textColor: (() => {
+					switch (document.documentElement.classList.contains("dark")) {
+					case true:
+						return "white";
+					case false:
+						return "black";
+					}
+				})(),
 				primaryTextColor: "black",
 				fontFamily: "ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,noto sans,sans-serif",
 				fontSize: "16px"
@@ -109,7 +133,26 @@ pre.mermaid {
 }
 ```
 
+### Result
+With these configurations added, diagrams such as the one below can be rendered:
+
+```mermaid
+sequenceDiagram
+	participant Alice
+	participant Bob
+	Alice->>John: Hello John, how are you?
+	loop Healthcheck
+		John->>John: Fight against hypochondria
+	end
+	Note right of John: Rational thoughts <br/>prevail!
+	John-->>Alice: Great!
+	John->>Bob: How about you?
+	Bob-->>John: Jolly good!
+```
+
 # Changes
+I was not completely satisfied with some of the styling of the default [Congo theme](https://github.com/jpanther/congo), but luckily, it supports extensive customisations.
+
 ## CSS
 ### Horizontal Scroll on Small-Width Screens
 The following CSS was added to `assets/css/custom.css` (based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/dev/assets/css/compiled/main.css#L72856)) in order to (indirectly) disable horizontal scrolling in small-width screens. It turns out that the horizontal scroll is enabled to to `a` HTML tag styling that did not limit their width to the screen width.
@@ -129,6 +172,20 @@ The following CSS was added to `assets/css/custom.css` in order to set [Fira Cod
 ```css
 code {
 	font-family: 'Fira Code', monospace !important;
+}
+```
+
+#### Result
+If [Fira Code](https://github.com/tonsky/FiraCode) is installed and configured as the default fixed-width font for your browser, multi-character syntax tokens such as `:=`, `++`, `!=` and `<-` should be rendered in a more graphic manner.
+
+```go
+func main() {
+	q := make(chan int)
+	for i := 1; i < 5; i++ {
+		if i != 2 {
+			q <- i
+		}
+	}
 }
 ```
 
