@@ -123,6 +123,16 @@ The following CSS was added to `assets/css/custom.css` (based on [Congo Theme's 
 }
 ```
 
+In order to render multi-line [math expressions](#katex) correctly in small-width screens, the following CSS code was added to `assets/css/custom.css`:
+
+```css
+@media (max-width: 640px) {
+	span.katex-display > * {
+		font-size: 0.65rem !important;
+	}
+}
+```
+
 ### Fixed-Width Font
 The following CSS was added to `assets/css/custom.css` (based on [this Stack Overflow comment](https://stackoverflow.com/a/68522798/7148921)) in order to set [Fira Code](https://github.com/tonsky/FiraCode) (or the OS's default) as the fixed-width font, used in code snippets.
 

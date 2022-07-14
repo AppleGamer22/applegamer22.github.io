@@ -169,6 +169,16 @@ The following CSS was added to `assets/css/custom.css` (based on [Congo Theme's 
 }
 ```
 
+In order to render multi-line [math expressions](#katex) correctly in small-width screens, the following CSS code was added to `assets/css/custom.css`:
+
+```css
+@media (max-width: 640px) {
+	span.katex-display > * {
+		font-size: 0.65rem !important;
+	}
+}
+```
+
 ### Fixed-Width Font
 The following CSS was added to `assets/css/custom.css` (based on [this Stack Overflow comment](https://stackoverflow.com/a/68522798/7148921)) in order to set [Fira Code](https://github.com/tonsky/FiraCode) (or the OS's default) as the fixed-width font, used in code snippets.
 
@@ -371,7 +381,6 @@ These configurations are in this section because they do not fit in a coherent c
 * Recent posts from the blog are shown in the homepage
 * The homepage is rendered as profile configuration
 * A table of contents is shown for every [list page](https://gohugo.io/templates/lists/)
-* Dark/light mode appearance switch is shown at the footer
 
 ```yaml
 params:
@@ -386,6 +395,4 @@ params:
     showRecent: true
   list:
     showTableOfContents: true
-  footer:
-    showAppearanceSwitcher: true
 ```

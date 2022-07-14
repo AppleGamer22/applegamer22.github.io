@@ -42,8 +42,6 @@ params:
       - pinterest
   list:
     showTableOfContents: true
-  footer:
-    showAppearanceSwitcher: true
 markup:
   highlight:
     noClasses: false
