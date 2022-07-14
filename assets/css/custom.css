@@ -10,12 +10,12 @@
 }
 
 @font-face {
-	font-family: 'AG22Code';
+	font-family: 'Fira Code';
 	src: local('FiraCode-Regular'), url('/FiraCode-Regular.ttf') format('truetype');
 }
 
 code {
-	font-family: 'AG22Code', monospace !important;
+	font-family: 'Cascadia Code', 'Fira Code', monospace !important;
 }
 
 pre.mermaid {

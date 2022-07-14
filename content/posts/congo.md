@@ -180,20 +180,20 @@ In order to render multi-line [math expressions](#katex) correctly in small-widt
 ```
 
 ### Fixed-Width Font
-The following CSS was added to `assets/css/custom.css` (based on [this Stack Overflow comment](https://stackoverflow.com/a/68522798/7148921)) in order to set [Fira Code](https://github.com/tonsky/FiraCode) (or the OS's default) as the fixed-width font, used in code snippets.
+The following CSS was added to `assets/css/custom.css` (based on [this Stack Overflow comment](https://stackoverflow.com/a/68522798/7148921)) in order to set [Fira Code](https://github.com/tonsky/FiraCode)/[Cascadia Code](https://github.com/microsoft/cascadia-code) (or the OS's default) as the fixed-width font, used in code snippets.
 
 ```css
 @font-face {
-	font-family: 'AG22Code';
+	font-family: 'Fira Code';
 	src: local('FiraCode-Regular'), url('/FiraCode-Regular.ttf') format('truetype');
 }
 code {
-	font-family: 'AG22Code', monospace !important;
+	font-family: 'Cascadia Code', 'Fira Code', monospace !important;
 }
 ```
 
 #### Result
-If [Fira Code](https://github.com/tonsky/FiraCode) is installed and configured as the default fixed-width font for your browser, multi-character syntax tokens such as `:=`, `++`, `!=` and `<-` should be rendered in a more graphic manner.
+Multi-character syntax tokens such as `:=`, `++`, `!=` and `<-` should be rendered in a more graphic manner.
 
 ```go
 func main() {
