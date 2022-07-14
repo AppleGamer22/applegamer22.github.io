@@ -54,7 +54,7 @@ With these configurations added, graphically-complex inline math expressions suc
 
 * A second order polynomial euqation can be solved with the formula $\displaystyle x = \frac{-b \pm \sqrt{b^2 -  4ac}}{2a}$ for a quadratic equation of the form $ax^2 + bx + c = 0$.
 * On a spherical surface, the area of a triangle with angles $\alpha$, $\beta$ and $\gamma$ (all measured in radians) is described by the formula $A_t = r^2(\alpha + \beta + \gamma - \pi)$, when $r$ is the radius of the sphere.
-* [Binet's Formula](https://en.wikipedia.org/wiki/Fibonacci_number#Relation_to_the_golden_ratio) for calculating arbitrary Fibonacci numbers states that $\displaystyle F_n = \frac{\phi^2 - (1 - \phi)^2}{\sqrt{5}}$, when $\displaystyle \phi = \frac{1 + \sqrt{5}}{2}$.
+* [Binet's Formula](https://en.wikipedia.org/wiki/Fibonacci_number#Relation_to_the_golden_ratio) for calculating arbitrary Fibonacci numbers states that $\displaystyle F_n = \frac{\phi^n - (-\phi)^{-n}}{\sqrt{5}}$, when $\displaystyle \phi = \frac{1 + \sqrt{5}}{2}$.
 * The integral of a polynomial of degree $n \neq -1$ can be calculated by the formula $\displaystyle \int x^n dx = \frac{x^{n + 1}}{n + 1} + C$
 
 In addition, blocks of multi-line mathematical expressions can be rendered:
