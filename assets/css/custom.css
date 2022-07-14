@@ -11,7 +11,7 @@
 
 @font-face {
 	font-family: 'AG22Code';
-	src: local('FiraCode-Regular'), url('https://fonts.googleapis.com/css?family=Fira Code');
+	src: local('FiraCode-Regular'), url('/FiraCode-Regular.ttf') format('truetype');
 }
 
 code {

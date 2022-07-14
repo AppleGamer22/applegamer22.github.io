@@ -139,7 +139,7 @@ The following CSS was added to `assets/css/custom.css` (based on [this Stack Ove
 ```css
 @font-face {
 	font-family: 'AG22Code';
-	src: local('FiraCode-Regular'), url('https://fonts.googleapis.com/css?family=Fira Code');
+	src: local('FiraCode-Regular'), url('/FiraCode-Regular.ttf') format('truetype');
 }
 code {
 	font-family: 'AG22Code', monospace !important;
