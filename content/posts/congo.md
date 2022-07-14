@@ -180,15 +180,15 @@ In order to render multi-line [math expressions](#katex) correctly in small-widt
 ```
 
 ### Fixed-Width Font
-The following CSS was added to `assets/css/custom.css` (based on [this Stack Overflow comment](https://stackoverflow.com/a/68522798/7148921)) in order to set [Fira Code](https://github.com/tonsky/FiraCode) (or the OS's default) as the fixed-width font, used in code snippets.
+The following CSS was added to `assets/css/custom.css` (based on [this Stack Overflow comment](https://stackoverflow.com/a/68522798/7148921)) in order to set [Fira Code](https://github.com/tonsky/FiraCode)/[Cascadia Code](https://github.com/microsoft/cascadia-code) (or the OS's default) as the fixed-width font, used in code snippets.
 
 ```css
 @font-face {
-	font-family: 'Fira Code';
-	src: local('Fira Code'), local('FiraCode-Regular'), url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+	font-family: 'AG22Code';
+	src: local('FiraCode-Regular'), local('CascadiaCode-Regular'), url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 }
 code {
-	font-family: 'Fira Code', monospace !important;
+	font-family: 'AG22Code', monospace !important;
 }
 ```
 
