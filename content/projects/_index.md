@@ -7,7 +7,7 @@ description: A list of my open-source projects
 ### Go
 * [`cocainate`](https://github.com/AppleGamer22/cocainate) is a **cross-platform** re-implementation of the macOS utility [`caffeinate`](https://github.com/apple-oss-distributions/PowerManagement/tree/main/caffeinate) that keeps the screen turned on either until stopped, for a set duration of time or while another process still runs.
 * [`stalk`](https://github.com/AppleGamer22/stalk) is a **cross-platform** file-watcher that can run a command after each file-system operation on a given file(s) or simply wait once until a file is changed.
-* [rake](https://github.com/AppleGamer22/rake) is a social media scraper that is interfaced via a server-side rendered HTML interface (or a CLI), and is managed by a REST API and a NoSQL database.
+* [rake](https://github.com/AppleGamer22/rake) is a social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
 
 ## Other Projects
 ### Research
