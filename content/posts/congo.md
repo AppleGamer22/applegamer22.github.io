@@ -92,6 +92,15 @@ The following `layouts/partials/extend-head.html` code is based on [Docsy's diag
 	function tuple2RGB(color) {
 		return `rgb(${getComputedStyle(document.documentElement).getPropertyValue(color)})`;
 	}
+	/** @returns text colour appropriate for colour theme */
+	function textColor() {
+		switch (document.documentElement.classList.contains("dark")) {
+		case true:
+			return "white";
+		case false:
+			return "black";
+		}
+	}
 	document.addEventListener("DOMContentLoaded", () => {
 		for (const diagram of document.querySelectorAll("code.language-mermaid")) {
 			const text = diagram.textContent;
@@ -111,14 +120,8 @@ The following `layouts/partials/extend-head.html` code is based on [Docsy's diag
 				secondaryBorderColor: tuple2RGB("--color-secondary-400"),
 				tertiaryBorderColor: tuple2RGB("--color-neutral-400"),
 				lineColor: tuple2RGB("--color-neutral-600"),
-				textColor: (() => {
-					switch (document.documentElement.classList.contains("dark")) {
-					case true:
-						return "white";
-					case false:
-						return "black";
-					}
-				})(),
+				textColor: textColor(),
+				loopTextColor: textColor(),
 				primaryTextColor: "black",
 				fontFamily: "ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,noto sans,sans-serif",
 				fontSize: "16px"
