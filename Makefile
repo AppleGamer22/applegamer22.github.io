@@ -1,6 +1,6 @@
 .PHONY: build website cv watch clean
 
-build: website cv
+build: cv website
 
 cv:
 	lualatex cv.tex
