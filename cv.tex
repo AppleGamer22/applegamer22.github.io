@@ -1,0 +1,89 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage[empty]{fullpage}
+\usepackage{titling}
+% \usepackage{fontspec}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\oddsidemargin}{-0.530in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-0.45in}
+\addtolength{\textheight}{1in}
+\setlength{\headheight}{18pt}
+\setlength{\footskip}{3.7pt}
+\setlength{\tabcolsep}{0in}
+\setcounter{secnumdepth}{-\maxdimen}
+% \setmonofont[Contextuals=Alternate]{Fira Code}
+\urlstyle{rm}
+% \raggedbottom
+% \raggedright
+
+\title{Omri Bornstein's CV}
+\author{Omri Bornstein}
+\usepackage{hyperref}
+\hypersetup{
+	pdftitle={\thetitle},
+	pdfauthor={\theauthor},
+	bookmarksnumbered=true,
+	bookmarksopen=true,
+	bookmarksopenlevel=1,
+	colorlinks=true,
+	pdfstartview=Fit,
+	pdfpagemode=UseOutlines,
+	colorlinks=true,
+	allcolors=blue
+}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\href{mailto:omribor@gmail.com}{omribor@gmail.com}}
+\chead{\Large Omri Bornstein}
+\rhead{\href{https://applegamer22.github.io}{applegamer22.github.io}}
+
+\begin{document}
+	\section{Education}
+
+	\begin{enumerate}
+		\item \textbf{2017 - 2019}: secondary education at Australian Science \& Mathematics School, Adelaide, South Australia
+		\item \textbf{2020 - Present}: Bachelor of Computer Science at Monash University, Melbourne, Victoria
+	\end{enumerate}
+
+	\section{Skills}
+
+	\begin{itemize}
+		\item \textbf{Computer Programming Languages}: Go, TypeScript/JavaScript, Pyhton, Kotlin/Java, C/C++
+		\item \textbf{Document Markup Languages}: HTML, CSS, \TeX, Markdown
+		\item \textbf{Natural Languages}: English, Hebrew
+		\item \textbf{Tools}: Git, GitHub, Docker, Kubernetes, GoReleaser, GitHub Actions
+		\item \textbf{Platforms}: Linux, Cloud Native, Web
+		\item \textbf{Soft Skills}: Writing, Presenting, Collaboration
+	\end{itemize}
+
+	\section{Experience}
+
+	\begin{enumerate}
+		\item \textbf{May 2021 - January 2022}: General Representative at Monash Cyber Security Club.
+		\item \textbf{January 2022 - June 2022}: Secretary at Monash Cyber Security Club.
+		\item \textbf{June 2022 - Present}: Vice President at Monash Cyber Security Club.
+	\end{enumerate}
+
+	\section{Projects}
+	\subsection{Open-Source}
+
+	\begin{itemize}
+		\item \href{https://github.com/AppleGamer22/cocainate}{\texttt{cocainate}} is a cross-platform re-implementation of the macOS utility \href{https://github.com/apple-oss-distributions/PowerManagement/tree/main/caffeinate}{\texttt{caffeinate}} that keeps the screen turned on either until stopped, for a set duration of time or while another process still runs.
+		\item \href{https://github.com/AppleGamer22/stalk}{\texttt{stalk}} is a cross-platform file-watcher that can run a command after each file-system operation on a given file(s) or simply wait once until a file is changed.
+		\item \href{https://github.com/AppleGamer22/rake}{\texttt{rake}} is a social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
+		\item \href{https://github.com/AppleGamer22/scr-web}{scr-web} (and its \href{https://github.com/AppleGamer22/scr-cli}{scr-cli} counterpart) is my previous attempt at building a full-stack social media scraper, which was abandoned due to the excessive number of dependencies and the rather large build-size.
+		\item \href{https://github.com/AppleGamer22/sp}{sp} is my first attempt at building a Minecraft server plugin. This plugin adds the requirement that the player supplies the password (via a server command) before proper server interaction is allowed. Until as password is provided, the currently-unauthorized player is blinded and immobile.
+	\end{itemize}
+
+	\subsection{Research}
+	As part of the \href{https://handbook.monash.edu/2021/units/FIT2082}{FIT2082 unit}, I contributed to an existing codebase, based on prior research by \href{https://ojs.aaai.org/index.php/ICAPS/article/view/3471}{(Gange, Harabor and Stuckey, 2021)} about \textsl{Lazy CBS}, their Multi-Agent Path Finding (\textsl{MAPF}) algorithm. The \textsl{MAPF} problem is a subset of the path finding research field, which presents the additional requirements of multiple agents, each with a unique pair of a source and a target, such thsat the path between them does not intersect with another path during the same point in time. My task was to modify the \textsl{Lazy CBS} codebase such that the algorithm also outputs the final set of constraints that is used to rule out possible paths, such that the Lazy is formally an Explainable Multi-Agent Path Finding (\textsl{XMAPF}) algorithm. In addition, I added \textsl{Python}-to-\textsl{C++} bindings, such that the compiled \textsl{Lazy CBS} codebase can be used as a Python-facing library for future projects.
+
+	\subsection{Freelancing}
+\end{document}
