@@ -16,4 +16,13 @@ hugo.linux
 # Temporary lock file while building
 /.hugo_build.lock
 # End of https://www.toptal.com/developers/gitignore/api/hugo
+
+### LaTeX
+*.aux
+*.log
+*.out
+*.pdf
+*.synctex.gz
+
+### Other
 **/.DS_Store
