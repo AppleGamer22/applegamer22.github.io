@@ -23,7 +23,7 @@ hugo.linux
 *.out
 *.toc
 *.synctex.gz
-*.pdf
+./cv.pdf
 
 ### Other
 **/.DS_Store
