@@ -27,7 +27,7 @@ jobs:
           restore-keys: |
             ${{runner.os}}-hugomod-
       - name: Install LaTeX
-        run: sudo apt install texlive
+        run: sudo apt install texlive texlive-latex-extra
       - name: Build
         run: make build
       - name: Deploy
