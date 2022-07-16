@@ -1,10 +1,16 @@
-.PHONY: build watch clean
+.PHONY: build website cv watch clean
 
-build:
+build: website cv
+
+cv:
+	lualatex cv.tex
+	mv cv.pdf static
+
+website:
 	hugo --minify
 
-watch:
+watch: cv
 	hugo server --noHTTPCache
 
 clean:
-	rm -rf public resources/_gen assets/jsconfig.json hugo_stats.json .hugo_build.lock
+	rm -rf public resources/_gen assets/jsconfig.json hugo_stats.json .hugo_build.lock *.aux *.log *.out *.synctex.gz *.toc *.pdf

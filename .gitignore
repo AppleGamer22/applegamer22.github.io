@@ -21,8 +21,9 @@ hugo.linux
 *.aux
 *.log
 *.out
-*.pdf
+*.toc
 *.synctex.gz
+*.pdf
 
 ### Other
 **/.DS_Store
