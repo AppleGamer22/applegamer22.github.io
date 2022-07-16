@@ -5,6 +5,7 @@
 \usepackage{hyperref}
 \usepackage[empty]{fullpage}
 \usepackage{titling}
+% \usepackage{fontspec}
 
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -17,6 +18,7 @@
 \setlength{\footskip}{3.7pt}
 \setlength{\tabcolsep}{0in}
 \setcounter{secnumdepth}{-\maxdimen}
+% \setmonofont[Contextuals=Alternate]{Fira Code}
 \urlstyle{rm}
 % \raggedbottom
 % \raggedright
@@ -81,7 +83,7 @@
 	\end{itemize}
 
 	\subsection{Research}
-	As part of the \href{https://handbook.monash.edu/2021/units/FIT2082}{FIT2082 unit}, I contributed to an existing codebase, based on prior research by \href{https://ojs.aaai.org/index.php/ICAPS/article/view/3471}{(Gange, Harabor and Stuckey, 2021)} about Lazy CBS, their Multi-Agent Path Finding (MAPF) algorithm. The MAPF problem is a subset of the path finding research field, which presents the additional requirements of multiple agents, each with a unique pair of a source and a target, such that the path between them does not intersect with another path during the same point in time. My task was to modify the Lazy CBS codebase such that the algorithm also outputs the final set of constraints that is used to rule out possible paths, such that the Lazy is formally an Explainable Multi-Agent Path Finding (XMAPF) algorithm. In addition, I added Python-to-C++ bindings, such that the compiled Lazy CBS codebase can be used as a Python-facing library for future projects.
+	As part of the \href{https://handbook.monash.edu/2021/units/FIT2082}{FIT2082 unit}, I contributed to an existing codebase, based on prior research by \href{https://ojs.aaai.org/index.php/ICAPS/article/view/3471}{(Gange, Harabor and Stuckey, 2021)} about \textsl{Lazy CBS}, their Multi-Agent Path Finding (\textsl{MAPF}) algorithm. The \textsl{MAPF} problem is a subset of the path finding research field, which presents the additional requirements of multiple agents, each with a unique pair of a source and a target, such thsat the path between them does not intersect with another path during the same point in time. My task was to modify the \textsl{Lazy CBS} codebase such that the algorithm also outputs the final set of constraints that is used to rule out possible paths, such that the Lazy is formally an Explainable Multi-Agent Path Finding (\textsl{XMAPF}) algorithm. In addition, I added \textsl{Python}-to-\textsl{C++} bindings, such that the compiled \textsl{Lazy CBS} codebase can be used as a Python-facing library for future projects.
 
-	% \subsection{Freelancing}
+	\subsection{Freelancing}
 \end{document}

@@ -26,6 +26,8 @@ jobs:
           key: ${{runner.os}}-hugomod-${{hashFiles('**/go.sum')}}
           restore-keys: |
             ${{runner.os}}-hugomod-
+      - name: Install LaTeX
+        run: sudo apt install texlive
       - name: Build
         run: make build
       - name: Deploy
