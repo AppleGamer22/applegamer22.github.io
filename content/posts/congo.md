@@ -60,7 +60,7 @@ With these configurations added, graphically-complex inline math expressions suc
 In addition, blocks of multi-line mathematical expressions can be rendered:
 
 $$
-\begin{aligned}
+\begin{align*}
 	x &= \frac{1}{x - 1} & \text{definition of } \phi \\\
 	x(x - 1) &= 1 & \times (x - 1) \\\
 	x^2 - x &= 1 & a(b \pm c) = ab \pm ac \\\
@@ -70,9 +70,10 @@ $$
 	&& \text{when } ax^2 + bx +c = 0 \wedge a \neq 0 \\\
 	&= \frac{1 \pm \sqrt{1 + 4}}{2} & \text{simplification} \\\
 	&= \frac{1 \pm \sqrt{5}}{2} & \text{simplification}
-\end{aligned}
+\end{align*}
 $$
-Due to Hugo's use of the `\`  character for text escaping, the sequence `\\\` is required instead of `\\` (at the source-code level) in order to correctly render a line break. This change does not seem to affect $\TeX$ rendering in other platforms.
+
+Due to Hugo's use of the `\` character for text escaping, the sequence `\\\` is required instead of `\\` (at the source-code level) in order to correctly render a line break. Moreover, the `align*` environment seems to be the most compatible between KaTeX and MathJax. This change does not seem to affect $\TeX$ rendering in other platforms.
 
 ## Technical Diagrams
 The following `layouts/partials/extend-head.html` code is based on [Docsy's diagram support](https://www.docsy.dev/docs/adding-content/diagrams-and-formulae/#diagrams-with-mermaid), and implemented similarly to [Docsy's implementation](https://github.com/google/docsy/blob/main/assets/js/mermaid.js#L5-L8), and [Congo's implementation](https://github.com/jpanther/congo/blob/stable/assets/js/mermaid.js), the theme settings are based on [Mermaid's documentation](https://mermaid-js.github.io/mermaid/#/theming).
