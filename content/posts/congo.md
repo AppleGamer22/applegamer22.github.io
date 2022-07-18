@@ -371,8 +371,7 @@ params:
     showWordCount: true
     showEdit: true
     showDateUpdated: true
-    editAppendPath: false
-    editURL: https://github.com/AppleGamer22/applegamer22.github.io
+    editURL: https://github.com/AppleGamer22/applegamer22.github.io/tree/master/content
 ```
 
 ### Other
