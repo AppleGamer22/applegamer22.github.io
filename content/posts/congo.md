@@ -301,6 +301,25 @@ markup:
     endLevel: 6
 ```
 
+### Privacy
+All supported social media integrations are disabled for [privacy](https://gohugo.io/about/hugo-and-gdpr/) purposes.
+
+```yaml
+privacy:
+  disqus:
+    disable: true
+  googleAnalytics:
+    disable: true
+  youtube:
+    disable: true
+  instagram:
+    disable: true
+  twitter:
+    disable: true
+  vimeo:
+    disable: true
+```
+
 ### Other
 * I set the base URL for GitHub Pages compatibility.
 * I set the timezone, in order to prevent pages with "future" dates from not rendering immediately.
