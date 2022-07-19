@@ -162,7 +162,7 @@ I was not completely satisfied with some of the styling of the default [Congo th
 
 ## CSS
 ### Horizontal Scroll on Small-Width Screens
-The following CSS was added to `assets/css/custom.css` (based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/dev/assets/css/compiled/main.css#L72856)) in order to (indirectly) disable horizontal scrolling in small-width screens. It turns out that the horizontal scroll is enabled to to `a` HTML tag styling that did not limit their width to the screen width.
+The following CSS was added to `assets/css/custom.css` (based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css#L2862)) in order to (indirectly) disable horizontal scrolling in small-width screens. It turns out that the horizontal scroll is enabled to to `a` HTML tag styling that did not limit their width to the screen width.
 
 ```css
 @media (max-width: 640px) {
@@ -180,6 +180,15 @@ In order to render multi-line [math expressions](#katex) correctly in small-widt
 	span.katex-display > * {
 		font-size: 0.65rem !important;
 	}
+}
+```
+
+In order to ensure search results don't overflow the [intended width](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css#L2181-L2184), the maximum width is restricted accordingly.
+
+```css
+#search-results > li > a > * {
+	max-width: calc(100% - 1.5rem) !important;
+	word-wrap: break-word !important;
 }
 ```
 
@@ -211,7 +220,7 @@ func main() {
 ```
 
 ### Backtick-less Inline Code Snippets
-The following CSS was added to `assets/css/custom.css` in order to revert [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/dev/assets/css/compiled/main.css#L745-L751) that surrounds inline code snippets with backtick symbols.
+The following CSS was added to `assets/css/custom.css` in order to revert [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css#L745-L751) that surrounds inline code snippets with backtick symbols.
 
 ```css
 .prose :where(code):not(:where([class~="not-prose"] *))::before {
@@ -223,7 +232,7 @@ The following CSS was added to `assets/css/custom.css` in order to revert [Congo
 ```
 
 ### Content Width
-The following CSS was added to `assets/css/custom.css` in order to increase the content width. Based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/dev/assets/css/compiled/main.css#L1946-L1956).
+The following CSS was added to `assets/css/custom.css` in order to increase the content width. Based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css#L1952-L1962).
 
 ```css
 .max-w-7xl {
@@ -233,6 +242,7 @@ The following CSS was added to `assets/css/custom.css` in order to increase the 
 	max-width: 100ch !important;
 }
 ```
+
 ### Colour Scheme
 The following CSS was added to `assets/css/schemes/fruit.css` (based on Congo's [`congo.css`](https://github.com/jpanther/congo/blob/stable/assets/css/schemes/congo.css) and [`fire.css`](https://github.com/jpanther/congo/blob/stable/assets/css/schemes/fire.css)) change the colour scheme primary and secondary colours from violate-fuchsia to orange-red.
 
