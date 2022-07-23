@@ -1,10 +1,10 @@
 \documentclass[a4paper, 10pt]{article}
-
 \usepackage[english]{babel}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
-\usepackage[empty]{fullpage}
+\usepackage[dvipsnames, svgnames, x11names]{xcolor}
 \usepackage{titling}
+\usepackage[empty]{fullpage}
 % \usepackage{fontspec}
 
 \renewcommand{\headrulewidth}{0pt}
@@ -19,9 +19,6 @@
 \setlength{\tabcolsep}{0in}
 \setcounter{secnumdepth}{-\maxdimen}
 % \setmonofont[Contextuals=Alternate, Scale=MatchLowercase]{Fira Code}
-\urlstyle{rm}
-% \raggedbottom
-% \raggedright
 
 \author{Omri Bornstein}
 \title{\theauthor's CV}
@@ -29,15 +26,14 @@
 \hypersetup{
 	pdftitle={\thetitle},
 	pdfauthor={\theauthor},
-	bookmarksnumbered=true,
-	bookmarksopen=true,
-	bookmarksopenlevel=1,
 	colorlinks=true,
-	pdfstartview=Fit,
-	pdfpagemode=UseOutlines,
-	colorlinks=true,
-	allcolors=blue
+	linkcolor={Maroon},
+	filecolor={Maroon},
+	citecolor={Blue},
+	urlcolor={Blue},
+	pdfcreator={LaTeX}
 }
+\urlstyle{same}
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{\href{mailto:omribor@gmail.com}{omribor@gmail.com}}
