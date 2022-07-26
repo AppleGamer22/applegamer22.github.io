@@ -6,7 +6,7 @@ description: A list of my open-source projects
 ## Current Projects
 ### Go
 * [`cocainate`](https://github.com/AppleGamer22/cocainate) is a **cross-platform** re-implementation of the macOS utility [`caffeinate`](https://github.com/apple-oss-distributions/PowerManagement/tree/main/caffeinate) that keeps the screen turned on either until stopped, for a set duration of time or while another process still runs.
-* [`stalk`](https://github.com/AppleGamer22/stalk) is a **cross-platform** file-watcher that can run a command after each file-system operation on a given file(s) or simply wait once until a file is changed.
+* [`stalk`](https://github.com/AppleGamer22/stalk) is a **cross-platform** file-watcher that can run a command after each file-system operation on a given files or simply wait once until a file is changed.
 * [`rake`](https://github.com/AppleGamer22/rake) is a social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
 
 ## Other Projects
@@ -16,7 +16,8 @@ description: A list of my open-source projects
 	*  I learned how to enable [*Python*-to-*C++* bindings](https://pybind11.readthedocs.io/en/stable/), such that the compiled *Lazy CBS* codebase can be used as a *Python*-facing library for future projects.
 
 ### TypeScript & JavaScript
-* [scr-web](https://github.com/AppleGamer22/scr-web) (and its [scr-cli](https://github.com/AppleGamer22/scr-cli) counterpart) is my previous attempt at building a full-stack social media scraper, which was abandoned due to the excessive number of dependencies and the rather large build-size.
+* [scr-web](https://github.com/AppleGamer22/scr-web) (and its [scr-cli](https://github.com/AppleGamer22/scr-cli) counterpart) is my previous attempt at building a full-stack social media scraper, with
+[Angular](https://angular.io) on the front-end, and [Nest](https://nestjs.com) on the back-end.
 
 ### Kotlin
 * [sp](https://github.com/AppleGamer22/sp) is my first attempt at building a Minecraft server plugin. This plugin adds the requirement that the player supplies the password (via a server command) before proper server interaction is allowed, and as long as the password isn’t provided, the currently-unauthorized player is blinded and immobile.

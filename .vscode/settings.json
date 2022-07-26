@@ -1,7 +1,16 @@
 {
 	"cSpell.words": [
+		"citecolor",
+		"filecolor",
+		"Kubernetes",
+		"linkcolor",
+		"MAPF",
 		"Minecraft",
-		"TeXnician"
+		"pdfauthor",
+		"pdfcreator",
+		"TeXnician",
+		"urlcolor",
+		"XMAPF"
 	],
 	"latex-workshop.latex.tools": [
 		{

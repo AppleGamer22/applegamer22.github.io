@@ -7,7 +7,6 @@
 \usepackage[none]{hyphenat}
 % \usepackage{fontspec}
 
-
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 \renewcommand{\labelitemii}{$\circ$}
@@ -23,7 +22,6 @@
 \setlength{\parindent}{0pt}
 \setcounter{secnumdepth}{-\maxdimen}
 % \setmonofont[Contextuals=Alternate, Scale=MatchLowercase]{Fira Code}
-\raggedleft\raggedright
 
 \author{Omri Bornstein}
 \title{\theauthor's CV}
@@ -45,38 +43,37 @@
 \chead{\Large Omri Bornstein}
 \rhead{\href{https://applegamer22.github.io}{applegamer22.github.io}}
 
-\begin{document}
+\raggedleft\raggedright\begin{document}
 	\section{Education}
 	\begin{enumerate}
-		\item \textbf{2017 - 2019}: secondary education at Australian Science \& Mathematics School, Adelaide, South Australia
-		\item \textbf{2020 - Present}: Bachelor of Computer Science at Monash University, Melbourne, Victoria
+		\item \textbf{2017 --- 2019}: secondary education at Australian Science \& Mathematics School, Adelaide, South Australia
+		\item \textbf{2020 --- Present}: Bachelor of Computer Science at Monash University, Melbourne, Victoria
 	\end{enumerate}
 
 	\section{Skills}
 	\begin{itemize}
-		\item \textbf{Computer Programming Languages}: Go, TypeScript/JavaScript, Python, Kotlin/Java, C/C++
+		\item \textbf{Computer Programming Languages}: \href{https://go.dev}{Go}, \href{https://typescriptlang.org}{TypeScript}/JavaScript, \href{https://python.org/}{Python}, \href{https://kotlinlang.org}{Kotlin}/Java, C/C++
 		\item \textbf{Document Markup Languages}: HTML/CSS, \TeX, Markdown
 		% \item \textbf{Natural Languages}: English, Hebrew
-		\item \textbf{Tools}: Git, GitHub, Docker, Kubernetes, CI/CD
+		\item \textbf{Tools}: \href{https://git-scm.com}{Git}, \href{https://github.com}{GitHub}, \href{https://www.docker.com}{Docker}, \href{https://kubernetes.io/}{Kubernetes}, CI/CD
 		\item \textbf{Platforms}: Linux, Cloud Native, web servers/browsers, macOS, Windows
-		% more specific (leader etc)
 		\item \textbf{Soft Skills}: technical writing, presenting/public speaking, research, troubleshooting, explaining, collaboration/teamwork
 	\end{itemize}
 
 	\section{Leadership Experience}
 	\begin{enumerate}
-		\item \textbf{May 2021 - January 2022}: General Representative at Monash University Cyber Security Club (MonSec).
-		\item \textbf{January 2022 - June 2022}: Secretary at Monash University Cyber Security Club (MonSec).
-		\item \textbf{June 2022 - Present}: Vice President at Monash University Cyber Security Club (MonSec).
+		\item \textbf{May 2021 --- January 2022}: General Representative at Monash University Cyber Security Club (MonSec).
+		\item \textbf{January 2022 --- June 2022}: Secretary at Monash University Cyber Security Club (MonSec).
+		\item \textbf{June 2022 --- Present}: Vice President at Monash University Cyber Security Club (MonSec).
 	\end{enumerate}
 
 	\section{Projects}
 	\subsection{Open-Source}
 	\begin{itemize}
 		\item \href{https://github.com/AppleGamer22/cocainate}{\texttt{cocainate}} is a cross-platform re-implementation of the macOS utility \href{https://github.com/apple-oss-distributions/PowerManagement/tree/main/caffeinate}{\texttt{caffeinate}} that keeps the screen turned on either until stopped, for a set duration of time or while another process still runs.
-		\item \href{https://github.com/AppleGamer22/stalk}{\texttt{stalk}} is a cross-platform file-watcher that can run a command after each file-system operation on a given file(s) or simply wait once until a file is changed.
+		\item \href{https://github.com/AppleGamer22/stalk}{\texttt{stalk}} is a cross-platform file-watcher that can run a command after each file-system operation on a given files or simply wait once until a file is changed.
 		\item \href{https://github.com/AppleGamer22/rake}{\texttt{rake}} is a social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
-		\item \href{https://github.com/AppleGamer22/scr-web}{scr-web} (and its \href{https://github.com/AppleGamer22/scr-cli}{scr-cli} counterpart) is my previous attempt at building a full-stack social media scraper, which was abandoned due to the excessive number of dependencies and the rather large build-size.
+		\item \href{https://github.com/AppleGamer22/scr-web}{scr-web} (and its \href{https://github.com/AppleGamer22/scr-cli}{scr-cli} counterpart) is my previous attempt at building a full-stack social media scraper with \href{https://angular.io}{Angular} on the front-end, and \href{https://nestjs.com}{Nest} on the back-end.
 		\item \href{https://github.com/AppleGamer22/sp}{sp} is my first attempt at building a Minecraft server plugin. This plugin adds the requirement that the player supplies the password (via a server command) before proper server interaction is allowed, and as long as the password isn't provided, the currently-unauthorized player is blinded and immobile.
 	\end{itemize}
 
