@@ -14,23 +14,24 @@
 	],
 	"latex-workshop.latex.tools": [
 		{
-			"name": "lualatex",
-			"command": "lualatex",
+			"name": "lualatexmk",
+			"command": "latexmk",
 			"args": [
 				"-synctex=1",
 				"-interaction=nonstopmode",
 				"-file-line-error",
-				"-pdf",
+				"-lualatex",
+				"-outdir=%OUTDIR%",
 				"%DOC%"
-			]
+			],
+			"env": {}
 		}
 	],
 	"latex-workshop.latex.recipes": [
 		{
-			"name": "lualatex",
+			"name": "lualatexmk",
 			"tools": [
-				"lualatex",
-				"lualatex"
+				"lualatexmk",
 			]
 		}
 	]
