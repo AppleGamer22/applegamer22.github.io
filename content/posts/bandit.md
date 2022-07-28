@@ -5,7 +5,7 @@ description: My attempt at OverTheWire's Bandit challenges
 tags: [overthewire, linux]
 ---
 # Level 0 - 1
-> The host to which you need to connect is `bandit.labs.overthewire.org`, on port `2220`. The username is `bandit0` and the password is `bandit0`.
+> The host to which you need to connect is `bandit.labs.overthewire.org`, on port 2220. The username is `bandit0` and the password is `bandit0`.
 >
 > The password for the next level is stored in a file called `readme` located in the home directory. Use this password to log into bandit1 using SSH.
 
@@ -31,7 +31,7 @@ CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
 ```
 
 ## References
-* Raj, P. (2017, February 12). How to open a "-" dashed filename using terminal? Stack Overflow. <https://stackoverflow.com/a/42187582/7148921>
+* Raj, P. (2017, February 12). How to open a `-` dashed file name using terminal? Stack Overflow. <https://stackoverflow.com/a/42187582/7148921>
 
 # Level 2 - 3
 > The password for the next level is stored in a file called `spaces in this filename` located in the home directory
@@ -102,6 +102,7 @@ DXjZPULLxYr17uwoI01bNLQbtFemEgo7
 
 # Level 6 - 7
 > The password for the next level is stored **somewhere on the server** and has all of the following properties:
+>
 > * owned by user `bandit7`
 > * owned by group `bandit6`
 > * 33 bytes in size
@@ -140,7 +141,7 @@ bandit8@bandit:~$ sort data.txt | uniq -c | sort | tail -1
 ```
 
 ## References
-* Reinhart, J. (2014, November 26). Sort and count number of occurrence of lines. Unix & Linux Stack Exchange. <https://unix.stackexchange.com/a/170044/232245>
+* Reinhart, J. (2014, November 26). `sort` and count number of occurrence of lines. Unix & Linux Stack Exchange. <https://unix.stackexchange.com/a/170044/232245>
 
 # Level 9 - 10
 > The password for the next level is stored in the file `data.txt` in one of the few human-readable strings, preceded by several `=` characters.
@@ -158,7 +159,7 @@ Z========== is
 ```
 
 ## References
-* Allan. (2017, December 21). Regex character repeats n or more times in line with grep. Stack Overflow. <https://stackoverflow.com/a/47921068/7148921>
+* Allan. (2017, December 21). Regex character repeats $n$ or more times in line with `grep`. Stack Overflow. <https://stackoverflow.com/a/47921068/7148921>
 
 # Level 10 - 11
 > The password for the next level is stored in the file `data.txt`, which contains Base64-encoded data
@@ -170,4 +171,137 @@ bandit10@bandit:~$ ls
 data.txt
 bandit10@bandit:~$ cat data.txt | base64 -d
 The password is IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+```
+
+# Level 11 -12
+> The password for the next level is stored in the file data.txt, where all lowercase and uppercase letters have been rotated by 13 positions
+
+```sh
+$ ssh bandit11@bandit.labs.overthewire.org -p 2220
+bandit11@bandit.labs.overthewire.org password: IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+bandit11@bandit:~$ cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+The password is 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+```
+
+## References
+* Mullen, S., & Ross, C. (2011, March 26). using ROT13 and `tr` command for having an encrypted email address. Stack Overflow. <https://stackoverflow.com/a/5442495/7148921>
+
+# Level 12 - 13
+> The password for the next level is stored in the file `data.txt`, which is a hexadecimal dump of a file that has been repeatedly compressed. For this level it may be useful to create a directory under `/tmp` in which you can work using `mkdir`.
+
+```sh
+$ ssh bandit12@bandit.labs.overthewire.org -p 2220
+bandit12@bandit.labs.overthewire.org password: 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+bandit12@bandit:~$ ls
+data.txt
+bandit12@bandit:~$ mkdir /tmp/bandit12
+bandit12@bandit:~$ cp data.txt /tmp/bandit12
+bandit12@bandit:~$ cd /tmp/bandit12
+bandit12@bandit:/tmp/bandit12$ xxd -r data.txt data
+bandit12@bandit:/tmp/bandit12$ file data
+data: gzip compressed data, was "data2.bin", last modified: Thu May 7 18:14:30 2020, max compression, from Unix
+bandit12@bandit:/tmp/bandit12$ mv data data.gz
+bandit12@bandit:/tmp/bandit12$ gunzip data.gz
+bandit12@bandit:/tmp/bandit12$ ls
+data  data.txt
+bandit12@bandit:/tmp/bandit12$ file data
+data: bzip2 compressed data, block size = 900k
+bandit12@bandit:/tmp/bandit12$ mv data data.bz2
+bandit12@bandit:/tmp/bandit12$ bzip2 -d data.bz2
+bandit12@bandit:/tmp/bandit12$ ls
+data  data.txt
+bandit12@bandit:/tmp/bandit12$ file data
+data: gzip compressed data, was "data4.bin", last modified: Thu May 7 18:14:30 2020, max compression, from Unix
+bandit12@bandit:/tmp/bandit12$ mv data data.gz
+bandit12@bandit:/tmp/bandit12$ gunzip data.gz
+bandit12@bandit:/tmp/bandit12$ ls
+data  data.txt
+bandit12@bandit:/tmp/bandit12$ file data
+data: POSIX tar archive (GNU)
+bandit12@bandit:/tmp/bandit12$ tar -xvf data
+data5.bin
+bandit12@bandit:/tmp/bandit12$ file data5.bin
+data5.bin: POSIX tar archive (GNU)
+bandit12@bandit:/tmp/bandit12$ tar -xvf data5.bin
+data6.bin
+bandit12@bandit:/tmp/bandit12$ file data6.bin
+data6.bin: bzip2 compressed data, block size = 900k
+bandit12@bandit:/tmp/bandit12$ mv data6.bin data6.bz2
+bandit12@bandit:/tmp/bandit12$ bzip2 -d data6.bz2
+bandit12@bandit:/tmp/bandit12$ ls
+data  data5.bin  data6  data.txt
+bandit12@bandit:/tmp/bandit12$ file data6
+data6: POSIX tar archive (GNU)
+bandit12@bandit:/tmp/bandit12$ tar -xvf data6
+data8.bin
+bandit12@bandit:/tmp/bandit12$ file data8.bin
+data8.bin: gzip compressed data, was "data9.bin", last modified: Thu May  7 18:14:30 2020, max compression, from Unix
+bandit12@bandit:/tmp/bandit12$ mv data8.bin data8.gz
+bandit12@bandit:/tmp/bandit12$ gunzip data8.gz
+bandit12@bandit:/tmp/bandit12$ ls
+data data5.bin data6 data8 data.txt
+bandit12@bandit:/tmp/bandit12$ file data8
+data8: ASCII text
+bandit12@bandit:/tmp/bandit12$ cat data8
+The password is 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+```
+
+## References
+* Rosenfield, A. (2011, October 19). Transform hexadecimal information to binary using a Linux command. Stack Overflow. <https://stackoverflow.com/a/7826789/7148921>
+* Tucakov, D. (2019, November 14). How To Extract / Unzip `.tar.gz` Files From Linux Command Line. Knowledge Base by PhoenixNAP. <https://phoenixnap.com/kb/extract-tar-gz-files-linux-command-line>
+
+# Level 13 - 14
+> The password for the next level is stored in `/etc/bandit_pass/bandit14` and can only be read by user `bandit14`. For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level.
+
+
+```sh
+$ ssh bandit13@bandit.labs.overthewire.org -p 2220
+bandit13@bandit.labs.overthewire.org password: 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+bandit13@bandit:~$ ls
+sshkey.private
+bandit13@bandit:~$ exit
+$ $ scp -P 2220 bandit13@bandit.labs.overthewire.org:/home/bandit13/sshkey.private bandit14
+bandit13@bandit.labs.overthewire.org password: 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+sshkey.private
+$ ssh bandit14@bandit.labs.overthewire.org -p 2220 -i bandit14
+bandit14@bandit:~$ cat /etc/bandit_pass/bandit14
+4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+```
+
+## References
+* Goldshteyn, M. (2012, April 26). scp with port number specified. Stack Overflow. <https://stackoverflow.com/a/10341062/7148921>
+
+# Level 14 - 15
+> The password for the next level can be retrieved by submitting the password of the current level to **port 30000 on `localhost`**.
+
+```sh
+$ ssh bandit14@bandit.labs.overthewire.org -p 2220
+bandit14@bandit.labs.overthewire.org password: 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+bandit14@bandit:~$ curl localhost:30000
+Wrong! Please enter the correct current password
+bandit14@bandit:~$ echo "4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e" | nc localhost 30000
+Correct!
+BfMYroe26WYalil77FoDi9qh59eK5xNr
+```
+
+# Level 15 - 16
+> The password for the next level can be retrieved by submitting the password of the current level to **port 30001 on `localhost`** using SSL encryption.
+
+```sh
+$ ssh bandit15@bandit.labs.overthewire.org -p 2220
+bandit15@bandit.labs.overthewire.org password: BfMYroe26WYalil77FoDi9qh59eK5xNr
+bandit15@bandit:~$ echo "BfMYroe26WYalil77FoDi9qh59eK5xNr" | openssl s_client -connect localhost:30001 -ign_eof
+Correct!
+cluFn7wTiGryunymYOu4RcffSxQluehd
+```
+
+## References
+* jww, & Farber, A. (2014, April 28). How to send a string to server using `s_client`. Stack Overflow. <https://stackoverflow.com/a/23352363/7148921>
+
+# Level 16 - 17
+> The credentials for the next level can be retrieved by submitting the password of the current level to **a port on `localhost` in the range 31000 to 32000**. First find out which of these ports have a server listening on them. Then find out which of those speak SSL and which don’t. There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.
+
+```sh
+$ ssh bandit16@bandit.labs.overthewire.org -p 2220
+bandit16@bandit.labs.overthewire.org password: cluFn7wTiGryunymYOu4RcffSxQluehd
 ```
