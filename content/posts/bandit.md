@@ -260,7 +260,7 @@ bandit13@bandit.labs.overthewire.org password: 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
 bandit13@bandit:~$ ls
 sshkey.private
 bandit13@bandit:~$ exit
-$ $ scp -P 2220 bandit13@bandit.labs.overthewire.org:/home/bandit13/sshkey.private bandit14
+$ scp -P 2220 bandit13@bandit.labs.overthewire.org:/home/bandit13/sshkey.private bandit14
 bandit13@bandit.labs.overthewire.org password: 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
 sshkey.private
 $ chmod 600 bandit14
