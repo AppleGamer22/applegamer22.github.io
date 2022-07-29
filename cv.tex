@@ -5,7 +5,7 @@
 \usepackage{titling}
 \usepackage[empty]{fullpage}
 \usepackage[none]{hyphenat}
-% \usepackage{fontspec}
+\usepackage{fontspec}
 
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -21,7 +21,7 @@
 \setlength{\tabcolsep}{0in}
 \setlength{\parindent}{0pt}
 \setcounter{secnumdepth}{-\maxdimen}
-% \setmonofont[Contextuals=Alternate, Scale=MatchLowercase]{Fira Code}
+\setmonofont[Contextuals=Alternate, Scale=MatchLowercase]{Fira Code}
 
 \author{Omri Bornstein}
 \title{\theauthor's CV}
@@ -34,7 +34,7 @@
 	filecolor=purple,
 	citecolor=blue,
 	urlcolor=blue,
-	pdfcreator={LaTeX}
+	pdfcreator={LuaLaTeX}
 }
 \urlstyle{same}
 \pagestyle{fancy}
@@ -52,10 +52,10 @@
 
 	\section{Skills}
 	\begin{itemize}
-		\item \textbf{Computer Programming Languages}: \href{https://go.dev}{Go}, \href{https://typescriptlang.org}{TypeScript}/JavaScript, \href{https://python.org/}{Python}, \href{https://kotlinlang.org}{Kotlin}/Java, C/C++
+		\item \textbf{Computer Programming Languages}: \href{https://go.dev}{Go}, \href{https://typescriptlang.org}{TypeScript}/JavaScript, \href{https://python.org}{Python}, \href{https://kotlinlang.org}{Kotlin}/Java, C/C++
 		\item \textbf{Document Markup Languages}: HTML/CSS, \TeX, Markdown
 		% \item \textbf{Natural Languages}: English, Hebrew
-		\item \textbf{Tools}: \href{https://git-scm.com}{Git}, \href{https://github.com}{GitHub}, \href{https://www.docker.com}{Docker}, \href{https://kubernetes.io/}{Kubernetes}, CI/CD
+		\item \textbf{Tools}: \href{https://git-scm.com}{Git}, \href{https://github.com}{GitHub}, \href{https://www.docker.com}{Docker}, \href{https://kubernetes.io}{Kubernetes}, CI/CD
 		\item \textbf{Platforms}: Linux, Cloud Native, web servers/browsers, macOS, Windows
 		\item \textbf{Soft Skills}: technical writing, presenting/public speaking, research, troubleshooting, explaining, collaboration/teamwork
 	\end{itemize}

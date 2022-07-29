@@ -24,4 +24,4 @@ gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
 ```
 
 ## References
-* MayADevBe. (2022, May 2). OverTheWire Bandit Level 20 - 21 Walkthrough. MayADevBe Blog. <https://mayadevbe.me/posts/overthewire/bandit/level21/>
+* MayADevBe. (2022, May 2). OverTheWire Bandit Level 20 - 21. MayADevBe Blog. <https://mayadevbe.me/posts/overthewire/bandit/level21/>
