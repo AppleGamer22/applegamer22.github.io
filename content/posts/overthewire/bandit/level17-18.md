@@ -1,7 +1,7 @@
 ---
 title: OverTheWire Bandit Level 17 - 18
 date: 2022-07-29T00:00:00
-tags: [overthewire, linux, shell]
+tags: [overthewire, bandit, linux, shell]
 ---
 # Prompt
 > There are 2 files in the home directory: `passwords.old` and `passwords.new`. The password for the next level is in `passwords.new` and is the only line that has been changed between `passwords.old` and `passwords.new`

@@ -2,7 +2,7 @@
 title: OverTheWire Bandit
 # date: 2022-07-28
 description: My attempt at OverTheWire's Bandit challenges
-tags: [overthewire, linux, shell, cryptography, web]
+tags: [overthewire, bandit, linux, shell, cryptography, web]
 ---
 This is my attempt at [OverTheWire's Bandit](https://overthewire.org/wargames/bandit/bandit0.html) challenges.
 

@@ -1,7 +1,7 @@
 ---
 title: OverTheWire Bandit Level 18 - 19
 date: 2022-07-29T01:00:00
-tags: [overthewire, linux, shell]
+tags: [overthewire, bandit, linux, shell]
 ---
 # Prompt
 > The password for the next level is stored in a file `readme` in the home directory. Unfortunately, someone has modified `.bashrc` to log you out when you log in with SSH.

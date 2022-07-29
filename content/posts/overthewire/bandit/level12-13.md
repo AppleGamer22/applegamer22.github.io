@@ -1,7 +1,7 @@
 ---
 title: OverTheWire Bandit Level 12 - 13
 date: 2022-07-28T12:00:00
-tags: [overthewire, linux, shell]
+tags: [overthewire, bandit, linux, shell]
 ---
 # Prompt
 > The password for the next level is stored in the file `data.txt`, which is a hexadecimal dump of a file that has been repeatedly compressed. For this level it may be useful to create a directory under `/tmp` in which you can work using `mkdir`.

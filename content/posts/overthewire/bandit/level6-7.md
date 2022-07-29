@@ -1,7 +1,7 @@
 ---
 title: OverTheWire Bandit Level 6 - 7
 date: 2022-07-28T06:00:00
-tags: [overthewire, linux, shell]
+tags: [overthewire, bandit, linux, shell]
 ---
 # Prompt
 > The password for the next level is stored **somewhere on the server** and has all of the following properties:
