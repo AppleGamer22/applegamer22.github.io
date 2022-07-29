@@ -1,9 +1,11 @@
 ---
 title: OverTheWire Bandit
-date: 2022-07-27
+# date: 2022-07-28
 description: My attempt at OverTheWire's Bandit challenges
-tags: [overthewire, linux]
+tags: [overthewire, linux, shell, cryptography, web]
 ---
+This is my attempt at [OverTheWire's Bandit](https://overthewire.org/wargames/bandit/bandit0.html) challenges.
+
 # Level 0 - 1
 > The host to which you need to connect is `bandit.labs.overthewire.org`, on port 2220. The username is `bandit0` and the password is `bandit0`.
 >
@@ -77,8 +79,6 @@ koReBOKuIDDepwhWk7jZC0RTdopnAYKh
 
 ## References
 * `baeldung`. (2021, August 20). How To Find Only Text Files in a Directory in Linux. Baeldung on Linux. <https://www.baeldung.com/linux/seach-text-files-in-directory>
-
-‌
 
 # Level 5 - 6
 > The password for the next level is stored in a file somewhere under the `inhere` directory and has all of the following properties:
@@ -184,7 +184,7 @@ The password is 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
 ```
 
 ## References
-* Mullen, S., & Ross, C. (2011, March 26). using ROT13 and `tr` command for having an encrypted email address. Stack Overflow. <https://stackoverflow.com/a/5442495/7148921>
+* [Mullen, S.](https://stackoverflow.com/users/154573/samullen), & [Ross, C.](https://stackoverflow.com/users/9388567/charlie-ross) (2011, March 26). using ROT13 and `tr` command for having an encrypted email address. Stack Overflow. <https://stackoverflow.com/a/5442495/7148921>
 
 # Level 12 - 13
 > The password for the next level is stored in the file `data.txt`, which is a hexadecimal dump of a file that has been repeatedly compressed. For this level it may be useful to create a directory under `/tmp` in which you can work using `mkdir`.
@@ -247,7 +247,7 @@ The password is 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
 ```
 
 ## References
-* Rosenfield, A. (2011, October 19). Transform hexadecimal information to binary using a Linux command. Stack Overflow. <https://stackoverflow.com/a/7826789/7148921>
+* [Rosenfield, A.](https://stackoverflow.com/users/9530/adam-rosenfield) (2011, October 19). Transform hexadecimal information to binary using a Linux command. Stack Overflow. <https://stackoverflow.com/a/7826789/7148921>
 * Tucakov, D. (2019, November 14). How To Extract / Unzip `.tar.gz` Files From Linux Command Line. Knowledge Base by PhoenixNAP. <https://phoenixnap.com/kb/extract-tar-gz-files-linux-command-line>
 
 # Level 13 - 14
@@ -270,7 +270,7 @@ bandit14@bandit:~$ cat /etc/bandit_pass/bandit14
 ```
 
 ## References
-* Goldshteyn, M. (2012, April 26). scp with port number specified. Stack Overflow. <https://stackoverflow.com/a/10341062/7148921>
+* [Goldshteyn, M.](https://stackoverflow.com/users/473798/michael-goldshteyn) (2012, April 26). scp with port number specified. Stack Overflow. <https://stackoverflow.com/a/10341062/7148921>
 
 # Level 14 - 15
 > The password for the next level can be retrieved by submitting the password of the current level to **port 30000 on `localhost`**.
@@ -297,7 +297,7 @@ cluFn7wTiGryunymYOu4RcffSxQluehd
 ```
 
 ## References
-* `jww`, & Farber, A. (2014, April 28). How to send a string to server using `s_client`. Stack Overflow. <https://stackoverflow.com/a/23352363/7148921>
+* [`jww`](https://stackoverflow.com/users/608639/jww), & (Farber, A.)[https://stackoverflow.com/users/165071/alexander-farber] (2014, April 28). How to send a string to server using `s_client`. Stack Overflow. <https://stackoverflow.com/a/23352363/7148921>
 
 # Level 16 - 17
 > The credentials for the next level can be retrieved by submitting the password of the current level to **a port on `localhost` in the range 31000 to 32000**. First find out which of these ports have a server listening on them. Then find out which of those speak SSL and which don’t. There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.
@@ -329,3 +329,67 @@ xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
 
 ## References
 * Cordero, K. (2020, August 14). `nmap` - Enumerating SSL. Kerry Cordero. <https://cordero.me/nmap-enumerating-ssl/>
+
+# Level 17 - 18
+> There are 2 files in the home directory: `passwords.old` and `passwords.new`. The password for the next level is in `passwords.new` and is the only line that has been changed between `passwords.old` and `passwords.new`
+
+```sh
+$ ssh bandit17@bandit.labs.overthewire.org -p 2220
+bandit17@bandit.labs.overthewire.org password: xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
+bandit17@bandit:~$ ls
+passwords.new  passwords.old
+bandit17@bandit:~$ ls -l
+-rw-r----- 1 bandit18 bandit17 3300 May  7  2020 passwords.new
+-rw-r----- 1 bandit18 bandit17 3300 May  7  2020 passwords.old
+bandit17@bandit:~$ diff passwords.old passwords.new 
+42c42
+< w0Yfolrc5bwjS4qw5mq1nnQi6mF03bii
+---
+> kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+```
+
+# Level 18 -19
+> The password for the next level is stored in a file `readme` in the home directory. Unfortunately, someone has modified `.bashrc` to log you out when you log in with SSH.
+
+```sh
+$ ssh bandit18@bandit.labs.overthewire.org -p 2220 -t 'cat readme'
+bandit18@bandit.labs.overthewire.org password: kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+```
+
+## References
+* [`fons`](https://superuser.com/users/238773/fons), & [`Raystafarian`](https://superuser.com/users/116196/raystafarian). (2011, July 5). Run Remote `ssh` command with Full Login Shell. Super User. https://superuser.com/questions/306530/run-remote-ssh-command-with-full-login-shell
+
+# Level 19 - 20
+> To gain access to the next level, you should use the `setuid` binary in the home directory. Execute it without arguments to find out how to use it. The password for this level can be found in the usual place (`/etc/bandit_pass`), after you have used the `setuid` binary.
+
+```sh
+$ ssh bandit19@bandit.labs.overthewire.org -p 2220
+bandit19@bandit.labs.overthewire.org password: IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+bandit19@bandit:~$ ls -l
+-rwsr-x--- 1 bandit20 bandit19 7296 May  7  2020 bandit20-do
+bandit19@bandit:~$ ./bandit20-do 
+Run a command as another user.
+  Example: ./bandit20-do id
+bandit19@bandit:~$ ./bandit20-do cat /etc/bandit_pass/bandit20
+GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+```
+
+## References
+* <https://en.wikipedia.org/wiki/Setuid>
+
+# Level 20 - 21
+> There is a `setuid` binary in the home directory that does the following:
+> 1. It makes a connection to `localhost` on the port you specify as a command line argument.
+> 1. It then reads a line of text from the connection and compares it to the password in the previous level (`bandit20`). If the password is correct, it will transmit the password for the next level (`bandit21`).
+
+```sh
+$ ssh bandit20@bandit.labs.overthewire.org -p 2220
+bandit20@bandit.labs.overthewire.org password: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+bandit20@bandit:~$ ls -l
+-rwsr-x--- 1 bandit21 bandit20 12088 May  7  2020 suconnect
+
+```
+
+## References
+* MayADevBe. (2022, May 2). OverTheWire Bandit Level 20 - 21 Walkthrough. MayADevBe Blog. <https://mayadevbe.me/posts/overthewire/bandit/level21/>
