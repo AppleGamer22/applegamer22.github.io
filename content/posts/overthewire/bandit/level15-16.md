@@ -1,7 +1,7 @@
 ---
 title: OverTheWire Bandit Level 15 - 16
 date: 2022-07-28T15:00:00
-tags: [overthewire, linux, shell]
+tags: [overthewire, linux, shell, networking]
 ---
 # Prompt
 > The password for the next level can be retrieved by submitting the password of the current level to **port 30001 on `localhost`** using SSL encryption.

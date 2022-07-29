@@ -1,7 +1,7 @@
 ---
 title: OverTheWire Bandit Level 9 - 10
 date: 2022-07-28T09:00:00
-tags: [overthewire, linux, shell]
+tags: [overthewire, linux, shell, regex]
 ---
 # Prompt
 > The password for the next level is stored in the file `data.txt` in one of the few human-readable strings, preceded by several `=` characters.

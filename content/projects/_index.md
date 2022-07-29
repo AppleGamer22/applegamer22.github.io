@@ -1,7 +1,6 @@
 ---
 title: Projects
 date: 2022-07-02
-description: A list of my open-source projects
 ---
 ## Current Projects
 ### Go

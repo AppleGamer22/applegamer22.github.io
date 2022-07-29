@@ -21,19 +21,19 @@ data: gzip compressed data, was "data2.bin", last modified: Thu May 7 18:14:30 2
 bandit12@bandit:/tmp/bandit12$ mv data data.gz
 bandit12@bandit:/tmp/bandit12$ gunzip data.gz
 bandit12@bandit:/tmp/bandit12$ ls
-data  data.txt
+data data.txt
 bandit12@bandit:/tmp/bandit12$ file data
 data: bzip2 compressed data, block size = 900k
 bandit12@bandit:/tmp/bandit12$ mv data data.bz2
 bandit12@bandit:/tmp/bandit12$ bzip2 -d data.bz2
 bandit12@bandit:/tmp/bandit12$ ls
-data  data.txt
+data data.txt
 bandit12@bandit:/tmp/bandit12$ file data
 data: gzip compressed data, was "data4.bin", last modified: Thu May 7 18:14:30 2020, max compression, from Unix
 bandit12@bandit:/tmp/bandit12$ mv data data.gz
 bandit12@bandit:/tmp/bandit12$ gunzip data.gz
 bandit12@bandit:/tmp/bandit12$ ls
-data  data.txt
+data data.txt
 bandit12@bandit:/tmp/bandit12$ file data
 data: POSIX tar archive (GNU)
 bandit12@bandit:/tmp/bandit12$ tar -xvf data
@@ -47,13 +47,13 @@ data6.bin: bzip2 compressed data, block size = 900k
 bandit12@bandit:/tmp/bandit12$ mv data6.bin data6.bz2
 bandit12@bandit:/tmp/bandit12$ bzip2 -d data6.bz2
 bandit12@bandit:/tmp/bandit12$ ls
-data  data5.bin  data6  data.txt
+data data5.bin data6 data.txt
 bandit12@bandit:/tmp/bandit12$ file data6
 data6: POSIX tar archive (GNU)
 bandit12@bandit:/tmp/bandit12$ tar -xvf data6
 data8.bin
 bandit12@bandit:/tmp/bandit12$ file data8.bin
-data8.bin: gzip compressed data, was "data9.bin", last modified: Thu May  7 18:14:30 2020, max compression, from Unix
+data8.bin: gzip compressed data, was "data9.bin", last modified: Thu May 7 18:14:30 2020, max compression, from Unix
 bandit12@bandit:/tmp/bandit12$ mv data8.bin data8.gz
 bandit12@bandit:/tmp/bandit12$ gunzip data8.gz
 bandit12@bandit:/tmp/bandit12$ ls
