@@ -76,7 +76,7 @@ $$
 Due to Hugo's use of the `\` character for text escaping, the sequence `\\\` is required instead of `\\` (at the source-code level) in order to correctly render a line break. Moreover, the `align*` environment seems to be the most compatible between KaTeX and MathJax. This change does not seem to affect $\TeX$ rendering in other platforms.
 
 ## Technical Diagrams
-The following `layouts/partials/extend-head.html` code is based on [Docsy's diagram support](https://www.docsy.dev/docs/adding-content/diagrams-and-formulae/#diagrams-with-mermaid), and implemented similarly to [Docsy's implementation](https://github.com/google/docsy/blob/main/assets/js/mermaid.js#L5-L8), and [Congo's implementation](https://github.com/jpanther/congo/blob/stable/assets/js/mermaid.js), the theme settings are based on [Mermaid's documentation](https://mermaid-js.github.io/mermaid/#/theming).
+The following `layouts/partials/extend-head.html` code is based on [Docsy's diagram support](https://www.docsy.dev/docs/adding-content/diagrams-and-formulae/#diagrams-with-mermaid), and implemented similarly to [Docsy's implementation](https://github.com/google/docsy/blob/main/assets/js/mermaid.js), and [Congo's implementation](https://github.com/jpanther/congo/blob/stable/assets/js/mermaid.js), the theme settings are based on [Mermaid's documentation](https://mermaid-js.github.io/mermaid/#/theming).
 
 ```html
 {{$mermaidLib := resources.Get "lib/mermaid/mermaid.min.js"}}
@@ -162,7 +162,7 @@ I was not completely satisfied with some of the styling of the default [Congo th
 
 ## CSS
 ### Horizontal Scroll on Small-Width Screens
-The following CSS was added to `assets/css/custom.css` (based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css#L2862)) in order to (indirectly) disable horizontal scrolling in small-width screens. It turns out that the horizontal scroll is enabled to to `a` HTML tag styling that did not limit their width to the screen width.
+The following CSS was added to `assets/css/custom.css` (based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css)) in order to (indirectly) disable horizontal scrolling in small-width screens. It turns out that the horizontal scroll is enabled to to `a` HTML tag styling that did not limit their width to the screen width.
 
 ```css
 @media (max-width: 640px) {
@@ -220,7 +220,7 @@ func main() {
 ```
 
 ### Backtick-less Inline Code Snippets
-The following CSS was added to `assets/css/custom.css` in order to revert [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css#L745-L751) that surrounds inline code snippets with backtick symbols.
+The following CSS was added to `assets/css/custom.css` in order to revert [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css) that surrounds inline code snippets with backtick symbols.
 
 ```css
 .prose :where(code):not(:where([class~="not-prose"] *))::before {
@@ -231,8 +231,21 @@ The following CSS was added to `assets/css/custom.css` in order to revert [Congo
 }
 ```
 
+### Quote-less Block Quote
+The following CSS was added to `assets/css/custom.css` in order to revert [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css) that surrounds block quote with literal quotes.
+
+```css
+.prose :where(blockquote p:first-of-type):not(:where([class~="not-prose"] *))::before {
+	content: unset !important;
+}
+
+.prose :where(blockquote p:last-of-type):not(:where([class~="not-prose"] *))::after {
+	content: unset !important;
+}
+```
+
 ### Content Width
-The following CSS was added to `assets/css/custom.css` in order to increase the content width. Based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css#L1952-L1962).
+The following CSS was added to `assets/css/custom.css` in order to increase the content width. Based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css).
 
 ```css
 .max-w-7xl {
