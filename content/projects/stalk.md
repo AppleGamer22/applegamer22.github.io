@@ -1,6 +1,6 @@
 ---
 title: stalk
 date: 2022-05-08
-tags: [go, cli, utility, linux, mac, windows]
+tags: [Go, cli, utility, Linux, macOS, Windows]
 externalUrl: https://github.com/AppleGamer22/stalk
 ---

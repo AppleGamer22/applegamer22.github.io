@@ -1,7 +1,7 @@
 ---
 title: OverTheWire Bandit Level 11 - 12
 date: 2022-07-28T11:00:00
-tags: [overthewire, bandit, linux, shell, cryptography]
+tags: [OverTheWire, Bandit, Linux, shell, cryptography]
 ---
 # Prompt
 > The password for the next level is stored in the file data.txt, where all lowercase and uppercase letters have been rotated by 13 positions

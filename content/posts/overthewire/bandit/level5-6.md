@@ -1,7 +1,7 @@
 ---
 title: OverTheWire Bandit Level 5 - 6
 date: 2022-07-28T05:00:00
-tags: [overthewire, bandit, linux, shell]
+tags: [OverTheWire, Bandit, Linux, shell]
 ---
 # Prompt
 > The password for the next level is stored in a file somewhere under the `inhere` directory and has all of the following properties:

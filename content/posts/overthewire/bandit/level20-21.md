@@ -1,7 +1,7 @@
 ---
 title: OverTheWire Bandit Level 20 - 21
 date: 2022-07-29T03:00:00
-tags: [overthewire, bandit, linux, shell, networking]
+tags: [OverTheWire, Bandit, Linux, shell, networking]
 ---
 # Prompt
 > There is a `setuid` binary in the home directory that does the following:

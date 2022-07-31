@@ -1,7 +1,7 @@
 ---
 title: OverTheWire Bandit Level 25 - 26
 date: 2022-07-29T08:00:00
-tags: [overthewire, bandit, linux, shell]
+tags: [OverTheWire, Bandit, Linux, shell]
 ---
 # Prompt
 > Logging in to `bandit26` from `bandit25` should be fairly easy The shell for user `bandit26` is not `/bin/bash`, but something else. Find out what it is, how it works and how to break out of it.

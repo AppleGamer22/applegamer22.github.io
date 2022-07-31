@@ -2,7 +2,7 @@
 title: My Hugo & Congo Configuration
 date: 2022-07-13
 description: My changes, additions and set-up of this Hugo-Congo website
-tags: [hugo, congo, yaml, markdown, tex, html, css, javascript, typesetting, fonts]
+tags: [Hugo, Congo, YAML, Markdown, TeX, HTML, CSS, JavaScript, typesetting, fonts]
 ---
 This document summarises how I set-up this website's layout, fonts and typesetting. As a result, I highly recommend the [Congo](https://github.com/jpanther/congo) theme for the [Hugo](http://gohugo.io) static site generator due to its layout, styling and extensibility.
 

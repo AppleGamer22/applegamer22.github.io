@@ -1,7 +1,7 @@
 ---
 title: OverTheWire Bandit Level 23 - 24
 date: 2022-07-29T06:00:00
-tags: [overthewire, bandit, linux, shell]
+tags: [OverTheWire, Bandit, Linux, shell]
 ---
 # Prompt
 > A program is running automatically at regular intervals from `cron`, the time-based job scheduler. Look in `/etc/cron.d/` for the configuration and see what command is being executed.

@@ -1,7 +1,7 @@
 ---
 title: OverTheWire Bandit Level 24 - 25
 date: 2022-07-29T07:00:00
-tags: [overthewire, bandit, linux, shell, networking]
+tags: [OverTheWire, Bandit, Linux, shell, networking]
 ---
 # Prompt
 > A daemon is listening on port 30002 and will give you the password for `bandit25` if given the password for `bandit24` and a secret numeric 4-digit PIN code. There is no way to retrieve the PIN code except by going through all of the 10000 combinations, called brute-forcing.

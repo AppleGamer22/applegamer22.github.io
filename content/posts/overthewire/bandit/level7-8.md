@@ -1,7 +1,7 @@
 ---
 title: OverTheWire Bandit Level 7 - 8
 date: 2022-07-28T07:00:00
-tags: [overthewire, bandit, linux, shell]
+tags: [OverTheWire, Bandit, Linux, shell]
 ---
 # Prompt
 > The password for the next level is stored in the file `data.txt` next to the word `millionth`

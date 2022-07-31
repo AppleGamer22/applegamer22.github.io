@@ -1,7 +1,7 @@
 ---
 title: OverTheWire Bandit Level 0 - 1
 date: 2022-07-28T00:00:00
-tags: [overthewire, bandit, linux, shell]
+tags: [OverTheWire, Bandit, Linux, shell]
 ---
 This is my attempt at [OverTheWire's Bandit](https://overthewire.org/wargames/bandit/bandit0.html) challenges.
 

@@ -1,7 +1,7 @@
 ---
 title: OverTheWire Bandit Level 13 - 14
 date: 2022-07-28T13:00:00
-tags: [overthewire, bandit, linux, shell]
+tags: [OverTheWire, Bandit, Linux, shell]
 ---
 # Prompt
 > The password for the next level is stored in `/etc/bandit_pass/bandit14` and can only be read by user `bandit14`. For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level.
