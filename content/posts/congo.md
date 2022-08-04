@@ -311,6 +311,9 @@ module:
 markup:
   highlight:
     noClasses: false
+  goldmark:
+    renderer:
+      unsafe: true
   tableOfContents:
     startLevel: 1
     endLevel: 6
@@ -346,6 +349,8 @@ baseURL: https://applegamer22.github.io
 timeZone: Australia/Melbourne
 defaultContentLanguage: en
 title: Omri Bornstein
+paginate: 15
+summaryLength: 0
 outputs:
   home:
     - HTML
@@ -361,6 +366,7 @@ Basic information about me and the website is configured such that browser citat
 languages:
   en:
     languageName: English
+    languageCode: en
     isoCode: en
     rtl: false
     weight: 1
