@@ -131,8 +131,10 @@ a {
 In order to render multi-line [math expressions](#katex) correctly in small-width screens, the following CSS code was added to `assets/css/custom.css`:
 
 ```css
-span.katex-display > * {
-	font-size: 0.65rem !important;
+@media (max-width: 640px) {
+	span.katex-display > * {
+		font-size: 0.65rem !important;
+	}
 }
 ```
 

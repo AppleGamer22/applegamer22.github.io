@@ -7,8 +7,10 @@ a {
 	word-wrap: break-word !important;
 }
 
-span.katex-display > * {
-	font-size: 0.65rem !important;
+@media (max-width: 640px) {
+	span.katex-display > * {
+		font-size: 0.65rem !important;
+	}
 }
 
 @font-face {
