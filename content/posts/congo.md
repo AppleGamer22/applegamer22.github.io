@@ -161,25 +161,28 @@ sequenceDiagram
 I was not completely satisfied with some of the styling of the default [Congo theme](https://github.com/jpanther/congo), but luckily, it supports extensive customisations.
 
 ## CSS
-### Horizontal Scroll on Small-Width Screens
-The following CSS was added to `assets/css/custom.css` (based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css#L2862)) in order to (indirectly) disable horizontal scrolling in small-width screens. It turns out that the horizontal scroll is enabled to to `a` HTML tag styling that did not limit their width to the screen width.
+### Horizontal Scrolling
+The following CSS was added to `assets/css/custom.css` in order to disable horizontal scrolling.
+
+* The single-line width of HTML `a` tags HTML tags is capped at the screen width.
+* Horizontal scroll is disabled on the HTML `body` scope.
 
 ```css
-@media (max-width: 640px) {
-	a {
-		max-width: 100vw !important;
-		word-wrap: break-word !important;
-	}
+body {
+	overflow-x: hidden;
+}
+
+a {
+	max-width: 100vw !important;
+	word-wrap: break-word !important;
 }
 ```
 
 In order to render multi-line [math expressions](#katex) correctly in small-width screens, the following CSS code was added to `assets/css/custom.css`:
 
 ```css
-@media (max-width: 640px) {
-	span.katex-display > * {
-		font-size: 0.65rem !important;
-	}
+span.katex-display > * {
+	font-size: 0.65rem !important;
 }
 ```
 
