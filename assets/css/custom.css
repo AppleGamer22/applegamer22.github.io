@@ -47,6 +47,11 @@ pre.mermaid {
 	content: unset !important;
 }
 
+
+ul > li > ul {
+	list-style-type: square !important;
+}
+
 .max-w-7xl {
 	max-width: 100rem !important;
 }

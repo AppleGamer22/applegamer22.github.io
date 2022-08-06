@@ -249,6 +249,15 @@ The following CSS was added to `assets/css/custom.css` in order to revert [Congo
 }
 ```
 
+### Nested Unordered Lists
+The following CSS was added to `assets/css/custom.css` in order to set the second nested unordered list item bullet style as a square instead of a circle
+
+```css
+ul > li > ul {
+	list-style-type: square !important;
+}
+```
+
 ### Content Width
 The following CSS was added to `assets/css/custom.css` in order to increase the content width. Based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css).
 
