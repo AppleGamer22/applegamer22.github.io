@@ -2,7 +2,7 @@
 title: UACTF Sanity Check
 date: 2022-07-30
 draft: true
-tags: [uactf, reversing, linux, shell, C]
+tags: [UACTF, reversing, linux, shell, C]
 ---
 # Prompt
 > I didn't know that `strings` was a command until way later LMAO. `¯\_(ツ)_/¯`
