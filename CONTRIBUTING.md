@@ -1,4 +1,4 @@
-# Contributing to `rake`
+# Contributing to `applegamer22.github.io`
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
 * Reporting a bug
 * Discussing the current state of the code
@@ -6,15 +6,15 @@ We love your input! We want to make contributing to this project as easy and tra
 * Proposing new features
 * Becoming a maintainer
 
-## [Questions/Problems](https://github.com/AppleGamer22/rake/discussions)
+## [Questions/Problems](https://github.com/AppleGamer22/applegamer22.github.io/discussions)
 We use GitHub Discussions to answer your questions that might not require an issue ad a pull request.
 
 Available discussion categories:
-* [General](https://github.com/AppleGamer22/rake/discussions/categories/general)
-* [Ideas](https://github.com/AppleGamer22/rake/discussions/categories/ideas)
+* [General](https://github.com/AppleGamer22/applegamer22.github.io/discussions/categories/general)
+* [Ideas](https://github.com/AppleGamer22/applegamer22.github.io/discussions/categories/ideas)
   * Discussion categories changes should be suggested here.
-* [Q&A](https://github.com/AppleGamer22/rake/discussions/categories/q-a)
-* [Show & Tell](https://github.com/AppleGamer22/rake/discussions/categories/show-tell)
+* [Q&A](https://github.com/AppleGamer22/applegamer22.github.io/discussions/categories/q-a)
+* [Show & Tell](https://github.com/AppleGamer22/applegamer22.github.io/discussions/categories/show-tell)
 
 ## [Submissions](https://guides.github.com/introduction/flow/index.html)
 Pull requests are the best way to propose changes to the codebase (we use Github Flow). We actively welcome your pull requests:
@@ -24,16 +24,15 @@ Pull requests are the best way to propose changes to the codebase (we use Github
 >![Gitflow Workflow](https://wac-cdn.atlassian.com/dam/jcr:61ccc620-5249-4338-be66-94d563f2843c/05%20(2).svg?cdnVersion=1393)
 > Atlassian. (2021). Gitflow Workflow. Atlassian; Atlassian. https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
 
-‌
 
 1. Fork the repo and create your branch from `master`/`main`.
 ```bash
 # Clone your fork of the repo into the current directory
-git clone https://github.com/AppleGamer22/rake
+git clone https://github.com/AppleGamer22/applegamer22.github.io
 # Navigate to the newly cloned directory
-cd rake
+cd applegamer22.github.io
 # Assign the original repo to a remote called "GitHub"
-git remote add GitHub https://github.com/AppleGamer22/rake
+git remote add GitHub https://github.com/AppleGamer22/applegamer22.github.io
 # Create a ew branch from HEAD
 git branch <your branch>
 ```
@@ -69,7 +68,7 @@ gh pr ready [<number> | <url> | <branch>] [flags]
 gh pr close [<number> | <url> | <branch>] [flags]
 ```
 
-## [Bug Reports/Feature Requests](https://github.com/AppleGamer22/rake/issues)
+## [Bug Reports/Feature Requests](https://github.com/AppleGamer22/applegamer22.github.io/issues)
 We use GitHub Issues to track public bugs. Report a bug by opening a new issue.
 
 Your bug reports should have:
@@ -104,7 +103,7 @@ trim_trailing_whitespace = false
 indent_style = space
 indent_size = 2
 ```
-## [License](https://github.com/AppleGamer22/rake/blob/master/LICENSE.md)
+## [License](https://github.com/AppleGamer22/applegamer22.github.io/blob/master/LICENSE.md)
 When you submit code changes, your submissions are understood to be under the same [GNU GPL-3 License](https://choosealicense.com/licenses/gpl-3.0/) that covers the project. Feel free to contact the maintainers if that's a concern.
 
 By contributing, you agree that your contributions will be licensed under its GNU GPL-3 License.
