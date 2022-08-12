@@ -6,6 +6,8 @@ baseURL: https://applegamer22.github.io
 timeZone: Australia/Melbourne
 defaultContentLanguage: en
 title: Omri Bornstein
+paginate: 15
+summaryLength: 0
 outputs:
   home:
     - HTML
@@ -57,6 +59,9 @@ params:
 markup:
   highlight:
     noClasses: false
+  goldmark:
+    renderer:
+      unsafe: true
   tableOfContents:
     startLevel: 1
     endLevel: 6
@@ -64,6 +69,7 @@ markup:
 languages:
   en:
     languageName: English
+    languageCode: en
     isoCode: en
     rtl: false
     weight: 1
@@ -80,6 +86,7 @@ languages:
         - github: https://github.com/AppleGamer22
         - gitlab: https://gitlab.com/AppleGamer22
         - stack-overflow: https://stackoverflow.com/users/7148921/
+        - keybase: https://keybase.io/applegamer22
         - orcid: https://orcid.org/0000-0001-8645-6321
         - dev: https://dev.to/applegamer22
         - hashnode: https://applegamer22.hashnode.dev

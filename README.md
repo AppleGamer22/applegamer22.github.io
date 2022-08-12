@@ -111,15 +111,20 @@ pre.mermaid {
 
 # Changes to Congo
 ## CSS
-### Horizontal Scroll on Small-Width Screens
-The following CSS was added to `assets/css/custom.css` (based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css)) in order to (indirectly) disable horizontal scrolling in small-width screens. It turns out that the horizontal scroll is enabled to to `a` HTML tag styling that did not limit their width to the screen width.
+### Horizontal Scrolling
+The following CSS was added to `assets/css/custom.css` in order to disable horizontal scrolling.
+
+* The single-line width of HTML `a` tags HTML tags is capped at the screen width.
+* Horizontal scroll is disabled on the HTML `body` scope.
 
 ```css
-@media (max-width: 640px) {
-	a {
-		max-width: 100vw !important;
-		word-wrap: break-word !important;
-	}
+body {
+	overflow-x: hidden;
+}
+
+a {
+	max-width: 100vw !important;
+	word-wrap: break-word !important;
 }
 ```
 
@@ -177,6 +182,15 @@ The following CSS was added to `assets/css/custom.css` in order to revert [Congo
 
 .prose :where(blockquote p:last-of-type):not(:where([class~="not-prose"] *))::after {
 	content: unset !important;
+}
+```
+
+### Nested Unordered Lists
+The following CSS was added to `assets/css/custom.css` in order to set the second nested unordered list item bullet style as a square instead of a circle
+
+```css
+ul > li > ul {
+	list-style-type: square !important;
 }
 ```
 

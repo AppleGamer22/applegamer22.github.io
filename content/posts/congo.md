@@ -2,7 +2,7 @@
 title: My Hugo & Congo Configuration
 date: 2022-07-13
 description: My changes, additions and set-up of this Hugo-Congo website
-tags: [hugo, congo, yaml, markdown, tex, html, css, javascript, typesetting, fonts]
+tags: [Hugo, Congo, YAML, Markdown, TeX, HTML, CSS, JavaScript, typesetting, fonts]
 ---
 This document summarises how I set-up this website's layout, fonts and typesetting. As a result, I highly recommend the [Congo](https://github.com/jpanther/congo) theme for the [Hugo](http://gohugo.io) static site generator due to its layout, styling and extensibility.
 
@@ -161,15 +161,20 @@ sequenceDiagram
 I was not completely satisfied with some of the styling of the default [Congo theme](https://github.com/jpanther/congo), but luckily, it supports extensive customisations.
 
 ## CSS
-### Horizontal Scroll on Small-Width Screens
-The following CSS was added to `assets/css/custom.css` (based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css)) in order to (indirectly) disable horizontal scrolling in small-width screens. It turns out that the horizontal scroll is enabled to to `a` HTML tag styling that did not limit their width to the screen width.
+### Horizontal Scrolling
+The following CSS was added to `assets/css/custom.css` in order to disable horizontal scrolling.
+
+* The single-line width of HTML `a` tags HTML tags is capped at the screen width.
+* Horizontal scroll is disabled on the HTML `body` scope.
 
 ```css
-@media (max-width: 640px) {
-	a {
-		max-width: 100vw !important;
-		word-wrap: break-word !important;
-	}
+body {
+	overflow-x: hidden;
+}
+
+a {
+	max-width: 100vw !important;
+	word-wrap: break-word !important;
 }
 ```
 
@@ -183,7 +188,7 @@ In order to render multi-line [math expressions](#katex) correctly in small-widt
 }
 ```
 
-In order to ensure search results don't overflow the [intended width](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css#L2181-L2184), the maximum width is restricted accordingly.
+In order to ensure search results don't overflow the [intended width](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css), the maximum width is restricted accordingly.
 
 ```css
 #search-results > li > a > * {
@@ -241,6 +246,15 @@ The following CSS was added to `assets/css/custom.css` in order to revert [Congo
 
 .prose :where(blockquote p:last-of-type):not(:where([class~="not-prose"] *))::after {
 	content: unset !important;
+}
+```
+
+### Nested Unordered Lists
+The following CSS was added to `assets/css/custom.css` in order to set the second nested unordered list item bullet style as a square instead of a circle
+
+```css
+ul > li > ul {
+	list-style-type: square !important;
 }
 ```
 
@@ -319,6 +333,9 @@ module:
 markup:
   highlight:
     noClasses: false
+  goldmark:
+    renderer:
+      unsafe: true
   tableOfContents:
     startLevel: 1
     endLevel: 6
@@ -354,6 +371,8 @@ baseURL: https://applegamer22.github.io
 timeZone: Australia/Melbourne
 defaultContentLanguage: en
 title: Omri Bornstein
+paginate: 15
+summaryLength: 0
 outputs:
   home:
     - HTML
@@ -369,6 +388,7 @@ Basic information about me and the website is configured such that browser citat
 languages:
   en:
     languageName: English
+    languageCode: en
     isoCode: en
     rtl: false
     weight: 1

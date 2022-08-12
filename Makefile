@@ -10,8 +10,8 @@ website:
 	hugo --minify
 
 watch:
-	hugo server --noHTTPCache
+	hugo server --noHTTPCache --buildDrafts
 
 clean:
-	rm -rf public resources/_gen assets/jsconfig.json hugo_stats.json .hugo_build.lock
+	rm -rf public resources/_gen assets/jsconfig.json hugo_stats.json .hugo_build.lock cv.synctex.gz
 	latexmk -c

@@ -1,6 +1,6 @@
 ---
 title: scr-web
 date: 2019-09-30
-tags: [typescript, javascript, html, css, angular, nestjs, nx, ionic, server, client, full-stack, docker, linux, mac, windows]
+tags: [TypeScript, JavaScript, HTML, CSS, Angular, NestJS, Nx, Ionic, server, client, full-stack, regex, Docker, Linux, macOS, Windows]
 externalUrl: https://github.com/AppleGamer22/scr-web
 ---
