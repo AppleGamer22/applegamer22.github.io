@@ -1,7 +1,6 @@
 ---
 title: UACTF Sanity Check
 date: 2022-07-30
-draft: true
 tags: [UACTF, reversing, linux, shell, C]
 ---
 # Prompt
