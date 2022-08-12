@@ -15,7 +15,7 @@ $ strings sanity-check | grep "UACTF"
 UACTF{N3V3R_G0NN4_L37_Y0U_D0WN}
 ```
 
-# Binary Decompilation
+<!-- # Binary Decompilation
 Using [Decompiler Explorer](https://dogbolt.org), I wanted to find what the binary does since running it with no argument or standard input produces no obvious results. The following decompiled code is my adaptation of [Ghidra](https://ghidra-sre.org)'s and [BinaryNinja](https://binary.ninja)'s decompiler output.
 
 The `main` function's only purpose seems to call the `do_stuff` function.
@@ -68,4 +68,4 @@ void do_stuff() {
 void __stack_chk_fail() {
 	__stack_chk_fail();
 }
-```
+``` -->
