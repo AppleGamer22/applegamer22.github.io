@@ -7,6 +7,7 @@ date: 2022-07-02
 * [`cocainate`](https://github.com/AppleGamer22/cocainate) is a **cross-platform** re-implementation of the macOS utility [`caffeinate`](https://github.com/apple-oss-distributions/PowerManagement/tree/main/caffeinate) that keeps the screen turned on either until stopped, for a set duration of time or while another process still runs.
 * [`stalk`](https://github.com/AppleGamer22/stalk) is a **cross-platform** file-watcher that can run a command after each file-system operation on a given files or simply wait once until a file is changed.
 * [`raker`](https://github.com/AppleGamer22/raker) is a social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
+* [ctftime-discord-bot](https://github.com/monsec/ctftime-discord-bot) is a discord bot I made for the [MonSec](https://monsec.io) Discord server, that fetches statistics about competing teams from [CTFtime](https://ctftime.org), and displays them in the Discord interface.
 
 ## Other Projects
 ### Research
