@@ -7,13 +7,15 @@ date: 2022-07-02
 * [`cocainate`](https://github.com/AppleGamer22/cocainate) is a **cross-platform** re-implementation of the macOS utility [`caffeinate`](https://github.com/apple-oss-distributions/PowerManagement/tree/main/caffeinate) that keeps the screen turned on either until stopped, for a set duration of time or while another process still runs.
 * [`stalk`](https://github.com/AppleGamer22/stalk) is a **cross-platform** file-watcher that can run a command after each file-system operation on a given files or simply wait once until a file is changed.
 * [`raker`](https://github.com/AppleGamer22/raker) is a social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
-* [ctftime-discord-bot](https://github.com/monsec/ctftime-discord-bot) is a discord bot I made for the [MonSec](https://monsec.io) Discord server, that fetches statistics about competing teams from [CTFtime](https://ctftime.org), and displays them in the Discord interface.
 
 ## Other Projects
 ### Research
 * As part of the [FIT2082 unit](https://handbook.monash.edu/2021/units/FIT2082), I [contributed](https://github.com/AppleGamer22/FIT2082) to an existing codebase, based on prior research by [(Gange, Harabor and Stuckey, 2021)](https://ojs.aaai.org/index.php/ICAPS/article/view/3471) about *Lazy CBS*, their [Multi-Agent Path Finding](https://en.wikipedia.org/wiki/Pathfinding#Multi-agent_pathfinding) (MAPF) algorithm.
 	*  My task was to modify the *Lazy CBS* codebase such that the algorithm also outputs the final set of constraints that is used to rule out paths, such that the *Lazy CBS* is formally an Explainable Multi-Agent Path Finding (*XMAPF*) algorithm.
 	*  I learned how to enable [*Python*-to-*C++* bindings](https://pybind11.readthedocs.io/en/stable/), such that the compiled *Lazy CBS* codebase can be used as a *Python*-facing library for future projects.
+
+### Go
+* [ctftime-discord-bot](https://github.com/monsec/ctftime-discord-bot) is a discord bot I made for the [MonSec](https://monsec.io) Discord server, that fetches statistics about competing teams from [CTFtime](https://ctftime.org), and displays them in the Discord interface.
 
 ### TypeScript & JavaScript
 * [scr-web](https://github.com/AppleGamer22/scr-web) (and its [scr-cli](https://github.com/AppleGamer22/scr-cli) counterpart) is my previous attempt at building a full-stack social media scraper, with
