@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json
+image: registry.gitlab.com/pages/hugo/hugo_extended:latest
+default:
+  before_script:
+    - apk add --update --no-cache git go
+test:
+  script:
+    - make website
+  rules:
+    - if: $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
+pages:
+  script:
+    - make website
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
