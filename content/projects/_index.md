@@ -1,6 +1,5 @@
 ---
 title: Projects
-date: 2022-07-02
 ---
 ## Current Projects
 ### Go

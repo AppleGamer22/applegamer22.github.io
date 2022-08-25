@@ -1,7 +1,7 @@
 ---
-title: SHELLCTF How to Defeat a Dragon
+title: SHELL CTF How to Defeat a Dragon
 date: 2022-08-12
-tags: [SHELLCTF, reversing, linux, shell, C]
+tags: [SHELL_CTF, reversing, linux, shell, C]
 ---
 # Prompt
 > Dragonairre, the dragon with the hexadecimal head has attacked the village to take revenge on his last defeat, we need to get the ultimate weapon.
