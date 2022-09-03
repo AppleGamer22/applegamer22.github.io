@@ -405,7 +405,7 @@ languages:
   en:
     menu:
       main:
-        - name: Blog
+        - name: Posts
           pageRef: posts
           weight: 1
         - name: Projects
