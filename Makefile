@@ -3,7 +3,7 @@
 build: cv website
 
 cv:
-	latexmk -pdf -lualatex cv.tex
+	latexmk -pdf -lualatex -interaction=errorstopmode cv.tex
 	mv cv.pdf static
 
 website:

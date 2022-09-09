@@ -1,51 +1,26 @@
-\documentclass[a4paper, 10pt]{article}
-\usepackage[english]{babel}
-\usepackage{fancyhdr}
-\usepackage{hyperref}
-\usepackage{titling}
-\usepackage[empty]{fullpage}
-\usepackage[none]{hyphenat}
-\usepackage{fontspec}
-\usepackage{xcolor}
+\documentclass[a4paper, 10pt, roman, colorlinks, linkcolor=purple, filecolor=purple, citecolor=blue, urlcolor=blue]{moderncv}
+\moderncvstyle{classic}
+% \moderncvcolor{blue} 
 
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
+\usepackage[margin=15mm]{geometry}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+
+\renewcommand{\labelitemi}{$\bullet$}
 \renewcommand{\labelitemii}{$\circ$}
 
-\addtolength{\oddsidemargin}{-0.530in}
-\addtolength{\evensidemargin}{-0.375in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-0.45in}
-\addtolength{\textheight}{1in}
-\setlength{\headheight}{18pt}
-\setlength{\footskip}{3.7pt}
-\setlength{\tabcolsep}{0in}
-\setlength{\parindent}{0pt}
-\setcounter{secnumdepth}{-\maxdimen}
 \setmonofont[Contextuals=Alternate, Scale=MatchLowercase]{Fira Code}
 
-\author{Omri Bornstein}
-\title{\theauthor's CV}
-\date{\today}
-\hypersetup{
-	pdftitle={\thetitle},
-	pdfsubject={\thetitle},
-	pdfauthor={\theauthor},
-	pdfkeywords={CV},
-	colorlinks=true,
-	linkcolor=purple,
-	filecolor=purple,
-	citecolor=blue,
-	urlcolor=blue,
-}
-\urlstyle{same}
-\pagestyle{fancy}
-\fancyhf{}
-\lhead{\href{mailto:omribor@gmail.com}{omribor@gmail.com}}
-\chead{\Large \theauthor}
-\rhead{\href{https://applegamer22.github.io}{applegamer22.github.io}}
+\title{CV}
+\name{Omri}{Bornstein}
+\email{omribor@gmail.com}
+\homepage{applegamer22.github.io}
+\social[linkedin]{omri-bornstein}
+\social[github]{AppleGamer22}
 
-\raggedleft\raggedright\begin{document}
+% \raggedleft\raggedright
+\begin{document}
+	\makecvtitle
 	\section{Education}
 	\begin{enumerate}
 		\item \textbf{2017 --- 2019}: secondary education at \href{https://asms.sa.edu.au}{Australian Science \& Mathematics School} (ASMS), Adelaide, South Australia
