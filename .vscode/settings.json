@@ -38,5 +38,6 @@
 				"lualatexmk",
 			]
 		}
-	]
+	],
+	"discord.enabled": true
 }
