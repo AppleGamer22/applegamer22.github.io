@@ -10,7 +10,7 @@ title: Projects
 ## Other Projects
 ### Research
 * As part of the [FIT2082 unit](https://handbook.monash.edu/2021/units/FIT2082), I [contributed](https://github.com/AppleGamer22/FIT2082) to an existing codebase, based on prior research by [(Gange, Harabor and Stuckey, 2021)](https://ojs.aaai.org/index.php/ICAPS/article/view/3471) about *Lazy CBS*, their [Multi-Agent Path Finding](https://en.wikipedia.org/wiki/Pathfinding#Multi-agent_pathfinding) (MAPF) algorithm.
-	*  My task was to modify the *Lazy CBS* codebase such that the algorithm also outputs the final set of constraints that is used to rule out paths, such that the *Lazy CBS* is formally an Explainable Multi-Agent Path Finding (*XMAPF*) algorithm.
+	*  My task was to modify the *Lazy CBS* codebase such that the algorithm also outputs the final set of constraints that is used to rule out paths, such that the *Lazy CBS* is formally an **Explainable** Multi-Agent Path Finding (*XMAPF*) algorithm.
 	*  I learned how to enable [*Python*-to-*C++* bindings](https://pybind11.readthedocs.io/en/stable/), such that the compiled *Lazy CBS* codebase can be used as a *Python*-facing library for future projects.
 
 ### Go

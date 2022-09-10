@@ -3,17 +3,20 @@
 
 \usepackage[margin=15mm]{geometry}
 \usepackage[english]{babel}
+\usepackage[none]{hyphenat}
 % \usepackage{fontspec}
 
 \renewcommand{\labelitemi}{$\bullet$}
 \renewcommand{\labelitemii}{$\circ$}
 
 % \setmonofont[Contextuals=Alternate, Scale=MatchLowercase]{Fira Code}
+\setlength{\hintscolumnwidth}{0.15\textwidth}
 
 \name{Omri}{Bornstein}
 \title{Software Engineer}
-\email{omribor@gmail.com}
+\address{}{Greater Melbourne Area}{Australia}
 \phone{+61 448 289 895}
+\email{omribor@gmail.com}
 \homepage{applegamer22.github.io}
 \social[linkedin]{omri-bornstein}
 \social[github]{AppleGamer22}
@@ -21,10 +24,8 @@
 \raggedleft\raggedright\begin{document}
 	\maketitle
 	\section{Education}
-	\begin{enumerate}
-		\item \textbf{2017 --- 2019}: secondary education at \href{https://asms.sa.edu.au}{Australian Science \& Mathematics School} (ASMS), Adelaide, South Australia
-		\item \textbf{2020 --- Present}: Bachelor of Computer Science at \href{https://www.monash.edu/it}{Monash University}, Melbourne, Victoria
-	\end{enumerate}
+	\cventry{2017 \\ 2019}{South Australian Certificate of Education}{\href{https://asms.sa.edu.au}{Australian Science \& Mathematics School} (ASMS)}{Adelaide}{}{}
+	\cventry{2020 \\ Present}{Bachelor of Computer Science}{\href{https://www.monash.edu/it}{Monash University}}{Melbourne}{}{}
 
 	\section{Skills}
 	\begin{itemize}
@@ -38,11 +39,9 @@
 	\end{itemize}
 
 	\section{Leadership Experience}
-	\begin{enumerate}
-		\item \textbf{May 2021 --- January 2022}: General Representative at \href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)
-		\item \textbf{January 2022 --- June 2022}: Secretary at \href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)
-		\item \textbf{June 2022 --- Present}: Vice President at \href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)
-	\end{enumerate}
+	\cventry{May 2021 \\ January 2022}{General Representative}{\href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)}{Melbourne}{}{}
+	\cventry{January 2022 \\ June 2022}{Secretary}{\href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)}{Melbourne}{}{}
+	\cventry{June 2022 \\ Present}{Vice President}{\href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)}{Melbourne}{}{}
 
 	\section{Projects}
 	\subsection{Open-Source}
@@ -56,13 +55,13 @@
 	\end{itemize}
 
 	\subsection{Research}
-	\begin{itemize}
-		\item As part of the \href{https://handbook.monash.edu/2021/units/FIT2082}{FIT2082 unit}, I \href{https://github.com/AppleGamer22/FIT2082}{contributed} to an \href{https://bitbucket.org/gkgange/lazycbs}{existing codebase}, based on prior research by \href{https://ojs.aaai.org/index.php/ICAPS/article/view/3471}{(Gange, Harabor and Stuckey, 2021)} about \textsl{Lazy CBS}, their \href{https://en.wikipedia.org/wiki/Pathfinding#Multi-agent_pathfinding}{Multi-Agent Path Finding} (MAPF) algorithm.
+	\cventry{August 2021 \\ December 2021}{Software Contributor}{Monash University's \href{https://handbook.monash.edu/2021/units/FIT2082}{FIT2082 unit}}{Melbourne}{}{\begin{itemize}
+		\item I \href{https://github.com/AppleGamer22/FIT2082}{contributed} to an \href{https://bitbucket.org/gkgange/lazycbs}{existing codebase}, based on prior research by \href{https://ojs.aaai.org/index.php/ICAPS/article/view/3471}{(Gange, Harabor and Stuckey, 2021)} about \textsl{Lazy CBS}, their \href{https://en.wikipedia.org/wiki/Pathfinding\#Multi-agent_pathfinding}{Multi-Agent Path Finding} (MAPF) algorithm.
 		\begin{itemize}
-			\item My task was to modify the \textsl{Lazy CBS} codebase such that the algorithm also outputs the final set of constraints that is used to rule out paths, such that \textsl{Lazy CBS} is formally an Explainable Multi-Agent Path Finding (XMAPF) algorithm.
-			\item I learned how to enable \href{https://pybind11.readthedocs.io/en/stable/}{\textsl{Python}-to-\textsl{C++} bindings}, such that the compiled \textsl{Lazy CBS} codebase can be used as a Python-facing library for future projects.
+			\item I modified the \textsl{Lazy CBS} codebase such that the algorithm also outputs the final set of constraints that is used to rule out paths, such that \textsl{Lazy CBS} is formally an \textbf{Explainable} Multi-Agent Path Finding (XMAPF) algorithm.
+			\item I learned how to enable \httplink[\textsl{Python}-to-\textsl{C++} bindings]{pybind11.readthedocs.io/en/stable/}, such that the compiled \textsl{Lazy CBS} codebase can be used as a Python-facing library for future projects.
 		\end{itemize}
-	\end{itemize}
+	\end{itemize}}
 
 	\subsection{Freelancing}
 	\begin{itemize}
