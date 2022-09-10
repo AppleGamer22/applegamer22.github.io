@@ -14,7 +14,7 @@ title: Projects
 	*  I learned how to enable [*Python*-to-*C++* bindings](https://pybind11.readthedocs.io/en/stable/), such that the compiled *Lazy CBS* codebase can be used as a *Python*-facing library for future projects.
 
 ### Go
-* [ctftime-discord-bot](https://github.com/monsec/ctftime-discord-bot) is a discord bot I made for the [MonSec](https://monsec.io) Discord server, that fetches statistics about competing teams from [CTFtime](https://ctftime.org), and displays them in the Discord interface.
+* [ctftime-discord-bot](https://github.com/monsec/ctftime-discord-bot) is a discord bot I made for the [MonSec](https://monsec.io/contact/) Discord server, that fetches statistics about competing teams from [CTFtime](https://ctftime.org), and displays them in the Discord interface.
 
 ### TypeScript & JavaScript
 * [scr-web](https://github.com/AppleGamer22/scr-web) (and its [scr-cli](https://github.com/AppleGamer22/scr-cli) counterpart) is my previous attempt at building a full-stack social media scraper, with

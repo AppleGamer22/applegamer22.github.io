@@ -10,16 +10,18 @@
 \renewcommand{\labelitemii}{$\circ$}
 
 % \setmonofont[Contextuals=Alternate, Scale=MatchLowercase]{Fira Code}
+% \urlstyle{same}
 \setlength{\hintscolumnwidth}{0.15\textwidth}
 
 \name{Omri}{Bornstein}
 \title{Software Engineer}
 \address{}{Greater Melbourne Area}{Australia}
-\phone{+61 448 289 895}
+% \phone{+61 448 289 895}
 \email{omribor@gmail.com}
 \homepage{applegamer22.github.io}
 \social[linkedin]{omri-bornstein}
 \social[github]{AppleGamer22}
+% \social[twitter]{AppleGamer22}
 
 \raggedleft\raggedright\begin{document}
 	\maketitle
@@ -28,6 +30,7 @@
 	\cventry{2020 \\ Present}{Bachelor of Computer Science}{\href{https://www.monash.edu/it}{Monash University}}{Melbourne}{}{}
 
 	\section{Skills}
+	% \cvlanguage{name}{level}{comment}
 	\begin{itemize}
 		\item \textbf{Computer Programming Languages}: \href{https://go.dev}{Go}, \href{https://typescriptlang.org}{TypeScript}/JavaScript, \href{https://python.org}{Python}, \href{https://kotlinlang.org}{Kotlin}/Java, C/C++
 		\item \textbf{Document Markup Languages}: HTML/CSS, \TeX/\LaTeX, Markdown
@@ -45,14 +48,21 @@
 
 	\section{Projects}
 	\subsection{Open-Source}
-	\begin{itemize}
-		\item \href{https://github.com/AppleGamer22/cocainate}{\texttt{cocainate}} is a cross-platform re-implementation of the macOS utility \href{https://github.com/apple-oss-distributions/PowerManagement/tree/main/caffeinate}{\texttt{caffeinate}} that keeps the screen turned on either until stopped, for a set duration of time or while another process still runs.
-		\item \href{https://github.com/AppleGamer22/stalk}{\texttt{stalk}} is a cross-platform file-watcher that can run a command after each file-system operation on a given files or simply wait once until a file is changed.
-		\item \href{https://github.com/AppleGamer22/raker}{\texttt{raker}} is a social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
-		\item \href{https://github.com/AppleGamer22/scr-web}{scr-web} (and its \href{https://github.com/AppleGamer22/scr-cli}{scr-cli} counterpart) is my previous attempt at building a full-stack social media scraper with \href{https://angular.io}{Angular} on the front-end, and \href{https://nestjs.com}{Nest} on the back-end.
-		\item \href{https://github.com/AppleGamer22/sp}{sp} is my first attempt at building a Minecraft server plugin. This plugin adds the requirement that the player supplies the password (via a server command) before proper server interaction is allowed, and as long as the password isn't provided, the currently-unauthorized player is blinded and immobile.
-		% \item \href{https://github.com/monsec/ctftime-discord-bot}{ctftime-discord-bot} is a discord bot I made for the \href{https://monsec.io}{MonSec} Discord server, that fetches statistics about competing teams from \href{https://ctftime.org}{CTFtime}, and displays them in the Discord interface.
-	\end{itemize}
+	\cventry{January 2022 \\ Present}{\texttt{cocainate}}{\url{https://github.com/AppleGamer22/cocainate}}{}{}{\begin{itemize}
+		\item A cross-platform re-implementation of the macOS utility \href{https://github.com/apple-oss-distributions/PowerManagement/tree/main/caffeinate}{\texttt{caffeinate}} that keeps the screen turned on either until stopped, for a set duration of time or while another process still runs.
+	\end{itemize}}
+	\cventry{May 2022 \\ Present}{\texttt{stalk}}{\url{https://github.com/AppleGamer22/stalk}}{}{}{\begin{itemize}
+		\item A cross-platform file-watcher that can run a command after each file-system operation on a given files or simply wait once until a file is changed.
+	\end{itemize}}
+	\cventry{}{\texttt{raker}}{\url{https://github.com/AppleGamer22/raker}}{}{}{\begin{itemize}
+		\item A social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
+	\end{itemize}}
+	\cventry{December 2021}{ctftime-discord-bot}{\url{https://github.com/monsec/ctftime-discord-bot}}{}{}{\begin{itemize}
+		\item A discord bot I made for the \href{https://monsec.io/contact/}{MonSec} Discord server, that fetches statistics about competing teams from \href{https://ctftime.org}{CTFtime}, and displays them in the Discord interface.
+	\end{itemize}}
+	\cventry{June 2020 \\ January 2021}{sp}{\url{https://github.com/AppleGamer22/sp}}{}{}{\begin{itemize}
+		\item My first attempt at building a Minecraft server plugin. This plugin adds the requirement that the player supplies the password (via a server command) before proper server interaction is allowed, and as long as the password isn't provided, the currently-unauthorized player is blinded and immobile.
+	\end{itemize}}
 
 	\subsection{Research}
 	\cventry{August 2021 \\ December 2021}{Software Contributor}{Monash University's \href{https://handbook.monash.edu/2021/units/FIT2082}{FIT2082 unit}}{Melbourne}{}{\begin{itemize}
@@ -64,7 +74,7 @@
 	\end{itemize}}
 
 	\subsection{Freelancing}
-	\begin{itemize}
+	\cventry{June 2021 \\ December 2021}{}{}{}{}{\begin{itemize}
 		\item I implemented a fault-tolerant file back-up system that enables the continuation of file transferring from an variably-approximate point in time before the back-up disruption.
-	\end{itemize}
+	\end{itemize}}
 \end{document}
