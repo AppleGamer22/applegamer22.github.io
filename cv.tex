@@ -74,18 +74,48 @@
 	\subsection{Open-Source}
 	\cventry{January 2022 \\ Present}{\texttt{cocainate}}{\url{https://github.com/AppleGamer22/cocainate}}{}{}{\begin{itemize}
 		\item A cross-platform re-implementation of the macOS utility \href{https://github.com/apple-oss-distributions/PowerManagement/tree/main/caffeinate}{\texttt{caffeinate}} that keeps the screen turned on either until stopped, for a set duration of time or while another process still runs.
+		\item Built with \href{https://go.dev}{Go} and \href{https://cobra.dev}{Cobra}.
 	\end{itemize}}
 	\cventry{May 2022 \\ Present}{\texttt{stalk}}{\url{https://github.com/AppleGamer22/stalk}}{}{}{\begin{itemize}
 		\item A cross-platform file-watcher that can run a command after each file-system operation on a given files or simply wait once until a file is changed.
+		\item Built with \href{https://go.dev}{Go}, \href{https://cobra.dev}{Cobra} and \href{https://github.com/fsnotify/fsnotify}{FSnotify}.
 	\end{itemize}}
-	\cventry{}{\texttt{raker}}{\url{https://github.com/AppleGamer22/raker}}{}{}{\begin{itemize}
+	\cventry{May 2022 \\ Present}{\texttt{raker}}{\url{https://github.com/AppleGamer22/raker}}{}{}{\begin{itemize}
 		\item A social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
+		\item Server-side is built with:
+		\begin{itemize}
+			\item \href{https://go.dev}{Go}
+			\item \href{https://www.mongodb.com}{MongoDB}
+			\item \href{https://jwt.io}{JSON Web Tokens}
+			\item \href{https://www.docker.com}{Docker}
+		\end{itemize}
+		\item Client-side is built with HTML/CSS (\href{https://getbootstrap.com}{Bootstrap}).
+		\item The companion CLI utility and configuration are built with \href{https://cobra.dev}{Cobra} and \href{https://github.com/spf13/viper}{Viper}.
 	\end{itemize}}
 	\cventry{December 2021}{CTFtime Discord Bot}{\url{https://github.com/monsec/ctftime-discord-bot}}{}{}{\begin{itemize}
 		\item A Discord bot for \href{https://monsec.io/contact/}{MonSec}'s Discord server, that fetches statistics about competing \href{https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)}{Capture the Flag} (CTF) teams from \href{https://ctftime.org}{CTFtime}, and displays them in the Discord interface.
+		\item Built with \href{https://go.dev}{Go}.
 	\end{itemize}}
 	\cventry{June 2020 \\ January 2021}{sp}{\url{https://github.com/AppleGamer22/sp}}{}{}{\begin{itemize}
-		\item My first attempt at building a Minecraft server plugin. This plugin adds the requirement that the player supplies the password (via a server command) before proper server interaction is allowed, and as long as the password isn't provided, the currently-unauthorized player is blinded and immobile.
+		\item My first attempt at building a \href{https://papermc.io}{Minecraft server plugin}. This plugin adds the requirement that the player supplies the password (via a server command) before proper server interaction is allowed, and as long as the password isn't provided, the currently-unauthorized player is blinded and immobile.
+		\item Built with \href{https://kotlinlang.org}{Kotlin}.
+	\end{itemize}}
+	\cventry{April 2019 \\ May 2022}{scr-cli \& scr-web}{\url{https://github.com/AppleGamer22/scr-cli} \& \url{https://github.com/AppleGamer22/scr-web}}{}{}{\begin{itemize}
+		\item My previous attempt at building a full-stack (and a CLI) social media scraper with a single-page website framework and a RESTful server.
+		\item Server-side is built with:
+		\begin{itemize}
+			\item \href{https://typescriptlang.org}{TypeScript} \& \href{https://nestjs.com}{Nest} (with a \href{https://nodejs.org}{Node.js} runtime)
+			\item \href{https://www.mongodb.com}{MongoDB}
+			\item \href{https://jwt.io}{JSON Web Tokens}
+			\item \href{https://www.docker.com}{Docker}
+		\end{itemize}
+		\item Client-side is built with:
+		\begin{itemize}
+			\item \href{https://angular.io}{Angular}
+			\item \href{https://ionicframework.com}{Ionic}
+		\end{itemize}
+		\item The full-stack packages is bundled with \href{https://nx.dev}{Nx}.
+		\item The CLI is built with \href{https://oclif.io}{OCLIF}
 	\end{itemize}}
 
 	\subsection{Research}
@@ -95,10 +125,12 @@
 			\item I modified the \textsl{Lazy CBS} codebase such that the algorithm also outputs the final set of constraints that is used to rule out paths, such that \textsl{Lazy CBS} is formally an \textbf{Explainable} Multi-Agent Path Finding (XMAPF) algorithm.
 			\item I learned how to enable \httplink[\textsl{Python}-to-\textsl{C++} bindings]{pybind11.readthedocs.io/en/stable/}, such that the compiled \textsl{Lazy CBS} codebase can be used as a Python-facing library for future projects.
 		\end{itemize}
+		\item Built with C/C++ and \href{https://python.org}{Python} on top of Linux.
 	\end{itemize}}
 
 	\subsection{Freelancing}
 	\cventry{June 2021 \\ December 2021}{Software Engineer}{Contract}{Melbourne}{}{\begin{itemize}
 		\item I implemented a fault-tolerant file back-up system that enables the continuation of file transferring from an variably-approximate point in time before the back-up disruption.
+		\item Built with \href{https://go.dev}{Go}.
 	\end{itemize}}
 \end{document}
