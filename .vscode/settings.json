@@ -1,6 +1,7 @@
 {
 	"cSpell.words": [
 		"ångstrom",
+		"ASMS",
 		"citecolor",
 		"filecolor",
 		"Kubernetes",
@@ -37,5 +38,6 @@
 				"lualatexmk",
 			]
 		}
-	]
+	],
+	"discord.enabled": true
 }

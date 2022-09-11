@@ -1,58 +1,39 @@
-\documentclass[a4paper, 10pt]{article}
-\usepackage[english]{babel}
-\usepackage{fancyhdr}
-\usepackage{hyperref}
-\usepackage{titling}
-\usepackage[empty]{fullpage}
-\usepackage[none]{hyphenat}
-\usepackage{fontspec}
-\usepackage{xcolor}
+\documentclass[a4paper, 10pt, roman, colorlinks, linkcolor=purple, filecolor=purple, citecolor=blue, urlcolor=blue]{moderncv}
+\moderncvstyle{classic}
 
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
+\usepackage[margin=15mm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[none]{hyphenat}
+\usepackage{amsmath}
+% \usepackage{fontspec}
+
+\renewcommand{\labelitemi}{$\bullet$}
 \renewcommand{\labelitemii}{$\circ$}
 
-\addtolength{\oddsidemargin}{-0.530in}
-\addtolength{\evensidemargin}{-0.375in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-0.45in}
-\addtolength{\textheight}{1in}
-\setlength{\headheight}{18pt}
-\setlength{\footskip}{3.7pt}
-\setlength{\tabcolsep}{0in}
-\setlength{\parindent}{0pt}
-\setcounter{secnumdepth}{-\maxdimen}
-\setmonofont[Contextuals=Alternate, Scale=MatchLowercase]{Fira Code}
+% \setmonofont[Contextuals=Alternate, Scale=MatchLowercase]{Fira Code}
+% \urlstyle{same}
+\setlength{\hintscolumnwidth}{0.15\textwidth}
 
-\author{Omri Bornstein}
-\title{\theauthor's CV}
+\name{Omri}{Bornstein}
+\title{Software Engineer}
+\address{}{Greater Melbourne Area}{Australia}
+% \phone{+61 448 289 895}
+\email{omribor@gmail.com}
+\homepage{applegamer22.github.io}
+\social[linkedin]{omri-bornstein}
+\social[github]{AppleGamer22}
+% \social[twitter]{AppleGamer22}
 \date{\today}
-\hypersetup{
-	pdftitle={\thetitle},
-	pdfsubject={\thetitle},
-	pdfauthor={\theauthor},
-	pdfkeywords={CV},
-	colorlinks=true,
-	linkcolor=purple,
-	filecolor=purple,
-	citecolor=blue,
-	urlcolor=blue,
-}
-\urlstyle{same}
-\pagestyle{fancy}
-\fancyhf{}
-\lhead{\href{mailto:omribor@gmail.com}{omribor@gmail.com}}
-\chead{\Large \theauthor}
-\rhead{\href{https://applegamer22.github.io}{applegamer22.github.io}}
 
 \raggedleft\raggedright\begin{document}
+	\maketitle
 	\section{Education}
-	\begin{enumerate}
-		\item \textbf{2017 --- 2019}: secondary education at \href{https://asms.sa.edu.au}{Australian Science \& Mathematics School} (ASMS), Adelaide, South Australia
-		\item \textbf{2020 --- Present}: Bachelor of Computer Science at \href{https://www.monash.edu/it}{Monash University}, Melbourne, Victoria
-	\end{enumerate}
+	\cventry{2017 \\ 2019}{South Australian Certificate of Education}{\href{https://asms.sa.edu.au}{Australian Science \& Mathematics School} (ASMS)}{Adelaide}{}{}
+	\cventry{2020 \\ Present}{Bachelor of Computer Science}{\href{https://www.monash.edu/it}{Monash University}}{Melbourne}{}{}
 
 	\section{Skills}
+	% \cvlanguage{name}{level}{comment}
 	\begin{itemize}
 		\item \textbf{Computer Programming Languages}: \href{https://go.dev}{Go}, \href{https://typescriptlang.org}{TypeScript}/JavaScript, \href{https://python.org}{Python}, \href{https://kotlinlang.org}{Kotlin}/Java, C/C++
 		\item \textbf{Document Markup Languages}: HTML/CSS, \TeX/\LaTeX, Markdown
@@ -64,34 +45,92 @@
 	\end{itemize}
 
 	\section{Leadership Experience}
-	\begin{enumerate}
-		\item \textbf{May 2021 --- January 2022}: General Representative at \href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)
-		\item \textbf{January 2022 --- June 2022}: Secretary at \href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)
-		\item \textbf{June 2022 --- Present}: Vice President at \href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)
-	\end{enumerate}
+	\cventry{May 2021 \\ January 2022}{General Representative}{\href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)}{Melbourne}{}{\begin{itemize}
+		\item Helped to organise and ran a workshop about brute-forcing tools used for penetration testing.
+		\item Participated in \href{https://applegamer22.github.io/posts/angstromctf/}{{\aa}ngstromCTF}
+	\end{itemize}}
+	\cventry{January 2022 \\ June 2022}{Secretary}{\href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)}{Melbourne}{}{\begin{itemize}
+		\item Organised and recorded official committee and club meetings.
+		\item Represented the club during the orientation week of 2022 1$^{\text{st}}$ semester.
+		\item Organised and ran a binary-level reverse engineering workshop (a recording is available available at \url{https://youtu.be/893L13SxDUg}).
+		\item Started an expanded \href{https://monsec.io/resources/}{resources page} on the club's website, with a detailed section with a guide on how to easily install and set-up a \href{https://www.kali.org}{Kali Linux} virtual machine.
+	\end{itemize}}
+	\cventry{June 2022 \\ Present}{Vice President}{\href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)}{Melbourne}{}{\begin{itemize}
+		\item Coordinated collaboration with the university's \href{https://www.monash.edu/it}{Faculty of Information Technology} for purposes of events and advertising.
+		\item Updated the \href{https://monsec.io}{website}'s \href{https://github.com/panr/hugo-theme-terminal}{theme} to its latest version, and resolved new layout bugs in collaboration with other club committee members.
+		\item Club representation:
+		\begin{itemize}
+			\item Faculty of IT open day
+			\item Orientation week of 2022's 2$^{\text{nd}}$ semester.
+		\end{itemize}
+		\item \href{https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)}{Capture the Flag} (CTF) participation:
+		\begin{itemize}
+			\item \href{https://applegamer22.github.io/posts/uactf/}{The University of Adelaide's CTF}
+			\item \href{https://applegamer22.github.io/posts/shell_ctf/}{SHELL CTF}
+		\end{itemize}
+	\end{itemize}}
 
 	\section{Projects}
 	\subsection{Open-Source}
-	\begin{itemize}
-		\item \href{https://github.com/AppleGamer22/cocainate}{\texttt{cocainate}} is a cross-platform re-implementation of the macOS utility \href{https://github.com/apple-oss-distributions/PowerManagement/tree/main/caffeinate}{\texttt{caffeinate}} that keeps the screen turned on either until stopped, for a set duration of time or while another process still runs.
-		\item \href{https://github.com/AppleGamer22/stalk}{\texttt{stalk}} is a cross-platform file-watcher that can run a command after each file-system operation on a given files or simply wait once until a file is changed.
-		\item \href{https://github.com/AppleGamer22/raker}{\texttt{raker}} is a social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
-		\item \href{https://github.com/AppleGamer22/scr-web}{scr-web} (and its \href{https://github.com/AppleGamer22/scr-cli}{scr-cli} counterpart) is my previous attempt at building a full-stack social media scraper with \href{https://angular.io}{Angular} on the front-end, and \href{https://nestjs.com}{Nest} on the back-end.
-		\item \href{https://github.com/AppleGamer22/sp}{sp} is my first attempt at building a Minecraft server plugin. This plugin adds the requirement that the player supplies the password (via a server command) before proper server interaction is allowed, and as long as the password isn't provided, the currently-unauthorized player is blinded and immobile.
-		% \item \href{https://github.com/monsec/ctftime-discord-bot}{ctftime-discord-bot} is a discord bot I made for the \href{https://monsec.io}{MonSec} Discord server, that fetches statistics about competing teams from \href{https://ctftime.org}{CTFtime}, and displays them in the Discord interface.
-	\end{itemize}
+	\cventry{January 2022 \\ Present}{\texttt{cocainate}}{\url{https://github.com/AppleGamer22/cocainate}}{}{}{\begin{itemize}
+		\item A cross-platform re-implementation of the macOS utility \href{https://github.com/apple-oss-distributions/PowerManagement/tree/main/caffeinate}{\texttt{caffeinate}} that keeps the screen turned on either until stopped, for a set duration of time or while another process still runs.
+		\item Built with \href{https://go.dev}{Go} and \href{https://cobra.dev}{Cobra}.
+	\end{itemize}}
+	\cventry{May 2022 \\ Present}{\texttt{stalk}}{\url{https://github.com/AppleGamer22/stalk}}{}{}{\begin{itemize}
+		\item A cross-platform file-watcher that can run a command after each file-system operation on a given files or simply wait once until a file is changed.
+		\item Built with \href{https://go.dev}{Go}, \href{https://cobra.dev}{Cobra} and \href{https://github.com/fsnotify/fsnotify}{FSnotify}.
+	\end{itemize}}
+	\cventry{May 2022 \\ Present}{\texttt{raker}}{\url{https://github.com/AppleGamer22/raker}}{}{}{\begin{itemize}
+		\item A social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
+		\item Server-side is built with:
+		\begin{itemize}
+			\item \href{https://go.dev}{Go}
+			\item \href{https://www.mongodb.com}{MongoDB}
+			\item \href{https://jwt.io}{JSON Web Tokens}
+			\item \href{https://www.docker.com}{Docker}
+		\end{itemize}
+		\item Client-side is built with HTML/CSS (\href{https://getbootstrap.com}{Bootstrap}).
+		\item The companion CLI utility and configuration are built with \href{https://cobra.dev}{Cobra} and \href{https://github.com/spf13/viper}{Viper}.
+	\end{itemize}}
+	\cventry{December 2021}{CTFtime Discord Bot}{\url{https://github.com/monsec/ctftime-discord-bot}}{}{}{\begin{itemize}
+		\item A Discord bot for \href{https://monsec.io/contact/}{MonSec}'s Discord server, that fetches statistics about competing \href{https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)}{Capture the Flag} (CTF) teams from \href{https://ctftime.org}{CTFtime}, and displays them in the Discord interface.
+		\item Built with \href{https://go.dev}{Go}.
+	\end{itemize}}
+	\cventry{June 2020 \\ January 2021}{sp}{\url{https://github.com/AppleGamer22/sp}}{}{}{\begin{itemize}
+		\item My first attempt at building a \href{https://papermc.io}{Minecraft server plugin}. This plugin adds the requirement that the player supplies the password (via a server command) before proper server interaction is allowed, and as long as the password isn't provided, the currently-unauthorized player is blinded and immobile.
+		\item Built with \href{https://kotlinlang.org}{Kotlin}.
+	\end{itemize}}
+	\cventry{April 2019 \\ May 2022}{scr-cli \& scr-web}{\url{https://github.com/AppleGamer22/scr-cli} \& \url{https://github.com/AppleGamer22/scr-web}}{}{}{\begin{itemize}
+		\item My previous attempt at building a full-stack (and a CLI) social media scraper with a single-page website framework and a RESTful server.
+		\item Server-side is built with:
+		\begin{itemize}
+			\item \href{https://typescriptlang.org}{TypeScript} \& \href{https://nestjs.com}{Nest} (with a \href{https://nodejs.org}{Node.js} runtime)
+			\item \href{https://www.mongodb.com}{MongoDB}
+			\item \href{https://jwt.io}{JSON Web Tokens}
+			\item \href{https://www.docker.com}{Docker}
+		\end{itemize}
+		\item Client-side is built with:
+		\begin{itemize}
+			\item \href{https://angular.io}{Angular}
+			\item \href{https://ionicframework.com}{Ionic}
+		\end{itemize}
+		\item The full-stack packages is bundled with \href{https://nx.dev}{Nx}.
+		\item The CLI is built with \href{https://oclif.io}{OCLIF}
+	\end{itemize}}
 
 	\subsection{Research}
-	\begin{itemize}
-		\item As part of the \href{https://handbook.monash.edu/2021/units/FIT2082}{FIT2082 unit}, I \href{https://github.com/AppleGamer22/FIT2082}{contributed} to an \href{https://bitbucket.org/gkgange/lazycbs}{existing codebase}, based on prior research by \href{https://ojs.aaai.org/index.php/ICAPS/article/view/3471}{(Gange, Harabor and Stuckey, 2021)} about \textsl{Lazy CBS}, their \href{https://en.wikipedia.org/wiki/Pathfinding#Multi-agent_pathfinding}{Multi-Agent Path Finding} (MAPF) algorithm.
+	\cventry{August 2021 \\ December 2021}{Software Contributor}{Monash University's \href{https://handbook.monash.edu/2021/units/FIT2082}{FIT2082 unit}}{Melbourne}{}{\begin{itemize}
+		\item I \href{https://github.com/AppleGamer22/FIT2082}{contributed} to an \href{https://bitbucket.org/gkgange/lazycbs}{existing codebase}, based on prior research by \href{https://ojs.aaai.org/index.php/ICAPS/article/view/3471}{(Gange, Harabor and Stuckey, 2021)} about \textsl{Lazy CBS}, their \href{https://en.wikipedia.org/wiki/Pathfinding\#Multi-agent_pathfinding}{Multi-Agent Path Finding} (MAPF) algorithm.
 		\begin{itemize}
-			\item My task was to modify the \textsl{Lazy CBS} codebase such that the algorithm also outputs the final set of constraints that is used to rule out paths, such that \textsl{Lazy CBS} is formally an Explainable Multi-Agent Path Finding (XMAPF) algorithm.
-			\item I learned how to enable \href{https://pybind11.readthedocs.io/en/stable/}{\textsl{Python}-to-\textsl{C++} bindings}, such that the compiled \textsl{Lazy CBS} codebase can be used as a Python-facing library for future projects.
+			\item I modified the \textsl{Lazy CBS} codebase such that the algorithm also outputs the final set of constraints that is used to rule out paths, such that \textsl{Lazy CBS} is formally an \textbf{Explainable} Multi-Agent Path Finding (XMAPF) algorithm.
+			\item I learned how to enable \httplink[\textsl{Python}-to-\textsl{C++} bindings]{pybind11.readthedocs.io/en/stable/}, such that the compiled \textsl{Lazy CBS} codebase can be used as a Python-facing library for future projects.
 		\end{itemize}
-	\end{itemize}
+		\item Built with C/C++ and \href{https://python.org}{Python} on top of Linux.
+	\end{itemize}}
 
 	\subsection{Freelancing}
-	\begin{itemize}
+	\cventry{June 2021 \\ December 2021}{Software Engineer}{Contract}{Melbourne}{}{\begin{itemize}
 		\item I implemented a fault-tolerant file back-up system that enables the continuation of file transferring from an variably-approximate point in time before the back-up disruption.
-	\end{itemize}
+		\item Built with \href{https://go.dev}{Go}.
+	\end{itemize}}
 \end{document}
