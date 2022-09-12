@@ -1,10 +1,14 @@
-.PHONY: build website cv watch clean
+.PHONY: all build website cv pdf watch clean
+
+all: build clean
 
 build: cv website
 
-cv:
-	latexmk -pdf -lualatex -interaction=errorstopmode cv.tex
+cv: pdf
 	mv cv.pdf static
+
+pdf: cv.tex
+	latexmk -pdf -lualatex -interaction=errorstopmode cv.tex
 
 website:
 	hugo --minify
