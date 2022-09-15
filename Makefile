@@ -17,5 +17,5 @@ watch:
 	hugo server --noHTTPCache --buildDrafts
 
 clean:
-	rm -rf public resources/_gen assets/jsconfig.json hugo_stats.json .hugo_build.lock cv.synctex.gz cv.pdf
-	latexmk -c
+	rm -rf public resources/_gen assets/jsconfig.json hugo_stats.json .hugo_build.lock cv.synctex.gz
+	latexmk -C
