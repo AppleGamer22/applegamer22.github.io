@@ -39,8 +39,5 @@
 			]
 		}
 	],
-	"discord.enabled": true,
-	"frontMatter.framework.startCommand": "make watch",
-	"[markdown]": {
-	}
+	"discord.enabled": true
 }

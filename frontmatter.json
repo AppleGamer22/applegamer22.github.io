@@ -1,5 +1,17 @@
 {
 	"$schema": "https://frontmatter.codes/frontmatter.schema.json",
+	"frontMatter.framework.id": "hugo",
+	"frontMatter.content.publicFolder": "static",
+	"frontMatter.git.enabled": true,
+	"frontMatter.preview.host": "http://localhost:1313",
+	"frontMatter.telemetry.disable": true,
+	"frontMatter.framework.startCommand": "make watch",
+	"frontMatter.content.pageFolders": [
+		{
+			"title": "posts",
+			"path": "[[workspace]]/content/posts"
+		}
+	],
 	"frontMatter.taxonomy.contentTypes": [
 		{
 			"name": "default",
@@ -44,16 +56,6 @@
 					"type": "categories"
 				}
 			]
-		}
-	],
-	"frontMatter.framework.id": "hugo",
-	"frontMatter.content.publicFolder": "static",
-	"frontMatter.git.enabled": true,
-	"frontMatter.preview.host": "http://localhost:1313",
-	"frontMatter.content.pageFolders": [
-		{
-			"title": "posts",
-			"path": "[[workspace]]/content/posts"
 		}
 	],
 	"frontMatter.taxonomy.tags": [
