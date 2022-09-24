@@ -8,8 +8,34 @@
 	"frontMatter.framework.startCommand": "make watch",
 	"frontMatter.content.pageFolders": [
 		{
-			"title": "posts",
-			"path": "[[workspace]]/content/posts"
+			"title": "Posts",
+			"path": "[[workspace]]/content",
+			"previewPath": "posts",
+			"excludeSubdir": true
+		},{
+			"title": "angstromCTF",
+			"path": "[[workspace]]/content/posts/angstromctf",
+			"previewPath": "posts/angstromctf"
+		},{
+			"title": "DownUnderCTF",
+			"path": "[[workspace]]/content/posts/downunderctf",
+			"previewPath": "posts/downunderctf"
+		},{
+			"title": "OverTheWire Bandit",
+			"path": "[[workspace]]/content/posts/overthewire/bandit",
+			"previewPath": "posts/overthewire/bandit"
+		},{
+			"title": "SHELL CTF",
+			"path": "[[workspace]]/content/posts/shell_ctf",
+			"previewPath": "posts/shell_ctf"
+		},{
+			"title": "UACTF",
+			"path": "[[workspace]]/content/posts/uactf",
+			"previewPath": "posts/uactf"
+		},{
+			"title": "Projects",
+			"path": "[[workspace]]/content/projects",
+			"previewPath": "projects"
 		}
 	],
 	"frontMatter.taxonomy.contentTypes": [
