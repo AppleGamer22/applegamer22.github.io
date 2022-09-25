@@ -1,0 +1,115 @@
+{
+	"$schema": "https://frontmatter.codes/frontmatter.schema.json",
+	"frontMatter.framework.id": "hugo",
+	"frontMatter.content.publicFolder": "static",
+	"frontMatter.git.enabled": true,
+	"frontMatter.preview.host": "http://localhost:1313",
+	"frontMatter.telemetry.disable": true,
+	"frontMatter.framework.startCommand": "make watch",
+	"frontMatter.content.pageFolders": [
+		{
+			"title": "Posts",
+			"path": "[[workspace]]/content",
+			"previewPath": "posts",
+			"excludeSubdir": true
+		},{
+			"title": "angstromCTF",
+			"path": "[[workspace]]/content/posts/angstromctf",
+			"previewPath": "posts/angstromctf"
+		},{
+			"title": "DownUnderCTF",
+			"path": "[[workspace]]/content/posts/downunderctf",
+			"previewPath": "posts/downunderctf"
+		},{
+			"title": "OverTheWire Bandit",
+			"path": "[[workspace]]/content/posts/overthewire/bandit",
+			"previewPath": "posts/overthewire/bandit"
+		},{
+			"title": "SHELL CTF",
+			"path": "[[workspace]]/content/posts/shell_ctf",
+			"previewPath": "posts/shell_ctf"
+		},{
+			"title": "UACTF",
+			"path": "[[workspace]]/content/posts/uactf",
+			"previewPath": "posts/uactf"
+		},{
+			"title": "Projects",
+			"path": "[[workspace]]/content/projects",
+			"previewPath": "projects"
+		}
+	],
+	"frontMatter.taxonomy.contentTypes": [
+		{
+			"name": "default",
+			"pageBundle": false,
+			"previewPath": null,
+			"fields": [
+				{
+					"title": "Title",
+					"name": "title",
+					"type": "string"
+				},
+				{
+					"title": "Description",
+					"name": "description",
+					"type": "string"
+				},
+				{
+					"title": "Publishing date",
+					"name": "date",
+					"type": "datetime",
+					"default": "{{now}}",
+					"isPublishDate": true
+				},
+				{
+					"title": "Content preview",
+					"name": "preview",
+					"type": "image"
+				},
+				{
+					"title": "Is in draft",
+					"name": "draft",
+					"type": "draft"
+				},
+				{
+					"title": "Tags",
+					"name": "tags",
+					"type": "tags"
+				},
+				{
+					"title": "Categories",
+					"name": "categories",
+					"type": "categories"
+				}
+			]
+		}
+	],
+	"frontMatter.taxonomy.tags": [
+		"Bandit",
+		"C",
+		"CSS",
+		"Congo",
+		"HTML",
+		"Hugo",
+		"JavaScript",
+		"Linux",
+		"Markdown",
+		"OverTheWire",
+		"Python",
+		"SHELL_CTF",
+		"TeX",
+		"UACTF",
+		"YAML",
+		"angstromCTF",
+		"cryptography",
+		"fonts",
+		"linux",
+		"networking",
+		"privesc",
+		"regex",
+		"reversing",
+		"shell",
+		"typesetting"
+	],
+	"frontMatter.taxonomy.categories": []
+}
