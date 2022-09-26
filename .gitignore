@@ -18,7 +18,7 @@ hugo.linux
 # End of https://www.toptal.com/developers/gitignore/api/hugo
 
 ### Other
-./cv.pdf
+cv.pdf
 **/.DS_Store
 
 ## Core latex/pdflatex auxiliary files:

@@ -35,16 +35,31 @@
 	\cventry{2020 \\ Present}{Bachelor of Computer Science}{\href{https://www.monash.edu/it}{Monash University}}{Melbourne}{}{}
 
 	\section{Skills}
-	% \cvlanguage{name}{level}{comment}
-	\begin{itemize}
-		\item \textbf{Computer Programming Languages}: \href{https://go.dev}{Go}, \href{https://typescriptlang.org}{TypeScript}/JavaScript, \href{https://python.org}{Python}, \href{https://kotlinlang.org}{Kotlin}/Java, C/C++
-		\item \textbf{Document Markup Languages}: HTML/CSS, \TeX/\LaTeX, Markdown
-		% \item \textbf{Natural Languages}: English, Hebrew
-		\item \textbf{Databases}: \href{https://www.mongodb.com}{MongoDB}
-		\item \textbf{Tools}: \href{https://git-scm.com}{Git}, \href{https://github.com}{GitHub}/\href{https://gitlab.com}{GitLab}, \href{https://www.docker.com}{Docker}, \href{https://kubernetes.io}{Kubernetes}, \href{https://vagrantup.com}{Vagrant}, CI/CD
-		\item \textbf{Platforms}: Linux, Cloud Native, web servers/browsers, macOS, Windows
-		\item \textbf{Soft Skills}: technical writing, presenting/public speaking, research, troubleshooting/debugging, explaining, collaboration/teamwork
-	\end{itemize}
+	\subsection{Computer Programming Languages}
+	\cvlanguage{\href{https://go.dev}{Go}}{}{server-side and command-line interfaces (CLIs)}
+	\cvlanguage{\href{https://typescriptlang.org}{TypeScript}}{}{full-stack}
+	\cvlanguage{JavaScript}{}{client-side on web browsers}
+	\cvlanguage{\href{https://python.org}{Python}}{}{data analysis and \hyperref[sec:research]{research}}
+	\cvlanguage{\href{https://kotlinlang.org}{Kotlin}/Java}{}{Minecraft plugins}
+	\cvlanguage{C/C++}{}{\hyperref[sec:research]{research}}
+	\subsection{Document Markup Languages}
+	\cvlanguage{HTML/CSS}{}{client-side on web browsers}
+	\cvlanguage{\TeX/\LaTeX}{}{PDF document typesetting}
+	\cvlanguage{Markdown}{}{technical documentation and communication}
+	% \subsection{Natural Languages}
+	% \cvlanguage{English}{full professional proficiency}{}
+	% \cvlanguage{Hebrew}{native or bilingual proficiency}{}
+	\subsection{Tools}
+	\cvlanguage{\href{https://git-scm.com}{Git}}{}{source code version control}
+	\cvlanguage{\href{https://github.com}{GitHub}/\href{https://gitlab.com}{GitLab}}{}{collaboration and CI/CD}
+	\cvlanguage{\href{https://www.mongodb.com}{MongoDB}}{}{document non-relational database}
+	\cvlanguage{SQL}{}{relational database querying}
+	\cvlanguage{\href{https://www.docker.com}{Docker}}{}{container-style packaging}
+	\cvlanguage{\href{https://kubernetes.io}{Kubernetes}}{}{container orchestration}
+	\cvlanguage{\href{https://vagrantup.com}{Vagrant}}{}{virtual machine (VM) management}
+	\subsection{Other}
+	\cvlistitem{\textbf{Platforms}: Linux, Cloud Native, web servers/browsers, macOS, Windows}
+	\cvlistitem{\textbf{Soft Skills}: technical writing, presenting/public speaking, research, troubleshooting/debugging, explaining, collaboration/teamwork}
 
 	\section{Leadership Experience}
 	\cventry{June 2022 \\ Present}{Vice President}{\href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)}{Melbourne}{}{\begin{itemize}
@@ -82,13 +97,7 @@
 	\subsection{Open-Source}
 	\cventry{May 2022 \\ Present}{\texttt{raker}}{\url{https://github.com/AppleGamer22/raker}}{}{}{\begin{itemize}
 		\item A social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
-		\item Server-side is built with:
-		\begin{itemize}
-			\item \href{https://go.dev}{Go}
-			\item \href{https://www.mongodb.com}{MongoDB}
-			\item \href{https://jwt.io}{JSON Web Tokens} (JWTs)
-			\item \href{https://www.docker.com}{Docker}
-		\end{itemize}
+		\item Server-side is built with \href{https://go.dev}{Go}, \href{https://www.mongodb.com}{MongoDB}, \href{https://jwt.io}{JSON Web Tokens} (JWTs) and \href{https://www.docker.com}{Docker}.
 		\item Client-side is built with HTML/CSS (\href{https://getbootstrap.com}{Bootstrap}).
 		\item The companion CLI utility and configuration are built with \href{https://cobra.dev}{Cobra} and \href{https://github.com/spf13/viper}{Viper}.
 	\end{itemize}}
@@ -110,23 +119,13 @@
 	\end{itemize}}
 	\cventry{April 2019 \\ May 2022}{scr-cli \& scr-web}{\url{https://github.com/AppleGamer22/scr-cli} \& \url{https://github.com/AppleGamer22/scr-web}}{}{}{\begin{itemize}
 		\item My previous attempt at building a full-stack (and a CLI) social media scraper with a single-page website framework and a RESTful server.
-		\item Server-side is built with:
-		\begin{itemize}
-			\item \href{https://typescriptlang.org}{TypeScript} \& \href{https://nestjs.com}{Nest} (with a \href{https://nodejs.org}{Node.js} runtime)
-			\item \href{https://www.mongodb.com}{MongoDB}
-			\item \href{https://jwt.io}{JSON Web Tokens} (JWTs)
-			\item \href{https://www.docker.com}{Docker}
-		\end{itemize}
-		\item Client-side is built with:
-		\begin{itemize}
-			\item \href{https://angular.io}{Angular}
-			\item \href{https://ionicframework.com}{Ionic}
-		\end{itemize}
+		\item Server-side is built with \href{https://typescriptlang.org}{TypeScript} \& \href{https://nestjs.com}{Nest} (with a \href{https://nodejs.org}{Node.js} runtime)\href{https://www.mongodb.com}{MongoDB}, \href{https://jwt.io}{JSON Web Tokens} (JWTs) and \href{https://www.docker.com}{Docker}.
+		\item Client-side is built with \href{https://angular.io}{Angular} and \href{https://ionicframework.com}{Ionic}.
 		\item The full-stack packages is bundled with \href{https://nx.dev}{Nx}.
 		\item The CLI is built with \href{https://oclif.io}{OCLIF}
 	\end{itemize}}
 
-	\subsection{Research}
+	\subsection{Research}\label{sec:research}
 	\cventry{August 2021 \\ December 2021}{Software Contributor}{Monash University's \href{https://handbook.monash.edu/2021/units/FIT2082}{FIT2082 unit}}{Melbourne}{}{\begin{itemize}
 		\item I \href{https://github.com/AppleGamer22/FIT2082}{contributed} to an \href{https://bitbucket.org/gkgange/lazycbs}{existing codebase}, based on prior research by \href{https://ojs.aaai.org/index.php/ICAPS/article/view/3471}{(Gange, Harabor and Stuckey, 2021)} about \textsl{Lazy CBS}, their \href{https://en.wikipedia.org/wiki/Pathfinding\#Multi-agent_pathfinding}{Multi-Agent Path Finding} (MAPF) algorithm.
 		\begin{itemize}
