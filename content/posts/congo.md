@@ -188,12 +188,20 @@ In order to render multi-line [math expressions](#katex) correctly in small-widt
 }
 ```
 
-In order to ensure search results don't overflow the [intended width](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css), the maximum width is restricted accordingly.
+In order to ensure search results don't overflow the [intended width](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css), the maximum width is restricted accordingly with following CSS code was added to `assets/css/custom.css`:
 
 ```css
 #search-results > li > a > * {
 	max-width: calc(100% - 1.5rem) !important;
 	word-wrap: break-word !important;
+}
+```
+
+In order to ensure that embedded YouTube videos stay withing the width of a mobile screen, the following CSS code was added to `assets/css/custom.css`:
+
+```css
+iframe {
+	max-width: 100%;
 }
 ```
 

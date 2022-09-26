@@ -7,6 +7,10 @@ a {
 	word-wrap: break-word !important;
 }
 
+iframe {
+	max-width: 100%;
+}
+
 @media (max-width: 640px) {
 	span.katex-display > * {
 		font-size: 0.65rem !important;

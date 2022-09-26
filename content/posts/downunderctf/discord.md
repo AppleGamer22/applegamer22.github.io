@@ -1,6 +1,7 @@
 ---
 title: DownUnderCTF Discord
 date: 2022-09-23T00:00:01
+tags: [DownUnderCTF]
 ---
 # Prompt
 > Have you joined the [DUCTF Discord](https://duc.tf/discord) yet? There are some spicy memes, a certified memer has posted one that will give you a flag!
