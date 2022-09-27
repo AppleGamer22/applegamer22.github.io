@@ -1,5 +1,5 @@
 \documentclass[a4paper, 10pt, roman, colorlinks, linkcolor=purple, filecolor=purple, citecolor=blue, urlcolor=blue]{moderncv}
-\moderncvstyle{classic}
+\moderncvtheme[orange]{classic}
 
 \usepackage[margin=15mm]{geometry}
 \usepackage[utf8]{inputenc}
@@ -36,27 +36,27 @@
 
 	\section{Skills}
 	\subsection{Computer Programming Languages}
-	\cvlanguage{\href{https://go.dev}{Go}}{}{server-side and command-line interfaces (CLIs)}
-	\cvlanguage{\href{https://typescriptlang.org}{TypeScript}}{}{full-stack}
-	\cvlanguage{JavaScript}{}{client-side on web browsers}
-	\cvlanguage{\href{https://python.org}{Python}}{}{data analysis and \hyperref[sec:research]{research}}
-	\cvlanguage{\href{https://kotlinlang.org}{Kotlin}/Java}{}{Minecraft plugins}
-	\cvlanguage{C/C++}{}{\hyperref[sec:research]{research}}
+	\cvlanguage{\href{https://go.dev}{Go}}{Expert}{server-side and command-line interfaces (CLIs)}
+	\cvlanguage{\href{https://typescriptlang.org}{TypeScript}}{Expert}{full-stack}
+	\cvlanguage{JavaScript}{Expert}{client-side on web browsers}
+	\cvlanguage{\href{https://python.org}{Python}}{Proficient}{data analysis and \hyperref[sec:research]{research}}
+	\cvlanguage{\href{https://kotlinlang.org}{Kotlin}/Java}{Intermediate}{Minecraft plugins}
+	\cvlanguage{C/C++}{Intermediate}{\hyperref[sec:research]{research}}
 	\subsection{Document Markup Languages}
-	\cvlanguage{HTML/CSS}{}{client-side on web browsers}
-	\cvlanguage{\TeX/\LaTeX}{}{PDF document typesetting}
-	\cvlanguage{Markdown}{}{technical documentation and communication}
+	\cvlanguage{HTML/CSS}{Proficient}{client-side UI on web browsers}
+	\cvlanguage{\TeX/\LaTeX}{Proficient}{PDF document typesetting}
+	\cvlanguage{Markdown}{Expert}{technical documentation and communication}
 	% \subsection{Natural Languages}
 	% \cvlanguage{English}{full professional proficiency}{}
 	% \cvlanguage{Hebrew}{native or bilingual proficiency}{}
 	\subsection{Tools}
-	\cvlanguage{\href{https://git-scm.com}{Git}}{}{source code version control}
-	\cvlanguage{\href{https://github.com}{GitHub}/\href{https://gitlab.com}{GitLab}}{}{collaboration and CI/CD}
-	\cvlanguage{\href{https://www.mongodb.com}{MongoDB}}{}{document non-relational database}
-	\cvlanguage{SQL}{}{relational database querying}
-	\cvlanguage{\href{https://www.docker.com}{Docker}}{}{container-style packaging}
-	\cvlanguage{\href{https://kubernetes.io}{Kubernetes}}{}{container orchestration}
-	\cvlanguage{\href{https://vagrantup.com}{Vagrant}}{}{virtual machine (VM) management}
+	\cvlanguage{\href{https://git-scm.com}{Git}}{Expert}{source code version control (see \hyperref[sec:open-source]{open-source projects} for examples)}
+	\cvlanguage{\href{https://github.com}{GitHub}/\href{https://gitlab.com}{GitLab}}{Expert}{collaboration and CI/CD}
+	\cvlanguage{\href{https://www.mongodb.com}{MongoDB}}{Proficient}{document non-relational database}
+	\cvlanguage{SQL}{Intermediate}{relational database querying}
+	\cvlanguage{\href{https://www.docker.com}{Docker}}{Proficient}{container-style packaging}
+	\cvlanguage{\href{https://kubernetes.io}{Kubernetes}}{Intermediate}{container orchestration}
+	\cvlanguage{\href{https://vagrantup.com}{Vagrant}}{Proficient}{virtual machine (VM) management}
 	\subsection{Other}
 	\cvlistitem{\textbf{Platforms}: Linux, Cloud Native, web servers/browsers, macOS, Windows}
 	\cvlistitem{\textbf{Soft Skills}: technical writing, presenting/public speaking, research, troubleshooting/debugging, explaining, collaboration/teamwork}
@@ -74,7 +74,7 @@
 			\item Faculty of IT's \href{https://www.monash.edu/it/events/2022/take-ctrl}{Take CTRL} (Cryptography \& Web Hacking Workshop)
 			\item Faculty of IT's \href{https://www.monash.edu/it/events/2022/munch-and-mingle}{Munch \& Mingle}
 			\item Faculty of IT's open day
-			\item Orientation week of 2022's 2$^{\text{nd}}$ semester.
+			\item Orientation week of 2022's $2^{\text{nd}}$ semester.
 		\end{itemize}
 		\item \href{https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)}{Capture the Flag} (CTF) participation:
 		\begin{itemize}
@@ -85,7 +85,7 @@
 	\end{itemize}}
 	\cventry{January 2022 \\ June 2022}{Secretary}{\href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)}{Melbourne}{}{\begin{itemize}
 		\item Organised and recorded official committee and club meetings.
-		\item Represented the club during the orientation week of 2022 1$^{\text{st}}$ semester.
+		\item Represented the club during the orientation week of 2022's $1^{\text{st}}$ semester.
 		\item Organised and ran a binary-level reverse engineering workshop (a recording is available available at \url{https://youtu.be/893L13SxDUg}).
 		\item Started a section on the \href{https://monsec.io/resources/}{resources page} of the club's website, with a detailed section with a guide on how to easily install and set-up a \href{https://www.kali.org}{Kali Linux} virtual machine.
 	\end{itemize}}
@@ -95,7 +95,7 @@
 	\end{itemize}}
 
 	\section{Projects}
-	\subsection{Open-Source}
+	\subsection{Open-Source}\label{sec:open-source}
 	\cventry{May 2022 \\ Present}{\texttt{raker}}{\url{https://github.com/AppleGamer22/raker}}{}{}{\begin{itemize}
 		\item A social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
 		\item Server-side is built with \href{https://go.dev}{Go}, \href{https://www.mongodb.com}{MongoDB}, \href{https://jwt.io}{JSON Web Tokens} (JWTs) and \href{https://www.docker.com}{Docker}.
