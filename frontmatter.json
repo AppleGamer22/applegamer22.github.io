@@ -84,32 +84,6 @@
 			]
 		}
 	],
-	"frontMatter.taxonomy.tags": [
-		"Bandit",
-		"C",
-		"CSS",
-		"Congo",
-		"HTML",
-		"Hugo",
-		"JavaScript",
-		"Linux",
-		"Markdown",
-		"OverTheWire",
-		"Python",
-		"SHELL_CTF",
-		"TeX",
-		"UACTF",
-		"YAML",
-		"angstromCTF",
-		"cryptography",
-		"fonts",
-		"linux",
-		"networking",
-		"privesc",
-		"regex",
-		"reversing",
-		"shell",
-		"typesetting"
-	],
+	"frontMatter.taxonomy.tags": [],
 	"frontMatter.taxonomy.categories": []
 }
