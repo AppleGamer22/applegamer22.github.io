@@ -356,8 +356,6 @@ All supported social media integrations are disabled for [privacy](https://gohug
 privacy:
   disqus:
     disable: true
-  googleAnalytics:
-    disable: true
   youtube:
     disable: true
   instagram:
