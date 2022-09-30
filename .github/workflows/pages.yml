@@ -29,7 +29,9 @@ jobs:
       # - name: Install LaTeX
       #   run: sudo apt install texlive texlive-latex-extra
       - name: Build
-        run: make website
+        run: |
+          echo "config:\n  googleAnalytics: ${{secrets.GOOGLE_ANALYTICS}}" >> config.yml
+          make website
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/master'
