@@ -4,6 +4,9 @@ module:
     - path: github.com/jpanther/congo/v2
 baseURL: https://applegamer22.github.io
 timeZone: Australia/Melbourne
+enableGitInfo: true
+enableEmoji: true
+enableRobotsTXT: true
 defaultContentLanguage: en
 title: Omri Bornstein
 paginate: 15
