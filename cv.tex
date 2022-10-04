@@ -1,5 +1,5 @@
 \documentclass[a4paper, 10pt, roman, colorlinks, linkcolor=purple, filecolor=purple, citecolor=blue, urlcolor=blue]{moderncv}
-\moderncvtheme[orange]{classic}
+\moderncvtheme[black]{classic}
 
 \usepackage[margin=15mm]{geometry}
 \usepackage[utf8]{inputenc}
@@ -8,6 +8,15 @@
 \usepackage[yyyymmdd]{datetime}
 \usepackage{amsmath}
 % \usepackage{fontspec}
+
+% \makeatletter
+% \RenewDocumentCommand{\subsection}{sm}{
+% 	\par\addvspace{1ex}
+% 	\phantomsection{}% reset the anchor for hyperrefs
+% 	\addcontentsline{toc}{subsection}{#2}%
+% 	\strut\subsectionstyle{#2}
+% 	\par\nobreak\addvspace{0.5ex}\@afterheading}% to avoid a pagebreak after the heading
+% \makeatother
 
 \renewcommand{\dateseparator}{-}
 \renewcommand{\labelitemi}{$\bullet$}
@@ -32,25 +41,25 @@
 \raggedleft\raggedright\begin{document}
 	\maketitle
 	\section{Education}
+	\cventry{2020 \\ In Progress}{Bachelor of Computer Science}{\href{https://www.monash.edu/it}{Monash University}}{Melbourne}{}{}
 	\cventry{2017 \\ 2019}{South Australian Certificate of Education}{\href{https://asms.sa.edu.au}{Australian Science \& Mathematics School} (ASMS)}{Adelaide}{}{}
-	\cventry{2020 \\ Present}{Bachelor of Computer Science}{\href{https://www.monash.edu/it}{Monash University}}{Melbourne}{}{}
 
 	\section{Skills}
-	\subsection{Computer Programming Languages}
+	\subsection{\textbf{Computer Programming Languages}}
 	\cvlanguage{\href{https://go.dev}{Go}}{Expert}{server-side and command-line interfaces (CLIs)}
 	\cvlanguage{\href{https://typescriptlang.org}{TypeScript}}{Expert}{full-stack}
 	\cvlanguage{JavaScript}{Expert}{client-side on web browsers}
 	\cvlanguage{\href{https://python.org}{Python}}{Proficient}{data analysis and \hyperref[sec:research]{research}}
 	\cvlanguage{\href{https://kotlinlang.org}{Kotlin}/Java}{Intermediate}{Minecraft plugins}
 	\cvlanguage{C/C++}{Intermediate}{\hyperref[sec:research]{research}}
-	\subsection{Document Markup Languages}
+	\subsection{\textbf{Document Markup Languages}}
 	\cvlanguage{HTML/CSS}{Proficient}{client-side UI on web browsers}
 	\cvlanguage{\TeX/\LaTeX}{Proficient}{PDF document typesetting}
 	\cvlanguage{Markdown}{Expert}{technical documentation and communication}
 	% \subsection{Natural Languages}
 	% \cvlanguage{English}{full professional proficiency}{}
 	% \cvlanguage{Hebrew}{native or bilingual proficiency}{}
-	\subsection{Tools}
+	\subsection{\textbf{Tools}}
 	\cvlanguage{\href{https://git-scm.com}{Git}}{Expert}{source code version control (see \hyperref[sec:open-source]{open-source projects} for examples)}
 	\cvlanguage{\href{https://github.com}{GitHub}/\href{https://gitlab.com}{GitLab}}{Expert}{collaboration and CI/CD}
 	\cvlanguage{\href{https://www.mongodb.com}{MongoDB}}{Proficient}{document non-relational database}
@@ -58,45 +67,12 @@
 	\cvlanguage{\href{https://www.docker.com}{Docker}}{Proficient}{container-style packaging}
 	\cvlanguage{\href{https://kubernetes.io}{Kubernetes}}{Intermediate}{container orchestration}
 	\cvlanguage{\href{https://vagrantup.com}{Vagrant}}{Proficient}{virtual machine (VM) management}
-	\subsection{Other}
+	\subsection{\textbf{Other}}
 	\cvlistitem{\textbf{Platforms}: Linux, Cloud Native, web servers/browsers, macOS, Windows}
 	\cvlistitem{\textbf{Soft Skills}: technical writing, presenting/public speaking, research, troubleshooting/debugging, explaining, collaboration/teamwork}
 
-	\section{Leadership Experience}
-	\cventry{June 2022 \\ Present}{Vice President}{\href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)}{Melbourne}{}{\begin{itemize}
-		\item Coordinated collaboration with the university's \href{https://www.monash.edu/it}{Faculty of Information Technology} for purposes of events and advertising.
-		\item Club \href{https://monsec.io}{website}:
-		\begin{itemize}
-			\item Updated the \href{https://github.com/panr/hugo-theme-terminal}{theme} to its latest version, and resolved new layout bugs in collaboration with other club committee members.
-			\item Improved the \href{https://kali.org}{Kali Linux} virtual machine \href{https://monsec.io/resources/\#kali-linux-set-up}{set-up guide} such that it includes more details on alternative installation methods.
-		\end{itemize}
-		\item Club representation:
-		\begin{itemize}
-			\item Faculty of IT's \href{https://www.monash.edu/it/events/2022/take-ctrl}{Take CTRL} (Cryptography \& Web Hacking Workshop)
-			\item Faculty of IT's \href{https://www.monash.edu/it/events/2022/munch-and-mingle}{Munch \& Mingle}
-			\item Faculty of IT's open day
-			\item Orientation week of 2022's $2^{\text{nd}}$ semester.
-		\end{itemize}
-		\item \href{https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)}{Capture the Flag} (CTF) participation:
-		\begin{itemize}
-			\item \href{https://applegamer22.github.io/posts/uactf/}{The University of Adelaide's CTF}
-			\item \href{https://applegamer22.github.io/posts/shell_ctf/}{SHELL CTF}
-			\item \href{https://applegamer22.github.io/posts/downunderctf/}{DownUnderCTF}
-		\end{itemize}
-	\end{itemize}}
-	\cventry{January 2022 \\ June 2022}{Secretary}{\href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)}{Melbourne}{}{\begin{itemize}
-		\item Organised and recorded official committee and club meetings.
-		\item Represented the club during the orientation week of 2022's $1^{\text{st}}$ semester.
-		\item Organised and ran a binary-level reverse engineering workshop (a recording is available available at \url{https://youtu.be/893L13SxDUg}).
-		\item Started a section on the \href{https://monsec.io/resources/}{resources page} of the club's website, with a detailed section with a guide on how to easily install and set-up a \href{https://www.kali.org}{Kali Linux} virtual machine.
-	\end{itemize}}
-	\cventry{May 2021 \\ January 2022}{General Representative}{\href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)}{Melbourne}{}{\begin{itemize}
-		\item Helped to organise and ran a workshop about brute-forcing tools used for penetration testing.
-		\item Participated in \href{https://applegamer22.github.io/posts/angstromctf/}{{\aa}ngstromCTF}
-	\end{itemize}}
-
 	\section{Projects}
-	\subsection{Open-Source}\label{sec:open-source}
+	\subsection{\textbf{Open-Source}}\label{sec:open-source}
 	\cventry{May 2022 \\ Present}{\texttt{raker}}{\url{https://github.com/AppleGamer22/raker}}{}{}{\begin{itemize}
 		\item A social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
 		\item Server-side is built with \href{https://go.dev}{Go}, \href{https://www.mongodb.com}{MongoDB}, \href{https://jwt.io}{JSON Web Tokens} (JWTs) and \href{https://www.docker.com}{Docker}.
@@ -127,7 +103,7 @@
 		\item The CLI is built with \href{https://oclif.io}{OCLIF}
 	\end{itemize}}
 
-	\subsection{Research}\label{sec:research}
+	\subsection{\textbf{Research}}\label{sec:research}
 	\cventry{August 2021 \\ December 2021}{Software Contributor}{Monash University's \href{https://handbook.monash.edu/2021/units/FIT2082}{FIT2082 unit}}{Melbourne}{}{\begin{itemize}
 		\item I \href{https://github.com/AppleGamer22/FIT2082}{contributed} to an \href{https://bitbucket.org/gkgange/lazycbs}{existing codebase}, based on prior research by \href{https://ojs.aaai.org/index.php/ICAPS/article/view/3471}{(Gange, Harabor and Stuckey, 2021)} about \textsl{Lazy CBS}, their \href{https://en.wikipedia.org/wiki/Pathfinding\#Multi-agent_pathfinding}{Multi-Agent Path Finding} (MAPF) algorithm.
 		\begin{itemize}
@@ -137,9 +113,42 @@
 		\item Built with C/C++ and \href{https://python.org}{Python} on top of Linux.
 	\end{itemize}}
 
-	\subsection{Freelancing}
+	\subsection{\textbf{Freelancing}}
 	\cventry{June 2021 \\ December 2021}{Software Engineer}{Contract}{Melbourne}{}{\begin{itemize}
 		\item I implemented a fault-tolerant file back-up system that enables the continuation of file transferring from an variably-approximate point in time before the back-up disruption.
 		\item Built with \href{https://go.dev}{Go}.
+	\end{itemize}}
+
+	\section{Experience}
+	\cventry{June 2022 \\ Present}{Vice President}{\href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)}{Melbourne}{}{\begin{itemize}
+		\item Coordinated collaboration with the university's \href{https://www.monash.edu/it}{Faculty of Information Technology} for purposes of events and advertising.
+		\item Club \href{https://monsec.io}{website}:
+		\begin{itemize}
+			\item Updated the \href{https://github.com/panr/hugo-theme-terminal}{theme} to its latest version, and resolved new layout bugs in collaboration with other club committee members.
+			\item Improved the \href{https://kali.org}{Kali Linux} virtual machine \href{https://monsec.io/resources/\#kali-linux-set-up}{set-up guide} such that it includes more details on alternative installation methods.
+		\end{itemize}
+		\item Club representation:
+		\begin{itemize}
+			\item Faculty of IT's \href{https://www.monash.edu/it/events/2022/take-ctrl}{Take CTRL} (Cryptography \& Web Hacking Workshop)
+			\item Faculty of IT's \href{https://www.monash.edu/it/events/2022/munch-and-mingle}{Munch \& Mingle}
+			\item Faculty of IT's open day
+			\item Orientation week of 2022's $2^{\text{nd}}$ semester.
+		\end{itemize}
+		\item \href{https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)}{Capture the Flag} (CTF) participation:
+		\begin{itemize}
+			\item \href{https://applegamer22.github.io/posts/uactf/}{The University of Adelaide's CTF}
+			\item \href{https://applegamer22.github.io/posts/shell_ctf/}{SHELL CTF}
+			\item \href{https://applegamer22.github.io/posts/downunderctf/}{DownUnderCTF}
+		\end{itemize}
+	\end{itemize}}
+	\cventry{January 2022 \\ June 2022}{Secretary}{\href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)}{Melbourne}{}{\begin{itemize}
+		\item Organised and recorded official committee and club meetings.
+		\item Represented the club during the orientation week of 2022's $1^{\text{st}}$ semester.
+		\item Organised and ran a binary-level reverse engineering workshop (a recording is available available at \url{https://youtu.be/893L13SxDUg}).
+		\item Started a section on the \href{https://monsec.io/resources/}{resources page} of the club's website, with a detailed section with a guide on how to easily install and set-up a \href{https://www.kali.org}{Kali Linux} virtual machine.
+	\end{itemize}}
+	\cventry{May 2021 \\ January 2022}{General Representative}{\href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)}{Melbourne}{}{\begin{itemize}
+		\item Helped to organise and ran a workshop about brute-forcing tools used for penetration testing.
+		\item Participated in \href{https://applegamer22.github.io/posts/angstromctf/}{{\aa}ngstromCTF}
 	\end{itemize}}
 \end{document}
