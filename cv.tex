@@ -2,21 +2,21 @@
 \moderncvtheme[black]{classic}
 
 \usepackage[margin=15mm]{geometry}
-\usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage[none]{hyphenat}
 \usepackage[yyyymmdd]{datetime}
 \usepackage{amsmath}
 % \usepackage{fontspec}
 
-% \makeatletter
-% \RenewDocumentCommand{\subsection}{sm}{
-% 	\par\addvspace{1ex}
-% 	\phantomsection{}% reset the anchor for hyperrefs
-% 	\addcontentsline{toc}{subsection}{#2}%
-% 	\strut\subsectionstyle{#2}
-% 	\par\nobreak\addvspace{0.5ex}\@afterheading}% to avoid a pagebreak after the heading
-% \makeatother
+\makeatletter
+\RenewDocumentCommand{\subsection}{sm}{
+	\par\addvspace{1ex}
+	\phantomsection{}% reset the anchor for hyperrefs
+	\addcontentsline{toc}{subsection}{#2}
+	\strut\subsectionstyle{\textbf{#2}}
+	\par\nobreak\addvspace{0.5ex}{\@afterheading}
+}% to avoid a pagebreak after the heading
+\makeatother
 
 \renewcommand{\dateseparator}{-}
 \renewcommand{\labelitemi}{$\bullet$}
@@ -45,21 +45,21 @@
 	\cventry{2017 \\ 2019}{South Australian Certificate of Education}{\href{https://asms.sa.edu.au}{Australian Science \& Mathematics School} (ASMS)}{Adelaide}{}{}
 
 	\section{Skills}
-	\subsection{\textbf{Computer Programming Languages}}
+	\subsection{Computer Programming Languages}
 	\cvitemwithcomment{\href{https://go.dev}{Go}}{Expert}{server-side and command-line interfaces (CLIs)}
 	\cvitemwithcomment{\href{https://typescriptlang.org}{TypeScript}}{Expert}{full-stack}
 	\cvitemwithcomment{JavaScript}{Expert}{client-side on web browsers}
 	\cvitemwithcomment{\href{https://python.org}{Python}}{Proficient}{data analysis and \hyperref[sec:research]{research}}
 	\cvitemwithcomment{\href{https://kotlinlang.org}{Kotlin}/Java}{Intermediate}{Minecraft plugins}
 	\cvitemwithcomment{C/C++}{Intermediate}{\hyperref[sec:research]{research}}
-	\subsection{\textbf{Document Markup Languages}}
+	\subsection{Document Markup Languages}
 	\cvitemwithcomment{HTML/CSS}{Proficient}{client-side UI on web browsers}
 	\cvitemwithcomment{\TeX/\LaTeX}{Proficient}{PDF document typesetting}
 	\cvitemwithcomment{Markdown}{Expert}{technical documentation and communication}
 	% \subsection{Natural Languages}
 	% \cvitemwithcomment{English}{full professional proficiency}{}
 	% \cvitemwithcomment{Hebrew}{native or bilingual proficiency}{}
-	\subsection{\textbf{Tools}}
+	\subsection{Tools}
 	\cvitemwithcomment{\href{https://git-scm.com}{Git}}{Expert}{source code version control (see \hyperref[sec:open-source]{open-source projects} for examples)}
 	\cvitemwithcomment{\href{https://github.com}{GitHub}/\href{https://gitlab.com}{GitLab}}{Expert}{collaboration and CI/CD}
 	\cvitemwithcomment{\href{https://www.mongodb.com}{MongoDB}}{Proficient}{document non-relational database}
@@ -67,12 +67,14 @@
 	\cvitemwithcomment{\href{https://www.docker.com}{Docker}}{Proficient}{container-style packaging}
 	\cvitemwithcomment{\href{https://kubernetes.io}{Kubernetes}}{Intermediate}{container orchestration}
 	\cvitemwithcomment{\href{https://vagrantup.com}{Vagrant}}{Proficient}{virtual machine (VM) management}
-	\subsection{\textbf{Other}}
-	\cvlistitem{\textbf{Platforms}: Linux, Cloud Native, web servers/browsers, macOS, Windows}
-	\cvlistitem{\textbf{Soft Skills}: technical writing, critical/analytical thinking, presenting/public speaking, research, troubleshooting/debugging, explaining, collaboration/teamwork}
+	\subsection{Other}
+	\begin{itemize}
+		\item \textbf{Platforms}: Linux, Cloud Native, web servers/browsers, macOS, Windows
+		\item \textbf{Soft Skills}: technical writing, critical/analytical thinking, presenting/public speaking, research, troubleshooting/debugging, explaining, collaboration/teamwork
+	\end{itemize}
 
 	\section{Projects}
-	\subsection{\textbf{Open-Source}}\label{sec:open-source}
+	\subsection{Open-Source}\label{sec:open-source}
 	\cventry{May 2022 \\ Present}{\texttt{raker}}{\url{https://github.com/AppleGamer22/raker}}{}{}{\begin{itemize}
 		\item A social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
 		\item Server-side is built with \href{https://go.dev}{Go}, \href{https://www.mongodb.com}{MongoDB}, \href{https://jwt.io}{JSON Web Tokens} (JWTs) and \href{https://www.docker.com}{Docker}.
@@ -103,7 +105,7 @@
 		\item The CLI is built with \href{https://oclif.io}{OCLIF}
 	\end{itemize}}
 
-	\subsection{\textbf{Research}}\label{sec:research}
+	\subsection{Research}\label{sec:research}
 	\cventry{August 2021 \\ December 2021}{Software Contributor}{Monash University's \href{https://handbook.monash.edu/2021/units/FIT2082}{FIT2082 unit}}{Melbourne}{}{\begin{itemize}
 		\item I \href{https://github.com/AppleGamer22/FIT2082}{contributed} to an \href{https://bitbucket.org/gkgange/lazycbs}{existing codebase}, based on prior research by \href{https://ojs.aaai.org/index.php/ICAPS/article/view/3471}{(Gange, Harabor and Stuckey, 2021)} about \textsl{Lazy CBS}, their \href{https://en.wikipedia.org/wiki/Pathfinding\#Multi-agent_pathfinding}{Multi-Agent Path Finding} (MAPF) algorithm.
 		\begin{itemize}
@@ -113,7 +115,7 @@
 		\item Built with C/C++ and \href{https://python.org}{Python} on top of Linux.
 	\end{itemize}}
 
-	\subsection{\textbf{Freelancing}}
+	\subsection{Freelancing}
 	\cventry{June 2021 \\ December 2021}{Software Engineer}{Contract}{Melbourne}{}{\begin{itemize}
 		\item I implemented a fault-tolerant file back-up system that enables the continuation of file transferring from an variably-approximate point in time before the back-up disruption.
 		\item Built with \href{https://go.dev}{Go}.
