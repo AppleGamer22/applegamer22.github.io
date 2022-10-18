@@ -18,6 +18,8 @@
 }% to avoid a pagebreak after the heading
 \makeatother
 
+\newcommand\ghurl[1]{\href{https://github.com/#1}{\nolinkurl{#1} on GitHub}}
+
 \renewcommand{\dateseparator}{-}
 \renewcommand{\labelitemi}{$\bullet$}
 \renewcommand{\labelitemii}{$\circ$}
@@ -46,27 +48,27 @@
 
 	\section{Skills}
 	\subsection{Computer Programming Languages}
-	\cvitemwithcomment{\href{https://go.dev}{Go}}{Expert}{server-side and command-line interfaces (CLIs)}
-	\cvitemwithcomment{\href{https://typescriptlang.org}{TypeScript}}{Expert}{full-stack}
-	\cvitemwithcomment{JavaScript}{Expert}{client-side on web browsers}
-	\cvitemwithcomment{\href{https://python.org}{Python}}{Proficient}{data analysis and \hyperref[sec:research]{research}}
-	\cvitemwithcomment{\href{https://kotlinlang.org}{Kotlin}/Java}{Intermediate}{Minecraft plugins}
-	\cvitemwithcomment{C/C++}{Intermediate}{\hyperref[sec:research]{research}}
+	\cvitemwithcomment{\href{https://go.dev}{Go}}{}{server-side and command-line interfaces (CLIs)}
+	\cvitemwithcomment{\href{https://typescriptlang.org}{TypeScript}}{}{full-stack}
+	\cvitemwithcomment{JavaScript}{}{client-side on web browsers}
+	\cvitemwithcomment{\href{https://python.org}{Python}}{}{data analysis and \hyperref[sec:research]{research}}
+	\cvitemwithcomment{\href{https://kotlinlang.org}{Kotlin}/Java}{}{Minecraft plugins}
+	\cvitemwithcomment{C/C++}{}{\hyperref[sec:research]{research}}
 	\subsection{Document Markup Languages}
-	\cvitemwithcomment{HTML/CSS}{Proficient}{client-side UI on web browsers}
-	\cvitemwithcomment{\TeX/\LaTeX}{Proficient}{PDF document typesetting}
-	\cvitemwithcomment{Markdown}{Expert}{technical documentation and communication}
+	\cvitemwithcomment{HTML/CSS}{}{client-side UI on web browsers}
+	\cvitemwithcomment{\TeX/\LaTeX}{}{PDF document typesetting}
+	\cvitemwithcomment{Markdown}{}{technical documentation and communication}
 	% \subsection{Natural Languages}
 	% \cvitemwithcomment{English}{full professional proficiency}{}
 	% \cvitemwithcomment{Hebrew}{native or bilingual proficiency}{}
 	\subsection{Tools}
-	\cvitemwithcomment{\href{https://git-scm.com}{Git}}{Expert}{source code version control (see \hyperref[sec:open-source]{open-source projects} for examples)}
-	\cvitemwithcomment{\href{https://github.com}{GitHub}/\href{https://gitlab.com}{GitLab}}{Expert}{collaboration and CI/CD}
-	\cvitemwithcomment{\href{https://www.mongodb.com}{MongoDB}}{Proficient}{document non-relational database}
-	\cvitemwithcomment{SQL}{Intermediate}{relational database querying}
-	\cvitemwithcomment{\href{https://www.docker.com}{Docker}}{Proficient}{container-style packaging}
-	\cvitemwithcomment{\href{https://kubernetes.io}{Kubernetes}}{Intermediate}{container orchestration}
-	\cvitemwithcomment{\href{https://vagrantup.com}{Vagrant}}{Proficient}{virtual machine (VM) management}
+	\cvitemwithcomment{\href{https://git-scm.com}{Git}}{}{source code version control (see \hyperref[sec:open-source]{open-source projects} for examples)}
+	\cvitemwithcomment{\href{https://github.com}{GitHub}/\href{https://gitlab.com}{GitLab}}{}{collaboration and CI/CD (see \hyperref[sec:open-source]{open-source projects} for examples)}
+	\cvitemwithcomment{\href{https://www.mongodb.com}{MongoDB}}{}{document non-relational database}
+	\cvitemwithcomment{SQL}{}{relational database querying}
+	\cvitemwithcomment{\href{https://www.docker.com}{Docker}}{}{container-style packaging}
+	\cvitemwithcomment{\href{https://kubernetes.io}{Kubernetes}}{}{container orchestration}
+	\cvitemwithcomment{\href{https://vagrantup.com}{Vagrant}}{}{virtual machine (VM) management}
 	\subsection{Other}
 	\begin{itemize}
 		\item \textbf{Platforms}: Linux, Cloud Native, web servers/browsers, macOS, Windows
@@ -75,29 +77,29 @@
 
 	\section{Projects}
 	\subsection{Open-Source}\label{sec:open-source}
-	\cventry{May 2022 \\ Present}{\texttt{raker}}{\url{https://github.com/AppleGamer22/raker}}{}{}{\begin{itemize}
+	\cventry{May 2022 \\ Present}{\texttt{raker}}{\ghurl{AppleGamer22/raker}}{}{}{\begin{itemize}
 		\item A social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
 		\item Server-side is built with \href{https://go.dev}{Go}, \href{https://www.mongodb.com}{MongoDB}, \href{https://jwt.io}{JSON Web Tokens} (JWTs) and \href{https://www.docker.com}{Docker}.
 		\item Client-side is built with HTML/CSS (\href{https://getbootstrap.com}{Bootstrap}).
 		\item The companion CLI utility and configuration are built with \href{https://cobra.dev}{Cobra} and \href{https://github.com/spf13/viper}{Viper}.
 	\end{itemize}}
-	\cventry{May 2022 \\ Present}{\texttt{stalk}}{\url{https://github.com/AppleGamer22/stalk}}{}{}{\begin{itemize}
+	\cventry{May 2022 \\ Present}{\texttt{stalk}}{\ghurl{AppleGamer22/stalk}}{}{}{\begin{itemize}
 		\item A cross-platform file-watcher that can run a command after each file-system operation on a given files or simply wait once until a file is changed.
 		\item Built with \href{https://go.dev}{Go}, \href{https://cobra.dev}{Cobra} and \href{https://github.com/fsnotify/fsnotify}{FSnotify}.
 	\end{itemize}}
-	\cventry{January 2022 \\ Present}{\texttt{cocainate}}{\url{https://github.com/AppleGamer22/cocainate}}{}{}{\begin{itemize}
+	\cventry{January 2022 \\ Present}{\texttt{cocainate}}{\ghurl{AppleGamer22/cocainate}}{}{}{\begin{itemize}
 		\item A cross-platform re-implementation of the macOS utility \href{https://github.com/apple-oss-distributions/PowerManagement/tree/main/caffeinate}{\texttt{caffeinate}} that keeps the screen turned on either until stopped, for a set duration of time or while another process still runs.
 		\item Built with \href{https://go.dev}{Go} and \href{https://cobra.dev}{Cobra}.
 	\end{itemize}}
-	\cventry{December 2021}{CTFtime Discord Bot}{\url{https://github.com/monsec/ctftime-discord-bot}}{}{}{\begin{itemize}
+	\cventry{December 2021}{CTFtime Discord Bot}{\ghurl{monsec/ctftime-discord-bot}}{}{}{\begin{itemize}
 		\item A Discord bot for \href{https://monsec.io/contact/}{MonSec}'s Discord server, that fetches statistics about competing \href{https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)}{Capture the Flag} (CTF) teams from \href{https://ctftime.org}{CTFtime}, and displays them in the Discord interface.
 		\item Built with \href{https://go.dev}{Go}.
 	\end{itemize}}
-	\cventry{June 2020 \\ January 2021}{sp}{\url{https://github.com/AppleGamer22/sp}}{}{}{\begin{itemize}
+	\cventry{June 2020 \\ January 2021}{sp}{\ghurl{AppleGamer22/sp}}{}{}{\begin{itemize}
 		\item My first attempt at building a \href{https://papermc.io}{Minecraft server plugin}. This plugin adds the requirement that the player supplies the password (via a server command) before proper server interaction is allowed, and as long as the password isn't provided, the currently-unauthorized player is blinded and immobile.
 		\item Built with \href{https://kotlinlang.org}{Kotlin}.
 	\end{itemize}}
-	\cventry{April 2019 \\ May 2022}{scr-cli \& scr-web}{\url{https://github.com/AppleGamer22/scr-cli} \& \url{https://github.com/AppleGamer22/scr-web}}{}{}{\begin{itemize}
+	\cventry{April 2019 \\ May 2022}{scr-cli \& scr-web}{\ghurl{AppleGamer22/scr-cli} \& \ghurl{AppleGamer22/scr-web}}{}{}{\begin{itemize}
 		\item My previous attempt at building a full-stack (and a CLI) social media scraper with a single-page website framework and a RESTful server.
 		\item Server-side is built with \href{https://typescriptlang.org}{TypeScript} \& \href{https://nestjs.com}{Nest} (with a \href{https://nodejs.org}{Node.js} runtime) \href{https://www.mongodb.com}{MongoDB}, \href{https://jwt.io}{JSON Web Tokens} (JWTs) and \href{https://www.docker.com}{Docker}.
 		\item Client-side is built with \href{https://angular.io}{Angular} and \href{https://ionicframework.com}{Ionic}.
@@ -146,7 +148,7 @@
 	\cventry{January 2022 \\ June 2022}{Secretary}{\href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)}{Melbourne}{}{\begin{itemize}
 		\item Organised and recorded official committee and club meetings.
 		\item Represented the club during the orientation week of 2022's $1^{\text{st}}$ semester.
-		\item Organised and ran a binary-level reverse engineering workshop (a recording is available available at \url{https://youtu.be/893L13SxDUg}).
+		\item Organised and ran a binary-level reverse engineering workshop (a recording is available available on \href{https://youtu.be/893L13SxDUg}{YouTube}).
 		\item Started a section on the \href{https://monsec.io/resources/}{resources page} of the club's website, with a detailed section with a guide on how to easily install and set-up a \href{https://www.kali.org}{Kali Linux} virtual machine.
 	\end{itemize}}
 	\cventry{May 2021 \\ January 2022}{General Representative}{\href{https://monsec.io/team/}{Monash University's Cyber Security Club} (MonSec)}{Melbourne}{}{\begin{itemize}
