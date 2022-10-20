@@ -1,5 +1,5 @@
 ---
-title: My Hugo & Congo Configuration
+title: Hugo & Congo Configuration
 date: 2022-07-13
 description: My changes, additions and set-up of this Hugo-Congo website
 tags: [Hugo, Congo, YAML, Markdown, TeX, HTML, CSS, JavaScript, typesetting, fonts]
