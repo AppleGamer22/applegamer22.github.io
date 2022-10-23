@@ -82,6 +82,66 @@ fi
 ```
 
 # Prompt
+I use the prompt program [Starship](https://starship.rs/), which enables my prompt to display additional information based on the files in the current directory, such as:
+
+* `git` branch
+* `git` status
+* programming language version
+* package version
+
+Platform | Installation Command
+---|---
+Arch-based | `sudo pacman -S starship`
+macOS | `brew install starship`
+
+Starships displays the prompt based on a TOML configuration file stored at `~/.config/starship.toml`[^3]. This file defines in which order the information is displayed in the prompt, and also how that information is displayed.
+
+```toml
+format = """\
+	$time\
+	$username\
+	$hostname\
+	$directory\
+	$git_branch\
+	$git_commit\
+	$git_state\
+	$git_status\
+	$package\
+	$nodejs\
+	$python\
+	$golang\
+	$java\
+	$line_break\
+	$cmd_duration\
+	$character\
+"""
+add_newline = false
+[time]
+format = "[$time]($style) "
+disabled = false
+use_12hr = true
+style = "blue bold"
+[character]
+success_symbol = "[\\$](bold green)"
+error_symbol = "[\\$](bold red) "
+[cmd_duration]
+format = "[$duration](bold yellow) "
+[hostname]
+format = "on [$hostname]($style) "
+ssh_only = false
+disabled = false
+style = "green bold"
+[username]
+format = "via [$user]($style) "
+disabled = false
+show_always = true
+style_user = "red bold"
+style_root = "red bold"
+[directory]
+format = "in [$path]($style) "
+disabled = false
+style = "yellow bold"
+```
 
 # Aliases
 The following aliases are useful if you stick with the default BSD core utilities of macOS:
@@ -123,7 +183,7 @@ alias gitkraken='git log --graph --decorate --oneline'
 ```
 
 # `git`
-I use a `~/.gitconfig` file to configure:
+I use a `~/.gitconfig`[^4] file to configure:
 
 * my author details
 * cryptographic signatures
@@ -152,3 +212,5 @@ I use a `~/.gitconfig` file to configure:
 
 [^1]: <https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh>
 [^2]: <https://docs.docker.com/desktop/faqs/macfaqs/#zsh>
+[^3]: <https://starship.rs/config/>
+[^4]: <https://git-scm.com/docs/git-config>
