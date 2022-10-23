@@ -40,5 +40,6 @@
 			]
 		}
 	],
+	"latex-workshop.intellisense.package.extra": ["hyperref"],
 	"discord.enabled": true
 }
