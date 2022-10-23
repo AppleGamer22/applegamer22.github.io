@@ -33,12 +33,97 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 ```
 
-## Manual Pages Colours
+## Manual Page Colours
+My manual page colour configuration is inspired by [Kali's default `~/.zshrc`](https://gitlab.com/kalilinux/packages/kali-defaults/-/blob/kali/master/etc/skel/.zshrc):
+
+```sh
+export LESS_TERMCAP_mb=$'\E[1;31m'
+export LESS_TERMCAP_md=$'\E[1;36m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;33m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[1;32m'
+export LESS_TERMCAP_ue=$'\E[0m'
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
+ZSH_HIGHLIGHT_STYLES[default]=none
+ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=red,bold
+ZSH_HIGHLIGHT_STYLES[reserved-word]=fg=cyan,bold
+ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=green,underline
+ZSH_HIGHLIGHT_STYLES[global-alias]=fg=magenta
+ZSH_HIGHLIGHT_STYLES[precommand]=fg=green,underline
+ZSH_HIGHLIGHT_STYLES[commandseparator]=fg=blue,bold
+ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=green,underline
+ZSH_HIGHLIGHT_STYLES[path]=underline
+ZSH_HIGHLIGHT_STYLES[path_pathseparator]=
+ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=
+ZSH_HIGHLIGHT_STYLES[globbing]=fg=blue,bold
+ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=blue,bold
+ZSH_HIGHLIGHT_STYLES[command-substitution]=none
+ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter]=fg=magenta
+ZSH_HIGHLIGHT_STYLES[process-substitution]=none
+ZSH_HIGHLIGHT_STYLES[process-substitution-delimiter]=fg=magenta
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]=fg=magenta
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]=fg=magenta
+ZSH_HIGHLIGHT_STYLES[back-quoted-argument]=none
+ZSH_HIGHLIGHT_STYLES[back-quoted-argument-delimiter]=fg=blue,bold
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=yellow
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=yellow
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=yellow
+ZSH_HIGHLIGHT_STYLES[rc-quote]=fg=magenta
+ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=magenta
+ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=magenta
+ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=magenta
+ZSH_HIGHLIGHT_STYLES[assign]=none
+ZSH_HIGHLIGHT_STYLES[redirection]=fg=blue,bold
+ZSH_HIGHLIGHT_STYLES[comment]=fg=black,bold
+ZSH_HIGHLIGHT_STYLES[named-fd]=none
+ZSH_HIGHLIGHT_STYLES[numeric-fd]=none
+ZSH_HIGHLIGHT_STYLES[arg0]=fg=green
+ZSH_HIGHLIGHT_STYLES[bracket-error]=fg=red,bold
+ZSH_HIGHLIGHT_STYLES[bracket-level-1]=fg=blue,bold
+ZSH_HIGHLIGHT_STYLES[bracket-level-2]=fg=green,bold
+ZSH_HIGHLIGHT_STYLES[bracket-level-3]=fg=magenta,bold
+ZSH_HIGHLIGHT_STYLES[bracket-level-4]=fg=yellow,bold
+ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
+ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
+```
 
 ## Settings
+The following commands set:
+
+* number of commands saved to the history file.
+* ability to use the up and down arrow keys
+	* to access the history interactively, like in BASH
+	* and to search for a prefix in history
+* menu-style command completion
+* the tab character is displayed as 4 spaces
+* the cursor is displayed as a `|` character
+
+```sh
+HISTSIZE=1000
+SAVEHIST=1000
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+HISTFILE=~/.zsh_history
+
+zstyle ':completion:*' menu select
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	zstyle ':completion:*:*:-command-:*:*' ignored-patterns 'clean-diff'
+fi
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+touch ~/.hushlogin
+tabs -4
+echo -e -n "\x1b[\x35 q";
+```
 
 ## Completions
-
 ### macOS
 If you install your command-line tools with the [Homebrew](https://brew.sh/) package manager, the following code snippet from their documentation[^1] should be added to the appropriate place in `~/.zshrc`.
 
@@ -68,6 +153,13 @@ ln -s $etc/docker-compose.zsh-completion $(brew --prefix)/share/zsh/site-functio
 ```
 
 #### Terraform
+Terraform's macOS installation requires the following command to be added to `~/.zshrc` in order to enable command completion:
+
+```sh
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	complete -o nospace -C /usr/local/bin/terraform terraform
+fi
+```
 
 # Core Utilities on macOS
 I find the GNU core utilities more feature-rich than the BSD core utilities that are shipped with macOS. As a result, when I need the GNU core utilities on macOS, I install them with the [Homebrew](https://brew.sh/) package manager by running: `brew install coreutils gnu-tar gnu-sed grep`. This utilities can be enabled from your `~/.zshrc`:
@@ -115,6 +207,7 @@ format = """\
 	$cmd_duration\
 	$character\
 """
+
 add_newline = false
 [time]
 format = "[$time]($style) "
