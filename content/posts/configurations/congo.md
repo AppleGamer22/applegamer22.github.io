@@ -1,5 +1,5 @@
 ---
-title: My Hugo & Congo Configuration
+title: Hugo & Congo Configuration
 date: 2022-07-13
 description: My changes, additions and set-up of this Hugo-Congo website
 tags: [Hugo, Congo, YAML, Markdown, TeX, HTML, CSS, JavaScript, typesetting, fonts]
@@ -369,6 +369,7 @@ privacy:
 ### Other
 * I set the base URL for GitHub Pages compatibility.
 * I set the timezone, in order to prevent pages with "future" dates from not rendering immediately.
+* `git`'s metadata is used to determine when a document has been [updated](#articles).
 * Hugo outputs are configured in order to enable content search.
 
 
@@ -377,6 +378,7 @@ baseURL: https://applegamer22.github.io
 timeZone: Australia/Melbourne
 defaultContentLanguage: en
 title: Omri Bornstein
+enableGitInfo: true
 paginate: 15
 summaryLength: 0
 outputs:
