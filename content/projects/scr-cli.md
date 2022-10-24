@@ -4,3 +4,4 @@ date: 2019-04-18
 tags: [TypeScript, javascript, CLI, utility, Linux, macOS, Windows]
 externalUrl: https://github.com/AppleGamer22/scr-cli
 ---
+<meta http-equiv="refresh" content="0; URL='https://github.com/AppleGamer22/scr-cli'">

@@ -4,3 +4,4 @@ date: 2022-03-28
 tags: [MonSec, reversing, Ghidra, C, Go]
 externalUrl: https://youtu.be/893L13SxDUg
 ---
+<meta http-equiv="refresh" content="0; URL='https://youtu.be/893L13SxDUg'">
