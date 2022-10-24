@@ -3,7 +3,7 @@ My [personal website](https://applegamer22.github.io), built with [Hugo](https:/
 
 # Additions to Congo
 ## KaTeX
-The following `layouts/partials/extend-head.html` code is based [this comment](https://github.com/jpanther/congo/discussions/23#discussioncomment-1550774) from the Congo Theme discussion board, and [this file](https://github.com/jpanther/congo/blob/stable/layouts/partials/vendor.html) from Congo Theme's codebase.
+The following `layouts/partials/extend-head.html` code is based on [this comment](https://github.com/jpanther/congo/discussions/23#discussioncomment-1550774) from the Congo Theme discussion board, and is also based on [this file](https://github.com/jpanther/congo/blob/stable/layouts/partials/vendor.html) from Congo Theme's codebase.
 
 ```html
 {{$katexCSS := resources.Get "lib/katex/katex.min.css"}}
