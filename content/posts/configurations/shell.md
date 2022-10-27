@@ -162,7 +162,7 @@ fi
 ```
 
 # Core Utilities on macOS
-I find the GNU core utilities more feature-rich than the BSD core utilities that are shipped with macOS. As a result, when I need the GNU core utilities on macOS, I install them with the [Homebrew](https://brew.sh/) package manager by running: `brew install coreutils gnu-tar gnu-sed grep`. This utilities can be enabled from your `~/.zshrc`:
+I find the GNU core utilities more feature-rich than the BSD core utilities that are shipped with macOS. As a result, when I need the GNU core utilities on macOS, I install them with the [Homebrew](https://brew.sh/) package manager by running: `brew install coreutils gnu-tar gnu-sed grep`. These utilities can be enabled from your `~/.zshrc`:
 
 ```sh
 if [[ "$OSTYPE" == "darwin"* ]]; then
