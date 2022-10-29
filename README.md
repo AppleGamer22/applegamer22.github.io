@@ -255,3 +255,31 @@ The following CSS was added to `assets/css/schemes/fruit.css` (based on Congo's 
 	--color-secondary-900: 136, 19, 55;
 }
 ```
+
+## Menu Header
+The following CSS was added to `assets/css/custom.css` in order to show/hide the desktop or mobile menu header based on the width of the screen:
+
+```css
+@media (min-width: 740px) {
+	#header-narrow {
+		display: none !important;
+	}
+
+	.header-wide {
+		display: block !important;
+	}
+}
+
+/* header for narrow screens */
+@media (max-width: 740px) {
+	#header-narrow {
+		display: block !important;
+	}
+
+	.header-wide {
+		display: none !important;
+	}
+}
+```
+
+The HTML was inspired by a combination of Congo Theme's [basic](https://github.com/jpanther/congo/blob/stable/layouts/partials/header/basic.html) and [hamburger](https://github.com/jpanther/congo/blob/stable/layouts/partials/header/hamburger.html) layouts. Its HTML code is available at [`layouts/partials/header/custom.html`](/layouts/partials/header/custom.html).
