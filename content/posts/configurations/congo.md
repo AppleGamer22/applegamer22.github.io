@@ -487,6 +487,7 @@ These configurations are in this section because they do not fit in a coherent c
 * Content search is enabled
 * Recent posts from the blog are shown in the homepage
 * The homepage is rendered as profile configuration
+* A [custom](#menu-header) menu header layout is used
 * A table of contents is shown for every [list page](https://gohugo.io/templates/lists/)
 
 ```yaml
@@ -500,6 +501,9 @@ params:
   homepage:
     layout: profile
     showRecent: true
+  header:
+    layout: custom
   list:
     showTableOfContents: true
+    showBreadcrumbs: true
 ```
