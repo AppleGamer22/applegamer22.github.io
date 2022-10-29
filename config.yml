@@ -38,6 +38,8 @@ params:
   homepage:
     layout: profile
     showRecent: true
+  header:
+    layout: custom
   article:
     showBreadcrumbs: true
     showTableOfContents: true
@@ -57,6 +59,7 @@ params:
       - pinterest
   list:
     showTableOfContents: true
+    showBreadcrumbs: true
 markup:
   highlight:
     noClasses: false
