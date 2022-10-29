@@ -282,4 +282,4 @@ The following CSS was added to `assets/css/custom.css` in order to show/hide the
 }
 ```
 
-The HTML was inspired by a combination of Congo Theme's [basic](https://github.com/jpanther/congo/blob/stable/layouts/partials/header/basic.html) and [hamburger](https://github.com/jpanther/congo/blob/stable/layouts/partials/header/hamburger.html) layouts. Its HTML code is available at [`layouts/partials/header/custom.html`](/layouts/partials/header/custom.html).
+The HTML was inspired by a combination of Congo Theme's [basic](https://github.com/jpanther/congo/blob/stable/layouts/partials/header/basic.html) and [hamburger](https://github.com/jpanther/congo/blob/stable/layouts/partials/header/hamburger.html) layouts. The HTML code is available at [`layouts/partials/header/custom.html`](/layouts/partials/header/custom.html).
