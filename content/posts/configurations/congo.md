@@ -343,6 +343,10 @@ The following CSS was added to `assets/css/custom.css` in order to show/hide the
 	.header-wide {
 		display: none !important;
 	}
+
+	li#header-narrow > label > div > ul {
+		padding-top: 3rem !important;
+	}
 }
 ```
 
