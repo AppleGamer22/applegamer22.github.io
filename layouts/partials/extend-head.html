@@ -55,6 +55,7 @@
 					display: false
 				},
 			],
+			preProcess: math => math.replaceAll('\\\n', '\\\\\n'),
 			throwOnError: false
 		});
 

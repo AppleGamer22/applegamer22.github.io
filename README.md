@@ -34,6 +34,7 @@ The following `layouts/partials/extend-head.html` code is based on [this comment
 					display: false
 				},
 			],
+			preProcess: math => math.replaceAll('\\\n', '\\\\\n'),
 			throwOnError: false
 		});
 	});
@@ -42,7 +43,7 @@ The following `layouts/partials/extend-head.html` code is based on [this comment
 
 This change makes the KaTeX CSS and JavaScript files to load by default, and it also enables the single `$` delimiter to be used with less future configuration.
 
-Due to Hugo use of the `\`  character for text escaping, The sequence `\\\` is required instead of `\\` (at the source-code level) in order to correctly render a line break. This change does not seem tp affect $\TeX$ rendering in other platforms.
+Due to Hugo's use of the `\` character for text escaping, the `preProcess`[^1] function is required in order to correctly render the $\TeX$ source code as it was intended to be rendered. Moreover, the `align*` environment seems to be the most compatible between KaTeX and MathJax.
 
 ## Technical Diagrams
 The following `layouts/partials/extend-head.html` code is based on [Docsy's diagram support](https://www.docsy.dev/docs/adding-content/diagrams-and-formulae/#diagrams-with-mermaid), and implemented similarly to [Docsy's implementation](https://github.com/google/docsy/blob/main/assets/js/mermaid.js), and [Congo's implementation](https://github.com/jpanther/congo/blob/stable/assets/js/mermaid.js), the theme settings are based on [Mermaid's documentation](https://mermaid-js.github.io/mermaid/#/theming).
@@ -287,3 +288,5 @@ The following CSS was added to `assets/css/custom.css` in order to show/hide the
 ```
 
 The HTML was inspired by a combination of Congo Theme's [basic](https://github.com/jpanther/congo/blob/stable/layouts/partials/header/basic.html) and [hamburger](https://github.com/jpanther/congo/blob/stable/layouts/partials/header/hamburger.html) layouts. The HTML code is available at [`layouts/partials/header/custom.html`](/layouts/partials/header/custom.html).
+
+[^1]: <https://katex.org/docs/autorender.html>
