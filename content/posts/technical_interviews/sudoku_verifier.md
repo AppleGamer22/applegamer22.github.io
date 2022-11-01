@@ -57,6 +57,7 @@ func CheckSudoku(matrix [9][9]int) bool {
 	// check sub-box conditions
 	for i := 0; i < 9; i += 3 {
 		for j := 0; j < 9; j += 3 {
+			// (i, j) represents the upper-left corner of each Sudoku sub-box
 			var box_count [9]int
 			for y := j; y < j + 3; y++ {
 				for x := i; x < i + 3; x++ {
