@@ -186,7 +186,9 @@ I use the prompt program [Starship](https://starship.rs/), which enables my prom
 Platform | Installation Command
 ---|---
 Arch-based | `sudo pacman -S starship`
+Red Hat-based | `sudo dnf install starship`
 macOS | `brew install starship`
+Other | `curl -sS https://starship.rs/install.sh | sh`
 
 Starships displays the prompt based on a TOML configuration file stored at `~/.config/starship.toml`[^3]. This file defines in which order the information is displayed in the prompt, and also how that information is displayed.
 
