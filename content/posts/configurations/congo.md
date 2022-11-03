@@ -268,7 +268,7 @@ ul > li > ul {
 ```
 
 ### Content Width
-The following CSS was added to `assets/css/custom.css` in order to increase the content width. Based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css).
+The following CSS was added to `assets/css/custom.css` in order to increase the content width (based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css)):
 
 ```css
 .max-w-7xl {
@@ -276,6 +276,16 @@ The following CSS was added to `assets/css/custom.css` in order to increase the 
 }
 .max-w-prose {
 	max-width: 100ch !important;
+}
+```
+
+The following CSS was added to `assets/css/custom.css` in order to decrease the spacing between the menu items (based on [Congo Theme's `main.css`](https://github.com/jpanther/congo/blob/stable/assets/css/compiled/main.css)):
+
+```css
+@media(min-width: 640px) {
+	[dir="rtl"]  .prose ol > li, [dir="ltr"] .ltr\:sm\:mr-7 {
+		margin-right: 0.75rem !important;
+	}
 }
 ```
 
@@ -325,7 +335,7 @@ The following CSS was added to `assets/css/schemes/fruit.css` (based on Congo's 
 The following CSS was added to `assets/css/custom.css` in order to show/hide the desktop or mobile menu header based on the width of the screen:
 
 ```css
-@media (min-width: 740px) {
+@media (min-width: 700px) {
 	#header-narrow {
 		display: none !important;
 	}
@@ -336,7 +346,7 @@ The following CSS was added to `assets/css/custom.css` in order to show/hide the
 }
 
 /* header for narrow screens */
-@media (max-width: 740px) {
+@media (max-width: 700px) {
 	#header-narrow {
 		display: block !important;
 	}

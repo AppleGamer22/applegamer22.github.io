@@ -103,9 +103,9 @@ languages:
         # - reddit: https://www.reddit.com/user/AppleGamer22
     menu:
       main:
-        # - name: About
-        #   pageRef: about
-        #   weight: 1
+        - name: About
+          pageRef: about
+          weight: 1
         - name: Posts
           pageRef: posts
           weight: 2
