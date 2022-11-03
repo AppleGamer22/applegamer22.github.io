@@ -99,8 +99,7 @@ languages:
         - ctftime: https://ctftime.org/user/106208
         - tryhackme: https://tryhackme.com/p/AppleGamer22
         - hackthebox: https://app.hackthebox.com/profile/529539
-        # - twitter: https://twitter.com/AppleGamer22
-        # - reddit: https://www.reddit.com/user/AppleGamer22
+        - leetcode: https://leetcode.com/AppleGamer22/
     menu:
       main:
         - name: About
