@@ -100,6 +100,7 @@ languages:
         - tryhackme: https://tryhackme.com/p/AppleGamer22
         - hackthebox: https://app.hackthebox.com/profile/529539
         - leetcode: https://leetcode.com/AppleGamer22/
+        - hackerrank: https://www.hackerrank.com/applegamer22
     menu:
       main:
         - name: About
