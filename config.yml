@@ -92,8 +92,8 @@ languages:
         - stack-overflow: https://stackoverflow.com/users/7148921/
         - keybase: https://keybase.io/applegamer22
         - orcid: https://orcid.org/0000-0001-8645-6321
-        - dev: https://dev.to/applegamer22
-        - hashnode: https://applegamer22.hashnode.dev
+        # - dev: https://dev.to/applegamer22
+        # - hashnode: https://applegamer22.hashnode.dev
         - medium: https://medium.com/@AppleGamer22
         - codepen: https://codepen.io/AppleGamer22
         - ctftime: https://ctftime.org/user/106208
