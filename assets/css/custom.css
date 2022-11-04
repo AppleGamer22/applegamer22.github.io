@@ -1,5 +1,5 @@
 /* header for wide screens */
-@media (min-width: 740px) {
+@media (min-width: 700px) {
 	#header-narrow {
 		display: none !important;
 	}
@@ -10,7 +10,7 @@
 }
 
 /* header for narrow screens */
-@media (max-width: 740px) {
+@media (max-width: 700px) {
 	#header-narrow {
 		display: block !important;
 	}
@@ -98,4 +98,10 @@ ul > li > ul {
 
 .max-w-prose {
 	max-width: 100ch !important;
+}
+
+@media(min-width: 640px) {
+	[dir="rtl"]  .prose ol > li, [dir="ltr"] .ltr\:sm\:mr-7 {
+		margin-right: 0.75rem !important;
+	}
 }

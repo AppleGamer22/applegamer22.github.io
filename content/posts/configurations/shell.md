@@ -162,14 +162,16 @@ fi
 ```
 
 # Core Utilities on macOS
-I find the GNU core utilities more feature-rich than the BSD core utilities that are shipped with macOS. As a result, when I need the GNU core utilities on macOS, I install them with the [Homebrew](https://brew.sh/) package manager by running: `brew install coreutils gnu-tar gnu-sed grep`. These utilities can be enabled from your `~/.zshrc`:
+I find the GNU core utilities more feature-rich than the BSD core utilities that are shipped with macOS. As a result, when I need the GNU core utilities on macOS, I install them with the [Homebrew](https://brew.sh/) package manager by running: `brew install coreutils binutils gnu-tar gnu-sed grep make`. These utilities can be enabled from your `~/.zshrc`:
 
 ```sh
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
+	PATH="$(brew --prefix)/opt/binutils/bin:$PATH"
 	PATH="$(brew --prefix)/opt/gnu-tar/libexec/gnubin:$PATH"
 	PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
 	PATH="$(brew --prefix)/opt/grep/libexec/gnubin:$PATH"
+	PATH="$(brew --prefix)/opt/make/libexec/gnubin:$PATH"
 fi
 ```
 
@@ -184,7 +186,9 @@ I use the prompt program [Starship](https://starship.rs/), which enables my prom
 Platform | Installation Command
 ---|---
 Arch-based | `sudo pacman -S starship`
+Red Hat-based | `sudo dnf install starship`
 macOS | `brew install starship`
+Other | `curl -sS https://starship.rs/install.sh | sh`
 
 Starships displays the prompt based on a TOML configuration file stored at `~/.config/starship.toml`[^3]. This file defines in which order the information is displayed in the prompt, and also how that information is displayed.
 

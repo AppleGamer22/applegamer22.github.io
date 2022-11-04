@@ -11,11 +11,11 @@
 \makeatletter
 \RenewDocumentCommand{\subsection}{sm}{
 	\par\addvspace{1ex}
-	\phantomsection{}% reset the anchor for hyperrefs
+	\phantomsection{}
 	\addcontentsline{toc}{subsection}{#2}
 	\strut\subsectionstyle{\textbf{#2}}
 	\par\nobreak\addvspace{0.5ex}{\@afterheading}
-}% to avoid a pagebreak after the heading
+}
 \makeatother
 
 \newcommand\ghurl[1]{\href{https://github.com/#1}{\nolinkurl{#1} on GitHub}}
@@ -32,12 +32,10 @@
 % \photo[64pt]{assets/author.png}
 \title{Software Engineer}
 \address{Greater Melbourne Area}{}{Australia}
-% \phone{+61 448 289 895}
 \email{omribor@gmail.com}
 \homepage{applegamer22.github.io}
 \social[linkedin]{omri-bornstein}
 \social[github]{AppleGamer22}
-% \social[twitter]{AppleGamer22}
 \extrainfo{Updated on \textbf{\today}}
 
 \raggedleft\raggedright\begin{document}
@@ -48,12 +46,16 @@
 
 	\section{Skills}
 	\subsection{Computer Programming Languages}
-	\cvitemwithcomment{\href{https://go.dev}{Go}}{}{server-side and command-line interfaces (CLIs)}
-	\cvitemwithcomment{\href{https://typescriptlang.org}{TypeScript}}{}{full-stack}
-	\cvitemwithcomment{JavaScript}{}{client-side on web browsers}
-	\cvitemwithcomment{\href{https://python.org}{Python}}{}{data analysis and \hyperref[sec:research]{research}}
-	\cvitemwithcomment{\href{https://kotlinlang.org}{Kotlin}/Java}{}{Minecraft plugins}
-	\cvitemwithcomment{C/C++}{}{\hyperref[sec:research]{research}}
+	\cvitemwithcomment{\href{https://go.dev}{Go}}{
+		\hyperlink{raker}{\texttt{raker}},
+		\hyperlink{stalk}{\texttt{stalk}} \&
+		\hyperlink{cocainate}{\texttt{cocainate}}
+	}{server-side \& command-line interfaces (CLIs)}
+	\cvitemwithcomment{\href{https://typescriptlang.org}{TypeScript}}{\hyperlink{scr}{scr-cli \& scr-web}}{full-stack}
+	% \cvitemwithcomment{JavaScript}{}{client-side on web browsers}
+	\cvitemwithcomment{\href{https://python.org}{Python}}{\hyperlink{FIT2082}{FIT2082 research project}}{data analysis}
+	\cvitemwithcomment{\href{https://kotlinlang.org}{Kotlin}/Java}{\hyperlink{sp}{\texttt{sp}}}{Minecraft plugins}
+	\cvitemwithcomment{C/C++}{\hyperlink{FIT2082}{FIT2082 research project}}{}
 	\subsection{Document Markup Languages}
 	\cvitemwithcomment{HTML \& CSS}{}{client-side UI on web browsers}
 	\cvitemwithcomment{\TeX/\LaTeX}{}{PDF document typesetting}
@@ -62,11 +64,15 @@
 	% \cvitemwithcomment{English}{full professional proficiency}{}
 	% \cvitemwithcomment{Hebrew}{native or bilingual proficiency}{}
 	\subsection{Tools}
-	\cvitemwithcomment{\href{https://git-scm.com}{Git}}{}{source code version control (see \hyperref[sec:open-source]{open-source projects} for examples)}
-	\cvitemwithcomment{\href{https://github.com}{GitHub}/\href{https://gitlab.com}{GitLab}}{}{collaboration and CI/CD (see \hyperref[sec:open-source]{open-source projects} for examples)}
-	\cvitemwithcomment{\href{https://www.mongodb.com}{MongoDB}}{}{document non-relational database}
+	\cvitemwithcomment{\href{https://git-scm.com}{Git}}{\hyperref[sec:open-source]{open-source projects}}{source code version control}
+	\cvitemwithcomment{\href{https://github.com}{GitHub}/\href{https://gitlab.com}{GitLab}}{\hyperref[sec:open-source]{open-source projects}}{collaboration \& CI/CD}
+	\cvitemwithcomment{\href{https://www.mongodb.com}{MongoDB}}{
+		\hyperlink{raker}{\texttt{raker}} \& \hyperlink{scr}{scr-cli \& scr-web}
+	}{document non-relational database}
 	\cvitemwithcomment{SQL}{}{relational database querying}
-	\cvitemwithcomment{\href{https://www.docker.com}{Docker}}{}{container-style packaging}
+	\cvitemwithcomment{\href{https://www.docker.com}{Docker}}{
+		\hyperlink{raker}{\texttt{raker}} \& \hyperlink{scr}{scr-cli \& scr-web}
+	}{container-style packaging}
 	\cvitemwithcomment{\href{https://kubernetes.io}{Kubernetes}}{}{container orchestration}
 	\cvitemwithcomment{\href{https://vagrantup.com}{Vagrant}}{}{virtual machine (VM) management}
 	% \cvitemwithcomment{\href{https://terraform.io}{Terraform}}{}{infrustracture definitions as code}
@@ -79,45 +85,71 @@
 
 	\section{Projects}
 	\subsection{Open-Source}\label{sec:open-source}
-	\cventry{May 2022 \\ Present}{\texttt{raker}}{\ghurl{AppleGamer22/raker}}{}{}{\begin{itemize}
-		\item A social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
-		\item Server-side is built with \href{https://go.dev}{Go}, \href{https://www.mongodb.com}{MongoDB}, \href{https://jwt.io}{JSON Web Tokens} (JWTs) and \href{https://www.docker.com}{Docker}.
-		\item Client-side is built with HTML/CSS (\href{https://getbootstrap.com}{Bootstrap}).
-		\item The companion CLI utility and configuration are built with \href{https://cobra.dev}{Cobra} and \href{https://github.com/spf13/viper}{Viper}.
-	\end{itemize}}
-	\cventry{May 2022 \\ Present}{\texttt{stalk}}{\ghurl{AppleGamer22/stalk}}{}{}{\begin{itemize}
-		\item A cross-platform file-watcher that can run a command after each file-system operation on a given files or simply wait once until a file is changed.
-		\item Built with \href{https://go.dev}{Go}, \href{https://cobra.dev}{Cobra} and \href{https://github.com/fsnotify/fsnotify}{FSnotify}.
-	\end{itemize}}
-	\cventry{January 2022 \\ Present}{\texttt{cocainate}}{\ghurl{AppleGamer22/cocainate}}{}{}{\begin{itemize}
-		\item A cross-platform re-implementation of the macOS utility \href{https://github.com/apple-oss-distributions/PowerManagement/tree/main/caffeinate}{\texttt{caffeinate}} that keeps the screen turned on either until stopped, for a set duration of time or while another process still runs.
-		\item Built with \href{https://go.dev}{Go} and \href{https://cobra.dev}{Cobra}.
-	\end{itemize}}
-	\cventry{December 2021}{CTFtime Discord Bot}{\ghurl{monsec/ctftime-discord-bot}}{}{}{\begin{itemize}
-		\item A Discord bot for \href{https://monsec.io/contact/}{MonSec}'s Discord server, that fetches statistics about competing \href{https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)}{Capture the Flag} (CTF) teams from \href{https://ctftime.org}{CTFtime}, and displays them in the Discord interface.
-		\item Built with \href{https://go.dev}{Go}.
-	\end{itemize}}
-	\cventry{June 2020 \\ January 2021}{sp}{\ghurl{AppleGamer22/sp}}{}{}{\begin{itemize}
-		\item My first attempt at building a \href{https://papermc.io}{Minecraft server plugin}. This plugin adds the requirement that the player supplies the password (via a server command) before proper server interaction is allowed, and as long as the password isn't provided, the currently-unauthorized player is blinded and immobile.
-		\item Built with \href{https://kotlinlang.org}{Kotlin}.
-	\end{itemize}}
-	\cventry{April 2019 \\ May 2022}{scr-cli \& scr-web}{\ghurl{AppleGamer22/scr-cli} \& \ghurl{AppleGamer22/scr-web}}{}{}{\begin{itemize}
-		\item My previous attempt at building a full-stack (and a CLI) social media scraper with a single-page website framework and a RESTful server.
-		\item Server-side is built with \href{https://typescriptlang.org}{TypeScript} \& \href{https://nestjs.com}{Nest} (with a \href{https://nodejs.org}{Node.js} runtime) \href{https://www.mongodb.com}{MongoDB}, \href{https://jwt.io}{JSON Web Tokens} (JWTs) and \href{https://www.docker.com}{Docker}.
-		\item Client-side is built with \href{https://angular.io}{Angular} and \href{https://ionicframework.com}{Ionic}.
-		\item The full-stack packages is bundled with \href{https://nx.dev}{Nx}.
-		\item The CLI is built with \href{https://oclif.io}{OCLIF}
-	\end{itemize}}
-
-	\subsection{Research}\label{sec:research}
-	\cventry{August 2021 \\ December 2021}{Software Contributor}{Monash University's \href{https://handbook.monash.edu/2021/units/FIT2082}{FIT2082 unit}}{Melbourne}{}{\begin{itemize}
-		\item I \href{https://github.com/AppleGamer22/FIT2082}{contributed} to an \href{https://bitbucket.org/gkgange/lazycbs}{existing codebase}, based on prior research by \href{https://ojs.aaai.org/index.php/ICAPS/article/view/3471}{(Gange, Harabor and Stuckey, 2021)} about \textsl{Lazy CBS}, their \href{https://en.wikipedia.org/wiki/Pathfinding\#Multi-agent_pathfinding}{Multi-Agent Path Finding} (MAPF) algorithm.
+	\hypertarget{raker}{
+		\cventry{May 2022 \\ Present}{\texttt{raker}}{\ghurl{AppleGamer22/raker}}{}{}{
+			\begin{itemize}
+				\item A social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
+				\item Server-side is built with \href{https://go.dev}{Go}, \href{https://www.mongodb.com}{MongoDB}, \href{https://jwt.io}{JSON Web Tokens} (JWTs) and \href{https://www.docker.com}{Docker}.
+				\item Client-side is built with HTML/CSS (\href{https://getbootstrap.com}{Bootstrap}).
+				\item The companion CLI utility and configuration are built with \href{https://cobra.dev}{Cobra} and \href{https://github.com/spf13/viper}{Viper}.
+			\end{itemize}
+		}
+	}
+	\hypertarget{stalk}{
+		\cventry{May 2022 \\ Present}{\texttt{stalk}}{\ghurl{AppleGamer22/stalk}}{}{}{
+			\begin{itemize}
+				\item A cross-platform file-watcher that can run a command after each file-system operation on a given files or simply wait once until a file is changed.
+				\item Built with \href{https://go.dev}{Go}, \href{https://cobra.dev}{Cobra} and \href{https://github.com/fsnotify/fsnotify}{FSnotify}.
+			\end{itemize}
+		}
+	}
+	\hypertarget{cocainate}{
+		\cventry{January 2022 \\ Present}{\texttt{cocainate}}{\ghurl{AppleGamer22/cocainate}}{}{}{
+			\begin{itemize}
+				\item A cross-platform re-implementation of the macOS utility \href{https://github.com/apple-oss-distributions/PowerManagement/tree/main/caffeinate}{\texttt{caffeinate}} that keeps the screen turned on either until stopped, for a set duration of time or while another process still runs.
+				\item Built with \href{https://go.dev}{Go} and \href{https://cobra.dev}{Cobra}.
+			\end{itemize}
+		}
+	}
+	\cventry{December 2021}{CTFtime Discord Bot}{\ghurl{monsec/ctftime-discord-bot}}{}{}{
 		\begin{itemize}
-			\item I modified the \textsl{Lazy CBS} codebase such that the algorithm also outputs the final set of constraints that is used to rule out paths, such that \textsl{Lazy CBS} is formally an \textbf{Explainable} Multi-Agent Path Finding (XMAPF) algorithm.
-			\item I learned how to enable \httplink[\textsl{Python}-to-\textsl{C++} bindings]{pybind11.readthedocs.io/en/stable/}, such that the compiled \textsl{Lazy CBS} codebase can be used as a Python-facing library for future projects.
+			\item A Discord bot for \href{https://monsec.io/contact/}{MonSec}'s Discord server, that fetches statistics about competing \href{https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)}{Capture the Flag} (CTF) teams from \href{https://ctftime.org}{CTFtime}, and displays them in the Discord interface.
+			\item Built with \href{https://go.dev}{Go}.
 		\end{itemize}
-		\item Built with C/C++ and \href{https://python.org}{Python} on top of Linux.
-	\end{itemize}}
+	}
+	\hypertarget{sp}{
+		\cventry{June 2020 \\ January 2021}{\texttt{sp}}{\ghurl{AppleGamer22/sp}}{}{}{
+			\begin{itemize}
+				\item My first attempt at building a \href{https://papermc.io}{Minecraft server plugin}. This plugin adds the requirement that the player supplies the password (via a server command) before proper server interaction is allowed, and as long as the password isn't provided, the currently-unauthorized player is blinded and immobile.
+				\item Built with \href{https://kotlinlang.org}{Kotlin}.
+			\end{itemize}
+		}
+	}
+	\hypertarget{scr}{
+		\cventry{April 2019 \\ May 2022}{scr-cli \& scr-web}{\ghurl{AppleGamer22/scr-cli} \& \ghurl{AppleGamer22/scr-web}}{}{}{
+			\begin{itemize}
+				\item My previous attempt at building a full-stack (and a CLI) social media scraper with a single-page website framework and a RESTful server.
+				\item Server-side is built with \href{https://typescriptlang.org}{TypeScript} \& \href{https://nestjs.com}{Nest} (with a \href{https://nodejs.org}{Node.js} runtime) \href{https://www.mongodb.com}{MongoDB}, \href{https://jwt.io}{JSON Web Tokens} (JWTs) and \href{https://www.docker.com}{Docker}.
+				\item Client-side is built with \href{https://angular.io}{Angular} and \href{https://ionicframework.com}{Ionic}.
+				\item The full-stack packages is bundled with \href{https://nx.dev}{Nx}.
+				\item The CLI is built with \href{https://oclif.io}{OCLIF}
+			\end{itemize}
+		}
+	}
+
+	\subsection{Research}%\label{sec:research}
+	\hypertarget{FIT2082}{
+		\cventry{August 2021 \\ December 2021}{Software Contributor}{Monash University's \href{https://handbook.monash.edu/2021/units/FIT2082}{FIT2082 unit}}{Melbourne}{}{
+			\begin{itemize}
+				\item I \href{https://github.com/AppleGamer22/FIT2082}{contributed} to an \href{https://bitbucket.org/gkgange/lazycbs}{existing codebase}, based on prior research by \href{https://ojs.aaai.org/index.php/ICAPS/article/view/3471}{(Gange, Harabor and Stuckey, 2021)} about \textsl{Lazy CBS}, their \href{https://en.wikipedia.org/wiki/Pathfinding\#Multi-agent_pathfinding}{Multi-Agent Path Finding} (MAPF) algorithm.
+				\begin{itemize}
+					\item I modified the \textsl{Lazy CBS} codebase such that the algorithm also outputs the final set of constraints that is used to rule out paths, such that \textsl{Lazy CBS} is formally an \textbf{Explainable} Multi-Agent Path Finding (XMAPF) algorithm.
+					\item I learned how to enable \httplink[\textsl{Python}-to-\textsl{C++} bindings]{pybind11.readthedocs.io/en/stable/}, such that the compiled \textsl{Lazy CBS} codebase can be used as a Python-facing library for future projects.
+				\end{itemize}
+				\item Built with C/C++ and \href{https://python.org}{Python} on top of Linux.
+			\end{itemize}
+		}
+	}
 
 	\section{Experience}
 	\subsection{Clubs \& Societies}

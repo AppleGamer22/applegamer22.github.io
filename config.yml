@@ -88,21 +88,24 @@ languages:
         - email: mailto:omribor@gmail.com
         - linkedin: https://www.linkedin.com/in/omri-bornstein/
         - github: https://github.com/AppleGamer22
-        - gitlab: https://gitlab.com/AppleGamer22
+        # - gitlab: https://gitlab.com/AppleGamer22
         - stack-overflow: https://stackoverflow.com/users/7148921/
         - keybase: https://keybase.io/applegamer22
         - orcid: https://orcid.org/0000-0001-8645-6321
-        - dev: https://dev.to/applegamer22
-        - hashnode: https://applegamer22.hashnode.dev
-        - medium: https://medium.com/@AppleGamer22
+        # - dev: https://dev.to/applegamer22
+        # - hashnode: https://applegamer22.hashnode.dev
+        # - medium: https://medium.com/@AppleGamer22
         - codepen: https://codepen.io/AppleGamer22
-        # - twitter: https://twitter.com/AppleGamer22
-        # - reddit: https://www.reddit.com/user/AppleGamer22
+        - ctftime: https://ctftime.org/user/106208
+        - tryhackme: https://tryhackme.com/p/AppleGamer22
+        - hackthebox: https://app.hackthebox.com/profile/529539
+        - leetcode: https://leetcode.com/AppleGamer22/
+        - hackerrank: https://www.hackerrank.com/applegamer22
     menu:
       main:
-        # - name: About
-        #   pageRef: about
-        #   weight: 1
+        - name: About
+          pageRef: about
+          weight: 1
         - name: Posts
           pageRef: posts
           weight: 2
