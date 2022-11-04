@@ -21,7 +21,7 @@ title: Projects
 [Angular](https://angular.io) on the front-end, and [Nest](https://nestjs.com) on the back-end.
 
 ### Kotlin
-* [sp](https://github.com/AppleGamer22/sp) is my first attempt at building a Minecraft server plugin. This plugin adds the requirement that the player supplies the password (via a server command) before proper server interaction is allowed, and as long as the password isn’t provided, the currently-unauthorized player is blinded and immobile.
+* [`sp`](https://github.com/AppleGamer22/sp) is my first attempt at building a Minecraft server plugin. This plugin adds the requirement that the player supplies the password (via a server command) before proper server interaction is allowed, and as long as the password isn’t provided, the currently-unauthorized player is blinded and immobile.
 
 ## Statistics
 Project|Stars|Forks|Issues|PRs|Version
