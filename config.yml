@@ -91,16 +91,16 @@ languages:
         # - gitlab: https://gitlab.com/AppleGamer22
         - stack-overflow: https://stackoverflow.com/users/7148921/
         - keybase: https://keybase.io/applegamer22
-        - orcid: https://orcid.org/0000-0001-8645-6321
-        # - dev: https://dev.to/applegamer22
-        # - hashnode: https://applegamer22.hashnode.dev
+        # - orcid: https://orcid.org/0000-0001-8645-6321
+        - dev: https://dev.to/applegamer22
+        # - hashnode: https://hashnode.com/@AppleGamer22
         # - medium: https://medium.com/@AppleGamer22
-        - codepen: https://codepen.io/AppleGamer22
+        # - codepen: https://codepen.io/AppleGamer22
         - ctftime: https://ctftime.org/user/106208
         - tryhackme: https://tryhackme.com/p/AppleGamer22
-        - hackthebox: https://app.hackthebox.com/profile/529539
-        - leetcode: https://leetcode.com/AppleGamer22/
-        - hackerrank: https://www.hackerrank.com/applegamer22
+        # - hackthebox: https://app.hackthebox.com/profile/529539
+        # - leetcode: https://leetcode.com/AppleGamer22/
+        # - hackerrank: https://www.hackerrank.com/applegamer22
     menu:
       main:
         - name: About
