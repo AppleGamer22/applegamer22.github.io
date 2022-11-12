@@ -9,6 +9,6 @@ tags: [DownUnderCTF]
 # Solution
 The following GIF was recovered from the memes channel:
 
-![DUCTF2021_meme_winner.gif](/downunderctf/DUCTF2021_meme_winner.gif)
+![DUCTF2021_meme_winner.gif](./DUCTF2021_meme_winner.gif)
 
 **Flag**: `DUCTF{G'day_mates_this'll_be_a_cracka}`

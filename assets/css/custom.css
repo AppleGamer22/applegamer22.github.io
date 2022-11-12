@@ -100,6 +100,7 @@ ul > li > ul {
 	max-width: 100ch !important;
 }
 
+/* wide-screen header item spacing */
 @media(min-width: 640px) {
 	[dir="rtl"]  .prose ol > li, [dir="ltr"] .ltr\:sm\:mr-7 {
 		margin-right: 0.75rem !important;
