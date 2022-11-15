@@ -3,10 +3,9 @@ title: Sudoku Verifier
 date: 2022-10-28
 description: My attempt at writing a verification function for a sudoku matrix
 tags: [Sudoku, Go]
-draft: true
 ---
 # Prompt
-Determine if a $9 \times 9$ Sudoku board is valid. Only the filled cells need to be validated **according to the following rules**:
+Determine if a $9 \times 9$ Sudoku board is valid. All of the cells need to be validated **according to the following rules**:
 
 1. Each row must contain each of the digits 1 to 9 exactly once.
 1. Each column must contain each of the digits 1 to 9 exactly once.
@@ -34,6 +33,13 @@ $$
 # Solution
 During the interview, I thought I understood the rules of Sudoku, but in actuality I didn't understand the fact that there are only **9** sub-boxes defined in Sudoku, so I implemented the check for ~~every possible~~ $3 \times 3$ sub-matrix. The following implementation is an improvement since it actually takes into account the rules of the game.
 
+## Rows & Columns
+For every $0 \leq i < 9$, a row and column count arrays are maintained, such that the row array counts the number of times each digit appears in $(i, j)$, and the column array counts the number of times each digit appears in $(j, i)$, where $0 \leq j < 9$. After each time the count arrays was updated for $j = 8$, they are iterated through to check for any counts that are not strictly 1.
+
+## Sub-boxes
+For every $0 \leq i < 9$ (such that $i \equiv 1\ (\bmod\ 3)$), and every $0 \leq j < 9$ (such that $j \equiv 1\ (\bmod\ 3)$), the matrix coordinate $(i, j)$ is the upper-left corner of a given $3 \times 3$ Sudoku sub-box. A count array is maintained for every sub-box $(i, j)$ with coordinate $(y, x)$, such that $j \leq y < j + 3$, and such that $i \leq x < i + 3$. After all values of the coordinates in the $3 \times 3$ sub-box with upper-left corner $(i, j)$ have been recorded in the count array, it's iterated through to check for any counts that are not strictly 1.
+
+## Go Implementation
 ```go
 func CheckSudoku(matrix [9][9]int) bool {
 	// check row and column conditions
@@ -45,9 +51,9 @@ func CheckSudoku(matrix [9][9]int) bool {
 			column_count[matrix[j][i]-1]++
 		}
 
-		for number := 0; number < 9; number++ {
-			row_condition := row_count[number] == 0 || row_count[number] > 1
-			column_condition := column_count[number] == 0 || column_count[number] > 1
+		for digit := 0; digit < 9; digit++ {
+			row_condition := row_count[digit] == 0 || row_count[digit] > 1
+			column_condition := column_count[digit] == 0 || column_count[digit] > 1
 			if row_condition || column_condition {
 				return false
 			}
@@ -59,8 +65,8 @@ func CheckSudoku(matrix [9][9]int) bool {
 		for j := 0; j < 9; j += 3 {
 			// (i, j) represents the upper-left corner of each Sudoku sub-box
 			var box_count [9]int
-			for y := j; y < j + 3; y++ {
-				for x := i; x < i + 3; x++ {
+			for y := j; y < j+3; y++ {
+				for x := i; x < i+3; x++ {
 					// 3x3 Sudoku sub-matrix-wise coordinates (y, x)
 					box_count[matrix[y][x]-1]++
 				}
@@ -78,5 +84,6 @@ func CheckSudoku(matrix [9][9]int) bool {
 }
 ```
 
+You can run the above-mentioned code from your browser with the following [Go Playground](https://go.dev/play/p/hrJrmfPApxY).
 
 [^1]: `Cburnett`. (2017, April 8). Sudoku Puzzle by L2G-20050714 solution standardized layout. Wikimedia. <https://commons.wikimedia.org/wiki/File:Sudoku_Puzzle_by_L2G-20050714_solution_standardized_layout.svg>
