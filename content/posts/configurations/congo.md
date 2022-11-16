@@ -503,6 +503,7 @@ These configurations are in this section because they do not fit in a coherent c
 * Recent posts from the blog are shown in the homepage
 * The homepage is rendered as profile configuration
 * A [custom](#menu-header) menu header layout is used
+* A theme switcher is shown in footer
 * A table of contents is shown for every [list page](https://gohugo.io/templates/lists/)
 
 ```yaml
@@ -518,6 +519,8 @@ params:
     showRecent: true
   header:
     layout: custom
+  footer:
+    showAppearanceSwitcher: true
   list:
     showTableOfContents: true
     showBreadcrumbs: true

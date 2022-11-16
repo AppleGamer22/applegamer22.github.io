@@ -33,13 +33,16 @@ params:
   enableCodeCopy: true
   enableSearch: true
   mainSections:
+    - events
     - posts
-    - interviews
+    - projects
   homepage:
     layout: profile
     showRecent: true
   header:
     layout: custom
+  footer:
+    showAppearanceSwitcher: true
   article:
     showBreadcrumbs: true
     showTableOfContents: true
