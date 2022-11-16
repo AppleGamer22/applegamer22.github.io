@@ -22,17 +22,18 @@ The following `layouts/partials/extend-head.html` code is based on [this comment
 {{$katexRenderJS := resources.Get "lib/katex/auto-render.min.js"}}
 {{$katexRenderJS := $katexRenderJS | resources.Fingerprint "sha512"}}
 <script defer src="{{$katexRenderJS.RelPermalink}}" integrity="{{$katexRenderJS.Data.Integrity}}"></script>
-{{ $katexFonts := resources.Match "lib/katex/fonts/*" }}
-{{ range $katexFonts }}
-	<!-- {{ .RelPermalink }} -->
-{{ end }}
+{{$katexFonts := resources.Match "lib/katex/fonts/*"}}
+{{range $katexFonts}}
+	<!-- {{.RelPermalink}} -->
+{{end}}
+
 <script>
 	document.addEventListener("DOMContentLoaded", () => {
 		renderMathInElement(document.body, {
 			delimiters: [
 				{
-					left: '$$',
-					right: '$$',
+					left: "$$",
+					right: "$$",
 					display: true
 				},
 				{
@@ -41,7 +42,7 @@ The following `layouts/partials/extend-head.html` code is based on [this comment
 					display: false
 				},
 			],
-			preProcess: math => math.replaceAll('\\\n', '\\\\\n'),
+			preProcess: math => math.replaceAll(" \\\n", " \\\\\n"),
 			throwOnError: false
 		});
 	});

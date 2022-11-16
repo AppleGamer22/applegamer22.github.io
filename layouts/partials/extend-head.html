@@ -11,10 +11,10 @@
 {{$katexRenderJS := resources.Get "lib/katex/auto-render.min.js"}}
 {{$katexRenderJS := $katexRenderJS | resources.Fingerprint "sha512"}}
 <script defer src="{{$katexRenderJS.RelPermalink}}" integrity="{{$katexRenderJS.Data.Integrity}}"></script>
-{{ $katexFonts := resources.Match "lib/katex/fonts/*" }}
-{{ range $katexFonts }}
-	<!-- {{ .RelPermalink }} -->
-{{ end }}
+{{$katexFonts := resources.Match "lib/katex/fonts/*"}}
+{{range $katexFonts}}
+	<!-- {{.RelPermalink}} -->
+{{end}}
 
 {{$mermaidLib := resources.Get "lib/mermaid/mermaid.min.js"}}
 {{$mermaidConfig := resources.Get "js/mermaid.js"}}
@@ -50,12 +50,12 @@
 					display: true
 				},
 				{
-					left: "$",
-					right: "$",
+					left: '$',
+					right: '$',
 					display: false
 				},
 			],
-			preProcess: math => math.replaceAll('\\\n', '\\\\\n'),
+			preProcess: math => math.replaceAll(" \\\n", " \\\\\n"),
 			throwOnError: false
 		});
 
