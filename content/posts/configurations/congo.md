@@ -434,7 +434,7 @@ outputs:
 
 ## Congo
 ### Metadata
-Basic information about me and the website is configured such that browser citation plugins can get the correct information.
+Basic information about me and the website is configured such that browser [citation plugins](https://www.mybib.com/) can get the correct information.
 
 ```yaml
 languages:
@@ -443,6 +443,7 @@ languages:
     languageCode: en
     isoCode: en
     rtl: false
+    dateFormat: "2006-01-02"
     weight: 1
     title: Omri Bornstein
     description: Omri Bornstein's personal website
