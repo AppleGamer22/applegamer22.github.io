@@ -52,8 +52,8 @@ func CheckSudoku(matrix [9][9]int) bool {
 		}
 
 		for digit := 0; digit < 9; digit++ {
-			row_condition := row_count[digit] == 0 || row_count[digit] > 1
-			column_condition := column_count[digit] == 0 || column_count[digit] > 1
+			row_condition := row_count[digit] != 1
+			column_condition := column_count[digit] != 1
 			if row_condition || column_condition {
 				return false
 			}
@@ -73,7 +73,7 @@ func CheckSudoku(matrix [9][9]int) bool {
 			}
 
 			for _, count := range box_count {
-				if count == 0 || count > 1 {
+				if count != 1 {
 					return false
 				}
 			}
@@ -84,6 +84,6 @@ func CheckSudoku(matrix [9][9]int) bool {
 }
 ```
 
-You can run the above-mentioned code from your browser with the following [Go Playground](https://go.dev/play/p/hrJrmfPApxY).
+You can run the above-mentioned code from your browser with the following [Go Playground](https://go.dev/play/p/G3Azen85cel).
 
 [^1]: `Cburnett`. (2017, April 8). Sudoku Puzzle by L2G-20050714 solution standardized layout. Wikimedia. <https://commons.wikimedia.org/wiki/File:Sudoku_Puzzle_by_L2G-20050714_solution_standardized_layout.svg>
