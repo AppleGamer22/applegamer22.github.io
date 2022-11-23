@@ -1,12 +1,22 @@
-\documentclass[a4paper, 10pt, roman, colorlinks, linkcolor=purple, filecolor=purple, citecolor=blue, urlcolor=blue]{moderncv}
+\documentclass[
+	a4paper,
+	10pt,
+	roman,
+	colorlinks,
+	linkcolor = purple,
+	filecolor = purple,
+	citecolor = blue,
+	urlcolor = blue
+]{moderncv}
 \moderncvtheme[black]{classic}
 
-\usepackage[margin=15mm]{geometry}
+\usepackage[margin = 15mm]{geometry}
 \usepackage[english]{babel}
 \usepackage[none]{hyphenat}
 \usepackage[yyyymmdd]{datetime}
+\usepackage[unicode, pdfpagelabels = false]{hyperref}
 \usepackage{amsmath}
-% \usepackage{fontspec}
+\usepackage{fontspec}
 
 \makeatletter
 \RenewDocumentCommand{\subsection}{sm}{
@@ -24,8 +34,13 @@
 \renewcommand{\labelitemi}{$\bullet$}
 \renewcommand{\labelitemii}{$\circ$}
 
-% \setmonofont[Contextuals=Alternate, Scale=MatchLowercase]{Fira Code}
-% \urlstyle{same}
+\setmonofont[
+	Contextuals = Alternate,
+	Scale = MatchLowercase,
+	BoldFont = FiraCode-Medium.ttf,
+	SlantedFont = FiraCode-Regular.ttf,
+	SlantedFeatures = {FakeSlant}
+]{Fira Code}
 \setlength{\hintscolumnwidth}{0.15\textwidth}
 
 \name{Omri}{Bornstein}

@@ -5,6 +5,7 @@
 		"citecolor",
 		"filecolor",
 		"Ghidra",
+		"JWTs",
 		"Kubernetes",
 		"linkcolor",
 		"MAPF",
@@ -40,6 +41,6 @@
 			]
 		}
 	],
-	"latex-workshop.intellisense.package.extra": ["hyperref"],
+	// "latex-workshop.intellisense.package.extra": ["hyperref"],
 	"discord.enabled": true
 }
