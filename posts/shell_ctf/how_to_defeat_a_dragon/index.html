@@ -16,17 +16,17 @@
 </span></span><span class=line><span class=cl>Help us defeat the dragon!! Enter the code:22
 </span></span><span class=line><span class=cl>wron..aaaaaahhhhhhhh
 </span></span></code></pre></div><p>The <a href="https://dogbolt.org/?id=da50a275-02c2-4d2f-8714-982e5de0747b" target=_blank>decompiled code</a> reveals that the hexadecimal number <code>0x10f2c</code>, or the decimal number <code>69420</code> (<del>nice</del>) is the code the program requires. My attempt at rewriting the <code>main</code> function based on the above-mentioned decompilation is shown below:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>	<span class=n>printf</span><span class=p>(</span><span class=s>&#34;Help us defeat the dragon!! Enter the code:&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Help us defeat the dragon!! Enter the code:&#34;</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>	<span class=kt>int</span> <span class=n>code</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=n>scanf</span><span class=p>(</span><span class=s>&#34;%d&#34;</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>code</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=nf>scanf</span><span class=p>(</span><span class=s>&#34;%d&#34;</span><span class=p>,</span> <span class=o>&amp;</span><span class=n>code</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=p>(</span><span class=n>code</span> <span class=o>==</span> <span class=mh>0x10f2c</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=n>printf</span><span class=p>(</span><span class=s>&#34;Yeahh!!,we did it,We defeated the dragon.Thanks for your help here&#39;s your reward : %s&#34;</span><span class=p>,</span> <span class=n>flag</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>		<span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Yeahh!!,we did it,We defeated the dragon.Thanks for your help here&#39;s your reward : %s&#34;</span><span class=p>,</span> <span class=n>flag</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>	<span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=n>code</span> <span class=o>==</span> <span class=mh>0x45</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=n>printf</span><span class=p>(</span><span class=s>&#34;Nice,but this is not the code :(.&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>		<span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Nice,but this is not the code :(.&#34;</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>	<span class=p>}</span> <span class=k>else</span> <span class=k>if</span> <span class=p>(</span><span class=n>code</span> <span class=o>!=</span> <span class=mh>0x1a4</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=n>printf</span><span class=p>(</span><span class=s>&#34;wron..aaaaaahhhhhhhh&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>		<span class=nf>printf</span><span class=p>(</span><span class=s>&#34;wron..aaaaaahhhhhhhh&#34;</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>	<span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=n>printf</span><span class=p>(</span><span class=s>&#34;Bruh!! Seriously?&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>		<span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Bruh!! Seriously?&#34;</span><span class=p>);</span>
 </span></span><span class=line><span class=cl>	<span class=p>}</span>
 </span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
