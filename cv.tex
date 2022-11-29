@@ -19,13 +19,13 @@
 \usepackage{fontspec}
 
 \makeatletter
-\RenewDocumentCommand{\subsection}{sm}{
-	\par\addvspace{1ex}
-	\phantomsection{}
-	\addcontentsline{toc}{subsection}{#2}
-	\strut\subsectionstyle{\textbf{#2}}
-	\par\nobreak\addvspace{0.5ex}{\@afterheading}
-}
+	\RenewDocumentCommand{\subsection}{sm}{
+		\par\addvspace{1ex}
+		\phantomsection{}
+		\addcontentsline{toc}{subsection}{#2}
+		\strut\subsectionstyle{\textbf{#2}}
+		\par\nobreak\addvspace{0.5ex}{\@afterheading}
+	}
 \makeatother
 
 \newcommand\ghurl[1]{\href{https://github.com/#1}{\nolinkurl{#1} on GitHub}}
