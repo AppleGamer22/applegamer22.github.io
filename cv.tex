@@ -19,11 +19,21 @@
 \usepackage{fontspec}
 
 \makeatletter
+	\RenewDocumentCommand{\section}{sm}{
+		\par\addvspace{1ex}
+		\phantomsection{}
+		\addcontentsline{toc}{section}{#2}
+		\strut\sectionstyle{\textbf{\huge #2}}
+		\par\nobreak\addvspace{0.5ex}{\@afterheading}
+	}
+\makeatother
+
+\makeatletter
 	\RenewDocumentCommand{\subsection}{sm}{
 		\par\addvspace{1ex}
 		\phantomsection{}
 		\addcontentsline{toc}{subsection}{#2}
-		\strut\subsectionstyle{\textbf{#2}}
+		\strut\subsectionstyle{\textbf{\large #2}}
 		\par\nobreak\addvspace{0.5ex}{\@afterheading}
 	}
 \makeatother
