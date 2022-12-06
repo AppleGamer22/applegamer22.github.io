@@ -4,5 +4,5 @@ date: 2022-03-12
 showDateUpdated: false
 tags: [Go, CLI, utility, Linux, macOS, Windows]
 externalUrl: https://github.com/AppleGamer22/cocainate
+_build: {render: never, list: local}
 ---
-<meta http-equiv="refresh" content="0; URL='https://github.com/AppleGamer22/cocainate'">
