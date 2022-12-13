@@ -111,6 +111,8 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 HISTFILE=~/.zsh_history
 
+autoload -Uz compinit && compinit -i
+autoload -Uz bashcompinit && bashcompinit -i
 zstyle ':completion:*' menu select
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	zstyle ':completion:*:*:-command-:*:*' ignored-patterns 'clean-diff'
@@ -124,6 +126,17 @@ echo -e -n "\x1b[\x35 q";
 ```
 
 ## Completions
+### Linux
+#### Azure CLI & `kompose`
+[Azure CLI](https://learn.microsoft.com/en-us/cli/azure/)'s and [`kompose`](https://kompose.io)'s Linux installation requires the following command to be added to `~/.zshrc` in order to enable command completion:
+
+```sh
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+	source <(kompose completion zsh)
+	source /etc/bash_completion.d/azure-cli
+fi
+```
+
 ### macOS
 If you install your command-line tools with the [Homebrew](https://brew.sh/) package manager, the following code snippet from their documentation[^1] should be added to the appropriate place in `~/.zshrc`.
 
@@ -144,7 +157,7 @@ fi
 ```
 
 #### Docker Desktop
-By default, Docker Desktop doesn't install the completion scripts to where `zsh` expects them to be installed on macOS. In order to resolve this, these scripts can be symbolically linked to the correct file system path, as shown on the Docker documentation[^2]:
+By default, [Docker Desktop](https://www.docker.com/products/docker-desktop/) doesn't install the completion scripts to where `zsh` expects them to be installed on macOS. In order to resolve this, these scripts can be symbolically linked to the correct file system path, as shown on the Docker documentation[^2]:
 
 ```sh
 etc=/Applications/Docker.app/Contents/Resources/etc
@@ -152,12 +165,13 @@ ln -s $etc/docker.zsh-completion $(brew --prefix)/share/zsh/site-functions/_dock
 ln -s $etc/docker-compose.zsh-completion $(brew --prefix)/share/zsh/site-functions/_docker-compose
 ```
 
-#### Terraform
-Terraform's macOS installation requires the following command to be added to `~/.zshrc` in order to enable command completion:
+#### Terraform & Azure CLI
+[Terraform](https://terraform.io)'s and [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/)'s macOS installation requires the following command to be added to `~/.zshrc` in order to enable command completion:
 
 ```sh
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	complete -o nospace -C /usr/local/bin/terraform terraform
+	source $(brew --prefix)/etc/bash_completion.d/az
 fi
 ```
 
