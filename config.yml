@@ -44,8 +44,8 @@ params:
   footer:
     showAppearanceSwitcher: true
   article:
-    showBreadcrumbs: true
     showTableOfContents: true
+    showBreadcrumbs: true
     showTaxonomies: true
     showWordCount: true
     showEdit: true
@@ -63,6 +63,7 @@ params:
   list:
     showTableOfContents: true
     showBreadcrumbs: true
+    showTaxonomies: true
 markup:
   highlight:
     noClasses: false
