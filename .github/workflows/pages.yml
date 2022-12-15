@@ -9,6 +9,8 @@ on:
 jobs:
   pages:
     runs-on: ubuntu-latest
+    concurrency:
+      group: ${{github.workflow}}-${{github.ref}}
     steps:
       - name: Pull Source Code
         uses: actions/checkout@v3
