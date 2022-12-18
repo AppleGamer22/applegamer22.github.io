@@ -1,20 +1,20 @@
-.PHONY: all build website cv pdf watch clean
+.PHONY: all build website cv watch clean
 
 all: build clean
 
 build: cv website
 
-cv: pdf
+cv: cv.pdf
 	mv cv.pdf static
 
-pdf: cv.tex
+cv.pdf: cv.tex
 	latexmk -pdf -lualatex -interaction=errorstopmode cv.tex
 
 website:
 	hugo --minify
 
 watch:
-	hugo server --noHTTPCache --buildDrafts
+	hugo server --noHTTPCache --buildDrafts --buildFuture
 
 clean:
 	rm -rf public resources/_gen assets/jsconfig.json hugo_stats.json .hugo_build.lock cv.synctex.gz
