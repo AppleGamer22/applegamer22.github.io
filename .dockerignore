@@ -1,0 +1,13 @@
+.github
+.gitattributes
+.vscode
+.frontmatter
+docker-compose.yml
+.goreleaser.yml
+Makfile
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+LICENSE.md
+README.md
+frontmatter.json
+*.lock
