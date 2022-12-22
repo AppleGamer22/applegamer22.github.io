@@ -12,6 +12,7 @@ COPY go.sum .
 ARG BASE="/"
 RUN hugo --minify --baseURL "$BASE"
 
-# https://www.docker.com/blog/how-to-use-the-apache-httpd-docker-official-image/
-FROM --platform=$BUILDPLATFORM httpd:alpine3.17 AS httpd
-COPY --from=hugo /hugo/public /usr/local/apache2/htdocs/
+FROM --platform=$BUILDPLATFORM caddy:2.6.2-alpine as caddy
+WORKDIR /var/www/html
+COPY --from=hugo /hugo/public .
+CMD caddy file-server
