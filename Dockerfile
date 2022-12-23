@@ -15,4 +15,5 @@ RUN hugo --minify --baseURL "$BASE"
 FROM --platform=$BUILDPLATFORM caddy:2.6.2-alpine as caddy
 WORKDIR /var/www/html
 COPY --from=hugo /hugo/public .
+EXPOSE 80
 CMD caddy file-server
