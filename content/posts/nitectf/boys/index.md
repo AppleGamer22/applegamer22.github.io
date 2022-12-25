@@ -11,7 +11,7 @@ tags: [NiteCTF, OSINT, forensics, git]
 1. The GitHub profile can be found at <https://github.com/sk1nnywh1t3k1d>.
 1. This GitHub user has only one repository with only 2 commits at <https://github.com/sk1nnywh1t3k1d/chat-app>.
 1. The first commit added a file named `chat.txt` that was deleted on the second commit at <https://github.com/sk1nnywh1t3k1d/chat-app/commit/d830e9b9a9cd531b2677bad94b4a08d7a539738b#diff-d341c91ed9aff89bf6ea2d5fa7b245307f745a1e9374328e47c79f1529be627a>.
-	* The commit also has author's the email (`hughiecampbell392@gmail.com`) if viewing the [patch](https://github.com/sk1nnywh1t3k1d/chat-app/commit/d830e9b9a9cd531b2677bad94b4a08d7a539738b.patch).
+	* The commit also has author's the email (`hughiecampbell392@gmail.com`), visible when viewing the [verbose commit patch](https://github.com/sk1nnywh1t3k1d/chat-app/commit/d830e9b9a9cd531b2677bad94b4a08d7a539738b.patch), by appending `.patch` to the commit URL.
 1. The `chat.txt` file mention the shortened URL <https://bit.ly/voughtencrypted>
 
 
@@ -20,7 +20,7 @@ tags: [NiteCTF, OSINT, forensics, git]
 	<audio src="secret_message.wav" controls></audio>
 1. When the audio file is shown in [Audacity's Spectrogram](https://manual.audacityteam.org/man/audacity_waveform.html#multi), the following text (`thguovdne hsals drawrof yl tod tib`) can be seen:
 	![Audacity's Spectrogram showing text of a message](audio_text.jpg)
-1. By reversing the message the shortened URL (<https://bit.ly/endvought>) can be read:
+1. By reversing the message, the shortened URL (<https://bit.ly/endvought>) can be read:
 
 	```sh
 	$ echo "thguovdne hsals drawrof yl tod tib" | rev
