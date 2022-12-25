@@ -8,11 +8,9 @@ tags: [NiteCTF, OSINT, forensics, git]
 
 # Solution
 ## GitHub
-1. The GitHub profile can be found at <https://github.com/sk1nnywh1t3k1d>
-1. This GitHub user has only one repository with only 2 commits
-	* <https://github.com/sk1nnywh1t3k1d/chat-app>
-1. The first commit added a file named `chat.txt` that was deleted on the second commit
-	* <https://github.com/sk1nnywh1t3k1d/chat-app/commit/d830e9b9a9cd531b2677bad94b4a08d7a539738b#diff-d341c91ed9aff89bf6ea2d5fa7b245307f745a1e9374328e47c79f1529be627a>
+1. The GitHub profile can be found at <https://github.com/sk1nnywh1t3k1d>.
+1. This GitHub user has only one repository with only 2 commits at <https://github.com/sk1nnywh1t3k1d/chat-app>.
+1. The first commit added a file named `chat.txt` that was deleted on the second commit at <https://github.com/sk1nnywh1t3k1d/chat-app/commit/d830e9b9a9cd531b2677bad94b4a08d7a539738b#diff-d341c91ed9aff89bf6ea2d5fa7b245307f745a1e9374328e47c79f1529be627a>.
 	* The commit also has author's the email (`hughiecampbell392@gmail.com`) if viewing the [patch](https://github.com/sk1nnywh1t3k1d/chat-app/commit/d830e9b9a9cd531b2677bad94b4a08d7a539738b.patch).
 1. The `chat.txt` file mention the shortened URL <https://bit.ly/voughtencrypted>
 
@@ -37,5 +35,5 @@ tags: [NiteCTF, OSINT, forensics, git]
 ## E-mail Address
 1. **I didn't figure it out during the event**, but once I had Hughie's email address I could find his public Google calendar with the hyper link [calendar.google.com/calendar/u/0/embed?src=`hughiecampbell392@gmail.com`](https://calendar.google.com/calendar/u/0/embed?src=hughiecampbell392@gmail.com).
 	* Additional intelligence could be gathered about the email address using tools such as [EPIEOS](https://epieos.com).
-	* The Google ID of the email address could be gathered by initiating a Google Hangouts chat and inspecting the HTML of the recipient.
+	* The Google ID of the email address could be gathered by initiating a Google Hangouts chat and inspecting the HTML at the recipient's details.
 1. The only event during December 2022 has the flag `niteCTF{v0ught_n33ds_t0_g0_d0wn}`.
