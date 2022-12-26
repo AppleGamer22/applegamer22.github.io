@@ -24,6 +24,11 @@
 	}
 }
 
+img.logo {
+	height: 1.5em;
+	width: auto;
+}
+
 /* disable horizontal scrolling */
 body {
 	overflow-x: hidden;

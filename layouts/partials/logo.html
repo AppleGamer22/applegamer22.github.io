@@ -1,0 +1,14 @@
+{{$homePageURL :=  "" | relLangURL}}
+{{- if .Site.Params.header.logo}}
+	{{- $logo := resources.Get .Site.Params.header.logo}}
+	{{- if $logo}}
+		<a href="{{$homePageURL}}" class="mr-2">
+			<img src="{{$logo.RelPermalink}}" class="logo object-scale-down object-left" alt="{{.Site.Title}}'s logo">
+		</a>
+	{{- end}}
+{{- end}}
+{{- if .Site.Params.header.showTitle | default true}}
+	<a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" rel="me" href="{{$homePageURL}}">
+		{{.Site.Title | markdownify | emojify}}
+	</a>
+{{- end}}

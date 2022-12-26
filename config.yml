@@ -40,6 +40,7 @@ params:
     layout: profile
     showRecent: true
   header:
+    # logo: logo.png
     layout: custom
   footer:
     showAppearanceSwitcher: true
