@@ -108,6 +108,7 @@ languages:
         # - hackthebox: https://app.hackthebox.com/profile/529539
         # - leetcode: https://leetcode.com/AppleGamer22/
         # - hackerrank: https://www.hackerrank.com/applegamer22
+        - mastodon: https://mastodon.au/@AppleGamer22
     menu:
       main:
         - name: About
