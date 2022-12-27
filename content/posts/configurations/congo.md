@@ -4,7 +4,7 @@ date: 2022-07-13
 description: My changes, additions and set-up of this Hugo-Congo website
 tags: [Hugo, Congo, YAML, Markdown, TeX, HTML, CSS, JavaScript, typesetting, fonts]
 ---
-This document summarises how I set-up this website's layout, fonts and typesetting. As a result, I highly recommend the [Congo](https://github.com/jpanther/congo) theme for the [Hugo](http://gohugo.io) static site generator due to its layout, styling and extensibility.
+This document summarises how I set-up this website's layout, fonts and typesetting. As a result, I highly recommend the [Congo](https://github.com/jpanther/congo) theme for the [Hugo](https://gohugo.io) static site generator due to its layout, styling and extensibility.
 
 # Additions to Congo
 I added some features because I'm not pleased with how [Hugo's Shortcode syntax](https://gohugo.io/content-management/shortcodes/) prevents some content from being rendered correctly on external Markdown platforms such as [GitHub](https://github.com) and [GitLab](https://gitlab.com).
