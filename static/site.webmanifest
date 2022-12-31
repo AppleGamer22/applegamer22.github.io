@@ -16,8 +16,40 @@
 			"type": "image/png"
 		}
 	],
-	"theme_color": "#ffffff",
-	"background_color": "#f97316",
+	"shortcuts": [
+		{
+			"name": "About",
+			"short_name": "About",
+			"description": "About Omri",
+			"url": "/about/"
+		},
+		{
+			"name": "Posts",
+			"short_name": "POsts",
+			"description": "Omri's Posts",
+			"url": "/posts/"
+		},
+		{
+			"name": "Events",
+			"short_name": "Events",
+			"description": "Omri's Presentations",
+			"url": "/events/"
+		},
+		{
+			"name": "Projects",
+			"short_name": "Projects",
+			"description": "Omri's Projects",
+			"url": "/projects/"
+		},
+		{
+			"name": "Tags",
+			"short_name": "Tags",
+			"description": "Taxonomies",
+			"url": "/tags/"
+		}
+	],
+	"theme_color": "#f97316",
+	"background_color": "#27272A",
 	"display": "standalone",
 	"orientation": "portrait",
 	"lang": "en",
