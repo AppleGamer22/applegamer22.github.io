@@ -72,5 +72,6 @@
 		}
 	],
 	// "latex-workshop.intellisense.package.extra": ["hyperref"],
+	// "html.validate.scripts": false,
 	"discord.enabled": true
 }

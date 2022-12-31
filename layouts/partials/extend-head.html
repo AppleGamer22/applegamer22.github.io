@@ -86,4 +86,15 @@
 			}
 		});
 	});
+
+	if ("serviceWorker" in navigator) {
+		(async () => {
+			try {
+				await navigator.serviceWorker.register("service_worker.js");
+				console.log("service worker has been registered successfully");
+			} catch (err) {
+				console.error("service worker has failed to register", err);
+			}
+		})()
+	}
 </script>
