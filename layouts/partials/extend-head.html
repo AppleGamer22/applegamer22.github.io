@@ -90,11 +90,7 @@
 	if ("serviceWorker" in navigator) {
 		(async () => {
 			try {
-				/*
-				{{- $swTemplateJS := resources.Get "js/service_worker_template.js" -}}
-				{{- $swJS := $swTemplateJS | resources.ExecuteAsTemplate "js/service_worker.js" . -}}
-				*/
-				await navigator.serviceWorker.register("{{$swJS.RelPermalink}}");
+				await navigator.serviceWorker.register("service_worker.js");
 				console.log("service worker has been registered successfully");
 			} catch (err) {
 				console.error("service worker has failed to register", err);
