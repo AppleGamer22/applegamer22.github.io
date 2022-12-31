@@ -90,10 +90,9 @@
 	if ("serviceWorker" in navigator) {
 		(async () => {
 			try {
-				await navigator.serviceWorker.register("service_worker.js");
-				console.log("service worker has been registered successfully");
+				await navigator.serviceWorker.register("/service_worker.js");
 			} catch (err) {
-				console.error("service worker has failed to register", err);
+				console.error(err);
 			}
 		})()
 	}
