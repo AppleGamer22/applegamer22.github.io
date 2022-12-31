@@ -3,7 +3,7 @@
 	"name": "Omri Bornstein",
 	"short_name": "OB",
 	"description": "Omri Bornstein's website",
-	"start_url": ".",
+	"start_url": "/",
 	"icons": [
 		{
 			"src": "/android-chrome-192x192.png",
@@ -18,5 +18,8 @@
 	],
 	"theme_color": "#ffffff",
 	"background_color": "#f97316",
-	"display": "standalone"
+	"display": "standalone",
+	"orientation": "portrait",
+	"lang": "en",
+	"dir": "ltr"
 }
