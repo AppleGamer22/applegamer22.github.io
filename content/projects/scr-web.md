@@ -6,3 +6,4 @@ tags: [TypeScript, JavaScript, HTML, CSS, Angular, NestJS, Nx, Ionic, server, cl
 externalUrl: https://github.com/AppleGamer22/scr-web
 _build: {render: never, list: local}
 ---
+My previous attempt at building a full-stack social media scraper, which is built with [Angular](https://angular.io) on the front-end, and [Nest](https://nestjs.com) on the back-end.
