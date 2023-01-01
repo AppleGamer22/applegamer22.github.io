@@ -4,5 +4,5 @@ date: 2022-03-28
 showDateUpdated: false
 tags: [MonSec, reversing, Ghidra, C, Go]
 externalUrl: https://youtu.be/893L13SxDUg
-_build: {render: never, list: local}
+_build: {render: link}
 ---

@@ -4,6 +4,6 @@ date: 2022-05-08
 showDateUpdated: false
 tags: [Go, CLI, utility, Linux, macOS, Windows]
 externalUrl: https://github.com/AppleGamer22/stalk
-_build: {render: never, list: local}
+_build: {render: link}
 ---
 A **cross-platform** file-watcher that can run a command after each file-system operation on a given files or simply wait once until a file is changed.
