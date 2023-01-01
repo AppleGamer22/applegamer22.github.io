@@ -2,6 +2,8 @@
 title: scr-cli
 date: 2019-04-18
 showDateUpdated: false
+showReadingTime: false
+showWordCount: false
 tags: [TypeScript, javascript, CLI, utility, Linux, macOS, Windows]
 externalUrl: https://github.com/AppleGamer22/scr-cli
 _build: {render: link}
