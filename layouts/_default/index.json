@@ -1,13 +1,20 @@
 {{- $index := slice -}}
+{{- $arrow := `<span title="Link to external site" class="text-xs align-top cursor-default text-neutral-400 dark:text-neutral-500"><span class="rtl:hidden">&#8599;</span><span class="ltr:hidden">&#8598;</span></span>` -}}
 {{- range .Site.Pages -}}
 	{{- $section := .Site.GetPage "section" .Section -}}
+	{{- $title := (.Title | emojify | safeJS) -}}
+	{{- $permaLink := .RelPermalink -}}
+	{{- if .Params.externalUrl -}}
+		{{- $permaLink = printf `%s" target="_blank` .Params.externalUrl -}}
+		{{- $title = printf `%s %s` $title $arrow -}}
+	{{- end -}}
 	{{- $index = $index | append (dict
 		"date" (default (.Date | time.Format (.Site.Language.Params.dateFormat | default ":date_long")) (.Date | time.Format (.Site.Language.Params.dateFormat | default ":date_long")))
-		"title" (.Title | emojify | safeJS)
+		"title" $title
 		"section" ($section.Title | emojify | safeJS)
 		"summary" (.Summary | emojify | safeJS)
 		"content" (.Plain | emojify | safeJS)
-		"permalink" (default .RelPermalink .Params.externalUrl)
+		"permalink" $permaLink
 	) -}}
 {{- end -}}
 {{- $index | jsonify -}}
