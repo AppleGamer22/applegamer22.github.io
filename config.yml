@@ -16,17 +16,6 @@ outputs:
     - HTML
     - RSS
     - JSON
-privacy:
-  disqus:
-    disable: true
-  youtube:
-    disable: true
-  instagram:
-    disable: true
-  twitter:
-    disable: true
-  vimeo:
-    disable: true
 params:
   colorScheme: fruit
   defaultAppearance: dark
