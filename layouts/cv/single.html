@@ -1,0 +1,27 @@
+{{ define "main" }}
+	<article>
+		<!-- <header class="max-w-prose">
+			{{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
+				{{ partial "breadcrumbs.html" . }}
+			{{ end }}
+			<h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+				{{ .Title | emojify }}
+			</h1>
+			<div class="mt-8 mb-12 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+				{{ partial "article-meta.html" (dict "context" . "scope" "single") }}
+			</div>
+		</header> -->
+		<section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+			<div class="min-w-0 min-h-0 max-w-prose grow">
+				<object data="/cv.pdf" type="application/pdf" frameborder="0" class="pdf">
+					<iframe src="https://docs.google.com/viewer?url=https://applegamer22.github.io/cv.pdf&embedded=true" frameborder="0" class="pdf"></iframe>
+				</object>
+			</div>
+		</section>
+		<footer class="pt-8 max-w-prose print:hidden">
+			{{ partial "author.html" . }}
+			{{ partial "sharing-links.html" . }}
+			{{ partial "article-pagination.html" . }}
+		</footer>
+	</article>
+{{ end }}

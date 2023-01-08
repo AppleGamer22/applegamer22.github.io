@@ -16,17 +16,6 @@ outputs:
     - HTML
     - RSS
     - JSON
-privacy:
-  disqus:
-    disable: true
-  youtube:
-    disable: true
-  instagram:
-    disable: true
-  twitter:
-    disable: true
-  vimeo:
-    disable: true
 params:
   colorScheme: fruit
   defaultAppearance: dark
@@ -124,7 +113,8 @@ languages:
           pageRef: projects
           weight: 4
         - name: CV
-          url: /cv.pdf
+          pageRef: cv
+          # url: /cv.pdf
           weight: 5
         - name: Tags
           pageRef: tags
