@@ -113,8 +113,8 @@ languages:
           pageRef: projects
           weight: 4
         - name: CV
-          pageRef: cv
-          # url: /cv.pdf
+          # pageRef: cv
+          url: /cv.pdf
           weight: 5
         - name: Tags
           pageRef: tags
