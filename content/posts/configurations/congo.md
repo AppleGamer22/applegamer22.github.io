@@ -441,21 +441,24 @@ languages:
   en:
     menu:
       main:
+        - name: About
+          pageRef: about
+          weight: 1
         - name: Posts
           pageRef: posts
-          weight: 1
-        - name: Events
-          pageRef: events
           weight: 2
+        - name: Talks
+          pageRef: talks
+          weight: 3
         - name: Projects
           pageRef: projects
-          weight: 3
-        - name: CV
-          url: /cv.pdf
           weight: 4
+        - name: CV
+          pageRef: cv
+          weight: 5
         - name: Tags
           pageRef: tags
-          weight: 5
+          weight: 6
 ```
 
 ### Articles

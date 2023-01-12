@@ -30,10 +30,10 @@
 			"url": "/posts/"
 		},
 		{
-			"name": "Events",
-			"short_name": "Events",
+			"name": "Talks",
+			"short_name": "Talks",
 			"description": "Omri's Presentations",
-			"url": "/events/"
+			"url": "/talks/"
 		},
 		{
 			"name": "Projects",
