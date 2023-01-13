@@ -3,6 +3,7 @@ title: Sudoku Verifier
 date: 2022-10-28
 description: My attempt at writing a verification function for a sudoku matrix
 tags: [Sudoku, Go]
+math: true
 ---
 # Prompt
 Determine if a $9 \times 9$ Sudoku board is valid. All of the cells need to be validated **according to the following rules**:

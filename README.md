@@ -2,6 +2,10 @@
 My [personal website](https://applegamer22.github.io), built with [Hugo](https://gohugo.io) and [Congo](https://jpanther.github.io/congo/).
 
 # Additions to Congo
+I added some features because I'm not pleased with how [Hugo's shortcode syntax](https://gohugo.io/content-management/shortcodes/) prevents some content from being rendered correctly on external Markdown platforms such as [GitHub](https://github.com) and [GitLab](https://gitlab.com).
+
+The conditional loading of [KaTeX](#katex) and [Mermaid](#technical-diagrams) is possible because of the modified `head.html` partial template that calls to the `extend-head.html` partial template with global context (with `{{partial "extend-head.html" $}}`) instead of configuration file context (with `{{partial "extend-head.html" .Site}}`).
+
 ## KaTeX
 The following `layouts/partials/extend-head.html` code is based on [this comment](https://github.com/jpanther/congo/discussions/23#discussioncomment-1550774) from the Congo Theme discussion board, and is also based on [this file](https://github.com/jpanther/congo/blob/stable/layouts/partials/vendor.html) from Congo Theme's codebase.
 
