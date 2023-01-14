@@ -74,11 +74,6 @@ pre.mermaid {
 	background-color: transparent !important;
 }
 
-/* better text colour for sequence digram */
-pre.mermaid g:not(.actor-man) > text.actor > tspan {
-	fill: black !important;
-}
-
 /* search menu results more text lengths */
 #search-results > li > a > div.grow {
 	max-width: calc(100% - 1.5rem) !important;

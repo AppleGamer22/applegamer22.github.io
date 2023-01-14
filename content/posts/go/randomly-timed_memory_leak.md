@@ -45,7 +45,7 @@ sequenceDiagram
 		end
 		User->>CLI: terminate session 
 		deactivate User
-		Note over User,Timer: Timer's channel continues to exists
+		Note over User,Timer: Timer's channel still exists
 	and CLI to Timer
 		loop
 			CLI->>Timer: check for duration end signal

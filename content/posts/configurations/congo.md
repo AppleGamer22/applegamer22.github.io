@@ -101,15 +101,6 @@ The following `layouts/partials/extend-head.html` code is based on [Docsy's diag
 		function tuple2RGB(color) {
 			return `rgb(${getComputedStyle(document.documentElement).getPropertyValue(color)})`;
 		}
-		/** @returns text colour appropriate for colour theme */
-		function textColor() {
-			switch (document.documentElement.classList.contains("dark")) {
-			case true:
-				return "white";
-			case false:
-				return "black";
-			}
-		}
 		document.addEventListener("DOMContentLoaded", () => {
 			for (const diagram of document.querySelectorAll("code.language-mermaid")) {
 				const text = diagram.textContent;
@@ -118,6 +109,8 @@ The following `layouts/partials/extend-head.html` code is based on [Docsy's diag
 				pre.textContent = text;
 				diagram.parentElement.replaceWith(pre);
 			}
+			const scheme = localStorage.getItem("appearance")
+			const textColor = scheme === "dark" ? "white" : "black";
 			mermaid.initialize({
 				theme: "base",
 				themeVariables: {
@@ -129,13 +122,22 @@ The following `layouts/partials/extend-head.html` code is based on [Docsy's diag
 					secondaryBorderColor: tuple2RGB("--color-secondary-400"),
 					tertiaryBorderColor: tuple2RGB("--color-neutral-400"),
 					lineColor: tuple2RGB("--color-neutral-600"),
-					textColor: textColor(),
-					loopTextColor: textColor(),
-					primaryTextColor: "black",
+					textColor: textColor,
+					loopTextColor: textColor,
+					actorTextColor: textColor,
+					mainBkg: (() => {
+						switch (scheme === "dark") {
+						case true:
+							return tuple2RGB("--color-neutral-800");
+						case false:
+							return tuple2RGB("--color-neutral");
+						}
+					})(),
 					fontFamily: "ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,noto sans,sans-serif",
 					fontSize: "16px"
 				}
 			});
+			document.querySelector("button#appearance-switcher").addEventListener("click", () => location.reload());
 		});
 	</script>
 {{end}}
