@@ -54,12 +54,14 @@
 		}
 
 		document.addEventListener("DOMContentLoaded", () => {
+			let hasDiagram = false;
 			for (const diagram of document.querySelectorAll("code.language-mermaid")) {
 				const text = diagram.textContent;
 				const pre = document.createElement("pre");
 				pre.classList.add("mermaid");
 				pre.textContent = text;
 				diagram.parentElement.replaceWith(pre);
+				hasDiagram = true;
 			}
 
 			const scheme = localStorage.getItem("appearance")
@@ -91,7 +93,11 @@
 				}
 			});
 			
-			document.querySelector("button#appearance-switcher").addEventListener("click", () => location.reload());
+			document.querySelector("button#appearance-switcher").addEventListener("click", () => {
+				if (hasDiagram) {
+					location.reload();
+				}
+			});
 		});
 	</script>
 {{end}}
