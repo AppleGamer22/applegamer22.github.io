@@ -1,11 +1,24 @@
 ---
 title: Randomly-Timed Memory Leak
-date: 2023-01-15
+date: 2023-01-14
 tags: [Go, CLI]
 diagrams: true
 ---
 # Background
-While reviewing some code for my command-line interfaced (CLI) screensaver inhibitor project, named [`cocainate`](https://github.com/AppleGamer22/cocainate), I stumbled across the following block of Go code:
+This problem was found in my command-line interfaced (CLI) screensaver inhibitor project, named [`cocainate`](https://github.com/AppleGamer22/cocainate) and written in Go. The screensaver inhibitor can wait until a termination signal is issued, or wait until for optionally-provided duration. The screensaver inhibitor's session is tracked by constructing a data structure with the specified duration, and a termination signals channel, linked to the process' signal buffer.
+
+```go
+s := Session{
+	Duration: duration,
+	Signals:  make(chan os.Signal, 1),
+}
+signal.Notify(s.Signals, os.Interrupt, syscall.SIGTERM, syscall.SIGQUIT)
+```
+
+The part of the code shown below is how I used to implement the CLI functionality that waits for either:
+
+* a timer (with user-specified duration) to end. This is triggered by a `time.Time` object sent to the channel returned by the `time.After` function, which occurs after the duration specified in the function's input,
+* or for the user to manually stop the screensaver inhibitor. This is triggered by a channel that listens for terminations signals sent to the programs by either the operating system, or the user via the command-line shell.
 
 ```go
 select {
@@ -13,10 +26,6 @@ select {
 	case <-s.Signals:
 }
 ```
-This part of the code is how I used to implement the CLI functionality that waits for either
-
-* a timer (with user-specified duration) to end. This is triggered by a `time.Time` object sent to the channel returned by the `time.After` function, which occurs after the duration specified in the function's input.
-* or for the user to manually stop the screensaver inhibitor. This is triggered by a channel that listens for terminations signals sent to the programs by either the operating system, or the user via the command-line shell.
 
 # Potential Channel Leaks
 The issue starts when the user terminates the screen inhibitor session before the timer (with the duration specified in the CLI's arguments) ends. According to the documentation of [`time.After`](https://pkg.go.dev/time#After)[^1]:
@@ -31,15 +40,15 @@ sequenceDiagram
 	participant Timer
 	par CLI to User
 		loop
-			CLI ->> User: check for termination signal
+			CLI->>User: check for termination signal
 			activate User
 		end
-		User ->> CLI: terminate session 
+		User->>CLI: terminate session 
 		deactivate User
 		Note over User,Timer: Timer's channel continues to exists
 	and CLI to Timer
 		loop
-			CLI ->> Timer: check for duration end signal
+			CLI->>Timer: check for duration end signal
 		end
 	end
 ```
