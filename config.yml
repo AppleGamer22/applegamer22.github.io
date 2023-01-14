@@ -18,7 +18,7 @@ outputs:
     - JSON
 params:
   colorScheme: fruit
-  defaultAppearance: dark
+  # defaultAppearance: dark
   enableCodeCopy: true
   enableSearch: true
   mainSections:

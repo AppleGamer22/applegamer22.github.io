@@ -494,7 +494,6 @@ params:
 These configurations are in this section because they do not fit in a coherent category:
 
 * [Colour scheme](#colour-scheme)
-* The dark mode appearance is marked as preferred
 * The code copying button is enabled on multi-line code blocks
 * Content search is enabled
 * Recent posts from the blog are shown in the homepage
@@ -506,7 +505,6 @@ These configurations are in this section because they do not fit in a coherent c
 ```yaml
 params:
   colorScheme: fruit
-  defaultAppearance: dark
   enableCodeCopy: true
   enableSearch: true
   mainSections:

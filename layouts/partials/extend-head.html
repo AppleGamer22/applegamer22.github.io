@@ -64,7 +64,10 @@
 				hasDiagram = true;
 			}
 
-			const scheme = localStorage.getItem("appearance")
+			let scheme = localStorage.getItem("appearance")
+			if (scheme === null) {
+				scheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+			}
 			const textColor = scheme === "dark" ? "white" : "black";
 			mermaid.initialize({
 				theme: "base",
