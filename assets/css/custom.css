@@ -74,8 +74,8 @@ pre.mermaid {
 	background-color: transparent !important;
 }
 
-/* diagrams with transparent background */
-pre.mermaid text.actor > tspan {
+/* better text colour for sequence digram */
+pre.mermaid g:not(.actor-man) > text.actor > tspan {
 	fill: black !important;
 }
 
