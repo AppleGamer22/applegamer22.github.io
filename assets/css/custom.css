@@ -74,6 +74,11 @@ pre.mermaid {
 	background-color: transparent !important;
 }
 
+/* diagrams with transparent background */
+pre.mermaid text.actor > tspan {
+	fill: black !important;
+}
+
 /* search menu results more text lengths */
 #search-results > li > a > div.grow {
 	max-width: calc(100% - 1.5rem) !important;
@@ -101,6 +106,15 @@ pre.mermaid {
 ul > li > ul {
 	list-style-type: square !important;
 }
+
+/* the same colour for inline-code block */
+.prose :where(blockquote code):not(:where([class~=not-prose] *)) {
+	color: var(--tw-prose-code) !important;
+}
+
+/* .prose :where(blockquote a > code):not(:where([class~=not-prose] *)) {
+	color: var(--tw-prose-link) !important;
+} */
 
 /* wider content width */
 .max-w-7xl {
