@@ -102,6 +102,15 @@ ul > li > ul {
 	list-style-type: square !important;
 }
 
+/* the same colour for inline-code block */
+.prose :where(blockquote code):not(:where([class~=not-prose] *)) {
+	color: var(--tw-prose-code) !important;
+}
+
+/* .prose :where(blockquote a > code):not(:where([class~=not-prose] *)) {
+	color: var(--tw-prose-link) !important;
+} */
+
 /* wider content width */
 .max-w-7xl {
 	max-width: 100rem !important;

@@ -36,6 +36,10 @@
 			"title": "Projects",
 			"path": "[[workspace]]/content/projects",
 			"previewPath": "projects"
+		},{
+			"title": "Go",
+			"path": "[[workspace]]/content/posts/go",
+			"previewPath": "posts/go"
 		}
 	],
 	"frontMatter.taxonomy.contentTypes": [
