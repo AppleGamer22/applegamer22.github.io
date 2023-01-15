@@ -70,15 +70,28 @@ The following `layouts/partials/extend-head.html` code is based on [Docsy's diag
 		function tuple2RGB(color) {
 			return `rgb(${getComputedStyle(document.documentElement).getPropertyValue(color)})`;
 		}
+		function reloadDiagrams(hasDiagram) {
+			if (hasDiagram) {
+				location.reload();
+			}
+		}
 		document.addEventListener("DOMContentLoaded", () => {
-			for (const diagram of document.querySelectorAll("code.language-mermaid")) {
+			const diagrams = document.querySelectorAll("code.language-mermaid");
+			let hasDiagram = diagrams.length > 0;
+			if (!hasDiagram) return;
+			for (const diagram of diagrams) {
 				const text = diagram.textContent;
 				const pre = document.createElement("pre");
 				pre.classList.add("mermaid");
 				pre.textContent = text;
 				diagram.parentElement.replaceWith(pre);
 			}
-			const scheme = localStorage.getItem("appearance")
+			const colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
+			colorScheme.addEventListener("change", () => reloadDiagrams(hasDiagram));
+			let scheme = localStorage.getItem("appearance");
+			if (scheme === null) {
+				scheme = colorScheme.matches ? "dark" : "light";
+			}
 			const textColor = scheme === "dark" ? "white" : "black";
 			mermaid.initialize({
 				theme: "base",
@@ -106,7 +119,7 @@ The following `layouts/partials/extend-head.html` code is based on [Docsy's diag
 					fontSize: "16px"
 				}
 			});
-			document.querySelector("button#appearance-switcher").addEventListener("click", () => location.reload());
+			document.querySelector("button#appearance-switcher").addEventListener("click", () => reloadDiagrams(hasDiagram));
 		});
 	</script>
 {{end}}

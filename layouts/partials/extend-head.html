@@ -15,6 +15,7 @@
 	{{range $katexFonts}}
 		<!-- {{.RelPermalink}} -->
 	{{end}}
+
 	<script>
 		document.addEventListener("DOMContentLoaded", () => {
 			renderMathInElement(document.body, {
@@ -53,21 +54,32 @@
 			return `rgb(${getComputedStyle(document.documentElement).getPropertyValue(color)})`;
 		}
 
+		function reloadDiagrams(hasDiagram) {
+			if (hasDiagram) {
+				location.reload();
+			}
+		}
+
 		document.addEventListener("DOMContentLoaded", () => {
-			let hasDiagram = false;
-			for (const diagram of document.querySelectorAll("code.language-mermaid")) {
+			const diagrams = document.querySelectorAll("code.language-mermaid");
+			let hasDiagram = diagrams.length > 0;
+			if (!hasDiagram) return;
+			for (const diagram of diagrams) {
 				const text = diagram.textContent;
 				const pre = document.createElement("pre");
 				pre.classList.add("mermaid");
 				pre.textContent = text;
 				diagram.parentElement.replaceWith(pre);
-				hasDiagram = true;
 			}
 
-			let scheme = localStorage.getItem("appearance")
+			const colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
+			colorScheme.addEventListener("change", () => reloadDiagrams(hasDiagram));
+
+			let scheme = localStorage.getItem("appearance");
 			if (scheme === null) {
-				scheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+				scheme = colorScheme.matches ? "dark" : "light";
 			}
+			
 			const textColor = scheme === "dark" ? "white" : "black";
 			mermaid.initialize({
 				theme: "base",
@@ -95,17 +107,15 @@
 					fontSize: "16px"
 				}
 			});
-			
-			document.querySelector("button#appearance-switcher").addEventListener("click", () => {
-				if (hasDiagram) {
-					location.reload();
-				}
-			});
+
+			document.querySelector("button#appearance-switcher").addEventListener("click", () => reloadDiagrams(hasDiagram));
 		});
 	</script>
 {{end}}
 
-<script>
+<script defer>
+	window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => localStorage.removeItem("appearance"));
+
 	if ("serviceWorker" in navigator) {
 		(async () => {
 			try {
