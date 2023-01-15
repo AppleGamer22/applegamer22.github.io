@@ -54,12 +54,6 @@
 			return `rgb(${getComputedStyle(document.documentElement).getPropertyValue(color)})`;
 		}
 
-		function reloadDiagrams(hasDiagram) {
-			if (hasDiagram) {
-				location.reload();
-			}
-		}
-
 		document.addEventListener("DOMContentLoaded", () => {
 			const diagrams = document.querySelectorAll("code.language-mermaid");
 			let hasDiagram = diagrams.length > 0;
@@ -73,7 +67,7 @@
 			}
 
 			const colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
-			colorScheme.addEventListener("change", () => reloadDiagrams(hasDiagram));
+			colorScheme.addEventListener("change", () => location.reload());
 
 			let scheme = localStorage.getItem("appearance");
 			if (scheme === null) {
@@ -108,7 +102,7 @@
 				}
 			});
 
-			document.querySelector("button#appearance-switcher").addEventListener("click", () => reloadDiagrams(hasDiagram));
+			document.querySelector("button#appearance-switcher").addEventListener("click", () => location.reload());
 		});
 	</script>
 {{end}}

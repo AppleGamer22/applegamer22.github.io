@@ -70,11 +70,6 @@ The following `layouts/partials/extend-head.html` code is based on [Docsy's diag
 		function tuple2RGB(color) {
 			return `rgb(${getComputedStyle(document.documentElement).getPropertyValue(color)})`;
 		}
-		function reloadDiagrams(hasDiagram) {
-			if (hasDiagram) {
-				location.reload();
-			}
-		}
 		document.addEventListener("DOMContentLoaded", () => {
 			const diagrams = document.querySelectorAll("code.language-mermaid");
 			let hasDiagram = diagrams.length > 0;
@@ -87,7 +82,7 @@ The following `layouts/partials/extend-head.html` code is based on [Docsy's diag
 				diagram.parentElement.replaceWith(pre);
 			}
 			const colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
-			colorScheme.addEventListener("change", () => reloadDiagrams(hasDiagram));
+			colorScheme.addEventListener("change", () => location.reload());
 			let scheme = localStorage.getItem("appearance");
 			if (scheme === null) {
 				scheme = colorScheme.matches ? "dark" : "light";
@@ -119,7 +114,7 @@ The following `layouts/partials/extend-head.html` code is based on [Docsy's diag
 					fontSize: "16px"
 				}
 			});
-			document.querySelector("button#appearance-switcher").addEventListener("click", () => reloadDiagrams(hasDiagram));
+			document.querySelector("button#appearance-switcher").addEventListener("click", () => location.reload());
 		});
 	</script>
 {{end}}
