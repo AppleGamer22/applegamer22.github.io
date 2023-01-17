@@ -114,7 +114,7 @@ The following `layouts/partials/extend-head.html` code is based on [Docsy's diag
 					fontSize: "16px"
 				}
 			});
-			document.querySelector("button#appearance-switcher").addEventListener("click", () => location.reload());
+			document.querySelector("button#appearance-switcher-0").addEventListener("click", () => location.reload());
 		});
 	</script>
 {{end}}
