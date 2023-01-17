@@ -28,6 +28,7 @@ params:
   homepage:
     layout: profile
     showRecent: true
+    # recentLimit: 10
   header:
     logo: logo.png
     layout: custom
@@ -46,6 +47,7 @@ params:
       - github
       - gitlab
       - linkedin
+      - mastodon
       - reddit
       - twitter
       - facebook
@@ -67,8 +69,8 @@ markup:
 languages:
   en:
     languageName: English
-    languageCode: en
-    isoCode: en
+    languageCode: en-au
+    isoCode: en-AU
     rtl: false
     dateFormat: "2006-01-02"
     weight: 1
@@ -113,9 +115,14 @@ languages:
           pageRef: projects
           weight: 4
         - name: CV
-          pageRef: cv
           # url: /cv.pdf
+          pageRef: cv
+          params:
+            target: _blank
           weight: 5
         - name: Tags
           pageRef: tags
           weight: 6
+      # footer:
+      #   - name: Privacy
+      #     pageRef: privacy

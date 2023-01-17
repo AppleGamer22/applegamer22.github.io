@@ -1,14 +1,14 @@
-{{ define "main" }}
+{{define "main"}}
 	<article>
 		<!-- <header class="max-w-prose">
-			{{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
-				{{ partial "breadcrumbs.html" . }}
-			{{ end }}
+			{{if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false)}}
+				{{partial "breadcrumbs.html" .}}
+			{{end}}
 			<h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-				{{ .Title | emojify }}
+				{{.Title | emojify}}
 			</h1>
 			<div class="mt-8 mb-12 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
-				{{ partial "article-meta.html" (dict "context" . "scope" "single") }}
+				{{partial "article-meta.html" (dict "context" . "scope" "single")}}
 			</div>
 		</header> -->
 		<script>
@@ -25,9 +25,9 @@
 			</div>
 		</section>
 		<footer class="pt-8 max-w-prose print:hidden">
-			{{ partial "author.html" . }}
-			{{ partial "sharing-links.html" . }}
-			{{ partial "article-pagination.html" . }}
+			{{partial "author.html" .}}
+			{{partial "sharing-links.html" .}}
+			{{partial "article-pagination.html" .}}
 		</footer>
 	</article>
-{{ end }}
+{{end}}
