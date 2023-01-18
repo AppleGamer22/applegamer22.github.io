@@ -5,4 +5,5 @@ showDateUpdated: false
 tags: [MonSec, Kali, Linux, Vagrant, VirtualBox]
 externalUrl: https://monsec.io/resources/#kali-linux-set-up
 _build: {render: link}
+xml: false
 ---
