@@ -3,6 +3,7 @@ title: A Randomly-Timed Memory Leak
 date: 2023-01-14
 tags: [Go, CLI]
 description: A memory leak I found in my Go project (named cocainate), and how I fixed it...
+summary: A memory leak I found in my Go project (named cocainate), and how I fixed it...
 diagrams: true
 ---
 # Background
