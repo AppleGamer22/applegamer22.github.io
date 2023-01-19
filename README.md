@@ -322,3 +322,7 @@ The HTML was inspired by a combination of Congo Theme's [basic](https://github.c
 1. Use <https://favicon.io/favicon-converter/> with `assets/logo.png` and save the output assets to the `static` directory.
 
 [^1]: <https://katex.org/docs/autorender.html>
+
+# Useful Links
+* <https://carbon.now.sh/>
+* [LinkIn Post Inspector](https://www.linkedin.com/post-inspector/)

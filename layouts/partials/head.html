@@ -29,6 +29,10 @@
 	{{range .AlternativeOutputFormats -}}
 		{{printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink ($.Site.Title | emojify) | safeHTML}}
 	{{end -}}
+	{{$images := $.Resources.ByType "image" -}}
+	{{- with $images.GetMatch (.Params.thumbnail | default "*thumb*")}}
+		<meta property="og:image" content="{{(.Fill `320x240 smart`).RelPermalink | absURL}}">
+	{{- end}}
 	{{/* Asset bundles */}}
 	{{$assets := newScratch}}
 	{{$cssScheme := resources.Get (printf "css/schemes/%s.css" (lower .Site.Params.colorScheme | default "congo"))}}
