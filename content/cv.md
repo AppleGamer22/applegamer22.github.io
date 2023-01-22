@@ -1,6 +1,7 @@
 ---
 title: CV
-type: cv
+type: pdf
+path: cv.pdf
 showDate: false
 showReadingTime: false
 showPagination: false
