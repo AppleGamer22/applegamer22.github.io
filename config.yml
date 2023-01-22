@@ -123,6 +123,14 @@ languages:
         - name: Tags
           pageRef: tags
           weight: 6
-      # footer:
-      #   - name: Privacy
-      #     pageRef: privacy
+      footer:
+        - name: Privacy
+          pageRef: privacy
+        - name: Licence
+          url: https://www.gnu.org/licenses/gpl-3.0.en.html
+          params:
+            target: _blank
+        - name: RSS
+          url: /index.xml
+          params:
+            target: _blank
