@@ -2,7 +2,7 @@
 title: ångstromCTF Exclusive Cipher
 date: 2021-05-31
 description: My attempt at the XOR cipher question from the 2021 ångstromCTF
-tags: [angstromCTF, cryptography, Python]
+tags: [angstromCTF, MonSec, cryptography, Python]
 ---
 # Prompt
 > Clam decided to return to classic cryptography and revisit the XOR cipher! Here's some hex encoded cipher text:

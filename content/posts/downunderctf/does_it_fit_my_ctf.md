@@ -1,7 +1,7 @@
 ---
 title: DownUnderCTF Does It Fit My CTF?
 date: 2022-09-23T00:00:03
-tags: [DownUnderCTF, OSINT]
+tags: [DownUnderCTF, MonSec, OSINT]
 ---
 
 # Prompt

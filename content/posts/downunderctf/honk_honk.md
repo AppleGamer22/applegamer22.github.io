@@ -1,7 +1,7 @@
 ---
 title: DownUnderCTF Honk Honk
 date: 2022-09-23T00:00:02
-tags: [DownUnderCTF, OSINT]
+tags: [DownUnderCTF, MonSec, OSINT]
 ---
 # Prompt
 > I'm shocking when it comes to remembering when my car's CTP is up...can you let me know the exact date (DD/MM/YYYY) when it's due? My rego is `23HONK`.
