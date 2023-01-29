@@ -254,6 +254,11 @@ disabled = false
 style = "yellow bold"
 ```
 
+## GIF Demonstration
+The following GIF was made using [`vhs`](https://github.com/charmbracelet/vhs) with [this hyperlinked `.tape` file](https://gist.github.com/AppleGamer22/f638088e41dd8195c9d4a0322af5604e):
+
+![A GIF showing my command-line shell prompt configuration](starship.gif "A GIF showing my command-line shell prompt configuration")
+
 # Aliases
 The following aliases are useful if you stick with the default BSD core utilities of macOS:
 
