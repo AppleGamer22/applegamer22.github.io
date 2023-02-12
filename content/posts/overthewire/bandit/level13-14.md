@@ -1,5 +1,6 @@
 ---
 title: OverTheWire Bandit Level 13 - 14
+description: OverTheWire Bandit Level 13 - 14 challenge
 date: 2022-07-28T13:00:00
 tags: [OverTheWire, Bandit, Linux, shell]
 ---

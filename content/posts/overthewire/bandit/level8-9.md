@@ -1,5 +1,6 @@
 ---
 title: OverTheWire Bandit Level 8 - 9
+description: OverTheWire Bandit Level 8 - 9 challenge
 date: 2022-07-28T08:00:00
 tags: [OverTheWire, Bandit, Linux, shell]
 ---

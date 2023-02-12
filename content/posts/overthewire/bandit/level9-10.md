@@ -1,5 +1,6 @@
 ---
 title: OverTheWire Bandit Level 9 - 10
+description: OverTheWire Bandit Level 9 - 10 challenge
 date: 2022-07-28T09:00:00
 tags: [OverTheWire, Bandit, Linux, shell, regex]
 ---

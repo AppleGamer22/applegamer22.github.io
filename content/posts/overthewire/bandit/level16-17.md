@@ -1,5 +1,6 @@
 ---
 title: OverTheWire Bandit Level 16 - 17
+description: OverTheWire Bandit Level 16 - 17 challenge
 date: 2022-07-28T16:00:00
 tags: [OverTheWire, Bandit, Linux, shell, networking]
 ---

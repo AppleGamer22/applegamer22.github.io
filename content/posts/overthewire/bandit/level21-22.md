@@ -1,5 +1,6 @@
 ---
 title: OverTheWire Bandit Level 21 - 22
+description: OverTheWire Bandit Level 21 - 22 challenge
 date: 2022-07-29T04:00:00
 tags: [OverTheWire, Bandit, Linux, shell]
 ---

@@ -1,5 +1,6 @@
 ---
 title: OverTheWire Bandit Level 11 - 12
+description: OverTheWire Bandit Level 11 - 12 challenge
 date: 2022-07-28T11:00:00
 tags: [OverTheWire, Bandit, Linux, shell, cryptography]
 ---

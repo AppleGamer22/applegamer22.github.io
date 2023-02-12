@@ -1,5 +1,6 @@
 ---
 title: OverTheWire Bandit Level 19 - 20
+description: OverTheWire Bandit Level 19 - 20 challenge
 date: 2022-07-29T02:00:00
 tags: [OverTheWire, Bandit, Linux, shell]
 ---

@@ -1,5 +1,6 @@
 ---
 title: OverTheWire Bandit Level 1 - 2
+description: OverTheWire Bandit Level 1 - 2 challenge
 date: 2022-07-28T01:00:00
 tags: [OverTheWire, Bandit, Linux, shell]
 ---

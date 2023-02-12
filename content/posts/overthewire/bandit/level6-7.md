@@ -1,5 +1,6 @@
 ---
 title: OverTheWire Bandit Level 6 - 7
+description: OverTheWire Bandit Level 6 - 7 challenge
 date: 2022-07-28T06:00:00
 tags: [OverTheWire, Bandit, Linux, shell]
 ---
