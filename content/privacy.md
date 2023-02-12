@@ -1,5 +1,6 @@
 ---
 title: Privacy
+description: Privacy Policy
 showDate: false
 showPagination: false
 showAuthor: false

@@ -1,6 +1,7 @@
 ---
 title: DownUnderCTF Does It Fit My CTF?
 date: 2022-09-23T00:00:03
+description: DownUnderCTF 2022 Does It Fit My CTF challenge
 tags: [DownUnderCTF, MonSec, OSINT]
 ---
 

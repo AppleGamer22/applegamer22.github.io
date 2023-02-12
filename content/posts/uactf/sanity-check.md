@@ -1,6 +1,7 @@
 ---
 title: UACTF Sanity Check
 date: 2022-07-30
+challenge: UACTF 2022 Sanity Check challenge
 tags: [UACTF, MonSec, reversing, linux, shell, C]
 ---
 # Prompt

@@ -1,6 +1,7 @@
 ---
 title: DownUnderCTF Honk Honk
 date: 2022-09-23T00:00:02
+description: DownUnderCTF 2022 Honk Honk challenge
 tags: [DownUnderCTF, MonSec, OSINT]
 ---
 # Prompt

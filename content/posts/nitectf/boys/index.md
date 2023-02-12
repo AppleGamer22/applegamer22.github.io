@@ -1,6 +1,7 @@
 ---
 title: niteCTF Boys
 date: 2022-12-24
+description: niteCTF 2022 Boys challenge
 tags: [niteCTF, MonSec, OSINT, forensics, git]
 ---
 # Prompt

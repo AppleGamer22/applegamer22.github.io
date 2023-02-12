@@ -1,6 +1,7 @@
 ---
 title: SHELL CTF How to Defeat a Dragon
 date: 2022-08-12
+description: SHELL CTF 2022 How to Defeat a Dragon challenge
 tags: [SHELL_CTF, MonSec, reversing, linux, shell, C]
 ---
 # Prompt

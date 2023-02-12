@@ -1,7 +1,7 @@
 ---
 title: ångstromCTF Exclusive Cipher
 date: 2021-05-31
-description: My attempt at the XOR cipher question from the 2021 ångstromCTF
+description: ångstromCTF 2021 Exclusive Cipher challenge
 tags: [angstromCTF, MonSec, cryptography, Python]
 ---
 # Prompt
