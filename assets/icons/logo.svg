@@ -5,19 +5,11 @@
 	viewBox="0 0 132.29167 132.29167"
 	version="1.1"
 	id="svg8"
-	sodipodi:docname="logo.svg"
-	inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
 	inkscape:export-xdpi="98.304001"
 	inkscape:export-ydpi="98.304001"
 	xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-	xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
 	xmlns="http://www.w3.org/2000/svg"
-	xmlns:svg="http://www.w3.org/2000/svg"
-	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-	xmlns:cc="http://creativecommons.org/ns#"
-	xmlns:dc="http://purl.org/dc/elements/1.1/">
-	<title
-		id="title13306">AG22 Logo</title>
+	xmlns:svg="http://www.w3.org/2000/svg">
 	<defs
 		id="defs2">
 		<inkscape:path-effect
@@ -60,71 +52,6 @@
 			oposite_fuse="false"
 			split_items="false" />
 	</defs>
-	<sodipodi:namedview
-		id="base"
-		pagecolor="#ffffff"
-		bordercolor="#666666"
-		borderopacity="1.0"
-		inkscape:pageopacity="0.0"
-		inkscape:pageshadow="2"
-		inkscape:zoom="2.86"
-		inkscape:cx="435.48951"
-		inkscape:cy="286.88811"
-		inkscape:document-units="mm"
-		inkscape:current-layer="layer1"
-		inkscape:document-rotation="0"
-		showgrid="true"
-		units="px"
-		inkscape:window-width="1882"
-		inkscape:window-height="1027"
-		inkscape:window-x="38"
-		inkscape:window-y="24"
-		inkscape:window-maximized="1"
-		inkscape:pagecheckerboard="0"
-		inkscape:snap-bbox="true"
-		inkscape:showpageshadow="0"
-		inkscape:deskcolor="#d1d1d1">
-		<inkscape:grid
-			type="xygrid"
-			id="grid39" />
-	</sodipodi:namedview>
-	<metadata
-		id="metadata5">
-		<rdf:RDF>
-			<cc:Work
-				rdf:about="">
-				<dc:format>image/svg+xml</dc:format>
-				<dc:type
-					rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-				<dc:title>AG22 Logo</dc:title>
-				<dc:creator>
-					<cc:Agent>
-						<dc:title>Omri Bornstein</dc:title>
-					</cc:Agent>
-				</dc:creator>
-				<cc:license
-					rdf:resource="http://creativecommons.org/licenses/by-nd/4.0/" />
-				<dc:date>26/06/2021</dc:date>
-				<dc:publisher>
-					<cc:Agent>
-						<dc:title>GitHub</dc:title>
-					</cc:Agent>
-				</dc:publisher>
-				<dc:source>GitHub</dc:source>
-			</cc:Work>
-			<cc:License
-				rdf:about="http://creativecommons.org/licenses/by-nd/4.0/">
-				<cc:permits
-					rdf:resource="http://creativecommons.org/ns#Reproduction" />
-				<cc:permits
-					rdf:resource="http://creativecommons.org/ns#Distribution" />
-				<cc:requires
-					rdf:resource="http://creativecommons.org/ns#Notice" />
-				<cc:requires
-					rdf:resource="http://creativecommons.org/ns#Attribution" />
-			</cc:License>
-		</rdf:RDF>
-	</metadata>
 	<g
 		inkscape:label="Layer 1"
 		inkscape:groupmode="layer"
@@ -140,24 +67,20 @@
 			<path
 				d="M 449.53,379.77 C 380.82294,345.76035 361.1,242.84 436.45,201.43 c -23,-28.8 -55.32,-45.48 -85.79,-45.48 l 0.1,-0.04 c -40.32,0 -57.36,19.24 -85.44,19.24 -28.79,0 -50.75,-19.1 -85.69,-19.1 -34.2,0 -70.67,20.88 -93.829998,56.45 -32.52,50.16 -22.922974,142.90456 29.747028,223.38456"
 				id="path20-3"
-				style="fill:none;fill-opacity:1;stroke:#0000ff;stroke-width:15.1181;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-				sodipodi:nodetypes="ccccsscc" />
+				style="fill:none;fill-opacity:1;stroke:#0000ff;stroke-width:15.1181;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
 			<path
 				d="m 445.94492,369.81003 c -36.93478,97.3425 -143.06245,80.61767 -180.20677,3.076"
 				id="path20-3-6"
 				style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:13.98425215;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-				sodipodi:nodetypes="cc"
 				inkscape:transform-center-x="1.8851645"
 				inkscape:transform-center-y="11.6818" />
 			<path
 				d="M 69.529998,259.77 C 148.69887,279.09805 176.77589,395.37804 105.76639,433.10279"
 				id="path20-3-6-5"
 				style="fill:none;fill-opacity:1;stroke:#0000ff;stroke-width:15.1181;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-				sodipodi:nodetypes="cc"
 				inkscape:transform-center-x="-9.9793749"
 				inkscape:transform-center-y="1.0817878" />
 			<path
-				sodipodi:nodetypes="ccccccc"
 				id="path3075"
 				d="M 217.07908,131.33603 243.53,157.77 c 14.21552,-16.06214 35.23182,-8.12656 35.23182,-8.12656 7.70153,-31.37667 55.16535,-77.033302 55.16535,-77.033302 0,0 -25.79475,-7.246307 -23.51343,-39.772669 0,0 -45.21153,54.121771 -86.5017,63.596921 0,0 7.70088,22.06732 -6.83295,34.90162 z"
 				style="fill:#00ff00;fill-opacity:0.75;fill-rule:evenodd;stroke:#00fd00;stroke-width:0.822167;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
@@ -165,8 +88,7 @@
 		<path
 			style="fill:none;stroke:#0000ff;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
 			d="m 112.95592,48.064208 c 8.59251,9.456871 11.22122,28.36424 1.69326,46.230412"
-			id="path2799"
-			sodipodi:nodetypes="cc" />
+			id="path2799" />
 		<path
 			style="fill:#0000ff;fill-opacity:1;stroke:#0000ff;stroke-width:8.63892;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
 			d="M 99.281002,389.28571 C 82.608679,358.59278 71.595434,325.69078 67.185524,293.40068 65.814221,283.35977 65.043901,266.8516 65.546957,258.28571 L 66,250.57143 l 1.409976,0.15814 c 2.202671,0.24704 12.632095,5.42898 17.560411,8.72502 16.910963,11.31 30.108943,28.25181 37.595183,48.2597 10.39736,27.78819 8.16221,56.58242 -6.01247,77.45556 -2.39757,3.53058 -11.14948,13.11586 -11.97553,13.11586 -0.22429,0 -2.60774,-4.05 -5.296568,-9 z"
