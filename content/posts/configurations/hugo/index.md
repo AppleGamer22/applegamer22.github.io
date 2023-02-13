@@ -434,7 +434,7 @@ outputs:
 
 ## Congo
 ### Metadata
-Basic information about me and the website is configured such that browser [citation plugins](https://www.mybib.com/) can get the correct information.
+Basic information about me and the website is configured such that browser [citation plugins](https://www.mybib.com) can get the correct information.
 
 ```yaml
 languages:

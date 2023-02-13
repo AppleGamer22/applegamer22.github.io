@@ -138,7 +138,7 @@ fi
 ```
 
 ### macOS
-If you install your command-line tools with the [Homebrew](https://brew.sh/) package manager, the following code snippet from their documentation[^1] should be added to the appropriate place in `~/.zshrc`.
+If you install your command-line tools with the [Homebrew](https://brew.sh) package manager, the following code snippet from their documentation[^1] should be added to the appropriate place in `~/.zshrc`.
 
 In my case, the following configuration worked the best, since other tools (such as [`vagrant`](https://github.com/hashicorp/vagrant)) keep the completions in other places:
 
@@ -176,7 +176,7 @@ fi
 ```
 
 # Core Utilities on macOS
-I find the GNU core utilities more feature-rich than the BSD core utilities that are shipped with macOS. As a result, when I need the GNU core utilities on macOS, I install them with the [Homebrew](https://brew.sh/) package manager by running: `brew install coreutils binutils gnu-tar gnu-sed grep make`. These utilities can be enabled from your `~/.zshrc`:
+I find the GNU core utilities more feature-rich than the BSD core utilities that are shipped with macOS. As a result, when I need the GNU core utilities on macOS, I install them with the [Homebrew](https://brew.sh) package manager by running: `brew install coreutils binutils gnu-tar gnu-sed grep make`. These utilities can be enabled from your `~/.zshrc`:
 
 ```sh
 if [[ "$OSTYPE" == "darwin"* ]]; then

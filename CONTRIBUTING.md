@@ -19,7 +19,7 @@ Available discussion categories:
 ## [Submissions](https://guides.github.com/introduction/flow/index.html)
 Pull requests are the best way to propose changes to the codebase (we use Github Flow). We actively welcome your pull requests:
 
-> The following workflow uses the [GitHub CLI](https://cli.github.com/) for illustration purposes, so feel free to use other Git compatible tools that you are familiar with.
+> The following workflow uses the [GitHub CLI](https://cli.github.com) for illustration purposes, so feel free to use other Git compatible tools that you are familiar with.
 
 >![Gitflow Workflow](https://wac-cdn.atlassian.com/dam/jcr:61ccc620-5249-4338-be66-94d563f2843c/05%20(2).svg?cdnVersion=1393)
 > Atlassian. (2021). Gitflow Workflow. Atlassian; Atlassian. https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
@@ -37,7 +37,7 @@ git remote add GitHub https://github.com/AppleGamer22/applegamer22.github.io
 git branch <your branch>
 ```
 2. If you've added code that should be tested, add tests (`.spec.ts` files).
-3. If you've changed APIs, update the [documentation](https://tsdoc.org/).
+3. If you've changed APIs, update the [documentation](https://tsdoc.org).
 4. Ensure the test suite passes.
 ```bash
 # Run client-side & server-side tests
@@ -83,7 +83,7 @@ Your bug reports should have:
   * including why you think this might be happening,
   * or stuff you tried that didn't work
 
-## [Coding Style](https://editorconfig.org/)
+## [Coding Style](https://editorconfig.org)
 Our `.editorconfig` file:
 ```toml
 root = true
