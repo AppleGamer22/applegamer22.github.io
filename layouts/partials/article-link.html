@@ -11,9 +11,9 @@
 					class="w-24 max-w-[6rem] max-h-[4.5rem] rounded-md sm:max-h-[7.5rem] sm:w-40 sm:max-w-[10rem]" src="{{.RelPermalink}}"
 				{{else}}
 					class="w-24 rounded-md sm:w-40" srcset="
-					{{- (.Resize `160x`).RelPermalink}} 160w,
-					{{- (.Resize `320x`).RelPermalink}} 2x"
-					src="{{(.Resize `160x`).RelPermalink}}"
+					{{- (.Fit `160x120`).RelPermalink}} 160w,
+					{{- (.Fit `320x240`).RelPermalink}} 2x"
+					src="{{(.Fit `160x120`).RelPermalink}}"
 				{{end}}
 			/>
 			</a>
