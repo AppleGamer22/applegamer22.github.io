@@ -388,7 +388,8 @@ The following YAML snippets are taken from my [`config.yml`](https://github.com/
 ### Dependencies
 I import the Congo library using [Hugo Modules](https://gohugo.io/hugo-modules/).
 
-```yaml
+```yml
+# yaml-language-server: $schema=https://json.schemastore.org/hugo.json
 module:
   imports:
     - path: github.com/jpanther/congo/v2
@@ -398,7 +399,8 @@ module:
 * Syntax highlighting is configured to enable the copy button.
 * The table of contents renders every heading in order.
 
-```yaml
+```yml
+# yaml-language-server: $schema=https://json.schemastore.org/hugo.json
 markup:
   highlight:
     noClasses: false
@@ -417,7 +419,8 @@ markup:
 * Hugo outputs are configured in order to enable content search.
 
 
-```yaml
+```yml
+# yaml-language-server: $schema=https://json.schemastore.org/hugo.json
 baseURL: https://applegamer22.github.io
 timeZone: Australia/Melbourne
 defaultContentLanguage: en
@@ -436,7 +439,8 @@ outputs:
 ### Metadata
 Basic information about me and the website is configured such that browser [citation plugins](https://www.mybib.com) can get the correct information.
 
-```yaml
+```yml
+# yaml-language-server: $schema=https://json.schemastore.org/hugo.json
 languages:
   en:
     languageName: English
@@ -453,7 +457,8 @@ languages:
 ### Menu
 The menu links and their order are set-up as follows:
 
-```yaml
+```yml
+# yaml-language-server: $schema=https://json.schemastore.org/hugo.json
 languages:
   en:
     menu:
@@ -486,7 +491,8 @@ languages:
 	* date added/updated
 	* `git` repository hyperlink
 
-```yaml
+```yml
+# yaml-language-server: $schema=https://json.schemastore.org/hugo.json
 params:
   article:
     showBreadcrumbs: true
@@ -510,7 +516,8 @@ These configurations are in this section because they do not fit in a coherent c
 * A theme switcher is shown in footer
 * A table of contents is shown for every [list page](https://gohugo.io/templates/lists/)
 
-```yaml
+```yml
+# yaml-language-server: $schema=https://json.schemastore.org/hugo.json
 params:
   colorScheme: fruit
   enableCodeCopy: true
