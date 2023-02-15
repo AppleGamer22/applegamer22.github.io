@@ -6,6 +6,23 @@ tags: [GoReleaser, Go, Docker, GitHub, CI/CD, SBoM]
 ---
 This document summarises how I set-up [GoReleaser](https://goreleaser.com) Continuous Integration/Deployment (CI/CD) for my [Go (Programming Language)](/tags/go/) projects, such that I have a portable configuration for compilation, packaging and releasing settings. This is especially useful for projects that ship a software package with several files and need a portable way to define how it should be build based on operating system, processor architecture and environment (development, testing or production).
 
+# Pre-requisites
+## Software
+* [`go`](http://go.dev) command-line interface for the Go programming language
+* [`git`](https://git-scm.com) version control system
+* [`goreleaser`](https://goreleaser.com) command-line interface
+* [`docker`](https://docs.docker.com/engine/) container build system
+* [`syft`](https://github.com/anchore/syft) Software Bill of Materials generator
+
+## Online Accounts
+* [GitHub](https://github.com) or [GitLab](https://gitlab.com)
+	* A remote `git` repository for the source code
+	* A remote repository for the [Homebrew Tap](#homebrew-tap) with a separate access token[^1] [^2] with sufficient permissions.
+* [Docker Hub](https://hub.docker.com)
+	* An [access token](https://docs.docker.com/docker-hub/access-tokens/) with sufficient permissions.
+* [Arch User Repository](https://aur.archlinux.org)
+	* A public-private [SSH key pair](https://wiki.archlinux.org/title/SSH_keys#Generating_an_SSH_key_pair)
+
 # Global Hooks
 GoReleaser [supports](https://goreleaser.com/customization/hooks/) a list of commands that should be run in order before every other task in the build process. I use this feature to automatically generate user manuals and command completion scripts for most of [my projects with a command-line interface](/tags/cli/).
 
@@ -118,6 +135,7 @@ nfpms:
 ```
 
 # Checksums
+In order to help users verify (cryptographically) the integrity of the software they just downloaded, a checksum file can be made to have the SHA-256 hash value of [selected files](https://goreleaser.com/customization/checksum/). In this example I just left most settings as their default, and added the completion scripts and user manual as extra files to be reflected in the checksum.
 
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
@@ -130,12 +148,13 @@ checksum:
 # Changelog
 If you find it tedious to manually write a changelog for your latest release by reading all of the relevant code commits (and their already-written description and metadata), and compiling a detailed changelog, GoReleaser has got you [covered](https://goreleaser.com/customization/changelog/). Assuming the commit messages are well-formatted and descriptive, GoReleaser can compile a neat changelog for you, with commits sorted into groups, and accompanying metadata for each commit. It's worth taking in mind that this won't work as well for unformatted existing commits, and that in order for GoReleaser to sort your future commit messages into groups, they should have a consistent format.
 
+The grouping rules for the changelog are defined by [regular expression patterns](https://github.com/google/re2/wiki/Syntax) for the commit messages, such that certain commits are included or excluded from the changelog. I like to define these rules based on a keyword prefix, such as `feat:` for feature commits or `fix:` for bug fixes.
+
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
 changelog:
   use: github
   filters:
-    # regular expression syntax: https://github.com/google/re2/wiki/Syntax
     exclude:
     - '^docs:'
     - '^test:'
@@ -157,8 +176,36 @@ changelog:
 ```
 
 # Release
+When GoReleaser is run with a current and tagged commit, it can upload the files it generated in the build and archive process to a various distribution platforms such as GitHub and GitLab.
 
 ## GitHub
+As far as I have been able to check in the [documentation](https://goreleaser.com/customization/release/#github), the GitHub username and repository names cannot be used with the above-mentioned templating system, which means these parameters should be declared explicitly. The following configuration also creates a new [GitHub Discussions](https://github.com/features/discussions) thread after the release has been successfully published to GitHub.
+
+```yml
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+release:
+  github:
+    owner: AppleGamer22
+    name: cocainate
+  discussion_category_name: General
+  prerelease: auto
+  footer: |
+    ## Installation
+    ### Arch Linux Distributions
+    * [`yay`](https://github.com/Jguer/yay):
+    ```bash
+    yay -S {{.ProjectName}}-bin
+    ```
+    * [`paru`](https://github.com/morganamilo/paru):
+    ```bash
+    paru -S {{.ProjectName}}-bin
+    ```
+    ### macOS
+    * [Homebrew Tap](https://github.com/AppleGamer22/homebrew-{{.ProjectName}}):
+    ```bash
+    brew install AppleGamer22/tap/{{.ProjectName}}
+    ```
+```
 
 ## Arch User Repository
 
@@ -179,3 +226,6 @@ sboms:
 
 # CI/CD
 ## GitHub Actions
+
+[^1]: GitHub Access Token: <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token>
+[^2]: GitLab Access Token: <https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html>
