@@ -28,7 +28,7 @@ GoReleaser [supports](https://goreleaser.com/customization/hooks/) a list of com
 
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
-project_name: cocainate
+project_name: {{.ProjectName}}
 before:
   hooks:
     - make completion manual
@@ -186,7 +186,7 @@ As far as I have been able to check in the [documentation](https://goreleaser.co
 release:
   github:
     owner: AppleGamer22
-    name: cocainate
+    name: "{{.ProjectName}}"
   discussion_category_name: General
   prerelease: auto
   footer: |
@@ -209,11 +209,87 @@ release:
 
 ## Arch User Repository
 
+```yml
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+aurs:
+  - homepage: https://github.com/AppleGamer22/{{.ProjectName}}
+    description: description
+    license: GPL3
+    maintainers:
+      - Omri Bornstein <omribor@gmail.com>
+    contributors:
+      - Omri Bornstein <omribor@gmail.com>
+    private_key: "{{.Env.AUR_SSH_PRIVATE_KEY}}"
+    git_url: ssh://aur@aur.archlinux.org/{{.ProjectName}}-bin.git
+    depends:
+      - dbus
+    optdepends:
+      - bash
+      - fish
+      - zsh
+    package: |
+      install -Dm755 {{.ProjectName}} "${pkgdir}/usr/bin/{{.ProjectName}}"
+      install -Dm644 {{.ProjectName}}.1 "${pkgdir}/usr/share/man/man1/{{.ProjectName}}.1"
+      install -Dm644 {{.ProjectName}}.bash "${pkgdir}/usr/share/bash-completion/completions/{{.ProjectName}}"
+      install -Dm644 {{.ProjectName}}.fish "${pkgdir}/usr/share/fish/vendor_completions.d/{{.ProjectName}}.fish"
+      install -Dm644 {{.ProjectName}}.zsh "${pkgdir}/usr/share/zsh/site-functions/_{{.ProjectName}}"
+    commit_author:
+      name: Omri Bornstein
+      email: omribor@gmail.com
+```
+
 ## Homebrew Tap
+
+```yml
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+brews:
+  - tap:
+      owner: AppleGamer22
+      name: homebrew-tap
+      token: "{{.Env.TAP_GITHUB_TOKEN}}"
+    download_strategy: CurlDownloadStrategy
+    commit_author:
+      name: Omri Bornstein
+      email: omribor@gmail.com
+    homepage: https://github.com/AppleGamer22/{{.ProjectName}}
+    description: description
+    license: GPL-3.0
+    install: |
+      bin.install "{{.ProjectName}}"
+      man1.install "{{.ProjectName}}.1"
+      bash_completion.install "{{.ProjectName}}.bash" => "{{.ProjectName}}"
+      fish_completion.install "{{.ProjectName}}.fish"
+      zsh_completion.install "{{.ProjectName}}.zsh" => "_{{.ProjectName}}"
+```
 
 ## Container Images
 
+```yml
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+dockers:
+  - image_templates:
+      - "docker.io/applegamer22/{{.ProjectName}}:{{.Version}}"
+      - "docker.io/applegamer22/{{.ProjectName}}:latest"
+      - "ghcr.io/applegamer22/{{.ProjectName}}:{{.Version}}"
+      - "ghcr.io/applegamer22/{{.ProjectName}}:latest"
+    build_flag_templates:
+      - "--pull"
+      - "--platform=linux/amd64,linux/arm64"
+      - "--label=org.opencontainers.image.created={{.Date}}"
+      - "--label=org.opencontainers.image.title={{.ProjectName}}"
+      - "--label=org.opencontainers.image.revision={{.FullCommit}}"
+      - "--label=org.opencontainers.image.version={{.Version}}"
+      - "--build-arg VERSION={{.Version}}"
+      - "--build-arg HASH={{.FullCommit}}"
+    extra_files:
+      - templates
+      - assets
+```
+
 # Software Bill of Materials
+In order to allow easier automated security analysis by third-parties, GoReleaser can [create](https://goreleaser.com/customization/sbom/) a Software Bill of Materials (SBoM) for other people to analyse and potentially find issues your software's dependencies more easily. In the following example, a separate SBoM for each package binary (and the source code) is made, and uploaded to your preferred publishing channel.
+
+[`syft`](https://github.com/anchore/syft) is required as a dependency of GoReleaser for this feature to work.
 
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
@@ -226,6 +302,56 @@ sboms:
 
 # CI/CD
 ## GitHub Actions
+
+```yml
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Release
+on:
+  push:
+    tags: 
+      - 'v*'
+      - '!*alpha*'
+      - '!*beta*'
+      - '!*rc*'
+permissions:
+  contents: write
+  packages: write
+jobs:
+  github_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull Source Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Fetch All Tags
+        run: git fetch --force --tags
+      - name: Set-up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: stable
+      - name: Set-up QEMU
+        uses: docker/setup-qemu-action@v2.1.0
+      - name: Set-up Docker BuildX
+        uses: docker/setup-buildx-action@v2.4.1
+      - name: Sign-in to Docker Container Registry
+        uses: docker/login-action@v2
+        with:
+          username: ${{secrets.DOCKER_USERNAME}}
+          password: ${{secrets.DOCKER_TOKEN}}
+      - name: Set-up Syft
+        uses: anchore/sbom-action/download-syft@v0.13.3
+      - name: Build, Package & Distribute
+        uses: goreleaser/goreleaser-action@v4
+        with:
+          distribution: goreleaser
+          version: latest
+          args: release --clean
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          TAP_GITHUB_TOKEN: ${{ secrets.TAP_GITHUB_TOKEN }}
+          AUR_SSH_PRIVATE_KEY: ${{secrets.AUR_SSH_PRIVATE_KEY}}
+```
 
 [^1]: GitHub Access Token: <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token>
 [^2]: GitLab Access Token: <https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html>
