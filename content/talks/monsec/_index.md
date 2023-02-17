@@ -1,8 +1,8 @@
 ---
 title: Monash Cyber Security Club (MonSec)
 date: 2023-01-26
-description: Videos of my talks/presentations/workshops to MonSec...
+description: My MonSec talks/presentations/workshops and blog posts...
 showDate: false
 tags: [MonSec]
 ---
-Videos of my talks/presentations/workshops to the [Monash Cyber Security Club (MonSec)](https://monsec.io) are listed here.
+My [Monash Cyber Security Club (MonSec)](https://monsec.io) talks/presentations/workshops and blog posts are listed here:

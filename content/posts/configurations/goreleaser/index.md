@@ -245,7 +245,7 @@ aurs:
 ```
 
 ## Homebrew Tap
-[Homebrew](https://brew.sh) is a popular package repository among macOS users, which allows the additions of third-party repositories, colloquially known as Taps.
+[Homebrew](https://brew.sh) is a popular package repository among macOS users, which allows the additions of third-party repositories, colloquially known as Taps. Similarly to the AUR, tap repositories host installation scripts that the `brew` CLI can understand.  After releasing to [GitHub](#github) or GitLab, your [custom](https://goreleaser.com/customization/homebrew/) installation script can be uploaded to your tab repository on **GitHub**.
 
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
@@ -270,13 +270,17 @@ brews:
 ```
 
 ## Container Images
+A lot of projects written in Go are meant to run as a server with corresponding TCP or UDP port(s), and the standard for packaging such software is the [Open Container Initiative](https://opencontainers.org). If you have never heard of this standard, you might have heard of [Docker](https://docker.com), which is the first implementation of this standard's specification. [Configuring](https://goreleaser.com/customization/docker/) GoReleaser to build and publish OCI-compliant container images allows easier multi-registry publishing, enabling multi-platform builds, and injecting environment variables to linker flags.
 
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
 dockers:
-  - image_templates:
+  - use: buildx
+    image_templates:
+      # Docker Hub
       - "docker.io/applegamer22/{{.ProjectName}}:{{.Version}}"
       - "docker.io/applegamer22/{{.ProjectName}}:latest"
+      # GitHub Container Registry
       - "ghcr.io/applegamer22/{{.ProjectName}}:{{.Version}}"
       - "ghcr.io/applegamer22/{{.ProjectName}}:latest"
     build_flag_templates:
@@ -286,6 +290,7 @@ dockers:
       - "--label=org.opencontainers.image.title={{.ProjectName}}"
       - "--label=org.opencontainers.image.revision={{.FullCommit}}"
       - "--label=org.opencontainers.image.version={{.Version}}"
+      # imitating linker flags
       - "--build-arg VERSION={{.Version}}"
       - "--build-arg HASH={{.FullCommit}}"
     extra_files:
