@@ -1,7 +1,7 @@
 ---
 title: CI/CD with GoReleaser
 description: Go (Programming Language) Continuous Integration/Deployment with GoReleaser
-date: 2023-02-12
+date: 2023-02-19
 tags: [GoReleaser, Go, Docker, GitHub, CI/CD, SBoM]
 ---
 This document summarises how I set-up [GoReleaser](https://goreleaser.com) Continuous Integration/Deployment (CI/CD) for my [Go (Programming Language)](/tags/go/) projects, such that I have a portable configuration for compilation, packaging and releasing settings. This is especially useful for projects that ship a software package with several files and need a portable way to define how it should be build based on operating system, processor architecture and environment (development, testing or production).
@@ -184,9 +184,10 @@ As far as I have been able to check in the [documentation](https://goreleaser.co
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
 release:
+  # no templates available
   github:
     owner: AppleGamer22
-    name: "{{.ProjectName}}"
+    name: raker
   discussion_category_name: General
   prerelease: auto
   footer: |
@@ -208,11 +209,14 @@ release:
 ```
 
 ## Arch User Repository
+The [AUR](http://aur.archlinux.org) is repository with a wide range of installation scripts that are not available in the official Arch Linux distribution through the official package manager. After releasing to [GitHub](#github) or GitLab, your [custom](https://goreleaser.com/customization/aur/) installation script can be uploaded to the AUR, thus allowing Arch Linux user of [`yay`](https://github.com/Jguer/yay) or [`paru`](https://github.com/Morganamilo/paru) to get your software more easily.
+
 
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
 aurs:
-  - homepage: https://github.com/AppleGamer22/{{.ProjectName}}
+    # no templates available
+  - homepage: https://github.com/AppleGamer22/raker
     description: description
     license: GPL3
     maintainers:
@@ -220,25 +224,28 @@ aurs:
     contributors:
       - Omri Bornstein <omribor@gmail.com>
     private_key: "{{.Env.AUR_SSH_PRIVATE_KEY}}"
-    git_url: ssh://aur@aur.archlinux.org/{{.ProjectName}}-bin.git
+    # no templates available
+    git_url: ssh://aur@aur.archlinux.org/raker-bin.git
     depends:
       - dbus
     optdepends:
       - bash
       - fish
       - zsh
+    # no templates available
     package: |
-      install -Dm755 {{.ProjectName}} "${pkgdir}/usr/bin/{{.ProjectName}}"
-      install -Dm644 {{.ProjectName}}.1 "${pkgdir}/usr/share/man/man1/{{.ProjectName}}.1"
-      install -Dm644 {{.ProjectName}}.bash "${pkgdir}/usr/share/bash-completion/completions/{{.ProjectName}}"
-      install -Dm644 {{.ProjectName}}.fish "${pkgdir}/usr/share/fish/vendor_completions.d/{{.ProjectName}}.fish"
-      install -Dm644 {{.ProjectName}}.zsh "${pkgdir}/usr/share/zsh/site-functions/_{{.ProjectName}}"
+      install -Dm755 raker "${pkgdir}/usr/bin/{{.ProjectName}}"
+      install -Dm644 raker.1 "${pkgdir}/usr/share/man/man1/{{.ProjectName}}.1"
+      install -Dm644 raker.bash "${pkgdir}/usr/share/bash-completion/completions/{{.ProjectName}}"
+      install -Dm644 raker.fish "${pkgdir}/usr/share/fish/vendor_completions.d/{{.ProjectName}}.fish"
+      install -Dm644 raker.zsh "${pkgdir}/usr/share/zsh/site-functions/_{{.ProjectName}}"
     commit_author:
       name: Omri Bornstein
       email: omribor@gmail.com
 ```
 
 ## Homebrew Tap
+[Homebrew](https://brew.sh) is a popular package repository among macOS users, which allows the additions of third-party repositories, colloquially known as Taps.
 
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
