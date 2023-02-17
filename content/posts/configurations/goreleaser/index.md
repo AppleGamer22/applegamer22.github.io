@@ -34,6 +34,24 @@ before:
     - make completion manual
 ```
 
+The `Makefile` used to define the commands to generate the shell completion scripts and user manuals is listed below. [Cobra library](https://cobra.dev) is used to set-up the CLI and the shell completion generation, and [Mango](https://github.com/muesli/mango-cobra) is used to generate a user manual from the object-oriented definitions of the commands.
+
+```makefile
+# assuming the current module has a main function that calls Cobra
+.PHONY: completion manual
+
+completion:
+	go run . completion bash > cocainate.bash
+	go run . completion fish > cocainate.fish
+	go run . completion zsh > cocainate.zsh
+	go run . completion powershell > cocainate.ps1
+
+# assuming a manual command (that prints the user manual page) exists
+manual:
+	# test with `go run . manual | man -l -`
+	go run . manual > cocainate.1
+```
+
 # Builds
 The Go compiler supports defining compilation parameters such as:
 
