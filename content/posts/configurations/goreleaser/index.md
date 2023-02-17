@@ -1,6 +1,6 @@
 ---
-title: CI/CD with GoReleaser
-description: Go (Programming Language) Continuous Integration/Deployment with GoReleaser
+title: Continuous Integration with GoReleaser
+description: Go (Programming Language) Continuous Integration with GoReleaser
 date: 2023-02-19
 tags: [GoReleaser, Go, Docker, GitHub, CI/CD, SBoM]
 ---
@@ -330,8 +330,11 @@ sboms:
   - artifacts: binary
 ```
 
-# CI/CD
+# Continuous Integration
+Since GoReleaser is published as a [CLI](https://goreleaser.com/cmd/goreleaser/), its highly-programmable nature allows easy [integration](https://goreleaser.com/ci/) into custom automated workflows.
+
 ## GitHub Actions
+I use GoReleaser [GitHub Actions integration](https://goreleaser.com/ci/actions/) to build, package and release my open-source projects automatically after a stable [semantic version](https://goreleaser.com/limitations/semver/) `git` tag is pushed to GitHub. The above-mentioned [access tokens](#online-accounts) are injected into the appropriate workflow steps as [workflow secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets).
 
 ```yml
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
