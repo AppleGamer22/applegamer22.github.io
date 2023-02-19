@@ -34,7 +34,7 @@ before:
     - make completion manual
 ```
 
-The `Makefile` used to define the commands to generate the shell completion scripts and user manuals is listed below. [Cobra library](https://cobra.dev) is used to set-up the CLI and the shell completion generation, and [Mango](https://github.com/muesli/mango-cobra) is used to generate a user manual from the object-oriented definitions of the commands.
+The `Makefile` used to define the commands to generate the shell completion scripts and user manuals is listed below. The [Cobra library](https://cobra.dev) for Go is used to set-up the CLI and the shell completion generation, and [Mango](https://github.com/muesli/mango-cobra) is used to generate a user manual from the object-oriented definitions of the commands.
 
 ```makefile
 .PHONY: completion manual
@@ -89,7 +89,7 @@ builds:
 ```
 
 # Archive Packages
-After the builds are complete, each of them can be referenced to be packaged differently. In the following example, Linux and macOS builds are to packaged as a `gzip` archive (due to its availability in these environment), along with command completion scripts for command-line shells that usually ship with these environments. On the other hand, Windows doesn't normally ship the same archive format compatibility, which is why it is packaged using `zip`, along a PowerShell completion script. I also like to define the template for the archive, such that it includes the project name, package version, operating system and processor architecture. For better clarity for macOS users, I like to utilise the name template for the package in order to substitute the substring `darwin` (the name of macOS's kernel) with `mac`.
+After the builds are complete, each of them can be [referenced](https://goreleaser.com/customization/archive/) to be packaged differently. In the following example, Linux and macOS builds are to packaged as a `gzip` archive (due to its availability in these environment), along with command completion scripts for command-line shells that usually ship with these environments. On the other hand, Windows doesn't normally ship the same archive format compatibility, which is why it is packaged using `zip`, along a PowerShell completion script. I also like to define the template for the archive, such that it includes the project name, package version, operating system and processor architecture. For better clarity for macOS users, I like to utilise the name template for the package in order to substitute the substring `darwin` (the name of macOS's kernel) with `mac`.
 
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
@@ -120,7 +120,7 @@ archives:
 ```
 
 # Linux Packages
-GoReleaser also integrate its [in-house Linux packager](https://nfpm.goreleaser.com) directly into the `.goreleaser.yml` configuration file. This can used to produce native packages for Alpine-based, Debian-based, RHEL-based and Arch-based Linux distributions from a Go binary. For maximum utility, additional files (and where they should be installed) and dependencies can also be defined.
+GoReleaser also integrate its [in-house Linux packager](https://nfpm.goreleaser.com) directly into the `.goreleaser.yml` configuration file. This can be [used](https://goreleaser.com/customization/nfpm/) to produce native packages for Alpine-based, Debian-based, RHEL-based and Arch-based Linux distributions from a Go binary. For maximum utility, additional files (and where they should be installed) and dependencies can also be defined.
 
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
@@ -205,7 +205,7 @@ release:
   # no templates available
   github:
     owner: AppleGamer22
-    name: raker
+    name: cocainate
   discussion_category_name: General
   prerelease: auto
   footer: |
@@ -234,7 +234,7 @@ The [AUR](http://aur.archlinux.org) is repository with a wide range of installat
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
 aurs:
     # no templates available
-  - homepage: https://github.com/AppleGamer22/raker
+  - homepage: https://github.com/AppleGamer22/cocainate
     description: description
     license: GPL3
     maintainers:
@@ -243,7 +243,7 @@ aurs:
       - Omri Bornstein <omribor@gmail.com>
     private_key: "{{.Env.AUR_SSH_PRIVATE_KEY}}"
     # no templates available
-    git_url: ssh://aur@aur.archlinux.org/raker-bin.git
+    git_url: ssh://aur@aur.archlinux.org/cocainate-bin.git
     depends:
       - dbus
     optdepends:
@@ -251,12 +251,12 @@ aurs:
       - fish
       - zsh
     # no templates available
-    package: |
-      install -Dm755 raker "${pkgdir}/usr/bin/{{.ProjectName}}"
-      install -Dm644 raker.1 "${pkgdir}/usr/share/man/man1/{{.ProjectName}}.1"
-      install -Dm644 raker.bash "${pkgdir}/usr/share/bash-completion/completions/{{.ProjectName}}"
-      install -Dm644 raker.fish "${pkgdir}/usr/share/fish/vendor_completions.d/{{.ProjectName}}.fish"
-      install -Dm644 raker.zsh "${pkgdir}/usr/share/zsh/site-functions/_{{.ProjectName}}"
+    package: |-
+      install -Dm755 cocainate "${pkgdir}/usr/bin/cocainate"
+      install -Dm644 cocainate.1 "${pkgdir}/usr/share/man/man1/cocainate.1"
+      install -Dm644 cocainate.bash "${pkgdir}/usr/share/bash-completion/completions/cocainate"
+      install -Dm644 cocainate.fish "${pkgdir}/usr/share/fish/vendor_completions.d/cocainate.fish"
+      install -Dm644 cocainate.zsh "${pkgdir}/usr/share/zsh/site-functions/_cocainate"
     commit_author:
       name: Omri Bornstein
       email: omribor@gmail.com
@@ -330,8 +330,18 @@ sboms:
   - artifacts: binary
 ```
 
+# Debugging
+Since debugging continuos integration configurations purely by running your CI workflow repeatedly is very exhausting, the [`goreleaser` CLI](https://goreleaser.com/cmd/goreleaser/) is [available](https://goreleaser.com/install/) to be run on your preferred environment. In addition, most of this commands can be easily integrated into an existing `Makefile`-based workflow.
+
+* [`goreleaser check`](https://goreleaser.com/cmd/goreleaser_check/) is useful for validating your configuration's syntax.
+* [`goreleaser build`](https://goreleaser.com/cmd/goreleaser_build/) is useful for building the binaries for later inspection.
+* [`goreleaser release`](https://goreleaser.com/cmd/goreleaser_release/) is used to build, package and release the artifacts.
+	* The `--skip-publish` flag is useful for inspecting the packages without publishing.
+	* The `--clean` flag is useful for cleaning-up the filesystem after publishing the artifacts.
+
+
 # Continuous Integration
-Since GoReleaser is published as a [CLI](https://goreleaser.com/cmd/goreleaser/), its highly-programmable nature allows easy [integration](https://goreleaser.com/ci/) into custom automated workflows.
+Since GoReleaser is published as a CLI, its highly-programmable nature allows easy [integration](https://goreleaser.com/ci/) into custom automated workflows.
 
 ## GitHub Actions
 I use GoReleaser [GitHub Actions integration](https://goreleaser.com/ci/actions/) to build, package and release my open-source projects automatically after a stable [semantic version](https://goreleaser.com/limitations/semver/) `git` tag is pushed to GitHub. The above-mentioned [access tokens](#online-accounts) are injected into the appropriate workflow steps as [workflow secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets).
@@ -377,7 +387,6 @@ jobs:
       - name: Build, Package & Distribute
         uses: goreleaser/goreleaser-action@v4
         with:
-          distribution: goreleaser
           version: latest
           args: release --clean
         env:
