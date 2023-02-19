@@ -2,7 +2,7 @@
 title: Continuous Integration with GoReleaser
 description: Go (Programming Language) Continuous Integration with GoReleaser
 date: 2023-02-19
-tags: [GoReleaser, Go, Docker, GitHub, CI/CD, SBoM]
+tags: [GoReleaser, Go, Docker, Git, GitHub, CI/CD, SBoM]
 ---
 This document summarises how I set-up [GoReleaser](https://goreleaser.com) Continuous Integration/Deployment (CI/CD) for my [Go (Programming Language)](/tags/go/) projects, such that I have a portable configuration for compilation, packaging and releasing settings. This is especially useful for projects that ship a software package with several files and need a portable way to define how it should be build based on operating system, processor architecture and environment (development, testing or production).
 

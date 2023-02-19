@@ -1,7 +1,7 @@
 ---
 title: Command-line Shell Configuration
 date: 2022-10-21
-tags: [zsh, shell, Linux, macOS, UNIX, git]
+tags: [zsh, shell, Linux, macOS, UNIX, Git]
 description: My zsh configuration for Linux and macOS
 ---
 This document summarises how I set-up my UNIX-like command-line environment (on Linux and macOS) for easier interaction with command-line interfaces (CLIs).
