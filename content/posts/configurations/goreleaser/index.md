@@ -4,7 +4,7 @@ description: Go (Programming Language) Continuous Integration with GoReleaser
 date: 2023-02-19
 tags: [GoReleaser, Go, Docker, Git, GitHub, CI/CD, SBoM]
 ---
-This document summarises how I set-up [GoReleaser](https://goreleaser.com) Continuous Integration/Deployment (CI/CD) for my [Go (Programming Language)](/tags/go/) projects, such that I have a portable configuration for compilation, packaging and releasing settings. This is especially useful for projects that ship a software package with several files and need a portable way to define how it should be build based on operating system, processor architecture and environment (development, testing or production).
+This document summarises how I set-up [GoReleaser](https://goreleaser.com) Continuous Integration/Deployment (CI/CD) for my [Go (Programming Language)](/tags/go/) projects, such that I have a portable configuration for compilation, packaging and releasing settings. This is especially useful for projects that ship a software package with several files and need a portable way to define how it should be built/packaged based on operating system, processor architecture and environment (development, testing or production).
 
 # Pre-requisites
 ## Software
@@ -37,9 +37,9 @@ before:
 The `Makefile` used to define the commands to generate the shell completion scripts and user manuals is listed below. [Cobra library](https://cobra.dev) is used to set-up the CLI and the shell completion generation, and [Mango](https://github.com/muesli/mango-cobra) is used to generate a user manual from the object-oriented definitions of the commands.
 
 ```makefile
-# assuming the current module has a main function that calls Cobra
 .PHONY: completion manual
 
+# assuming the current module has a main function that calls Cobra
 completion:
 	go run . completion bash > cocainate.bash
 	go run . completion fish > cocainate.fish
