@@ -19,7 +19,7 @@ type Configuration struct {
 ```go
 var configuration = Configuration{
 	URI:         "mongodb://localhost:27017",
-	Database:    "raker",
+	Database:    "mongo",
 	Storage:     ".",
 	Directories: false,
 	Port:        4100,
@@ -31,14 +31,9 @@ var configuration = Configuration{
 import "github.com/spf13/viper"
 
 func init() {
-	// viper.SetEnvPrefix("raker")
+	// optional environment variable name prefix
+	viper.SetEnvPrefix("raker")
 	viper.AutomaticEnv()
-	viper.BindEnv("SECRET")
-	viper.BindEnv("URI")
-	viper.BindEnv("DATABASE")
-	viper.BindEnv("STORAGE")
-	viper.BindEnv("DIRECTORIES")
-	viper.BindEnv("PORT")
 	viper.SetConfigName(".raker")
 	viper.SetConfigType("yaml")
 	viper.AddConfigPath(".")
@@ -55,23 +50,14 @@ import (
 )
 
 func init() {
-	viper.AutomaticEnv()
-	viper.BindEnv("instagram.session", "SESSION_IG")
-	viper.BindEnv("instagram.user", "USER")
-	viper.BindEnv("instagram.fbsr", "FBSR")
-	viper.BindEnv("tiktok.session", "SESSION_TT")
-	viper.BindEnv("tiktok.chain", "TIKTOK_CT")
-	viper.BindEnv("tiktok.guard", "GUARD")
-	viper.SetConfigName(".raker")
-	viper.SetConfigType("yaml")
-
-	directory, err := os.UserHomeDir()
-	if err != nil {
-		log.Fatal(err)
-	}
-	viper.AddConfigPath(directory)
-
-	viper.ReadInConfig()
+	viper.BindEnv("SECRET")
+	viper.BindEnv("URI")
+	viper.BindEnv("DATABASE")
+	viper.BindEnv("STORAGE")
+	viper.BindEnv("DIRECTORIES")
+	viper.BindEnv("PORT")
+	// properties of nested structures can be set via environment variables by providing their before the to-be-bound environment variable's name
+	viper.BindEnv("parent.child", "ENV_VAR")
 }
 ```
 
@@ -87,6 +73,7 @@ import (
 func main() {
 	if err1 := viper.ReadInConfig(); err1 != nil {
 		if _, err := os.Stat("/.dockerenv"); err != nil {
+			// if running in a Docker container, a missing configuration might prevent correct behaviour (depending on core functionality)
 			log.Println(err1)
 		}
 	}

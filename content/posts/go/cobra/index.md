@@ -13,16 +13,16 @@ var (
 		Short:   "parent command",
 		Long:    "parent command",
 		Version: Version,
-	},
-	PreRunE: func(cmd *cobra.Command, args []string) error {
-		// prepare environment (such as files) and return error or nil
-	},
-	Args: func(cmd *cobra.Command, args []string) error {
-		// check command input and return error or nil
-	},
-	RunE: func(cmd *cobra.Command, args []string) error {
-		// do your thing and return error or nil
-	},
+		PreRunE: func(cmd *cobra.Command, args []string) error {
+			// prepare environment (such as files) and return error or nil
+		},
+		Args: func(cmd *cobra.Command, args []string) error {
+			// check command input and return error or nil
+		},
+		RunE: func(cmd *cobra.Command, args []string) error {
+			// do your thing and return error or nil
+		},
+	}
 )
 
 func init() {
@@ -43,16 +43,16 @@ var (
 		Short:   "child command",
 		Long:    "child command",
 		Version: Version,
-	},
-	PreRunE: func(cmd *cobra.Command, args []string) error {
-		// prepare environment (such as files) and return error or nil
-	},
-	Args: func(cmd *cobra.Command, args []string) error {
-		// check command input and return error or nil
-	},
-	RunE: func(cmd *cobra.Command, args []string) error {
-		// do your thing and return error or nil
-	},
+		PreRunE: func(cmd *cobra.Command, args []string) error {
+			// prepare environment (such as files) and return error or nil
+		},
+		Args: func(cmd *cobra.Command, args []string) error {
+			// check command input and return error or nil
+		},
+		RunE: func(cmd *cobra.Command, args []string) error {
+			// do your thing and return error or nil
+		},
+	}
 )
 
 func init() {
