@@ -57,7 +57,7 @@ The Go compiler supports defining compilation parameters such as:
 
 * Root-level package, which is usually where the `main` function is.
 * Oerating system (via the `GOOS` environment variable) and processor architecture (via the `GOARCH` environment variable) for compilation target.
-* Linker toggles (via `-ldflags` in the `go build` command), which I mainly use to set the constants that store the program's [version](https://semver.org) and [`git`'s commit hash](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History), such the correct values are set for each build.
+* Linker toggles (via `-ldflags` in the `go build` command), which I mainly use to set the constants that store the program's [version](https://semver.org) and [commit hash](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History), such the correct values are set for each build.
 
 Depending on the complexity of the build process, it might be easier to [define these parameters](https://goreleaser.com/customization/builds/) in a `.goreleaser.yml` file than writing a less maintainable shell script. The portability of GoReleaser really shines when its [its templating system](https://goreleaser.com/customization/templates/) used, which makes it easier to grab relevant metadata variables during the build process.
 

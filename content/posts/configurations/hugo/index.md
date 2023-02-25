@@ -241,7 +241,7 @@ code {
 Multi-character syntax tokens such as `:=`, `++`, `!=` and `<-` should be rendered in a more graphic manner.
 
 ```go
-func main() {
+func f() {
 	q := make(chan int)
 	for i := 1; i < 5; i++ {
 		if i != 2 {

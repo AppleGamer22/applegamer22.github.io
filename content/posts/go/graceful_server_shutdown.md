@@ -1,8 +1,12 @@
 ---
 title: Graceful Server Shutdown in Go
+description: Graceful Server Shutdown in Go
 date: 2023-02-26
 tags: [Go, server]
 ---
+Shutting servers gracefully is beneficial for maintaining data integrity in relations to modifying file system data or database entries such that the server isn't shutdown in the middle of a transaction. In this document, I show how I set-up a Go-based HTTP server to shutdown gracefully upon an interruption signal.
+
+For the purposes of simplicity, I assume that all of the code snippets shown here are part of the `main` package. However, I recommend authors of large codebases to employ a multi-package taxonomy, such that their code is more organised and maintainable.
 
 # Required Packages
 * `context` for restricting the amount the server had to shutdown gracefully.
@@ -68,6 +72,7 @@ While the server runs on a separate thread, the main thread listens for incoming
 // optional: clear line in order to hide ^C
 fmt.Print("\r")
 log.Println("shutting down server...")
+// context.WithTimeout(context.Background(), 5 * time.Second) can be used for a 5s time limit
 if err := server.Shutdown(context.Background()); err != nil {
 	panic(err)
 }
