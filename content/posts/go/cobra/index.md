@@ -1,6 +1,6 @@
 ---
 title: CLIs in Go with Cobra
-date: 2023-02-26
+date: 2023-02-25
 tags: [Go, CLI]
 ---
 In this document, I'll demonstrate how I use [Steve Francia's `cobra` library](https://github.com/spf13/cobra), which enables the interchangeable usage of environment variable and a configuration file for the same Go program.
@@ -36,6 +36,8 @@ func init() {
 	ParentCommand.SetVersionTemplate("{{.Version}}\n")
 }
 ```
+
+The version template is overridden in order to print just the version (when using the `--version` flag), thus allowing easier parsing of the version by other programs.
 
 ## Version Command
 I like to include a custom `version` sub-command that can include more information such as [commit hash](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History) and platform when using the `--verbose`/`-v` flag.

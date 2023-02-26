@@ -1,7 +1,7 @@
 ---
 title: Graceful Server Shutdown in Go
 description: Graceful Server Shutdown in Go
-date: 2023-02-26
+date: 2023-02-24
 tags: [Go, server]
 ---
 Shutting servers gracefully is beneficial for maintaining data integrity in relations to modifying file system data or database entries such that the server isn't shutdown in the middle of a transaction. In this document, I show how I set-up a Go-based HTTP server to shutdown gracefully upon an interruption signal.
@@ -50,7 +50,7 @@ signal.Notify(signals, os.Interrupt)
 ```
 
 # Threads
-Multiple threads are required in order to both run the server and wait for the interruption signal.
+Multiple threads are required in order to both run the server and wait for the interruption signal. In this case, the server run concurrently to the main thread that waits for an interruption signal.
 
 ## Server
 Normally, when you type <kbd>Control</kbd>+<kbd>C</kbd> the main thread and its HTTP server are shutdown non-gracefully by the operating system, which can lead to data loss/corruption. However in the following example, the server's thread runs the HTTP server (in parallel to the main thread) and listens for network requests until stopped, which makes it a blocking operation. If the server crushes, an interrupt signal is sent the the channel such that the program can exit as fast as possible in order to not waste any more computational resources.
