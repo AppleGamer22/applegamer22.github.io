@@ -24,7 +24,7 @@
 	}
 }
 
-a.logo > span > span > svg {
+a.logo > span > svg {
 	height: 1.5em;
 	width: auto;
 }

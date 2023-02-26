@@ -1,10 +1,8 @@
 {{$homePageURL :=  relLangURL ""}}
 {{- $logo := resources.Get "icons/logo.svg"}}
 {{- if $logo}}
-	<a href="{{$homePageURL}}" class="logo mr-2 object-left">
-		<span class="transition-colors group-dark:hover:bg-primary-400 group-hover:bg-primary-600">
-			{{- partial "icon.html" "logo" -}}
-		</span>
+	<a href="{{$homePageURL}}" class="logo mr-2 object-left px-1 transition-transform hover:scale-125">
+		{{- partial "icon.html" "logo" -}}
 	</a>
 {{- end}}
 {{- if .Site.Params.header.showTitle | default true}}
