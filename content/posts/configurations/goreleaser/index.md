@@ -337,8 +337,10 @@ Since debugging continuos integration configurations purely by running your CI w
 * [`goreleaser build`](https://goreleaser.com/cmd/goreleaser_build/) is useful for building the binaries for later inspection.
 * [`goreleaser release`](https://goreleaser.com/cmd/goreleaser_release/) is used to build, package and release the artifacts.
 	* The `--skip-publish` flag is useful for inspecting the packages without publishing.
+	* The `--snapshot` flag is useful for ignoring the version tag.
 	* The `--clean` flag is useful for cleaning-up the filesystem after publishing the artifacts.
 
+![](goreleaser_build_publish.gif)
 
 # Continuous Integration
 Since GoReleaser is published as a CLI, its highly-programmable nature allows easy [integration](https://goreleaser.com/ci/) into custom automated workflows.
