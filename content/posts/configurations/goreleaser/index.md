@@ -276,19 +276,19 @@ brews:
     commit_author:
       name: Omri Bornstein
       email: omribor@gmail.com
-    homepage: https://github.com/AppleGamer22/{{.ProjectName}}
+    homepage: https://github.com/AppleGamer22/cocainate
     description: description
     license: GPL-3.0
     install: |
-      bin.install "{{.ProjectName}}"
-      man1.install "{{.ProjectName}}.1"
-      bash_completion.install "{{.ProjectName}}.bash" => "{{.ProjectName}}"
-      fish_completion.install "{{.ProjectName}}.fish"
-      zsh_completion.install "{{.ProjectName}}.zsh" => "_{{.ProjectName}}"
+      bin.install "cocainate"
+      man1.install "cocainate.1"
+      bash_completion.install "cocainate.bash" => "cocainate"
+      fish_completion.install "cocainate.fish"
+      zsh_completion.install "cocainate.zsh" => "_cocainate"
 ```
 
 ## Container Images
-A lot of projects written in Go are meant to run as a server with corresponding TCP or UDP port(s), and the standard for packaging such software is the [Open Container Initiative](https://opencontainers.org). If you have never heard of this standard, you might have heard of [Docker](https://docker.com), which is the first implementation of this standard's specification. [Configuring](https://goreleaser.com/customization/docker/) GoReleaser to build and publish OCI-compliant container images allows easier multi-registry publishing, enabling multi-platform builds, and injecting environment variables to linker flags.
+A lot of projects written in Go are meant to run as a server with corresponding TCP or UDP port(s), and the standard for packaging such software is the [Open Container Initiative](https://opencontainers.org) (OCI). If you have never heard of this standard, you might have heard of [Docker](https://docker.com), which is the first implementation of this standard's specification. [Configuring](https://goreleaser.com/customization/docker/) GoReleaser to build/publish OCI-compliant container images allows easier multi-registry publishing, multi-platform builds, and injecting environment variables to linker flags.
 
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
