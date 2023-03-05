@@ -1,6 +1,6 @@
 ---
 title: About
-description: My Background, Specialities & Hobbies
+description: My Background, Specialities, Hobbies
 showDate: false
 showPagination: false
 sharingLinks: false

@@ -1,5 +1,6 @@
 ---
 title: CLIs in Go with Cobra
+description: CLIs in Go with Cobra
 date: 2023-02-25
 tags: [Go, CLI]
 ---
