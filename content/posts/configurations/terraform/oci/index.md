@@ -2,7 +2,7 @@
 title: Oracle Cloud Infrastructure as Code
 description: Oracle Cloud Infrastructure as Code
 date: 2023-03-10
-tags: [Terraform, OCI]
+tags: [Terraform, OCI, IaC]
 draft: true
 ---
 
