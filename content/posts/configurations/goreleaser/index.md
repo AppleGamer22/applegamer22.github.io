@@ -8,7 +8,7 @@ This document summarises how I set-up [GoReleaser](https://goreleaser.com) Conti
 
 # Pre-requisites
 ## Software
-* [`go`](http://go.dev) command-line interface for the Go programming language
+* [`go`](https://go.dev) command-line interface for the Go programming language
 * [`git`](https://git-scm.com) version control system
 * [`goreleaser`](https://goreleaser.com) command-line interface
 * [`docker`](https://docs.docker.com/engine/) container build system
@@ -227,7 +227,7 @@ release:
 ```
 
 ## Arch User Repository
-The [AUR](http://aur.archlinux.org) is repository with a wide range of installation scripts that are not available in the official Arch Linux distribution through the official package manager. After releasing to [GitHub](#github) or GitLab, your [custom](https://goreleaser.com/customization/aur/) installation script can be uploaded to the AUR, thus allowing Arch Linux user of [`yay`](https://github.com/Jguer/yay) or [`paru`](https://github.com/Morganamilo/paru) to get your software more easily.
+The [AUR](https://aur.archlinux.org) is repository with a wide range of installation scripts that are not available in the official Arch Linux distribution through the official package manager. After releasing to [GitHub](#github) or GitLab, your [custom](https://goreleaser.com/customization/aur/) installation script can be uploaded to the AUR, thus allowing Arch Linux user of [`yay`](https://github.com/Jguer/yay) or [`paru`](https://github.com/Morganamilo/paru) to get your software more easily.
 
 
 ```yml
