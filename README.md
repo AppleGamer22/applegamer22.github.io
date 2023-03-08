@@ -325,4 +325,4 @@ The HTML was inspired by a combination of Congo Theme's [basic](https://github.c
 
 # Useful Links
 * <https://carbon.now.sh/>
-* [LinkIn Post Inspector](https://www.linkedin.com/post-inspector/)
+* [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/)
