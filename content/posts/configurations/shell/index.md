@@ -165,12 +165,13 @@ ln -s $etc/docker.zsh-completion $(brew --prefix)/share/zsh/site-functions/_dock
 ln -s $etc/docker-compose.zsh-completion $(brew --prefix)/share/zsh/site-functions/_docker-compose
 ```
 
-#### Terraform & Azure CLI
+#### HashiCorp & Azure CLIs
 [Terraform](https://terraform.io)'s and [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/)'s macOS installation requires the following command to be added to `~/.zshrc` in order to enable command completion:
 
 ```sh
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	complete -o nospace -C /usr/local/bin/terraform terraform
+	complete -o nospace -C $(brew --prefix)/bin/terraform terraform
+	complete -o nospace -C $(brew --prefix)/bin/vault vault
 	source $(brew --prefix)/etc/bash_completion.d/az
 fi
 ```
