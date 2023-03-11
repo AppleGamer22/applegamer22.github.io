@@ -5,3 +5,4 @@ date: 2023-04-11
 tags: [Go, Charm, Bubble Tea, CLI]
 draft: true
 ---
+# Progress Bar

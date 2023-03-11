@@ -6,11 +6,20 @@
 		<div class="flex-none pr-4 sm:pr-6 ">
 			<a href="{{with $.Params.externalUrl}}{{.}}{{else}}{{$.RelPermalink}}{{end}}" aria-label="{{$.Title | emojify}}">
 				<img alt="{{$.Params.featureAlt | default $.Params.thumbnailAlt | default ``}}" class="w-24 rounded-md sm:w-40"
-				{{if or (eq .MediaType.SubType `svg`) (lt .Width 320)}}
+				{{if or (eq .MediaType.SubType `svg`) (eq .MediaType.SubType `gif`)}}
 					src="{{.RelPermalink}}"
 				{{else}}
-					srcset="{{(.Fit `160x120`).RelPermalink}} 160w, {{(.Fit `320x240`).RelPermalink}} 2x"
-					src="{{(.Fit `160x120`).RelPermalink}}"
+					srcset="{{if gt .Width 160}}
+						{{- (.Resize `160x`).RelPermalink}} 160w,
+					{{- end}}
+					{{if gt .Width 320}}
+						{{- (.Resize `320x`).RelPermalink}} 2x
+					{{- end}}"
+					src="{{if gt .Width 160}}
+						{{- (.Resize `160x`).RelPermalink}}
+					{{- else}}
+						{{- .RelPermalink}}
+					{{- end}}"
 				{{end}}>
 			</a>
 		</div>
