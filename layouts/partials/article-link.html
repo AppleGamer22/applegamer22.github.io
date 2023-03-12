@@ -9,13 +9,13 @@
 				{{if or (eq .MediaType.SubType `svg`) (eq .MediaType.SubType `gif`)}}
 					src="{{.RelPermalink}}"
 				{{else}}
-					srcset="{{if gt .Width 160}}
+					srcset="{{if ge .Width 160}}
 						{{- (.Resize `160x`).RelPermalink}} 160w,
 					{{- end}}
-					{{if gt .Width 320}}
+					{{if ge .Width 320}}
 						{{- (.Resize `320x`).RelPermalink}} 2x
 					{{- end}}"
-					src="{{if gt .Width 160}}
+					src="{{if ge .Width 160}}
 						{{- (.Resize `160x`).RelPermalink}}
 					{{- else}}
 						{{- .RelPermalink}}

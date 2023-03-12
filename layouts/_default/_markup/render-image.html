@@ -23,19 +23,19 @@
 				{{if or (eq .MediaType.SubType `svg`) (eq .MediaType.SubType `gif`)}}
 					src="{{.RelPermalink}}"
 				{{else}}
-					srcset="{{if gt .Width 330}}
+					srcset="{{if ge .Width 330}}
 						{{- (.Resize `330x`).RelPermalink}} 330w,
 					{{- end}}
-					{{- if gt .Width 660}}
+					{{- if ge .Width 660}}
 						{{- (.Resize `660x`).RelPermalink}} 660w,
 					{{- end}}
-					{{- if gt .Width 1024}}
+					{{- if ge .Width 1024}}
 						{{- (.Resize `1024x`).RelPermalink}} 1024w,
 					{{- end}}
-					{{- if gt .Width 1320}}
+					{{- if ge .Width 1320}}
 						{{- (.Resize `1320x`).RelPermalink}} 2x
 					{{- end}}"
-					src="{{if gt .Width 660}}
+					src="{{if ge .Width 660}}
 						{{- (.Resize `660x`).RelPermalink}}
 					{{- else}}
 						{{- .RelPermalink}}
