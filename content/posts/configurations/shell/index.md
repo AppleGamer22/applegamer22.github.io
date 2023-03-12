@@ -320,6 +320,22 @@ I use a `~/.gitconfig`[^4] file to configure:
 	diff = auto
 ```
 
+# Font
+* [Fira Code](https://github.com/tonsky/FiraCode) for programming-related ligatures.
+* [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode) as fallback for specialised icons.
+
+My Visual Studio Code font family settings are descried below, with the integrated terminal's font set to follow the editor's:
+
+```json
+{
+	// ...
+	"editor.fontFamily": "'Fira Code', 'FiraCode Nerd Font', 'Cascadia Code', 'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
+	"editor.fontLigatures": true,
+	"terminal.integrated.fontFamily": "",
+	// ...
+}
+```
+
 [^1]: <https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh>
 [^2]: <https://docs.docker.com/desktop/faqs/macfaqs/#zsh>
 [^3]: <https://starship.rs/config/>
