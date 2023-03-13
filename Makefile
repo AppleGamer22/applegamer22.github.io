@@ -1,6 +1,4 @@
-.PHONY: all build website cv watch clean
-
-all: build clean
+.PHONY: build website cv watch clean
 
 build: cv website
 
