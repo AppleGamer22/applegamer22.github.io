@@ -193,8 +193,8 @@ fi
 # Prompt
 I use the prompt program [Starship](https://starship.rs), which enables my prompt to display additional information based on the files in the current directory, such as:
 
-* `git` branch
-* `git` status
+* Git branch
+* Git status
 * programming language version
 * package version
 

@@ -415,7 +415,7 @@ markup:
 ### Other
 * I set the base URL for GitHub Pages compatibility.
 * I set the timezone, in order to prevent pages with "future" dates from not rendering immediately.
-* `git`'s metadata is used to determine when a document has been [updated](#articles).
+* Git's metadata is used to determine when a document has been [updated](#articles).
 * Hugo outputs are configured in order to enable content search.
 
 
@@ -489,7 +489,7 @@ languages:
 	* taxonomies
 	* word count
 	* date added/updated
-	* `git` repository hyperlink
+	* Git repository hyperlink
 
 ```yml
 # yaml-language-server: $schema=https://json.schemastore.org/hugo.json

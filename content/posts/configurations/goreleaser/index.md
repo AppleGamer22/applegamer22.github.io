@@ -16,7 +16,7 @@ This document summarises how I set-up [GoReleaser](https://goreleaser.com) Conti
 
 ## Online Accounts
 * [GitHub](https://github.com) or [GitLab](https://gitlab.com)
-	* A remote `git` repository for the source code
+	* A remote Git repository for the source code
 	* A remote repository for the [Homebrew Tap](#homebrew-tap) with a separate access token[^1] [^2] with sufficient permissions.
 * [Docker Hub](https://hub.docker.com)
 	* An [access token](https://docs.docker.com/docker-hub/access-tokens/) with sufficient permissions.
