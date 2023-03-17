@@ -5,7 +5,7 @@ date: 2023-03-10
 tags: [Terraform, OCI, IaC]
 draft: true
 ---
-
+# Dependencies
 ```tf
 terraform {
   required_version = ">= 1.3.6"
@@ -24,6 +24,7 @@ terraform {
 }
 ```
 
+# Credential Variables
 ```tf
 variable "tenancy_ocid" {
   type      = string
@@ -63,6 +64,7 @@ provider "oci" {
 }
 ```
 
+# Virtual Machines
 ```tf
 resource "oci_identity_compartment" "identity_compartment" {
   compartment_id = var.tenancy_ocid
@@ -78,7 +80,7 @@ resource "oci_core_instance" "vm" {
   # Required
   availability_domain = data.oci_identity_availability_domains.ads.availability_domains[0].name
   compartment_id      = var.tenancy_ocid
-  shape               = "VM.Standard2.1"
+  shape               = "VM.Standard.A1.Flex"
   source_details {
     source_id   = "Canonical-Ubuntu-22.04-Minimal-aarch64-2022.11.05-0"
     source_type = "image"
