@@ -1,10 +1,9 @@
 ---
-title: Introduction to Linux Command-line
+title: Introduction to Command-line Linux
 date: 2023-03-22
 showDateUpdated: false
 tags: [MonSec, Kali, Linux, YouTube]
-draft: true
-externalUrl: https://youtu.be/
+externalUrl: https://youtu.be/WXTVsIHrAKM
 _build: {render: link}
 xml: false
 ---
