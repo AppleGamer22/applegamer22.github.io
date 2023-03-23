@@ -126,15 +126,26 @@ echo -e -n "\x1b[\x35 q";
 ```
 
 ## Completions
-### Linux
-#### Azure CLI & `kompose`
+### Azure CLI
 [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/)'s and [`kompose`](https://kompose.io)'s Linux installation requires the following command to be added to `~/.zshrc` in order to enable command completion:
 
 ```sh
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-	source <(kompose completion zsh)
 	source /etc/bash_completion.d/azure-cli
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	source $(brew --prefix)/etc/bash_completion.d/az
 fi
+```
+
+### HashiCorp CLIs
+HashiCorp's programs (excluding [`vagrant`](https://www.vagrantup.com)) require a set-up script to be run before their completions are exposed to the shell. Since `terraform`'s completion scripts are already shipped by default on Arch-based Linux distributions, I specifically run its completion script only on macOS.
+
+```sh
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	complete -o nospace -C $(which terraform) terraform
+fi
+complete -o nospace -C $(which vault) vault
+complete -o nospace -C $(which nomad) nomad
 ```
 
 ### macOS
@@ -163,17 +174,6 @@ By default, [Docker Desktop](https://www.docker.com/products/docker-desktop/) do
 etc=/Applications/Docker.app/Contents/Resources/etc
 ln -s $etc/docker.zsh-completion $(brew --prefix)/share/zsh/site-functions/_docker
 ln -s $etc/docker-compose.zsh-completion $(brew --prefix)/share/zsh/site-functions/_docker-compose
-```
-
-#### HashiCorp & Azure CLIs
-[Terraform](https://terraform.io)'s and [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/)'s macOS installation requires the following command to be added to `~/.zshrc` in order to enable command completion:
-
-```sh
-if [[ "$OSTYPE" == "darwin"* ]]; then
-	complete -o nospace -C $(brew --prefix)/bin/terraform terraform
-	complete -o nospace -C $(brew --prefix)/bin/vault vault
-	source $(brew --prefix)/etc/bash_completion.d/az
-fi
 ```
 
 # Core Utilities on macOS
