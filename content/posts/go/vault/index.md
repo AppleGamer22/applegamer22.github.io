@@ -41,3 +41,54 @@ services:
     cap_add:
       - IPC_LOCK
 ```
+
+# Go API
+
+```sh
+go get github.com/hashicorp/vault/api
+```
+
+```go
+package main
+
+import (
+	"context"
+	"log"
+
+	vault "github.com/hashicorp/vault/api"
+)
+
+func main() {
+	config := vault.DefaultConfig()
+
+	config.Address = "http://127.0.0.1:8200"
+
+	client, err := vault.NewClient(config)
+	if err != nil {
+		log.Fatalf("unable to initialize Vault client: %v", err)
+	}
+
+	secretData := map[string]interface{}{"jwt": "jwt"}
+	ctx := context.Background()
+
+	// write a secret
+	if _, err = client.KVv2("secret").Put(ctx, "raker", secretData); err != nil {
+		log.Fatalf("unable to write secret: %v", err)
+	}
+
+	// read a secret
+	secret, err := client.KVv2("secret").Get(ctx, "raker")
+	if err != nil {
+		log.Fatalf("unable to read secret: %v", err)
+	}
+
+	value, ok := secret.Data["password"].(string)
+	if !ok {
+		log.Fatalf("value type assertion failed: %[1]T %#[1]v", secret.Data["password"])
+	}
+
+	if value != "jwt" {
+		log.Fatalf("unexpected password value %q retrieved from vault", value)
+	}
+}
+```
