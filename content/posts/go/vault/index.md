@@ -32,7 +32,7 @@ services:
     environment:
       VAULT_DEV_ROOT_TOKEN_ID: applegamer22
       VAULT_TOKEN: "00000000-0000-0000-0000-000000000000"
-      VAULT_API_ADDR: http://0.0.0.0:8200
+      # VAULT_API_ADDR: http://0.0.0.0:8200
     volumes:
       - ./vault/config:/vault/config
       - ./vault/file:/vault/file
