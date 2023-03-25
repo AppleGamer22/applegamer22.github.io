@@ -326,3 +326,4 @@ The HTML was inspired by a combination of Congo Theme's [basic](https://github.c
 # Useful Links
 * <https://carbon.now.sh/>
 * [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/)
+* [Meta Sharing Debugger](https://developers.facebook.com/tools/debug/)
