@@ -17,6 +17,7 @@ outputs:
     - RSS
     - JSON
 params:
+  images: [android-chrome-512x512.png]
   colorScheme: fruit
   # defaultAppearance: dark
   enableCodeCopy: true
