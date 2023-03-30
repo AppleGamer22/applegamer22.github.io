@@ -27,7 +27,7 @@ version: "3"
 services:
   vault:
     container_name: vault
-    image: hashicorp/vault:1.13.0
+    image: hashicorp/vault:1.13.1
     entrypoint: ["vault", "server", "-config=/vault/config/vault.hcl"]
     environment:
       VAULT_DEV_ROOT_TOKEN_ID: applegamer22
