@@ -273,6 +273,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	alias python3="$(brew --prefix)/bin/python3"
 	alias pip="$(brew --prefix)/bin/pip3"
 	alias pip3="$(brew --prefix)/bin/pip3"
+	alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 fi
 
 alias ls='ls --color'
