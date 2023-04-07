@@ -5,7 +5,7 @@
 	{{- with $feature}}
 		<div class="flex-none pr-4 sm:pr-6 ">
 			<a href="{{with $.Params.externalUrl}}{{.}}{{else}}{{$.RelPermalink}}{{end}}" aria-label="{{$.Title | emojify}}">
-				<img alt="{{$.Params.featureAlt | default $.Params.thumbnailAlt | default ``}}" class="w-24 rounded-md sm:w-40"
+				<img alt="{{$.Params.featureAlt | default $.Params.thumbnailAlt | default ``}}" class="w-24{{if $.Params.roundedCorners | default true}} rounded-md{{end}} sm:w-40"
 				{{if or (eq .MediaType.SubType `svg`) (eq .MediaType.SubType `gif`)}}
 					src="{{.RelPermalink}}"
 				{{else}}
