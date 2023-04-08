@@ -46,7 +46,7 @@ services:
 # Go API
 
 ```sh
-go get github.com/hashicorp/vault/api
+go get github.com/hashicorp/vault-client-go
 ```
 
 ```go
@@ -55,16 +55,17 @@ package main
 import (
 	"context"
 	"log"
+	"time"
 
-	vault "github.com/hashicorp/vault/api"
+	vault "github.com/hashicorp/vault-client-go"
+	"github.com/hashicorp/vault-client-go/schema"
 )
 
 func main() {
-	config := vault.DefaultConfig()
-
-	config.Address = "http://127.0.0.1:8200"
-
-	client, err := vault.NewClient(config)
+	client, err := vault.New(
+		vault.WithAddress("http://127.0.0.1:8200"),
+		vault.WithRequestTimeout(30*time.Second),
+	)
 	if err != nil {
 		log.Fatalf("unable to initialize Vault client: %v", err)
 	}
@@ -73,17 +74,18 @@ func main() {
 	ctx := context.Background()
 
 	// write a secret
-	if _, err = client.KVv2("secret").Put(ctx, "raker", secretData); err != nil {
+	_, err = client.Secrets.KVv2Write(ctx, "secret", schema.KVv2WriteRequest{Data: secretData})
+	if err != nil {
 		log.Fatalf("unable to write secret: %v", err)
 	}
 
 	// read a secret
-	secret, err := client.KVv2("secret").Get(ctx, "raker")
+	secret, err := client.Secrets.KVv2Read(ctx, "secret")
 	if err != nil {
 		log.Fatalf("unable to read secret: %v", err)
 	}
 
-	value, ok := secret.Data["password"].(string)
+	value, ok := secret.Data["jwt"].(string)
 	if !ok {
 		log.Fatalf("value type assertion failed: %[1]T %#[1]v", secret.Data["password"])
 	}
