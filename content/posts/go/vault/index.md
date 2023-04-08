@@ -6,7 +6,7 @@ tags: [Go, HashiCorp, Vault, server]
 draft: true
 roundedCorners: false
 ---
-# Configuration
+# Server Configuration
 ## HCL
 ```hcl
 listener "tcp" {
@@ -43,7 +43,7 @@ services:
       - IPC_LOCK
 ```
 
-# Go API
+# Go Client API
 
 ```sh
 go get github.com/hashicorp/vault-client-go
@@ -68,6 +68,11 @@ func main() {
 	)
 	if err != nil {
 		log.Fatalf("unable to initialize Vault client: %v", err)
+	}
+
+	// authenticate with a root token (insecure)
+	if err := client.SetToken("00000000-0000-0000-0000-000000000000"); err != nil {
+		log.Fatal(err)
 	}
 
 	secretData := map[string]interface{}{"jwt": "jwt"}

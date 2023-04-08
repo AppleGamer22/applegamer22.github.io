@@ -16,6 +16,7 @@ Whenever you debug a program that produces a large amount of logs, sifting throu
 ```go
 import (
 	"time"
+
 	"github.com/charmbracelet/log"
 )
 
