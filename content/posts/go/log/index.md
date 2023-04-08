@@ -11,7 +11,21 @@ Whenever you debug a program that produces a large amount of logs, sifting throu
 ![An r/ProgrammerHumor post describing the lack of colour in logs](https://i.redd.it/93th0rq0y1h81.jpg "An [r/ProgrammerHumor post](https://www.reddit.com/r/ProgrammerHumor/comments/spdvag/thank_you_ide_for_bringing_in_colors_in_my_life/) describing the lack of colour in logs")
 
 # How?
+## Custom Logger
+
+```go
+import (
+	"time"
+	"github.com/charmbracelet/log"
+)
+
+func init() {
+	log.SetReportCaller(true)
+	log.SetTimeFormat(time.RFC3339)
+	log.SetLevel(log.DebugLevel)
+}
+```
+
 ## Debugging
 ## Warning
 ## Error & Fatal
-## Custom Logger
