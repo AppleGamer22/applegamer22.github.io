@@ -27,6 +27,29 @@ func init() {
 }
 ```
 
+## Information/Success
+
+```go
+log.Info("Hi there!", "version", runtime.Version())
+log.Infof("%d + 0x%x = 0b%b", 22, 0x56, 22+0x56)
+```
+
 ## Debugging
+```go
+log.Debug("Hi there!", "version", runtime.Version())
+log.Debugf("%d + 0x%x = 0b%b", 22, 0x56, 22+0x56)
+```
+
 ## Warning
+```go
+log.Warn("Hi there!", "version", runtime.Version())
+log.Warnf("%d + 0x%x = 0b%b", 22, 0x56, 22+0x56)
+```
+
 ## Error & Fatal
+```go
+log.Error("Hi there!", "version", runtime.Version())
+log.Errorf("%d + 0x%x = 0b%b", 22, 0x56, 22+0x56)
+log.Fatal("Hi there!", "version", runtime.Version())
+log.Fatalf("%d + 0x%x = 0b%b", 22, 0x56, 22+0x56)
+```
