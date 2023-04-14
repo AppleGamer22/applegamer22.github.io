@@ -1,11 +1,16 @@
 ---
-Title: Supply Chain Security with Dependabot
+Title: GitHub Supply Chain Security with Dependabot
 description: Supply Chain Security with Dependabot
-date: 2023-03-18
+date: 2023-04-14
 tags: [GitHub, Dependabot]
-draft: true
 ---
-# Go
+# Pre-requisites
+* Create a new `dependencies` [issue label](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels) on your GitHub repository.
+
+# Ecosystems
+Each package ecosystem can be added to the `updates` list in your `.github/dependabot.yml` file found at the root of your repository file tree with its own settings.
+
+## Go
 ```yml
 # yaml-language-server: $schema=https://json.schemastore.org/dependabot-2.0.json
 version: 2
@@ -24,97 +29,47 @@ updates:
       - dependencies
 ```
 
-# JavaScript
+## JavaScript/TypeScript
 ```yml
 # yaml-language-server: $schema=https://json.schemastore.org/dependabot-2.0.json
 version: 2
 updates:
   - package-ecosystem: npm
-    directory: /
-    schedule:
-      interval: daily
-    assignees:
-      - AppleGamer22
-    reviewers:
-      - AppleGamer22
-    commit-message:
-      prefix: chore
-    labels:
-      - dependencies
+    # ...
 ```
 
-# Python
+## Python
 ```yml
 # yaml-language-server: $schema=https://json.schemastore.org/dependabot-2.0.json
 version: 2
 updates:
   - package-ecosystem: pip
-    directory: /
-    schedule:
-      interval: daily
-    assignees:
-      - AppleGamer22
-    reviewers:
-      - AppleGamer22
-    commit-message:
-      prefix: chore
-    labels:
-      - dependencies
+    # ...
 ```
 
-# Docker
+## Docker
 ```yml
 # yaml-language-server: $schema=https://json.schemastore.org/dependabot-2.0.json
 version: 2
 updates:
   - package-ecosystem: docker
-    directory: /
-    schedule:
-      interval: daily
-    assignees:
-      - AppleGamer22
-    reviewers:
-      - AppleGamer22
-    commit-message:
-      prefix: chore
-    labels:
-      - dependencies
+    # ...
 ```
 
-# GitHub Actions
+## GitHub Actions
 ```yml
 # yaml-language-server: $schema=https://json.schemastore.org/dependabot-2.0.json
 version: 2
 updates:
   - package-ecosystem: github-actions
-    directory: /
-    schedule:
-      interval: daily
-    assignees:
-      - AppleGamer22
-    reviewers:
-      - AppleGamer22
-    commit-message:
-      prefix: chore
-    labels:
-      - dependencies
+   # ...
 ```
 
-# Terraform
+## Terraform
 ```yml
 # yaml-language-server: $schema=https://json.schemastore.org/dependabot-2.0.json
 version: 2
 updates:
   - package-ecosystem: terraform
-    directory: /
-    schedule:
-      interval: daily
-    assignees:
-      - AppleGamer22
-    reviewers:
-      - AppleGamer22
-    commit-message:
-      prefix: chore
-    labels:
-      - dependencies
+    # ...
 ```

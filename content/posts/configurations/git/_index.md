@@ -1,6 +1,5 @@
 ---
 title: Git
-date: 2023-03-16
+date: 2023-04-14
 tags: [Git, GitHub]
-draft: true
 ---
