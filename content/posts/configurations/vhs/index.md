@@ -16,6 +16,7 @@ Set FontSize 18
 Set Shell zsh
 # or "FiraCode Nerd Font"
 Set FontFamily "Fira Code"
+# Set Margin 1
 
 # time for the shell to load
 Sleep 1000ms
