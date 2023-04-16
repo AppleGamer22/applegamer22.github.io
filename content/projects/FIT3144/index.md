@@ -7,6 +7,7 @@ showWordCount: false
 tags: [JavaScript, EA, Blockly]
 externalUrl: https://github.com/AppleGamer22/FIT3144
 _build: {render: link}
+draft: true
 xml: false
 roundedCorners: false
 authors: [markus_wagner]
