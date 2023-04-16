@@ -1,6 +1,6 @@
 ---
 Title: GitHub Supply Chain Security with Dependabot
-description: Supply Chain Security with Dependabot
+description: GitHub Supply Chain Security with Dependabot
 date: 2023-04-14
 tags: [GitHub, Dependabot]
 ---
@@ -29,7 +29,7 @@ updates:
       - dependencies
 ```
 
-## JavaScript/TypeScript
+## JavaScript & TypeScript
 ```yml
 # yaml-language-server: $schema=https://json.schemastore.org/dependabot-2.0.json
 version: 2
