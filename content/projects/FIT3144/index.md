@@ -4,7 +4,7 @@ date: 2023-03-14
 showDateUpdated: false
 showReadingTime: false
 showWordCount: false
-tags: [JavaScript, EA, Blockly]
+tags: [JavaScript, EA, Blockly, research]
 externalUrl: https://github.com/AppleGamer22/FIT3144
 _build: {render: link}
 draft: true
