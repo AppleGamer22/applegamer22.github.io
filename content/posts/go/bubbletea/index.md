@@ -2,6 +2,7 @@
 title: TUI Components in Go with Bubble Tea
 description: TUI Components in Go with Bubble Tea
 date: 2023-04-16
+draft: true
 tags: [Go, Charm, CLI]
 ---
 # Timed Progress Bar
