@@ -33,6 +33,16 @@ The following `layouts/partials/extend-head.html` code is based on [this comment
 	{{end}}
 	<script>
 		document.addEventListener("DOMContentLoaded", () => {
+			for (const p of document.querySelectorAll("p")) {
+				if (/\$\$.*\$\$/g.test(p.innerText) && p.hasChildNodes()) {
+					for (const child of p.children) {
+						if (child.tagName === "EM") {
+							const textNode = document.createTextNode(`_${child.innerText}_`);
+							p.replaceChild(textNode, child);
+						}
+					}
+				}
+			}
 			renderMathInElement(document.body, {
 				delimiters: [
 					{
