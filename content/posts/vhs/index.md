@@ -7,7 +7,7 @@ tags: [VHS, Charm, CLI]
 This document summarises how I use [Charm's `vhs`](https://github.com/charmbracelet/vhs) to capture and document command-line interactions.
 
 # General Configuration
-I tend to like capturing my preferred [shell](/posts/configurations/shell/#zsh), [prompt](/posts/configurations/shell/#prompt) and [font](/posts/configurations/shell/#font), all of which can be [configured](https://github.com/charmbracelet/vhs#vhs-command-reference) in the header of a `.tape` file.
+I tend to like capturing my preferred [shell](/posts/shell/#zsh), [prompt](/posts/shell/#prompt) and [font](/posts/shell/#font), all of which can be [configured](https://github.com/charmbracelet/vhs#vhs-command-reference) in the header of a `.tape` file.
 
 ```elixir
 Output command.gif
@@ -36,7 +36,7 @@ vhs < cassette.tape
 
 # Examples
 ## Tab Completion
-Since `vhs` requires the pauses between operation to be precise, this assumption also applies in waiting for [tab completions](/posts/configurations/shell/#completions) to appear on the screen. It is important to ensure that each operation is clearly captured, by having an appropriate amount of time where `vhs` waits for the shell to respond to the key presses.
+Since `vhs` requires the pauses between operation to be precise, this assumption also applies in waiting for [tab completions](/posts/shell/#completions) to appear on the screen. It is important to ensure that each operation is clearly captured, by having an appropriate amount of time where `vhs` waits for the shell to respond to the key presses.
 
 ```elixir
 Output starship.gif
@@ -74,7 +74,7 @@ Enter
 Sleep 1000ms
 ```
 
-![My command-line prompt with tab completion](/posts/configurations/shell/starship.gif "My command-line [prompt](/posts/configurations/shell/) with tab completion")
+![My command-line prompt with tab completion](/posts/shell/starship.gif "My command-line [prompt](/posts/shell/) with tab completion")
 
 ## Character Escaping
 Commands with more arguments and special character should be surrounded by quotes to ensure correct parsing and execution by `vhs`.
@@ -97,4 +97,4 @@ Enter
 Sleep 500ms
 ```
 
-![GoReleaser running a non-production build](/posts/configurations/goreleaser/goreleaser_build_publish.gif "[GoReleaser](/posts/configurations/goreleaser/) running a non-production build")
+![GoReleaser running a non-production build](/posts/go/goreleaser/goreleaser_build_publish.gif "[GoReleaser](/posts/go/goreleaser/) running a non-production build")

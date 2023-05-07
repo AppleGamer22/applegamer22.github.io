@@ -82,7 +82,7 @@ func init() {
 }
 ```
 
-If you want to inject release-specific values to Go's global memory during build time, I [wrote](/posts/configurations/goreleaser/#builds) about using [GoReleaser](https://goreleaser.com) for this purpose, and how I integrate it to my continuous integration pipeline.
+If you want to inject release-specific values to Go's global memory during build time, I [wrote](/posts/go/goreleaser/#builds) about using [GoReleaser](https://goreleaser.com) for this purpose, and how I integrate it to my continuous integration pipeline.
 
 # Child-level Commands
 Some CLIs (such as [`git`](https://git-scm.com)) require multiple sub-commands, each with different functionality in order to maintain usability. This can be achieved by initialising a new `cobra.Command` object and registering as a sub-command to its parent in an `init` function. In addition, flags that accept more complex data types (such as [duration](https://pkg.go.dev/time#Duration)) can be integrated with a given command by binding it to a variable (ideally in the same `init` function mentioned above).
@@ -122,7 +122,7 @@ func main() {
 ```
 
 # Additional Resources
-[Before](/posts/configurations/goreleaser/#global-hooks) building and packaging the CLI, I tend to run the following commands and append their output to a text files, which are automatically packaged with the binary later in the continuous integration process.
+[Before](/posts/goreleaser/#global-hooks) building and packaging the CLI, I tend to run the following commands and append their output to a text files, which are automatically packaged with the binary later in the continuous integration process.
 
 ## Manual Page
 With [Christian Muehlhaeuser's `mango` library](https://github.com/muesli/mango-cobra), a user manual page can be generated for a Cobra command and all of its child commands. I tend to this by defining a new `cobra.Command` object that reads the root command and uses the above-mentioned library to print the manual page to standard output (which can be tested by piping the output to `man -l -`).
