@@ -27,7 +27,7 @@
 			{{with .Description}}"description": "{{. | safeJS}}",{{end}}
 			{{with .Summary}}"abstract": "{{. | safeJS}}",{{end}}
 			{{with .Site.LanguageCode}}"inLanguage": "{{.}}",{{end}}
-			"url" : "{{.Permalink}}",
+			"url" : "{{with .Params.externalUrl}}{{absURL .}}{{else}}{{.Permalink}}{{end}}",
 			"author" : {
 				"@type": "Person",
 				"name": "{{.Site.Author.name | safeJS}}"

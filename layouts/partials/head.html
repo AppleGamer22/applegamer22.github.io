@@ -25,7 +25,7 @@
 	{{with .Params.robots}}
 		<meta name="robots" content="{{.}}">
 	{{end}}
-	<link rel="canonical" href="{{.Permalink}}">
+	<link rel="canonical" href="{{with .Params.externalUrl}}{{absURL .}}{{else}}{{.Permalink}}{{end}}">
 	{{range .AlternativeOutputFormats -}}
 		{{printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink ($.Site.Title | emojify) | safeHTML}}
 	{{end -}}
