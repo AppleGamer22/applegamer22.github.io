@@ -10,8 +10,6 @@ sharingLinks: false
 xml: false
 externalUrl: /posts/go/goreleaser/
 ---
-<meta http-equiv="refresh" content="0;url=/posts/go/goreleaser/">
-
 * **This page has been [moved](/posts/go/goreleaser/)...**
 	* If you are still connected to the internet, your browser will redirect you automatically. Otherwise, you should take note of the address of the above-mentioned link.
 * It's listed on [one of my LinkedIn posts](https://www.linkedin.com/posts/omri-bornstein_continuous-integration-with-goreleaser-activity-7036243724661641216-x_p8/).
