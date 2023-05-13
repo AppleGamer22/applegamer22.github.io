@@ -1,6 +1,5 @@
 ---
 title: TeX & LaTeX
-date: 2023-03-16
+date: 2023-05-13
 tags: [TeX, LaTeX]
-draft: true
 ---

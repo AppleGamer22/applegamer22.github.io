@@ -61,8 +61,7 @@
 				"-lualatex",
 				"-outdir=%OUTDIR%",
 				"%DOC%"
-			],
-			"env": {}
+			]
 		}
 	],
 	"latex-workshop.latex.recipes": [
