@@ -1,13 +1,17 @@
 ---
 title: TUI Components in Go with Bubble Tea
 description: TUI Components in Go with Bubble Tea
-date: 2023-04-16
-draft: true
+date: 2023-05-20
 tags: [Go, Charm, CLI]
 ---
+In this document, I summarise what [Bubble Tea](https://github.com/charmbracelet/bubbletea) components (colloquially named [bubbles](https://github.com/charmbracelet/bubbles)) I use for my personal projects, as I find more uses for them.
+
 # Timed Progress Bar
+![cocainate -d 5s](cocainate_d_5s.gif "running `cocainate -d 5s` with a timed progress bar")
 
 ## Required Packages & Constants
+The following packages are required in oder to access the Bubble Tea interfaces, component logic and styling functionality. In addition, I defined some utility variables for functions I use throughout the display logic.
+
 ```go
 import (
 	"fmt"
@@ -29,6 +33,8 @@ var (
 ```
 
 ## Model
+Initialising a new progress bar requires the time it takes to complete, and a channel for termination signals. The initialisation function returns a reference to a `tea.Program` object that can be forcefully terminated when required.
+
 ```go
 type model struct {
 	// display the total duration below the progress bar
@@ -41,13 +47,20 @@ type model struct {
 	p          progress.Model
 }
 
-func New(duration time.Duration) *model {
-	return &model{
+func New(duration time.Duration, signals chan os.Signal) *tea.Program {
+	m := &model{
 		duration:   duration,
 		amount:     1 / duration.Seconds(),
 		percentage: 0,
 		p:          progress.New(progress.WithSolidFill("#FFFFFF")),
 	}
+
+	program := tea.NewProgram(m)
+	go func() {
+		program.Run()
+		signals <- os.Interrupt
+	}()
+	return program
 }
 ```
 
@@ -98,5 +111,19 @@ func (m model) View() string {
 		time.Duration(float64(m.duration)*m.percentage).Round(time.Second),
 		m.duration, helpStyle("Press any key to quit"),
 	)
+}
+```
+
+## Usage
+In the following example from the [`cocainate` source code](https://github.com/AppleGamer22/cocainate/blob/master/session/session.go), a new progress bar program is initialised. It can either terminate naturally when it's time is up, or it can terminate forcefully when the user stops the process.
+
+```go
+program := progress_bar.New(s.Duration, s.Signals)
+timer := time.NewTimer(s.Duration)
+select {
+case <-timer.C:
+case <-s.Signals:
+	timer.Stop()
+	program.Kill()
 }
 ```

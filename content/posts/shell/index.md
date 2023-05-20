@@ -21,7 +21,7 @@ Debian-based | `sudo apt install zsh-syntax-highlighting`
 Red Hat-based | `sudo dnf install zsh-syntax-highlighting`
 macOS | `brew install zsh-completions zsh-history-substring-search zsh-syntax-highlighting`
 
-The following code should be added to your `~/.zshrc` in order to use the history substring search and syntax highlighting plug-ins:
+The following code should be added to your `~/.zshrc` file in order to use the history substring search and syntax highlighting plug-ins:
 
 ```sh
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
@@ -34,7 +34,7 @@ fi
 ```
 
 ## Manual Page Colours
-My manual page colour configuration is inspired by [Kali's default `~/.zshrc`](https://gitlab.com/kalilinux/packages/kali-defaults/-/blob/kali/master/etc/skel/.zshrc):
+My manual page colour configuration is inspired by [Kali's default `~/.zshrc` file](https://gitlab.com/kalilinux/packages/kali-defaults/-/blob/kali/master/etc/skel/.zshrc):
 
 ```sh
 export LESS_TERMCAP_mb=$'\E[1;31m'
@@ -127,7 +127,7 @@ echo -e -n "\x1b[\x35 q";
 
 ## Completions
 ### Azure CLI
-[Azure CLI](https://learn.microsoft.com/en-us/cli/azure/)'s and [`kompose`](https://kompose.io)'s Linux installation requires the following command to be added to `~/.zshrc` in order to enable command completion:
+[Azure CLI](https://learn.microsoft.com/en-us/cli/azure/)'s and [`kompose`](https://kompose.io)'s Linux installation requires the following command to be added to `~/.zshrc` file in order to enable command completion:
 
 ```sh
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
@@ -149,7 +149,7 @@ complete -o nospace -C $(which nomad) nomad
 ```
 
 ### macOS
-If you install your command-line tools with the [Homebrew](https://brew.sh) package manager, the following code snippet from their documentation[^1] should be added to the appropriate place in `~/.zshrc`.
+If you install your command-line tools with the [Homebrew](https://brew.sh) package manager, the following code snippet from their documentation[^1] should be added to the appropriate place in `~/.zshrc` file.
 
 In my case, the following configuration worked the best, since other tools (such as [`vagrant`](https://github.com/hashicorp/vagrant)) keep the completions in other places:
 
@@ -177,7 +177,7 @@ ln -s $etc/docker-compose.zsh-completion $(brew --prefix)/share/zsh/site-functio
 ```
 
 # Core Utilities on macOS
-I find the GNU core utilities more feature-rich than the BSD core utilities that are shipped with macOS. As a result, when I need the GNU core utilities on macOS, I install them with the [Homebrew](https://brew.sh) package manager by running: `brew install coreutils binutils gnu-tar gnu-sed grep make`. These utilities can be enabled from your `~/.zshrc`:
+I find the GNU core utilities more feature-rich than the BSD core utilities that are shipped with macOS. As a result, when I need the GNU core utilities on macOS, I install them with the [Homebrew](https://brew.sh) package manager by running: `brew install coreutils binutils gnu-tar gnu-sed grep make`. These utilities can be enabled from your `~/.zshrc` file:
 
 ```sh
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -246,6 +246,12 @@ style_root = "red bold"
 format = "in [$path]($style) "
 disabled = false
 style = "yellow bold"
+```
+
+Don't forget to append Starship's initialisation command to your `~/.zshrc` file:
+
+```sh
+eval "$(starship init zsh)"
 ```
 
 ## GIF Demonstration

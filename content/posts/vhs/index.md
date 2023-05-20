@@ -19,7 +19,11 @@ Set FontFamily "Fira Code"
 # Set Margin 1
 
 # time for the shell to load
-Sleep 1000ms
+Hide
+Type eval "$(starship init zsh)"
+Enter
+Sleep 1s
+Show
 # or any other command
 Type neofetch
 Sleep 500ms
@@ -45,13 +49,15 @@ Set FontSize 18
 Set Shell zsh
 Set FontFamily "Fira Code"
 
-Sleep 1000ms
+Hide
+Type eval "$(starship init zsh)"
+Enter
+Sleep 1s
+Show
 Type ls
-Sleep 500ms
 Enter
 Sleep 500ms
 Type hu
-Sleep 500ms
 Tab
 Sleep 1000ms
 Tab
@@ -69,7 +75,6 @@ Sleep 500ms
 Enter
 Sleep 1000ms
 Type cat starship.tape
-Sleep 500ms
 Enter
 Sleep 1000ms
 ```
@@ -86,13 +91,15 @@ Set FontSize 18
 Set Shell zsh
 Set FontFamily "Fira Code"
 
-Sleep 1000ms
+Hide
+Type eval "$(starship init zsh)"
+Enter
+Sleep 1s
+Show
 Type "goreleaser release --clean --snapshot --skip-publish"
-Sleep 500ms
 Enter
 Sleep 5s
 Type tree dist
-Sleep 500ms
 Enter
 Sleep 500ms
 ```
