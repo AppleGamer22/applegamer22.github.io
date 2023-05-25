@@ -3,7 +3,7 @@
 		{{- $author := index site.Data . -}}
 		<div class="flex">
 			{{with $author.image}}
-				<img class="!mb-0 !mt-0 me-4 aspect-auto w-24 rounded-full ltr:mr-4 rtl:ml-4" alt="{{$author.name | default `Author`}}" src="{{.}}">
+				<img class="!mb-0 !mt-0 me-4 aspect-auto w-24 rounded-full" alt="{{$author.name | default `Author`}}" src="{{.}}">
 			{{end}}
 			<div class="place-self-center">
 				{{with $author.name | markdownify | emojify}}
