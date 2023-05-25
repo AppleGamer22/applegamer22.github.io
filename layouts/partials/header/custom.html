@@ -11,13 +11,13 @@
 			{{partial "translations.html" .}}
 		</div>
 		{{if or .Site.Menus.main (.Site.Params.enableSearch | default false)}}
-			<ul class="flex flex-col list-none ltr:text-right rtl:text-left sm:flex-row">
+			<ul class="flex list-none flex-col ltr:text-right rtl:text-left sm:flex-row">
 				{{if .Site.Menus.main}}
 					{{range .Site.Menus.main}}
 						<li class="header-wide mb-1 sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
 							<a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" href="{{.URL}}" title="{{.Title}}" {{with .Params.target}}target="{{.}}"{{end}}>
 								{{with .Params.icon}}
-									<span class="transition-colors group-dark:hover:text-primary-400 group-hover:text-primary-600">
+									<span class="group-dark:hover:text-primary-400 transition-colors group-hover:text-primary-600">
 										{{partial "icon.html" .}}
 									</span>
 								{{end}}
@@ -43,17 +43,17 @@
 						<div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
 							{{partial "icon.html" "bars"}}
 						</div>
-						<div id="menu-wrapper" class="fixed inset-0 z-30 invisible w-screen h-screen m-auto overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
-							<ul class="flex flex-col w-full px-6 py-6 mx-auto overflow-visible list-none max-w-7xl ltr:text-right rtl:text-left sm:px-14 sm:py-10 sm:pt-10 md:px-24 lg:px-32">
+						<div id="menu-wrapper" class="invisible fixed inset-0 z-30 m-auto h-full w-full cursor-default overflow-auto bg-neutral-100/50 opacity-0 backdrop-blur-sm transition-opacity dark:bg-neutral-900/50">
+							<ul class="mx-auto flex w-full max-w-7xl list-none flex-col overflow-visible px-6 py-6 ltr:text-right rtl:text-left sm:px-14 sm:py-10 sm:pt-10 md:px-24 lg:px-32">
 								<li class="mb-1">
 									<span class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">{{partial "icon.html" "xmark"}}</span>
 								</li>
 								{{if .Site.Menus.main}}
 									{{range .Site.Menus.main}}
-										<li class="mb-1">
+										<li class="group mb-1">
 											<a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" href="{{.URL}}" title="{{.Title}}" {{with .Params.target}}target="{{.}}"{{end}}>
 												{{with .Params.icon}}
-													<span class="transition-colors group-dark:hover:text-primary-400 group-hover:text-primary-600">
+													<span class="group-dark:hover:text-primary-400 transition-colors group-hover:text-primary-600">
 														{{partial "icon.html" .}}
 													</span>
 												{{end}}
