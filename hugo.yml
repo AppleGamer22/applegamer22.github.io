@@ -22,10 +22,6 @@ params:
   # defaultAppearance: dark
   enableCodeCopy: true
   enableSearch: true
-  mainSections:
-    - talks
-    - posts
-    - projects
   homepage:
     layout: profile
     showRecent: true
@@ -77,6 +73,10 @@ languages:
       languageName: English
       rtl: false
       dateFormat: "2006-01-02"
+      mainSections:
+        - talks
+        - posts
+        - projects
     author:
       name: Omri Bornstein
       image: "/author.png"
