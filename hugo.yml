@@ -68,14 +68,15 @@ markup:
     ordered: false
 languages:
   en:
-    languageName: English
     languageCode: en-au
-    isoCode: en-AU
-    rtl: false
-    dateFormat: "2006-01-02"
     weight: 1
     title: Omri Bornstein
-    description: Omri Bornstein's personal website
+    params:
+      description: Omri Bornstein's personal website
+      isoCode: en-AU
+      languageName: English
+      rtl: false
+      dateFormat: "2006-01-02"
     author:
       name: Omri Bornstein
       image: "/author.png"
