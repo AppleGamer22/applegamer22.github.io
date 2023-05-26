@@ -23,6 +23,8 @@ Hide
 Type eval "$(starship init zsh)"
 Enter
 Sleep 1s
+Type clear
+Enter
 Show
 # or any other command
 Type neofetch
@@ -53,6 +55,8 @@ Hide
 Type eval "$(starship init zsh)"
 Enter
 Sleep 1s
+Type clear
+Enter
 Show
 Type ls
 Enter
@@ -95,6 +99,8 @@ Hide
 Type eval "$(starship init zsh)"
 Enter
 Sleep 1s
+Type clear
+Enter
 Show
 Type "goreleaser release --clean --snapshot --skip-publish"
 Enter
