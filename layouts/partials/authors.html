@@ -3,7 +3,8 @@
 		{{- $author := index site.Data . -}}
 		<div class="flex">
 			{{with $author.image}}
-				<img class="!mb-0 !mt-0 me-4 aspect-auto w-24 rounded-full" alt="{{$author.name | default `Author`}}" src="{{.}}">
+				{{- $image := (resources.GetRemote .).Resize `160x` -}}
+				<img class="!mb-0 !mt-0 me-4 aspect-auto w-24 rounded-full" alt="{{$author.name | default `Author`}}" src="{{$image.RelPermalink}}">
 			{{end}}
 			<div class="place-self-center">
 				{{with $author.name | markdownify | emojify}}
