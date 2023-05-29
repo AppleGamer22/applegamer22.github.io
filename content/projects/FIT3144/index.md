@@ -1,6 +1,6 @@
 ---
 title: FIT3144 Advanced Computer Science Research Project
-description: Extending a browser-based tool used for building evolutionary algorithms in educational settings.
+description: Extending a browser-based tool used for building evolutionary algorithms in educational settings
 date: 2023-03-14
 showDateUpdated: false
 showReadingTime: false
