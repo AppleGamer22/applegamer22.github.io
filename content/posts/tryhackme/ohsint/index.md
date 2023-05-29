@@ -1,5 +1,6 @@
 ---
 title: TryHackMe OhSINT
+description: TryHackMe OhSINT open-source intelligence challenge
 date: 2021-07-03
 tags: [TryHackMe, OSINT]
 ---
@@ -52,10 +53,10 @@ This is my attempt at TryHackMe's [OhSINT](https://tryhackme.com/room/ohsint) ch
 > Hi all, I am from London, I like taking photos and open source projects.
 >
 > Follow me on twitter: @OWoodflint
-> 
+>
 > This project is a new social network for taking photos in your home town.
-> 
-> Project starting soon! Email me if you want to help out: OWoodflint@gmail.com
+>
+> Project starting soon! Email me if you want to help out: `OWoodflint@gmail.com`
 
 **Answer**: `London`
 

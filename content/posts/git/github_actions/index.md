@@ -4,7 +4,7 @@ date: 2023-03-16
 tags: [GitHub, CI/CD]
 draft: true
 ---
-# Deploying Hugo
+# Deploying Hugo to GitHub Pages
 ## Event Definitions
 ```yml
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
@@ -53,4 +53,45 @@ jobs:
         with:
           github_token: ${{secrets.GITHUB_TOKEN}}
           publish_dir: ./public
+```
+
+# Testing Go
+## Event Definitions
+```yml
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Test
+on:
+  pull_request:
+    types:
+      - opened
+      - closed
+      - reopened
+  workflow_dispatch:
+    inputs: {}
+```
+
+## Workflow
+```yml
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+    runs-on: ${{matrix.os}}
+    steps:
+      - name: Pull Source Code
+        uses: actions/checkout@v3.5.2
+      - name: Set-up Go
+        uses: actions/setup-go@v4.0.1
+        with:
+          go-version: stable
+      - name: Test
+        run: |
+          go clean -testcache
+          go test -v -race -cover ./...
 ```
