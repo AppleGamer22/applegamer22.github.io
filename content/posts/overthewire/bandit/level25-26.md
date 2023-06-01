@@ -14,7 +14,7 @@ bandit25@bandit.labs.overthewire.org password: uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
 bandit25@bandit:~$ ls
 bandit26.sshkey
 bandit25@bandit:~$ cat /etc/passwd | grep bandit26
-bandit26:x:11026:11026:bandit level 26:/home/bandit26:/usr/bin/showtext
+bandit26:X:11026:11026:bandit level 26:/home/bandit26:/usr/bin/showtext
 bandit25@bandit:~$ cat /usr/bin/showtext
 #!/bin/sh
 export TERM=linux
