@@ -5,8 +5,9 @@ showDateUpdated: false
 showReadingTime: false
 showWordCount: false
 tags: [TypeScript, javascript, CLI, utility, Linux, macOS, Windows]
-externalUrl: https://github.com/AppleGamer22/scr-cli
 _build: {render: link}
 xml: false
+externalUrl: https://github.com/AppleGamer22/scr-cli
+monoFont: true
 ---
 My previous attempt at building a CLI social media scraper, which is built with [OCLIF](https://oclif.io).

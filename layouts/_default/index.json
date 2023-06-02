@@ -1,5 +1,6 @@
 {{- $index := slice -}}
 {{- $arrow := `<span title="Link to external site" class="text-xs align-top cursor-default text-neutral-400 dark:text-neutral-500"><span class="rtl:hidden">&#8599;</span><span class="ltr:hidden">&#8598;</span></span>` -}}
+{{- $monoFontTitleFormat := "<code>%s</code>" -}}
 {{- range .Site.Pages -}}
 	{{- $section := .Site.GetPage "section" .Section -}}
 	{{- $showDate := .Params.showDate | default .Site.Params.article.showDate -}}
@@ -11,7 +12,7 @@
 	{{- end -}}
 	{{- $index = $index | append (dict
 		"date" (cond (and .IsPage $showDate) (.Date | time.Format (site.Params.dateFormat | default ":date_long")) nil)
-		"title" $title
+		"title" (cond (default false .Params.monoFont) (printf $monoFontTitleFormat $title) $title)
 		"section" ($section.Title | emojify | safeJS)
 		"summary" (default .Summary .Description | emojify | safeJS)
 		"content" (.Plain | emojify | safeJS)
