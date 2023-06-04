@@ -34,7 +34,7 @@
 	{{end -}}
 	{{/* Asset bundles */}}
 	{{$assets := newScratch}}
-	{{ $algorithm := .Site.Params.fingerprintAlgorithm | default "sha256" }}
+	{{$algorithm := .Site.Params.fingerprintAlgorithm | default "sha256"}}
 	{{$cssScheme := resources.Get (printf "css/schemes/%s.css" (lower .Site.Params.colorScheme | default "congo"))}}
 	{{if not $cssScheme}}
 		{{$cssScheme = resources.Get "css/schemes/congo.css"}}

@@ -18,14 +18,14 @@
 							<a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" href="{{.URL}}" title="{{.Title}}" {{with .Params.target}}target="{{.}}"{{end}}>
 								{{with .Params.icon}}
 									<span class="group-dark:hover:text-primary-400 transition-colors group-hover:text-primary-600">
-										{{partial "icon.html" .}}
+										{{- partial "icon.html" . -}}
 									</span>
 								{{end}}
-								{{if .Params.showName | default true}}
+								{{- if .Params.showName | default true -}}
 									<span class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">
 										{{.Name | markdownify | emojify}}
 									</span>
-								{{end}}
+								{{- end -}}
 							</a>
 						</li>
 					{{end}}
@@ -54,14 +54,14 @@
 											<a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2" href="{{.URL}}" title="{{.Title}}" {{with .Params.target}}target="{{.}}"{{end}}>
 												{{with .Params.icon}}
 													<span class="group-dark:hover:text-primary-400 transition-colors group-hover:text-primary-600">
-														{{partial "icon.html" .}}
+														{{- partial "icon.html" . -}}
 													</span>
 												{{end}}
-												{{if .Params.showName | default true}}
+												{{- if .Params.showName | default true -}}
 													<span class="decoration-primary-500 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2">
 														{{.Name | markdownify | emojify}}
 													</span>
-												{{end}}
+												{{- end -}}
 											</a>
 										</li>
 									{{end}}
