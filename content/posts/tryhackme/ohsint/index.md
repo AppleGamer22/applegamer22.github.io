@@ -2,7 +2,7 @@
 title: TryHackMe OhSINT
 description: TryHackMe OhSINT open-source intelligence challenge
 date: 2021-07-03
-tags: [TryHackMe, OSINT]
+tags: [TryHackMe, OSINT, EXIF]
 ---
 This is my attempt at TryHackMe's [OhSINT](https://tryhackme.com/room/ohsint) challenge. We are given a JPEG as a starting point.
 

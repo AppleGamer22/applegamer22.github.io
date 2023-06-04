@@ -9,6 +9,8 @@ I've been programming and learning about computing since the age of 15, and I've
 
 At the moment I'm studying a bachelor's degree in computer science. So far I have some experience as source code [contributor](https://github.com/AppleGamer22/FIT2082) in a research project, and I've been a committee member in the Monash Cyber Security Club (colloquially known as [MonSec](https://monsec.io/team/)), while fulfilling the roles of general representative, secretary, vice president and president from 2021 to 2023.
 
+![MonSec & Monash University's Faculty of IT Engaging with Secondary Schools](parameter-based_access_control.jpg "MonSec & Monash University's Faculty of IT Engaging with Secondary Schools")
+
 In my spare time, I like to play the guitar and learn genres such as rock and blues.
 
-![Playing John Frusciante's solo in Red Hot Chili Peppers' Soul to Squeeze](thumbnail.png "Playing John Frusciante's solo in Red Hot Chili Peppers' [Soul to Squeeze](https://youtu.be/H4rBLGmbe80)")
+![Playing John Frusciante's solo in Red Hot Chili Peppers' Soul to Squeeze](soul_to_squeeze.png "Playing John Frusciante's solo in Red Hot Chili Peppers' [Soul to Squeeze](https://youtu.be/H4rBLGmbe80)")
