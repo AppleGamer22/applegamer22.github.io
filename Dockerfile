@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM golang:1.20.4-alpine AS hugo
+FROM --platform=$BUILDPLATFORM golang:1.20.5-alpine AS hugo
 WORKDIR /hugo
 RUN apk add --no-cache tzdata hugo git
 COPY assets assets
@@ -6,7 +6,7 @@ COPY content content
 COPY layouts layouts
 COPY static static
 COPY .git .git
-COPY config.yml .
+COPY hugo.yml .
 COPY go.mod .
 COPY go.sum .
 ARG BASE="/"

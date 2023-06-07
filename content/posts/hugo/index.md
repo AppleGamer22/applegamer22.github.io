@@ -393,7 +393,7 @@ The HTML was inspired by a combination of Congo Theme's [basic](https://github.c
 
 # Configuration
 ## Hugo
-The following YAML snippets are taken from my [`config.yml`](https://github.com/AppleGamer22/applegamer22.github.io/blob/post/congo/config.yml), and always start from the root level of the YAML tree.
+The following YAML snippets are taken from my [`hugo.yml`](https://github.com/AppleGamer22/applegamer22.github.io/blob/master/hugo.yml), and always start from the root level of the YAML tree.
 
 ### Dependencies
 I import the Congo library using [Hugo Modules](https://gohugo.io/hugo-modules/).
