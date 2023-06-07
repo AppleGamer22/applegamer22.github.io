@@ -4,7 +4,7 @@ description: TUI Components in Go with Bubble Tea
 date: 2023-05-20
 tags: [Go, Charm, CLI]
 ---
-In this document, I summarise what [Bubble Tea](https://github.com/charmbracelet/bubbletea) components (colloquially named [bubbles](https://github.com/charmbracelet/bubbles)) I use for my personal projects, as I find more uses for them.
+In this document, I summarise what [Bubble Tea](https://pkg.go.dev/github.com/charmbracelet/bubbletea) components (colloquially named [bubbles](https://pkg.go.dev/github.com/charmbracelet/bubbles)) I use for my personal projects, as I find more uses for them.
 
 # Timed Progress Bar
 ![cocainate -d 5s](cocainate_d_5s.gif "running `cocainate -d 5s` with a timed progress bar")

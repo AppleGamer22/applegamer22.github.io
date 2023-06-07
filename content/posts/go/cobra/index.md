@@ -4,7 +4,7 @@ description: CLIs in Go with Cobra
 date: 2023-02-25
 tags: [Go, CLI]
 ---
-In this document, I'll demonstrate how I use [Steve Francia's `cobra` library](https://github.com/spf13/cobra), which enables the interchangeable usage of environment variable and a configuration file for the same Go program.
+In this document, I'll demonstrate how I use [Steve Francia's `cobra` library](https://pkg.go.dev/github.com/spf13/cobra), which enables the interchangeable usage of environment variable and a configuration file for the same Go program.
 
 For the purposes of simplicity, I assume that all of the code snippets shown here are part of the `main` package. However, I recommend authors of large codebases to employ a multi-package taxonomy, such that their code is more organised and maintainable.
 

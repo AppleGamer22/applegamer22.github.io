@@ -10,7 +10,7 @@ Whenever you debug a program that produces a large amount of logs, sifting throu
 ![An r/ProgrammerHumor post describing the lack of colour in logs](https://i.redd.it/93th0rq0y1h81.jpg "An [r/ProgrammerHumor post](https://www.reddit.com/r/ProgrammerHumor/comments/spdvag/thank_you_ide_for_bringing_in_colors_in_my_life/) describing the lack of colour in logs")
 
 # How?
-I recently found [a logging library](https://github.com/charmbracelet/log) by [Charm](https://charm.sh), a start-up dedicated to making pleasing-to-use libraries, utilities and application that are centered around the command-line experience. Since I never really thought of making my programs' command-line output easy to read, I thought of giving it a try.
+I recently found [a logging library](https://pkg.go.dev/github.com/charmbracelet/log) by [Charm](https://charm.sh), a start-up dedicated to making pleasing-to-use libraries, utilities and application that are centered around the command-line experience. Since I never really thought of making my programs' command-line output easy to read, I thought of giving it a try.
 
 ## Custom Logger
 For my personal project, I override the default package settings with the following:

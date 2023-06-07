@@ -4,7 +4,7 @@ description: Environment Settings in Go with Viper
 date: 2023-02-25
 tags: [Go, CLI, server]
 ---
-For many projects, additional configuration is required in order to ensure correct behaviour. Whether its [JSON Web Token](https://jwt.io) secrets, database/personal credentials or other customisable settings, reliable and flexible configuration schemes are dependent upon during all stages of software development. In this document, I'll demonstrate how I use [Steve Francia's `viper` library](https://github.com/spf13/viper), which enables the interchangeable usage of environment variable and a configuration file for the same Go program.
+For many projects, additional configuration is required in order to ensure correct behaviour. Whether its [JSON Web Token](https://jwt.io) secrets, database/personal credentials or other customisable settings, reliable and flexible configuration schemes are dependent upon during all stages of software development. In this document, I'll demonstrate how I use [Steve Francia's `viper` library](https://pkg.go.dev/github.com/spf13/viper), which enables the interchangeable usage of environment variable and a configuration file for the same Go program.
 
 For the purposes of simplicity, I assume that all of the code snippets shown here are part of the `main` package. However, I recommend authors of large codebases to employ a multi-package taxonomy, such that their code is more organised and maintainable.
 
