@@ -38,7 +38,7 @@ jobs:
       #   run: sudo apt install texlive texlive-latex-extra fonts-firacode
       - name: Build
         run: |
-          # printf "\ngoogleAnalytics: $GOOGLE_ANALYTICS" >> hugo.yml
+          printf "\ngoogleAnalytics: $GOOGLE_ANALYTICS" >> hugo.yml
           make website
         env:
           GOOGLE_ANALYTICS: ${{secrets.GOOGLE_ANALYTICS}}
