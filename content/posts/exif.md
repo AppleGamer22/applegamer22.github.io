@@ -1,7 +1,7 @@
 ---
 title: Clearing EXIF Metadata
 description: Clearing EXIF metadata with exiftool
-date: 2023-06-29
+date: 2023-06-08
 tags: [EXIF]
 ---
 Do you know that your smartphone saves the location of your photos inside the file itself? Or that your image editing software declares that it processed your pictures? Even when most mainstream websites and [static site generators](https://gohugo.io/content-management/image-processing/#image-processing-methods) wipe EXIF metadata before they expose your uploaded images, it is still important to understand what metadata can be stored inside your images. When you upload unprocessed pictures to a publicly-accessible server such as a website or a public `git` repository (on GitHub, GitLab, Gitea or self-hosted), making sure that no sensitive metadata that is is left for anybody on the internet to look at.

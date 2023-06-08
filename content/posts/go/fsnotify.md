@@ -1,7 +1,7 @@
 ---
 title: Watching for File Changes in Go
 description: Watching for File Changes in Go with FSnotify
-date: 2023-06-29
+date: 2023-06-08
 tags: [Go]
 math: true
 ---
