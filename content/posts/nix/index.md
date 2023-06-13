@@ -76,6 +76,94 @@ draft: true
 
   environment.systemPackages = [];
 
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    enableBashCompletion = true;
+    setOptions = [
+      "INC_APPEND_HISTORY"
+      "SHARE_HISTORY"
+      "HIST_IGNORE_DUPS"
+      "HIST_IGNORE_ALL_DUPS"
+      "HIST_SAVE_NO_DUPS"
+      "HIST_REDUCE_BLANKS"
+    ];
+    syntaxHighlighting = {
+      enable = true;
+      highlighters = ["main" "brackets" "pattern"];
+      styles = {
+        "default" = "none";
+        "unknown-token" = "fg=red,bold";
+        "reserved-word" = "fg=cyan,bold";
+        "suffix-alias" = "fg=green,underline";
+        "global-alias" = "fg=magenta";
+        "precommand" = "fg=green,underline";
+        "commandseparator" = "fg=blue,bold";
+        "autodirectory" = "fg=green,underline";
+        "path" = "underline";
+        "path_pathseparator" = "";
+        "path_prefix_pathseparator" = "";
+        "globbing" = "fg=blue,bold":
+        "history-expansion" = "fg=blue,bold";
+        "command-substitution" = "none"
+        "command-substitution-delimiter" = "fg=magenta";
+        "process-substitution" = "none";
+        "process-substitution-delimiter" = "fg=magenta";
+        "single-hyphen-option" = "fg=magenta";
+        "double-hyphen-option" = "fg=magenta";
+        "back-quoted-argument" = "none";
+        "back-quoted-argument-delimiter" = "fg=blue,bold";
+        "single-quoted-argument" = "fg=yellow";
+        "double-quoted-argument" = "fg=yellow";
+        "dollar-quoted-argument" = "fg=yellow";
+        "rc-quote" = "fg=magenta";
+        "dollar-double-quoted-argument" = "fg=magenta";
+        "back-double-quoted-argument" = "fg=magenta";
+        "back-dollar-quoted-argument" = "fg=magenta";
+        "assign" = "none";
+        "redirection" = "fg=blue,bold";
+        "comment" = "fg=black,bold";
+        "named-fd" = "none";
+        "numeric-fd" = "none";
+        "arg0" = "fg=green";
+        "bracket-error" = "fg=red,bold";
+        "bracket-level-1" = "fg=blue,bold";
+        "bracket-level-2" = "fg=green,bold";
+        "bracket-level-3" = "fg=magenta,bold";
+        "bracket-level-4" = "fg=yellow,bold";
+        "bracket-level-5" = "fg=cyan,bold";
+        "cursor-matchingbracket" = "standout";
+      };
+    };
+    shellAliases = {
+      open = "xdg-open $1 2> /dev/null";
+      ls = "ls --color";
+      rm = "rm -iI --preserve-root";
+      clear = "printf '\33c\e[3J'";
+      la = "ls -AlhF";
+      lh = "ls -lhF";
+      mv = "mv -i";
+      cp = "cp -i";
+      ln = "ln -i";
+      df = "df -h";
+      chown = "chown --preserve-root";
+      chmod = "chmod --preserve-root";
+      chgrp = "chgrp --preserve-root";
+      grep = "grep --color=auto";
+      bc = "bc -l";
+      gitkraken = "git log --graph --decorate --oneline";
+    };
+    interactiveShellInit = ''
+      source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+      bindkey '^[[A' history-substring-search-up
+      bindkey '^[[B' history-substring-search-down
+      touch ~/.hushlogin
+      tabs -4
+      echo -e -n "\x1b[\x35 q"
+   '';
+    promptInit = ''eval "$(starship init zsh)"'';
+  };
+
   system.stateVersion = "23.05";
 
 }
