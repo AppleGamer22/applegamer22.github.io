@@ -1,11 +1,3 @@
----
-title: Nix Configuration
-date: 2023-06-10
-tags: [Nix, NixOS]
-draft: true
----
-# KDE Plasma Desktop
-```nix
 { config, pkgs, ... }:
 
 {
@@ -128,7 +120,6 @@ draft: true
         $golang\
         $java\
         $line_break\
-        $nix_shell\
         $cmd_duration\
         $character\
       '';
@@ -224,6 +215,3 @@ draft: true
 
   system.stateVersion = "23.05";
 }
-```
-
-# Server
