@@ -108,6 +108,7 @@ draft: true
         style = "yellow bold";
       };
       nix_shell.style = "bold cyan";
+      cmd_duration.format = "[$duration](bold yellow) ";
       character = {
         success_symbol = "[\\$](bold green)";
         error_symbol = "[\\$](bold red) ";
@@ -136,7 +137,6 @@ draft: true
   };
   programs.zsh = {
     enable = true;
-    enableCompletion = true;
     enableBashCompletion = true;
     setOptions = [
       "INC_APPEND_HISTORY"
@@ -197,7 +197,7 @@ draft: true
       open = "xdg-open $1 2> /dev/null";
       ls = "ls --color";
       rm = "rm -iI --preserve-root";
-      clear = "printf '\33c\e[3J'";
+      # clear = "printf '\33c\e[3J'";
       la = "ls -AlhF";
       lh = "ls -lhF";
       mv = "mv -i";
@@ -211,15 +211,17 @@ draft: true
       bc = "bc -l";
       gitkraken = "git log --graph --decorate --oneline";
     };
-    interactiveShellInit = ''
+    promptInit = ''
       source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-      bindkey '^[[A' history-substring-search-up
-      bindkey '^[[B' history-substring-search-down
+      bindkey "$terminfo[kcuu1]" history-substring-search-up
+      bindkey "$terminfo[kcud1]" history-substring-search-down
+      zstyle ":completion:*" menu select
       touch ~/.hushlogin
+      touch ~/.zshrc
       tabs -4
-      echo -e -n "\x1b[\x35 q"
+      # echo -e -n "\x1b[\x35 q";
+      # eval "$(starship init zsh)"
     '';
-    promptInit = ''eval "$(starship init zsh)"'';
   };
 
   system.stateVersion = "23.05";
