@@ -53,29 +53,37 @@ draft: true
     pulse.enable = true;
   };
 
-  users.users.applegamer22 = {
-    isNormalUser = true;
-    description = "applegamer22";
-    extraGroups = [
-      "networkmanager" 
-      "wheel"
-      "vboxusers"
-      "wireshark"
-      "libvirt"
-      "docker"
-      # "lp"
-    ];
-    packages = with pkgs; [
-      firefox
-      kate
-      # thunderbird
-    ];
+  users = {
+    defaultUserShell = pkgs.zsh;
+    users.applegamer22 = {
+      isNormalUser = true;
+      description = "applegamer22";
+      extraGroups = [
+        "networkmanager" 
+        "wheel"
+        "vboxusers"
+        "wireshark"
+        "libvirt"
+        "docker"
+        # "lp"
+      ];
+      packages = with pkgs; [
+        firefox
+        kate
+        # thunderbird
+      ];
+  	};
   };
 
   nixpkgs.config.allowUnfree = true;
 
+  environment.shells = [pkgs.zsh];
   environment.systemPackages = [];
 
+  programs.starship = {
+    enable = true;
+	settings = 
+  };
   programs.zsh = {
     enable = true;
     enableCompletion = true;
