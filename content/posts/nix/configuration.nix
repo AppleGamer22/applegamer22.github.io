@@ -10,6 +10,7 @@
   networking.hostName = "nixos";
   networking.wireless.enable = true;
   networking.networkmanager.enable = true;
+  networking.nameservers = ["1.1.1.1" "8.8.8.8" "9.9.9.9"];
 
   time.timeZone = "Australia/Melbourne";
 
@@ -59,18 +60,122 @@
         "docker"
         # "lp"
       ];
-      packages = with pkgs; [
-        firefox
-        kate
-        # thunderbird
-      ];
+      packages = with pkgs; [];
     };
   };
 
   nixpkgs.config.allowUnfree = true;
 
+  virtualisation.docker.enable = true;
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+  programs.git = {
+    enable = true;
+    lfs.enable = true;
+    userName  = "Omri Bornstein";
+    userEmail = "omribor@gmail.com";
+    extraConfig = {
+      commit.gpgSign = true;
+      tag.gpgSign = true;
+      push.autoSetupRemote = true;
+      core.editor = "nano";
+      color = {
+        status = "auto";
+        branch = "auto";
+        interactive = "auto";
+        diff = "auto";
+      };
+    };
+  };
+
   environment.shells = [pkgs.zsh];
-  environment.systemPackages = [];
+  environment.systemPackages = with pkgs; [
+    zsh
+    zsh-completions
+    zsh-history-substring-search
+    starship
+    git
+    go
+    jdk
+    python311Full
+    python311Packages.jupyter
+    python311Packages.pandas
+    python311Packages.matplotlib
+    python311Packages.numpy
+    python311Packages.xlrd
+    nodejs_18
+    gcc
+    gnumake
+    binutils
+    gh
+    goreleaser
+    hugo
+    vagrant
+    terraform
+    vault
+    nomad
+    caddy
+    docker
+    docker-compose
+    virtualbox
+    virt-manager
+    google-chrome
+    discord
+    vscode
+    signal-desktop
+    zoom-us
+    timeshift
+    keepassxc
+    bitwarden
+    ventoy
+    keybase-gui
+    wireshark
+    inkscape
+    gimp
+    kdenlive
+    obs-studio
+    kid3
+    vlc
+    audacity
+    pandoc
+    pandoc-lua-filters
+    texlive.combined.scheme-medium
+    steam
+    minecraft
+    # superTux
+    superTuxKart
+    nmap
+    gobuster
+    sqlmap
+    thc-hydra
+    metasploit
+    ghidra
+    sherlock
+    exiftool
+    poppler_utils
+    binwalk
+    hashcat
+    john
+    cewl
+    stegseek
+    steghide
+  ];
+
+  fonts = {
+    enableDefaultFonts = true;
+    fontDir.enable = true;
+    fonts = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      fira-code
+      (nerdfonts.override {
+        fonts = ["FiraCode"];
+      })
+    ];
+    fontconfig.defaultFonts.monospace = ["Fira Code"];
+  };
+
 
   programs.starship = {
     enable = true;
@@ -109,6 +214,7 @@
       format = "$time$username$hostname$directory$git_branch$git_commit$git_state$git_status$package$nodejs$python$golang$java$line_break$cmd_duration$character";
     };
   };
+
   programs.zsh = {
     enable = true;
     enableBashCompletion = true;
