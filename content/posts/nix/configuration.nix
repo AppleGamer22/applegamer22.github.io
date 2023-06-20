@@ -90,35 +90,57 @@
 
   environment.shells = [pkgs.zsh];
   environment.systemPackages = with pkgs; [
+    # shell
     zsh
     zsh-completions
     zsh-history-substring-search
     starship
+    # programming
     git
+    gh
     go
     jdk
     python311Full
+    nodejs_18
+    gcc
+    # Python libraies
     python311Packages.jupyter
     python311Packages.pandas
     python311Packages.matplotlib
     python311Packages.numpy
     python311Packages.xlrd
-    nodejs_18
-    gcc
+    # Node.js packages
+    nodePackages.tailwindcss
+    # utilities
     gnumake
     binutils
-    gh
+    clang-tools
     goreleaser
+    syft
+    grype
     hugo
     vagrant
     terraform
     vault
     nomad
     caddy
+    vhs
+    yt-dlp
+    ffmpeg
+    cpufetch
+    neofetch
+    ansible
+    tailscale
+    # LaTeX
+    pandoc
+    pandoc-lua-filters
+    texlive.combined.scheme-full
+    # virtualisation
     docker
     docker-compose
     virtualbox
     virt-manager
+    # desktop
     google-chrome
     discord
     vscode
@@ -137,13 +159,13 @@
     kid3
     vlc
     audacity
-    pandoc
-    pandoc-lua-filters
-    texlive.combined.scheme-medium
+    remmina
+    # games
     steam
     minecraft
     # superTux
     superTuxKart
+    # cybersecurity
     nmap
     gobuster
     sqlmap
@@ -159,6 +181,7 @@
     cewl
     stegseek
     steghide
+    mitmproxy
   ];
 
   fonts = {
