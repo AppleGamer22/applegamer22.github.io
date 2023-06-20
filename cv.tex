@@ -20,21 +20,25 @@
 
 \makeatletter
 	\RenewDocumentCommand{\section}{sm}{
-		% \par\addvspace{1ex}
+		\par
+		%\addvspace{1ex}
 		\phantomsection{}
 		\addcontentsline{toc}{section}{#2}
 		\strut\sectionstyle{\textbf{\Large #2}}
-		% \par\nobreak\addvspace{0.5ex}{\@afterheading}
+		\par\nobreak
+		%\addvspace{0.5ex}{\@afterheading}
 	}
 \makeatother
 
 \makeatletter
 	\RenewDocumentCommand{\subsection}{sm}{
-		% \par\addvspace{1ex}
+		\par
+		%\addvspace{1ex}
 		\phantomsection{}
 		\addcontentsline{toc}{subsection}{#2}
 		\strut\subsectionstyle{\textbf{\large #2}}
-		% \par\nobreak\addvspace{0.5ex}{\@afterheading}
+		\par\nobreak
+		%\addvspace{0.5ex}{\@afterheading}
 	}
 \makeatother
 
@@ -179,7 +183,7 @@
 
 	\section{Open-Source Projects}\label{sec:open-source}
 	\hypertarget{raker}{
-		\cventry{since May 2022}{\texttt{raker}}{\ghurl{AppleGamer22/raker}}{}{}{
+		\cventry{since May 2022}{\texttt{raker}}{\ghurl{AppleGamer22/raker}}{Go, Docker, MongoDB}{}{
 			\begin{itemize}
 				\item A social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
 				% \item Server-side is built with \href{https://go.dev}{Go}, \href{https://www.mongodb.com}{MongoDB}, \href{https://jwt.io}{JSON Web Tokens} (JWTs) and \href{https://www.docker.com}{Docker}.
@@ -189,7 +193,7 @@
 		}
 	}
 	\hypertarget{stalk}{
-		\cventry{since May 2022}{\texttt{stalk}}{\ghurl{AppleGamer22/stalk}}{}{}{
+		\cventry{since May 2022}{\texttt{stalk}}{\ghurl{AppleGamer22/stalk}}{Go, Linux}{}{
 			\begin{itemize}
 				\item A cross-platform file-watcher that can run a command after each file-system operation on a given set of files or simply wait once until a file is changed.
 				% \item Built with \href{https://go.dev}{Go}, \href{https://cobra.dev}{Cobra} and \href{https://github.com/fsnotify/fsnotify}{FSnotify}.
@@ -197,7 +201,7 @@
 		}
 	}
 	\hypertarget{cocainate}{
-		\cventry{since January 2022}{\texttt{cocainate}}{\ghurl{AppleGamer22/cocainate}}{}{}{
+		\cventry{since January 2022}{\texttt{cocainate}}{\ghurl{AppleGamer22/cocainate}}{Go, Linux}{}{
 			\begin{itemize}
 				\item A cross-platform re-implementation of the macOS utility \href{https://github.com/apple-oss-distributions/PowerManagement/tree/main/caffeinate}{\texttt{caffeinate}} that keeps the screen turned on either until stopped, for a set duration of time or while another process still runs.
 				% \item Built with \href{https://go.dev}{Go} and \href{https://cobra.dev}{Cobra}.
@@ -211,7 +215,7 @@
 	% 	\end{itemize}
 	% }
 	\hypertarget{sp}{
-		\cventry{2020 --- 2021}{\texttt{sp}}{\ghurl{AppleGamer22/sp}}{}{}{
+		\cventry{2020 --- 2021}{\texttt{sp}}{\ghurl{AppleGamer22/sp}}{Kotlin}{}{
 			\begin{itemize}
 				\item A \href{https://papermc.io}{Minecraft server plugin} that enforces password authentication on player before allowing client-server interaction.
 				% \item Built with \href{https://kotlinlang.org}{Kotlin}.
@@ -219,12 +223,12 @@
 		}
 	}
 	% \hypertarget{scr}{
-	% 	\cventry{April 2019 --- May 2022}{scr-web}{\ghurl{AppleGamer22/scr-web}}{}{}{
+	% 	\cventry{2019 --- 2022}{scr-web}{\ghurl{AppleGamer22/scr-web}}{TypeScript, Angular, Docker, MongoDB}{}{
 	% 		\begin{itemize}
 	% 			\item My previous attempt at building a full-stack (and a CLI) social media scraper with a single-page website framework and a RESTful server.
-	% 			\item Server-side is built with \href{https://typescriptlang.org}{TypeScript} \& \href{https://nestjs.com}{Nest} (with a \href{https://nodejs.org}{Node.js} runtime) \href{https://www.mongodb.com}{MongoDB}, \href{https://jwt.io}{JSON Web Tokens} (JWTs) and \href{https://www.docker.com}{Docker}.
-	% 			\item Client-side is built with \href{https://angular.io}{Angular} and \href{https://ionicframework.com}{Ionic}.
-	% 			\item The full-stack package is bundled with \href{https://nx.dev}{Nx}.
+	% 			% \item Server-side is built with \href{https://typescriptlang.org}{TypeScript} \& \href{https://nestjs.com}{Nest} (with a \href{https://nodejs.org}{Node.js} runtime) \href{https://www.mongodb.com}{MongoDB}, \href{https://jwt.io}{JSON Web Tokens} (JWTs) and \href{https://www.docker.com}{Docker}.
+	% 			% \item Client-side is built with \href{https://angular.io}{Angular} and \href{https://ionicframework.com}{Ionic}.
+	% 			% \item The full-stack package is bundled with \href{https://nx.dev}{Nx}.
 	% 		\end{itemize}
 	% 	}
 	% }
