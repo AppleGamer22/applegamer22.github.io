@@ -1,7 +1,12 @@
 { config, pkgs, ... }:
-
+let
+  home-manager = builtins.fetchTarball "https://github.com/rycee/home-manager/archive/release-23.05.tar.gz";
+in
 {
-  imports = [./hardware-configuration.nix];
+  imports = [
+    ./hardware-configuration.nix
+    (import "${home-manager}/nixos")
+  ];
 
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
@@ -64,29 +69,35 @@
     };
   };
 
+  home-manager.useUserPackages = true;
+  home-manager.useGlobalPkgs = true;
+  home-manager.users.applegamer22 = {
+    home.stateVersion = "23.05";
+    home.programs.git = {
+      enable = true;
+      lfs.enable = true;
+      userName  = "Omri Bornstein";
+      userEmail = "omribor@gmail.com";
+      extraConfig = {
+        commit.gpgSign = true;
+        tag.gpgSign = true;
+        push.autoSetupRemote = true;
+        core.editor = "nano";
+        color = {
+          status = "auto";
+          branch = "auto";
+          interactive = "auto";
+          diff = "auto";
+        };
+      };
+    };
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   virtualisation.docker.enable = true;
   virtualisation.virtualbox.host.enable = true;
   virtualisation.virtualbox.host.enableExtensionPack = true;
-  programs.git = {
-    enable = true;
-    lfs.enable = true;
-    userName  = "Omri Bornstein";
-    userEmail = "omribor@gmail.com";
-    extraConfig = {
-      commit.gpgSign = true;
-      tag.gpgSign = true;
-      push.autoSetupRemote = true;
-      core.editor = "nano";
-      color = {
-        status = "auto";
-        branch = "auto";
-        interactive = "auto";
-        diff = "auto";
-      };
-    };
-  };
 
   environment.shells = [pkgs.zsh];
   environment.systemPackages = with pkgs; [
@@ -112,6 +123,8 @@
     # Node.js packages
     nodePackages.tailwindcss
     # utilities
+    zip
+    unzip
     gnumake
     binutils
     clang-tools
@@ -131,6 +144,7 @@
     neofetch
     ansible
     tailscale
+    mongodb-tools
     # LaTeX
     pandoc
     pandoc-lua-filters
