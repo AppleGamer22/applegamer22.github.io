@@ -25,7 +25,7 @@
 		\phantomsection{}
 		\addcontentsline{toc}{section}{#2}
 		\strut\sectionstyle{\textbf{\Large #2}}
-		\par\nobreak
+		{\par\nobreak}
 		%\addvspace{0.5ex}{\@afterheading}
 	}
 \makeatother
@@ -37,7 +37,7 @@
 		\phantomsection{}
 		\addcontentsline{toc}{subsection}{#2}
 		\strut\subsectionstyle{\textbf{\large #2}}
-		\par\nobreak
+		{\par\nobreak}
 		%\addvspace{0.5ex}{\@afterheading}
 	}
 \makeatother
@@ -73,7 +73,7 @@
 	\cventry{2020 --- In Progress}{Bachelor of Computer Science}{\href{https://www.monash.edu/it}{Monash University}}{Melbourne}{}{}
 	% \cventry{2017 --- 2019}{SACE}{\href{https://asms.sa.edu.au}{Australian Science \& Mathematics School} (ASMS)}{Adelaide}{}{}
 
-	\section{Skills}
+	\section{Skills}\label{sec:skills}
 	% \subsection{Computer Programming Languages}
 	% \cvitemwithcomment{\href{https://go.dev}{Go}}{
 	% 	\hyperlink{raker}{\texttt{raker}},
@@ -157,14 +157,14 @@
 
 	\subsection{Research}
 	\hypertarget{FIT3144}{
-		\cventry{2023 Semester 1 \& 2}{Research Assistant}{Monash University's \href{https://handbook.monash.edu/2023/units/FIT3144}{FIT3144 unit}}{Melbourne}{}{
+		\cventry{2023 Semester 1 \& 2}{Research Assistant}{Monash University's \href{https://handbook.monash.edu/2023/units/FIT3144}{FIT3144 unit}}{\hyperref[sec:skills]{JavaScript}}{}{
 			\begin{itemize}
 				\item Extended a browser-based tool \href{https://arxiv.org/abs/2302.06277}{(Wagner et al., 2023)} used for building evolutionary algorithms in educational settings. Supervised by \href{https://research.monash.edu/en/persons/markus-wagner}{Markus Wagner}.
 			\end{itemize}
 		}
 	}
 	\hypertarget{FIT2082}{
-		\cventry{2021 Semester 2}{Research Assistant}{Monash University's \href{https://handbook.monash.edu/2021/units/FIT2082}{FIT2082 unit}}{Melbourne}{}{
+		\cventry{2021 Semester 2}{Research Assistant}{Monash University's \href{https://handbook.monash.edu/2021/units/FIT2082}{FIT2082 unit}}{\hyperref[sec:skills]{C/C++, Python \& Linux}}{}{
 			\begin{itemize}
 				\item \href{https://github.com/AppleGamer22/FIT2082}{Contributed} to an \href{https://bitbucket.org/gkgange/lazycbs}{existing codebase}, based on prior research \href{https://ojs.aaai.org/index.php/ICAPS/article/view/3471}{(Gange, Harabor and Stuckey, 2021)} about \textsl{Lazy CBS}, a \href{https://en.wikipedia.org/wiki/Pathfinding\#Multi-agent_pathfinding}{Multi-Agent Path Finding} (MAPF) algorithm.
 				% \item Worked on enabling \httplink[\textsl{Python}-to-\textsl{C++} bindings]{pybind11.readthedocs.io/en/stable/}, such that the compiled \textsl{Lazy CBS} codebase can be used as a Python-facing library for future projects.
@@ -177,13 +177,13 @@
 	}
 
 	\subsection{Freelancing}
-	\cventry{2021 Q3 --- Q4}{Freelance Programmer}{Contract}{Melbourne}{}{\begin{itemize}
+	\cventry{2021 Q3 --- Q4}{Freelance Programmer}{Contract}{Melbourne}{\hyperref[sec:skills]{Go \& Windows}}{\begin{itemize}
 		\item Implemented a custom fault-tolerant file back-up system that enables the continuation of file transferring from a variably-approximate point in time before the back-up disruption.
 	\end{itemize}}
 
 	\section{Open-Source Projects}\label{sec:open-source}
 	\hypertarget{raker}{
-		\cventry{since May 2022}{\texttt{raker}}{\ghurl{AppleGamer22/raker}}{Go, Docker, MongoDB}{}{
+		\cventry{since May 2022}{\texttt{raker}}{\ghurl{AppleGamer22/raker}}{\hyperref[sec:skills]{Go, Docker \& MongoDB}}{}{
 			\begin{itemize}
 				\item A social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
 				% \item Server-side is built with \href{https://go.dev}{Go}, \href{https://www.mongodb.com}{MongoDB}, \href{https://jwt.io}{JSON Web Tokens} (JWTs) and \href{https://www.docker.com}{Docker}.
@@ -193,7 +193,7 @@
 		}
 	}
 	\hypertarget{stalk}{
-		\cventry{since May 2022}{\texttt{stalk}}{\ghurl{AppleGamer22/stalk}}{Go, Linux}{}{
+		\cventry{since May 2022}{\texttt{stalk}}{\ghurl{AppleGamer22/stalk}}{\hyperref[sec:skills]{Go \& Linux}}{}{
 			\begin{itemize}
 				\item A cross-platform file-watcher that can run a command after each file-system operation on a given set of files or simply wait once until a file is changed.
 				% \item Built with \href{https://go.dev}{Go}, \href{https://cobra.dev}{Cobra} and \href{https://github.com/fsnotify/fsnotify}{FSnotify}.
@@ -201,7 +201,7 @@
 		}
 	}
 	\hypertarget{cocainate}{
-		\cventry{since January 2022}{\texttt{cocainate}}{\ghurl{AppleGamer22/cocainate}}{Go, Linux}{}{
+		\cventry{since January 2022}{\texttt{cocainate}}{\ghurl{AppleGamer22/cocainate}}{\hyperref[sec:skills]{Go \& Linux}}{}{
 			\begin{itemize}
 				\item A cross-platform re-implementation of the macOS utility \href{https://github.com/apple-oss-distributions/PowerManagement/tree/main/caffeinate}{\texttt{caffeinate}} that keeps the screen turned on either until stopped, for a set duration of time or while another process still runs.
 				% \item Built with \href{https://go.dev}{Go} and \href{https://cobra.dev}{Cobra}.
@@ -215,7 +215,7 @@
 	% 	\end{itemize}
 	% }
 	\hypertarget{sp}{
-		\cventry{2020 --- 2021}{\texttt{sp}}{\ghurl{AppleGamer22/sp}}{Kotlin}{}{
+		\cventry{2020 --- 2021}{\texttt{sp}}{\ghurl{AppleGamer22/sp}}{\hyperref[sec:skills]{Kotlin/Java}}{}{
 			\begin{itemize}
 				\item A \href{https://papermc.io}{Minecraft server plugin} that enforces password authentication on player before allowing client-server interaction.
 				% \item Built with \href{https://kotlinlang.org}{Kotlin}.
