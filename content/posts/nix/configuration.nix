@@ -83,6 +83,7 @@ in
         commit.gpgSign = true;
         tag.gpgSign = true;
         push.autoSetupRemote = true;
+        # credential.helper = "store";
         core.editor = "nano";
         color = {
           status = "auto";
@@ -150,6 +151,7 @@ in
     ffmpeg
     cpufetch
     neofetch
+    onefetch
     ansible
     tailscale
     mongodb-tools
@@ -270,6 +272,7 @@ in
       "HIST_IGNORE_ALL_DUPS"
       "HIST_SAVE_NO_DUPS"
       "HIST_REDUCE_BLANKS"
+      "HIST_IGNORE_SPACE"
     ];
     syntaxHighlighting = {
       enable = true;
@@ -335,6 +338,8 @@ in
       grep = "grep --color=auto";
       bc = "bc -l";
       gitkraken = "git log --graph --decorate --oneline";
+      incognito = " unset HISTFILE";
+      mongoexport = "me() {mongoexport -d $1 -c $2 -o $2.json; unset -f me}; me";
     };
     promptInit = ''
       source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
