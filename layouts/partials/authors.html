@@ -2,7 +2,7 @@
 	{{range .Params.authors}}
 		{{- $author := index site.Data . -}}
 		{{if $author}}
-			<div class="flex">
+			<div class="flex py-2 first:pt-0 last:pb-0">
 				{{with $author.image}}
 					{{- $image := (resources.GetRemote .).Resize `160x` -}}
 					<img

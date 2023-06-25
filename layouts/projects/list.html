@@ -35,7 +35,9 @@
 								</div>
 							</section>
 						{{end}}
-						{{partial "authors.html" .}}
+						<section class="max-w-prose">
+							{{partial "authors.html" .}}
+						</section>
 					{{end}}
 				{{end}}
 			{{else}}
@@ -48,7 +50,9 @@
 							</div>
 						</section>
 					{{end}}
-					{{partial "authors.html" .}}
+					<section class="max-w-prose">
+						{{partial "authors.html" .}}
+					</section>
 				{{end}}
 			{{end}}
 		</section>
