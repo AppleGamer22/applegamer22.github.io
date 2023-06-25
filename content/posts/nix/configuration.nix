@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 let
   home-manager = builtins.fetchTarball "https://github.com/rycee/home-manager/archive/release-23.05.tar.gz";
+  unstablePackages = builtins.fetchTarball "https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz";
 in
 {
   imports = [
@@ -93,7 +94,14 @@ in
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    packageOverrides = pkgs: with pkgs; {
+      unstable = import unstablePackages {
+        config = config.nixpkgs.config;
+      };
+    };
+  };
 
   virtualisation.docker.enable = true;
   virtualisation.virtualbox.host.enable = true;
