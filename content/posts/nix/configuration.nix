@@ -200,6 +200,7 @@ in
     exiftool
     poppler_utils
     binwalk
+    pwntools
     hashcat
     john
     cewl
