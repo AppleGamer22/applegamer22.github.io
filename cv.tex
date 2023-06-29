@@ -20,21 +20,25 @@
 
 \makeatletter
 	\RenewDocumentCommand{\section}{sm}{
-		\par\addvspace{1ex}
+		\par
+		%\addvspace{1ex}
 		\phantomsection{}
 		\addcontentsline{toc}{section}{#2}
-		\strut\sectionstyle{\textbf{\huge #2}}
-		\par\nobreak\addvspace{0.5ex}{\@afterheading}
+		\strut\sectionstyle{\textbf{\Large #2}}
+		{\par\nobreak}
+		%\addvspace{0.5ex}{\@afterheading}
 	}
 \makeatother
 
 \makeatletter
 	\RenewDocumentCommand{\subsection}{sm}{
-		\par\addvspace{1ex}
+		\par
+		%\addvspace{1ex}
 		\phantomsection{}
 		\addcontentsline{toc}{subsection}{#2}
 		\strut\subsectionstyle{\textbf{\large #2}}
-		\par\nobreak\addvspace{0.5ex}{\@afterheading}
+		{\par\nobreak}
+		%\addvspace{0.5ex}{\@afterheading}
 	}
 \makeatother
 
@@ -51,12 +55,12 @@
 	SlantedFont = FiraCode-Regular.ttf,
 	SlantedFeatures = FakeSlant
 ]{Fira Code}
-\setlength{\hintscolumnwidth}{0.15\textwidth}
+\setlength{\hintscolumnwidth}{0.2\textwidth}
 
 \name{Omri}{Bornstein}
 % \photo[69pt]{assets/author.png}
 \title{Software Engineer}
-\address{Greater Melbourne Area}{}{Australia}
+% \address{Greater Melbourne Area}{}{Australia}
 \email{omribor@gmail.com}
 \homepage{applegamer22.github.io}
 \social[linkedin]{omri-bornstein}
@@ -66,22 +70,66 @@
 \raggedleft\raggedright\begin{document}
 	\maketitle
 	\section{Education}
-	\cventry{2020 \\ In Progress}{Bachelor of Computer Science}{\href{https://www.monash.edu/it}{Monash University}}{Melbourne}{}{}
-	\cventry{2017 \\ 2019}{South Australian Certificate of Education}{\href{https://asms.sa.edu.au}{Australian Science \& Mathematics School} (ASMS)}{Adelaide}{}{}
-	\section{Experience}
+	\cventry{2020 --- In Progress}{Bachelor of Computer Science}{\href{https://www.monash.edu/it}{Monash University}}{Melbourne}{}{}
+	% \cventry{2017 --- 2019}{SACE}{\href{https://asms.sa.edu.au}{Australian Science \& Mathematics School} (ASMS)}{Adelaide}{}{}
 
-	\subsection{Volunteering}
-	\cventry{2023}{President}{\href{https://monsec.io/team/}{Monash Cyber Security Club} (MonSec)}{Melbourne}{}{\begin{itemize}
-		\item Coordinated collaboration with the university's \href{https://www.monash.edu/it}{Faculty of Information Technology} for purposes of events and advertising.
+	\section{Skills}\label{sec:skills}
+	% \subsection{Computer Programming Languages}
+	% \cvitemwithcomment{\href{https://go.dev}{Go}}{
+	% 	\hyperlink{raker}{\texttt{raker}},
+	% 	\hyperlink{stalk}{\texttt{stalk}} \&
+	% 	\hyperlink{cocainate}{\texttt{cocainate}}
+	% }{server-side \& command-line interfaces (CLIs)}
+	% \cvitemwithcomment{JavaScript}{\hyperlink{FIT3144}{FIT3144 research project}, \hyperlink{scr}{scr-web}}{full-stack}
+	% % \cvitemwithcomment{JavaScript}{}{client-side on web browsers}
+	% \cvitemwithcomment{\href{https://python.org}{Python}}{\hyperlink{FIT2082}{FIT2082 research project}}{data analysis}
+	% \cvitemwithcomment{\href{https://kotlinlang.org}{Kotlin}/Java}{\hyperlink{sp}{\texttt{sp}}}{Minecraft plugins}
+	% \cvitemwithcomment{C/C++}{\hyperlink{FIT2082}{FIT2082 research project}}{}
+
+	% \subsection{Document Markup Languages}
+	% \cvitemwithcomment{HTML \& CSS}{}{client-side UI on web browsers}
+	% \cvitemwithcomment{\href{https://www.latex-project.org}{\TeX/\LaTeX}}{}{PDF document typesetting}
+	% \cvitemwithcomment{Markdown}{}{technical documentation and communication}
+	% \subsection{Natural Languages}
+	% \cvitemwithcomment{English}{full professional proficiency}{}
+	% \cvitemwithcomment{Hebrew}{native or bilingual proficiency}{}
+
+	% \subsection{Tools}
+	% \cvitemwithcomment{\href{https://git-scm.com}{Git}}{\hyperref[sec:open-source]{open-source projects}}{source code version control}
+	% \cvitemwithcomment{\href{https://github.com}{GitHub}/\href{https://gitlab.com}{GitLab}}{\hyperref[sec:open-source]{open-source projects}}{collaboration \& CI/CD}
+	% \cvitemwithcomment{\href{https://www.mongodb.com}{MongoDB}}{
+		% \hyperlink{raker}{\texttt{raker}} \& \hyperlink{scr}{scr-web}
+	% }{document non-relational database}
+	% \cvitemwithcomment{SQL}{}{relational database querying}
+	% \cvitemwithcomment{\href{https://www.docker.com}{Docker}}{
+	% 	\hyperlink{raker}{\texttt{raker}} \& \hyperlink{scr}{scr-web}
+	% }{container-style packaging}
+	% \cvitemwithcomment{\href{https://kubernetes.io}{Kubernetes}}{}{container orchestration}
+	% \cvitemwithcomment{\href{https://vagrantup.com}{Vagrant}}{}{virtual machine (VM) management}
+	% \cvitemwithcomment{\href{https://terraform.io}{Terraform}}{}{infrustracture definitions as code}
+
+	% \subsection{Other}
+	\begin{itemize}
+		\item \textbf{Programming Languages}: \href{https://go.dev}{Go}, JavaScript/\href{https://www.typescriptlang.org/}{TypeScript}, \href{https://python.org}{Python}, \href{https://kotlinlang.org}{Kotlin}/Java, C/C++
+		\item \textbf{Tools}: \href{https://git-scm.com}{Git} (with \href{https://github.com}{GitHub}/\href{https://gitlab.com}{GitLab}), \href{https://www.mongodb.com}{MongoDB}, \href{https://www.docker.com}{Docker}, \href{https://terraform.io}{Terraform}
+		\item \textbf{Platforms}: Linux, cloud-native, web servers/browsers, macOS, Windows
+		\item \textbf{Design \& Implementation}: algorithms \& data structures, object-oriented programming, test-driven development
+		\item \textbf{Soft Skills}: technical writing, critical/analytical thinking, presenting/public speaking, research, troubleshooting/debugging, explaining, collaboration/teamwork
+	\end{itemize}
+
+	\section{Experience}
+	\subsection{\href{https://monsec.io/team/}{Monash Cyber Security Club} (MonSec)}
+	\cventry{2023}{President}{}{}{}{\begin{itemize}
+		% \item Coordinated collaboration with the university's \href{https://www.monash.edu/it}{Faculty of Information Technology} for purposes of events and advertising.
 		\item Involved with industry relations for the purposes of sponsorship deals and collaborations.
-		\item Added to the \href{https://monsec.io}{club's website} a footer with social media links and a \href{https://en.wikipedia.org/wiki/Tree_(data_structure)}{tree}-like content organisation system.
-		\item Added more Azure infrastructure and an automation pipeline to the \href{https://ctf.monsec.io}{club's CTFd server} with \href{https://terraform.io}{Terraform} and \href{https://github.com/features/actions}{GitHub Actions}.
-		\item Successfully registered the club for \href{https://www.canva.com/canva-for-nonprofits/}{Canva} and \href{https://socialimpact.github.com}{GitHub} non-profit licenses.
+		% \item Added to the \href{https://monsec.io}{club's website} a footer with social media links and a \href{https://en.wikipedia.org/wiki/Tree_(data_structure)}{tree}-like content organisation system.
+		% \item Added more Azure infrastructure and an automation pipeline to the \href{https://ctf.monsec.io}{club's CTFd server} with \href{https://terraform.io}{Terraform} and \href{https://github.com/features/actions}{GitHub Actions}.
+		% \item Successfully registered the club for \href{https://www.canva.com/canva-for-nonprofits/}{Canva} and \href{https://socialimpact.github.com}{GitHub} non-profit licenses.
 		\item Organised and ran an introductory-level workshop about command-line Linux (a recording is available on \href{https://youtu.be/WXTVsIHrAKM}{YouTube}).
 	\end{itemize}}
-	\cventry{June 2022 \\ December 2022}{Vice President}{\href{https://monsec.io/team/}{Monash Cyber Security Club} (MonSec)}{Melbourne}{}{\begin{itemize}
+	\cventry{2022 Semster 2}{Vice President}{}{}{}{\begin{itemize}
 		\item Coordinated collaboration with the university's \href{https://www.monash.edu/it}{Faculty of Information Technology} for purposes of events and advertising.
-		\item Involved with industry relations for the purposes of sponsorship deals and collaborations.
+		% \item Involved with industry relations for the purposes of sponsorship deals and collaborations.
 		% \item Club \href{https://monsec.io}{website}:
 		% \begin{itemize}
 		% 	\item Updated the \href{https://github.com/panr/hugo-theme-terminal}{theme} to its latest version, and resolved new layout bugs in collaboration with other club committee members.
@@ -89,76 +137,74 @@
 		% \end{itemize}
 		% \item Changed our \href{https://ctf.monsec.io}{CTFd}'s \href{https://github.com/hmrserver/CTFd-theme-pixo}{theme}. In addition, I disabled the theme's default CRT-like flicker effect by editing its CSS files, such that people with epilepsy would not get an inferior experience.
 		\item Organised and ran an introductory-level workshop about \href{https://en.wikipedia.org/wiki/Steganography}{steganography} (a recording is available on \href{https://youtu.be/oc_Ndi7p3Eg}{YouTube}).
-		\item Represented the club at Faculty of IT's \href{https://www.monash.edu/it/events/2022/take-ctrl}{Take CTRL} and \href{https://www.monash.edu/it/events/2022/munch-and-mingle}{Munch \& Mingle}.
-		\item \href{https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)}{Capture the Flag} (CTF) participation: \href{https://applegamer22.github.io/posts/uactf/}{The University of Adelaide's CTF}, \href{https://applegamer22.github.io/posts/shell_ctf/}{SHELL CTF}, \href{https://applegamer22.github.io/posts/downunderctf/}{DownUnderCTF}
+		% \item Represented the club at Faculty of IT's \href{https://www.monash.edu/it/events/2022/take-ctrl}{Take CTRL} and \href{https://www.monash.edu/it/events/2022/munch-and-mingle}{Munch \& Mingle}.
+		% \item \href{https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)}{Capture the Flag} (CTF) participation: \href{https://applegamer22.github.io/posts/uactf/}{The University of Adelaide's CTF}, \href{https://applegamer22.github.io/posts/shell_ctf/}{SHELL CTF}, \href{https://applegamer22.github.io/posts/downunderctf/}{DownUnderCTF}
 	\end{itemize}}
-	\cventry{January 2022 \\ June 2022}{Secretary}{\href{https://monsec.io/team/}{Monash Cyber Security Club} (MonSec)}{Melbourne}{}{\begin{itemize}
+	\cventry{2022 Semester 1}{Secretary}{}{}{}{\begin{itemize}
 		\item Organised and recorded official committee and club meetings.
-		\item Represented the club during the orientation week of 2022's $1^{\text{st}}$ semester.
+		% \item Represented the club during the orientation week of 2022's $1^{\text{st}}$ semester.
 		\item Organised and ran an introductory-level binary reverse-engineering workshop (a recording is available on \href{https://youtu.be/893L13SxDUg}{YouTube}).
-		\item Started a section on the \href{https://monsec.io/resources/}{resources page} of the club's website, with a detailed section with a guide on how to easily install and set-up a \href{https://www.kali.org}{Kali Linux} virtual machine.
-		\item Wrote a \href{https://www.python.org}{Python} data visualisation program in order to analyse membership data, such that it would be easier for future committees to compile reports, to understand registration trends and to apply for student association grants.
+		\item Wrote a guide on the \href{https://monsec.io/resources/}{resources page of the club's website} on how to easily install and set-up a \href{https://www.kali.org}{Kali Linux} virtual machine.
+		% \item Wrote a \href{https://www.python.org}{Python} data visualisation program in order to analyse membership data, such that it would be easier for future committees to compile reports, to understand registration trends and to apply for student association grants.
 	\end{itemize}}
-	\cventry{May 2021 \\ January 2022}{Assistant Member Training Officer}{\href{https://monsec.io/team/}{Monash Cyber Security Club} (MonSec)}{Melbourne}{}{
+	\cventry{2021 Semester 2}{Assistant Member Training Officer}{\href{https://monsec.io/team/}{Monash Cyber Security Club} (MonSec)}{Melbourne}{}{
 		\begin{itemize}
 			\item Helped to organise and ran a workshop about brute-forcing tools used for penetration testing.
 			\item Assisted in the club's management and operations.
-			\item Participated in \href{https://applegamer22.github.io/posts/angstromctf/}{{\aa}ngstromCTF}.
+			% \item Participated in \href{https://applegamer22.github.io/posts/angstromctf/}{{\aa}ngstromCTF}.
 		\end{itemize}
 	}
 
-	\subsection{Research}%\label{sec:research}
+	\subsection{Research}
 	\hypertarget{FIT3144}{
-		\cventry{2023 \\ Semester 1 \& 2}{Research Assistant}{Monash University's \href{https://handbook.monash.edu/2023/units/FIT3144}{FIT3144 unit}}{Melbourne}{}{
+		\cventry{2023 Semester 1 \& 2}{Research Assistant}{Monash University's \href{https://handbook.monash.edu/2023/units/FIT3144}{FIT3144 unit}}{\hyperref[sec:skills]{JavaScript}}{}{
 			\begin{itemize}
-				\item Extending a browser-based tool \href{https://arxiv.org/abs/2302.06277}{(Wagner et al., 2023)} used for building evolutionary algorithms in educational settings.
-				% \item Supervised by \href{https://research.monash.edu/en/persons/markus-wagner}{Markus Wagner}.
+				\item Extended a browser-based tool \href{https://arxiv.org/abs/2302.06277}{(Wagner et al., 2023)} used for building evolutionary algorithms in educational settings. Supervised by \href{https://research.monash.edu/en/persons/markus-wagner}{Markus Wagner}.
 			\end{itemize}
 		}
 	}
 	\hypertarget{FIT2082}{
-		\cventry{2021 Semester 2}{Research Assistant}{Monash University's \href{https://handbook.monash.edu/2021/units/FIT2082}{FIT2082 unit}}{Melbourne}{}{
+		\cventry{2021 Semester 2}{Research Assistant}{Monash University's \href{https://handbook.monash.edu/2021/units/FIT2082}{FIT2082 unit}}{\hyperref[sec:skills]{C/C++, Python \& Linux}}{}{
 			\begin{itemize}
-				\item I \href{https://github.com/AppleGamer22/FIT2082}{contributed} to an \href{https://bitbucket.org/gkgange/lazycbs}{existing codebase}, based on prior research by \href{https://ojs.aaai.org/index.php/ICAPS/article/view/3471}{(Gange, Harabor and Stuckey, 2021)} about \textsl{Lazy CBS}, their \href{https://en.wikipedia.org/wiki/Pathfinding\#Multi-agent_pathfinding}{Multi-Agent Path Finding} (MAPF) algorithm.
-				\begin{itemize}
-					\item I modified the \textsl{Lazy CBS} codebase such that the algorithm also outputs the final set of constraints that is used to rule out paths, such that \textsl{Lazy CBS} is formally an \textbf{Explainable} Multi-Agent Path Finding (XMAPF) algorithm.
-					\item I learned how to enable \httplink[\textsl{Python}-to-\textsl{C++} bindings]{pybind11.readthedocs.io/en/stable/}, such that the compiled \textsl{Lazy CBS} codebase can be used as a Python-facing library for future projects.
-				\end{itemize}
-				\item Built with C/C++ and \href{https://python.org}{Python} on top of Linux, supervised by \href{https://research.monash.edu/en/persons/daniel-harabor}{Daniel Harabor} and \href{https://research.monash.edu/en/persons/mor-vered}{Mor Vered}.
+				\item \href{https://github.com/AppleGamer22/FIT2082}{Contributed} to an \href{https://bitbucket.org/gkgange/lazycbs}{existing codebase}, based on prior research \href{https://ojs.aaai.org/index.php/ICAPS/article/view/3471}{(Gange, Harabor and Stuckey, 2021)} about \textsl{Lazy CBS}, a \href{https://en.wikipedia.org/wiki/Pathfinding\#Multi-agent_pathfinding}{Multi-Agent Path Finding} (MAPF) algorithm.
+				% \item Worked on enabling \httplink[\textsl{Python}-to-\textsl{C++} bindings]{pybind11.readthedocs.io/en/stable/}, such that the compiled \textsl{Lazy CBS} codebase can be used as a Python-facing library for future projects.
+				\item Built with C/C++ and \href{https://python.org}{Python} for Linux-based platforms. Supervised by \href{https://research.monash.edu/en/persons/daniel-harabor}{Daniel Harabor} and \href{https://research.monash.edu/en/persons/mor-vered}{Mor Vered}.
+				% \begin{itemize}
+					% \item Modified the \textsl{Lazy CBS} codebase such that the algorithm also outputs the final set of constraints that is used to rule out paths, such that \textsl{Lazy CBS} is formally an \textbf{Explainable} Multi-Agent Path Finding (XMAPF) algorithm.
+				% \end{itemize}
 			\end{itemize}
 		}
 	}
 
 	\subsection{Freelancing}
-	\cventry{June 2021 \\ December 2021}{Freelance Programmer}{Contract}{Melbourne}{}{\begin{itemize}
-		\item Implemented a custom fault-tolerant file back-up system that enables the continuation of file transferring from a variably-approximate point in time before the back-up disruption.
-		\item Built with \href{https://go.dev}{Go}.
+	\cventry{2021 Q3 --- Q4}{Software Engineer}{Contract}{Melbourne}{\hyperref[sec:skills]{Go, Windows \& test-driven development}}{\begin{itemize}
+		\item Implemented a custom fault-tolerant file back-up system that enables the continuation of file transferring from a variably-approximate point in time before the disruption. Available at \ghurl{AppleGamer22/rb}.
 	\end{itemize}}
 
 	\section{Open-Source Projects}\label{sec:open-source}
 	\hypertarget{raker}{
-		\cventry{May 2022 \\ Present}{\texttt{raker}}{\ghurl{AppleGamer22/raker}}{}{}{
+		\cventry{since May 2022}{\texttt{raker}}{\ghurl{AppleGamer22/raker}}{\hyperref[sec:skills]{Go, Docker \& MongoDB}}{}{
 			\begin{itemize}
 				\item A social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
-				\item Server-side is built with \href{https://go.dev}{Go}, \href{https://www.mongodb.com}{MongoDB}, \href{https://jwt.io}{JSON Web Tokens} (JWTs) and \href{https://www.docker.com}{Docker}.
-				\item Client-side is built with HTML/CSS (\href{https://getbootstrap.com}{Bootstrap}).
-				\item The companion CLI utility and configuration are built with \href{https://cobra.dev}{Cobra} and \href{https://github.com/spf13/viper}{Viper}.
+				% \item Server-side is built with \href{https://go.dev}{Go}, \href{https://www.mongodb.com}{MongoDB}, \href{https://jwt.io}{JSON Web Tokens} (JWTs) and \href{https://www.docker.com}{Docker}.
+				% \item Client-side is built with HTML/CSS (\href{https://getbootstrap.com}{Bootstrap}).
+				% \item The companion CLI utility and configuration are built with \href{https://cobra.dev}{Cobra} and \href{https://github.com/spf13/viper}{Viper}.
 			\end{itemize}
 		}
 	}
-	\hypertarget{stalk}{
-		\cventry{May 2022 \\ Present}{\texttt{stalk}}{\ghurl{AppleGamer22/stalk}}{}{}{
-			\begin{itemize}
-				\item A cross-platform file-watcher that can run a command after each file-system operation on a given set of files or simply wait once until a file is changed.
-				\item Built with \href{https://go.dev}{Go}, \href{https://cobra.dev}{Cobra} and \href{https://github.com/fsnotify/fsnotify}{FSnotify}.
-			\end{itemize}
-		}
-	}
+	% \hypertarget{stalk}{
+	% 	\cventry{since May 2022}{\texttt{stalk}}{\ghurl{AppleGamer22/stalk}}{\hyperref[sec:skills]{Go \& Linux}}{}{
+	% 		\begin{itemize}
+	% 			\item A cross-platform file-watcher that can run a command after each file-system operation on a given set of files or simply wait once until a file is changed.
+	% 			% \item Built with \href{https://go.dev}{Go}, \href{https://cobra.dev}{Cobra} and \href{https://github.com/fsnotify/fsnotify}{FSnotify}.
+	% 		\end{itemize}
+	% 	}
+	% }
 	\hypertarget{cocainate}{
-		\cventry{January 2022 \\ Present}{\texttt{cocainate}}{\ghurl{AppleGamer22/cocainate}}{}{}{
+		\cventry{since January 2022}{\texttt{cocainate}}{\ghurl{AppleGamer22/cocainate}}{\hyperref[sec:skills]{Go, macOS \& Linux}}{}{
 			\begin{itemize}
 				\item A cross-platform re-implementation of the macOS utility \href{https://github.com/apple-oss-distributions/PowerManagement/tree/main/caffeinate}{\texttt{caffeinate}} that keeps the screen turned on either until stopped, for a set duration of time or while another process still runs.
-				\item Built with \href{https://go.dev}{Go} and \href{https://cobra.dev}{Cobra}.
+				% \item Built with \href{https://go.dev}{Go} and \href{https://cobra.dev}{Cobra}.
 			\end{itemize}
 		}
 	}
@@ -169,62 +215,21 @@
 	% 	\end{itemize}
 	% }
 	\hypertarget{sp}{
-		\cventry{June 2020 \\ January 2021}{\texttt{sp}}{\ghurl{AppleGamer22/sp}}{}{}{
+		\cventry{2020 --- 2021}{\texttt{sp}}{\ghurl{AppleGamer22/sp}}{\hyperref[sec:skills]{Kotlin/Java}}{}{
 			\begin{itemize}
-				\item My first attempt at building a \href{https://papermc.io}{Minecraft server plugin}. This plugin adds the requirement that the player supplies the password (via a server command) before proper server interaction is allowed, and as long as the password isn't provided, the currently-unauthorized player is blinded and immobile.
-				\item Built with \href{https://kotlinlang.org}{Kotlin}.
+				\item A \href{https://papermc.io}{Minecraft server plugin} that enforces password authentication on player before allowing client-server interaction.
+				% \item Built with \href{https://kotlinlang.org}{Kotlin}.
 			\end{itemize}
 		}
 	}
 	\hypertarget{scr}{
-		\cventry{April 2019 \\ May 2022}{scr-web}{\ghurl{AppleGamer22/scr-web}}{}{}{
+		\cventry{2019 --- 2022}{scr-web}{\ghurl{AppleGamer22/scr-web}}{\hyperref[sec:skills]{TypeScript, Angular, Docker \& MongoDB}}{}{
 			\begin{itemize}
 				\item My previous attempt at building a full-stack (and a CLI) social media scraper with a single-page website framework and a RESTful server.
-				\item Server-side is built with \href{https://typescriptlang.org}{TypeScript} \& \href{https://nestjs.com}{Nest} (with a \href{https://nodejs.org}{Node.js} runtime) \href{https://www.mongodb.com}{MongoDB}, \href{https://jwt.io}{JSON Web Tokens} (JWTs) and \href{https://www.docker.com}{Docker}.
-				\item Client-side is built with \href{https://angular.io}{Angular} and \href{https://ionicframework.com}{Ionic}.
-				\item The full-stack package is bundled with \href{https://nx.dev}{Nx}.
+				% \item Server-side is built with \href{https://typescriptlang.org}{TypeScript} \& \href{https://nestjs.com}{Nest} (with a \href{https://nodejs.org}{Node.js} runtime) \href{https://www.mongodb.com}{MongoDB}, \href{https://jwt.io}{JSON Web Tokens} (JWTs) and \href{https://www.docker.com}{Docker}.
+				% \item Client-side is built with \href{https://angular.io}{Angular} and \href{https://ionicframework.com}{Ionic}.
+				% \item The full-stack package is bundled with \href{https://nx.dev}{Nx}.
 			\end{itemize}
 		}
 	}
-
-	\section{Skills}
-	\subsection{Computer Programming Languages}
-	\cvitemwithcomment{\href{https://go.dev}{Go}}{
-		\hyperlink{raker}{\texttt{raker}},
-		\hyperlink{stalk}{\texttt{stalk}} \&
-		\hyperlink{cocainate}{\texttt{cocainate}}
-	}{server-side \& command-line interfaces (CLIs)}
-	\cvitemwithcomment{JavaScript}{\hyperlink{FIT3144}{FIT3144 research project}, \hyperlink{scr}{scr-web}}{full-stack}
-	% \cvitemwithcomment{JavaScript}{}{client-side on web browsers}
-	\cvitemwithcomment{\href{https://python.org}{Python}}{\hyperlink{FIT2082}{FIT2082 research project}}{data analysis}
-	\cvitemwithcomment{\href{https://kotlinlang.org}{Kotlin}/Java}{\hyperlink{sp}{\texttt{sp}}}{Minecraft plugins}
-	\cvitemwithcomment{C/C++}{\hyperlink{FIT2082}{FIT2082 research project}}{}
-
-	% \subsection{Document Markup Languages}
-	% \cvitemwithcomment{HTML \& CSS}{}{client-side UI on web browsers}
-	% \cvitemwithcomment{\href{https://www.latex-project.org}{\TeX/\LaTeX}}{}{PDF document typesetting}
-	% \cvitemwithcomment{Markdown}{}{technical documentation and communication}
-	% \subsection{Natural Languages}
-	% \cvitemwithcomment{English}{full professional proficiency}{}
-	% \cvitemwithcomment{Hebrew}{native or bilingual proficiency}{}
-
-	\subsection{Tools}
-	\cvitemwithcomment{\href{https://git-scm.com}{Git}}{\hyperref[sec:open-source]{open-source projects}}{source code version control}
-	\cvitemwithcomment{\href{https://github.com}{GitHub}/\href{https://gitlab.com}{GitLab}}{\hyperref[sec:open-source]{open-source projects}}{collaboration \& CI/CD}
-	\cvitemwithcomment{\href{https://www.mongodb.com}{MongoDB}}{
-		\hyperlink{raker}{\texttt{raker}} \& \hyperlink{scr}{scr-web}
-	}{document non-relational database}
-	\cvitemwithcomment{SQL}{}{relational database querying}
-	\cvitemwithcomment{\href{https://www.docker.com}{Docker}}{
-		\hyperlink{raker}{\texttt{raker}} \& \hyperlink{scr}{scr-web}
-	}{container-style packaging}
-	\cvitemwithcomment{\href{https://kubernetes.io}{Kubernetes}}{}{container orchestration}
-	\cvitemwithcomment{\href{https://vagrantup.com}{Vagrant}}{}{virtual machine (VM) management}
-	\cvitemwithcomment{\href{https://terraform.io}{Terraform}}{}{infrustracture definitions as code}
-
-	\subsection{Other}
-	\begin{itemize}
-		\item \textbf{Platforms}: Linux, Cloud Native, web servers/browsers, macOS, Windows
-		% \item \textbf{Soft Skills}: technical writing, critical/analytical thinking, presenting/public speaking, research, troubleshooting/debugging, explaining, collaboration/teamwork
-	\end{itemize}
 	\end{document}
