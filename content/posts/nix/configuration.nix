@@ -19,7 +19,6 @@ in
   networking.nameservers = ["1.1.1.1" "8.8.8.8" "9.9.9.9"];
 
   time.timeZone = "Australia/Melbourne";
-
   i18n.defaultLocale = "en_GB.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_AU.UTF-8";
@@ -41,7 +40,6 @@ in
     xkbVariant = "";
   };
   services.printing.enable = true;
-
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -107,6 +105,8 @@ in
   virtualisation.docker.enable = true;
   virtualisation.virtualbox.host.enable = true;
   virtualisation.virtualbox.host.enableExtensionPack = true;
+  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd.qemu.swtpm.enable = true;
 
   environment.shells = [pkgs.zsh];
   environment.systemPackages = with pkgs; [
