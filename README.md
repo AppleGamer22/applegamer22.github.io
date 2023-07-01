@@ -247,7 +247,7 @@ The following CSS was added to `assets/css/custom.css` in order to decrease the 
 
 ```css
 @media(min-width: 640px) {
-	[dir="rtl"]  .prose ol > li, [dir="ltr"] .ltr\:sm\:mr-7 {
+	[dir="rtl"] .prose ol > li, [dir="ltr"] .ltr\:sm\:mr-7 {
 		margin-right: 0.75rem !important;
 	}
 }
