@@ -148,7 +148,7 @@ in
     caddy
     vhs
     yt-dlp
-    ffmpeg
+    ffmpeg_6-full
     cpufetch
     neofetch
     onefetch
