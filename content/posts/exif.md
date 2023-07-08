@@ -1,5 +1,5 @@
 ---
-title: Clearing EXIF Metadata
+title: Clearing EXIF Metadata from Pictures
 description: Clearing EXIF metadata with exiftool
 date: 2023-06-08
 tags: [EXIF]
