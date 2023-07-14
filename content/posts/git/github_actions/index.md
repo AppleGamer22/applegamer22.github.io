@@ -1,11 +1,12 @@
 ---
 title: GitHub Actions
-date: 2023-03-16
+date: 2023-07-14
 tags: [GitHub, CI/CD]
-draft: true
 ---
 # Deploying Hugo to GitHub Pages
 ## Event Definitions
+For my use case of deploying this website, I deploy on commits/PRs from the `master` branch, manual triggers and in the beginning of the year (Melbourne time).
+
 ```yml
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 name: GitHub Pages
@@ -20,7 +21,16 @@ on:
     # Melbourne new year converted to UTC
     - cron: 1 13 31 12 *
 ```
+
 ## Workflow
+The core part of the workflow is pretty simple and consist of:
+
+1. Pulling the code for the corresponding commit.
+1. Installing the `hugo` CLI on the workflow's environment.
+1. Restoring Hugo caches if necessary.
+1. Building the website into raw HTML, CSS, JavaScript and media assets.
+1. Uploading the assets to the `gh-pages` branch on GitHub.
+
 ```yml
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 jobs:
