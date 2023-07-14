@@ -48,7 +48,8 @@ iframe {
 /* Embedded PDF */
 object.pdf, iframe.pdf {
 	width: 100%;
-	height: 80vh;
+	/* A4 aspect ratio 1:sqrt(2) */
+	aspect-ratio: 1 / 1.41;
 }
 
 /* KaTeX multi-line blocks shrink font size in narrow screens */
