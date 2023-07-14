@@ -2,7 +2,7 @@
 title: Continuous Integration with GoReleaser
 description: Go (Programming Language) Continuous Integration with GoReleaser
 date: 2023-02-19
-tags: [GoReleaser, Go, Docker, Git, GitHub, CI/CD, SBoM, VHS]
+tags: [GoReleaser, Go, Docker, Git, GitHub, CI/CD, SBoM, Nix, VHS]
 ---
 This document summarises how I set-up [GoReleaser](https://goreleaser.com) Continuous Integration/Deployment (CI/CD) for my [Go (Programming Language)](/tags/go/) projects, such that I have a portable configuration for compilation, packaging and releasing settings. This is especially useful for projects that ship a software package with several files and need a portable way to define how it should be built/packaged based on operating system, processor architecture and environment (development, testing or production).
 
@@ -13,6 +13,7 @@ This document summarises how I set-up [GoReleaser](https://goreleaser.com) Conti
 * [`goreleaser`](https://goreleaser.com) command-line interface
 * [`docker`](https://docs.docker.com/engine/) container build system
 * [`syft`](https://github.com/anchore/syft) Software Bill of Materials generator
+* [`nix-prefetch-url`](https://nixos.org/manual/nix/stable/command-ref/nix-prefetch-url.html) for managing Nix caches in build time.
 
 ## Online Accounts
 * [GitHub](https://github.com) or [GitLab](https://gitlab.com)
@@ -96,8 +97,8 @@ After the builds are complete, each of them can be [referenced](https://goreleas
 archives:
   - id: unix
     builds:
-    - linux
-    - mac
+      - linux
+      - mac
     name_template: >-
       {{- .ProjectName}}_
       {{- .Version}}_
@@ -226,8 +227,33 @@ release:
     ```
 ```
 
+## Nix User Repository
+Through [community efforts](https://github.com/nix-community/NUR), the [`nix`](https://nixos.org) package manager allows users to install and manage software unofficial sources. In a similar fashion to [Homebrew Taps](#homebrew-tap), package definitions can be uploaded to a secondary `git` repository, from which the user obtains the installation instructions.
+
+```yml
+nix:
+  - homepage: https://github.com/AppleGamer22/raker
+    description: A social media scraper with less JavaScript than my previous one.
+    license: GPL3
+    repository:
+      owner: AppleGamer22
+      name: nur
+      token: "{{.Env.TAP_GITHUB_TOKEN}}"
+    commit_author:
+      name: Omri Bornstein
+      email: omribor@gmail.com
+    ids:
+      - unix
+    install: |
+      mkdir -p $out/bin
+      cp -vr ./{{.ProjectName}} $out/bin/{{.ProjectName}}
+      installManPage ./{{.ProjectName}}.1
+    post_install: |
+      installShellCompletion ./{{.ProjectName}}.*sh
+```
+
 ## Arch User Repository
-The [AUR](https://aur.archlinux.org) is repository with a wide range of installation scripts that are not available in the official Arch Linux distribution through the official package manager. After releasing to [GitHub](#github) or GitLab, your [custom](https://goreleaser.com/customization/aur/) installation script can be uploaded to the AUR, thus allowing Arch Linux user of [`yay`](https://github.com/Jguer/yay) or [`paru`](https://github.com/Morganamilo/paru) to get your software more easily.
+The [AUR](https://aur.archlinux.org) is repository with a wide range of installation scripts that are not available in the official Arch Linux distribution through the official package manager. After releasing to [GitHub](#github) or GitLab, your [custom](https://goreleaser.com/customization/aur/) installation script can be uploaded to the AUR's repository, thus allowing Arch Linux user of [`yay`](https://github.com/Jguer/yay) or [`paru`](https://github.com/Morganamilo/paru) to get your software more easily.
 
 
 ```yml
@@ -263,12 +289,12 @@ aurs:
 ```
 
 ## Homebrew Tap
-[Homebrew](https://brew.sh) is a popular package repository among macOS users, which allows the additions of third-party repositories, colloquially known as Taps. Similarly to the AUR, tap repositories host installation scripts that the `brew` CLI can understand.  After releasing to [GitHub](#github) or GitLab, your [custom](https://goreleaser.com/customization/homebrew/) installation script can be uploaded to your tab repository on **GitHub**.
+[Homebrew](https://brew.sh) is a popular package repository among macOS users, which allows the additions of third-party repositories, colloquially known as Taps. Similarly to the [AUR](#arch-user-repository), tap repositories host installation scripts that the `brew` CLI can understand, but they generally managed by the package maintainer. After releasing to [GitHub](#github) or GitLab, your [custom](https://goreleaser.com/customization/homebrew/) installation script can be uploaded to your tab repository on **GitHub**.
 
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
 brews:
-  - tap:
+  - repository:
       owner: AppleGamer22
       name: homebrew-tap
       token: "{{.Env.TAP_GITHUB_TOKEN}}"
@@ -316,7 +342,7 @@ dockers:
       - assets
 ```
 
-# Software Bill of Materials
+## Software Bill of Materials
 In order to allow easier automated security analysis by third-parties, GoReleaser can [create](https://goreleaser.com/customization/sbom/) a Software Bill of Materials (SBoM) for other people to analyse and potentially find issues your software's dependencies more easily. In the following example, a separate SBoM for each package binary (and the source code) is made, and uploaded to your preferred publishing channel.
 
 [`syft`](https://github.com/anchore/syft) is required as a dependency of GoReleaser for this feature to work.
@@ -348,6 +374,9 @@ Since GoReleaser is published as a CLI, its highly-programmable nature allows ea
 ## GitHub Actions
 I use GoReleaser [GitHub Actions integration](https://goreleaser.com/ci/actions/) to build, package and release my open-source projects automatically after a stable [semantic version](https://goreleaser.com/limitations/semver/) `git` tag is pushed to GitHub. The above-mentioned [access tokens](#online-accounts) are injected into the appropriate workflow steps as [workflow secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets).
 
+### Event Definitions
+This workflow is run every time a new tag is pushed to GitHub. For my purposes of production builds, I exclude alpha, beta and release candidate versions. In order to release new package versions in the [GitHub packages registry](https://github.com/features/packages), additional write-permissions should be set.
+
 ```yml
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 name: Release
@@ -361,6 +390,15 @@ on:
 permissions:
   contents: write
   packages: write
+# ...
+```
+
+### Pulling Code & Version Metadata
+The code for the commit that triggered the workflow is pulled using [the default action](https://github.com/actions/checkout). Additional fetching is required for obtaining [additional tagging metadata](https://goreleaser.com/ci/actions/#usage) used by GoReleaser.
+
+```yml
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+# ...
 jobs:
   github_release:
     runs-on: ubuntu-latest
@@ -371,10 +409,24 @@ jobs:
           fetch-depth: 0
       - name: Fetch All Tags
         run: git fetch --force --tags
-      - name: Set-up Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: stable
+    # ...
+```
+
+### Setting-up Tools
+Thw following build dependencies are downloaded into the workflow's environment:
+
+* `docker` with cross-platform compilation
+* `go`
+* `syft`
+* `nix-prefetch-url`
+
+```yml
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+# ...
+jobs:
+  github_release:
+    # ...
+    steps:
       - name: Set-up QEMU
         uses: docker/setup-qemu-action@v2.1.0
       - name: Set-up Docker BuildX
@@ -384,9 +436,31 @@ jobs:
         with:
           username: ${{secrets.DOCKER_USERNAME}}
           password: ${{secrets.DOCKER_TOKEN}}
+      - name: Set-up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: stable
       - name: Set-up Syft
-        uses: anchore/sbom-action/download-syft@v0.13.3
-      - name: Build, Package & Distribute
+        uses: anchore/sbom-action/download-syft@v0.14.3
+      - name: Set-up Nix
+        uses: cachix/install-nix-action@v22
+        with:
+          github_access_token: ${{secrets.GITHUB_TOKEN}}
+    # ...
+```
+
+### Build, Package & Release
+GoReleaser is installed and run in the workflow's environment based on `.goreleaser.yml` file found in the repository's root directory. Additional [environment variables](#online-accounts) are passed into this step in order to authenticate GoReleaser for when it pushes the packages on our behalf. Additional [command-line arguments](#debugging) are passed to GoReleaser in order to slightly customise its behaviour.
+
+```yml
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+# ...
+jobs:
+  github_release:
+    # ...
+    steps:
+      # ...
+      - name: Build, Package & Release
         uses: goreleaser/goreleaser-action@v4
         with:
           version: latest
