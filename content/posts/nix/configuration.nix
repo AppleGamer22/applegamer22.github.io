@@ -109,12 +109,15 @@ in
   virtualisation.libvirtd.qemu.swtpm.enable = true;
 
   environment.shells = [pkgs.zsh];
+  environment.wordlist.enable = true;
   environment.systemPackages = with pkgs; [
     # shell
     zsh
     zsh-completions
     zsh-history-substring-search
     starship
+    gnupg
+    pinentry-qt
     # programming
     git
     gh
@@ -152,6 +155,8 @@ in
     cpufetch
     neofetch
     onefetch
+    cmatrix
+    hollywood
     ansible
     tailscale
     mongodb-tools
@@ -353,6 +358,11 @@ in
       # echo -e -n "\x1b[\x35 q";
       # eval "$(starship init zsh)"
     '';
+  };
+
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryFlavor = "qt";
   };
 
   system.stateVersion = "23.05";
