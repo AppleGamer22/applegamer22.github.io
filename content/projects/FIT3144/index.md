@@ -7,7 +7,7 @@ showReadingTime: false
 showWordCount: false
 tags: [JavaScript, EA, Blockly, research]
 externalUrl: https://github.com/AppleGamer22/FIT3144
-_build: {render: link}
+_build: {render: never}
 draft: true
 xml: false
 roundedCorners: false

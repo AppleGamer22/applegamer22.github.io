@@ -5,7 +5,7 @@ showDateUpdated: false
 showReadingTime: false
 showWordCount: false
 tags: [Go, CLI, utility, Linux, macOS, Windows]
-_build: {render: link}
+_build: {render: never}
 xml: false
 externalUrl: https://github.com/AppleGamer22/stalk
 monoFont: true

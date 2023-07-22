@@ -4,6 +4,6 @@ date: 2023-07-19
 showDateUpdated: false
 tags: [MonSec]
 externalUrl: https://monsec.io/posts/2023s2/
-_build: {render: link}
+_build: {render: never}
 xml: false
 ---
