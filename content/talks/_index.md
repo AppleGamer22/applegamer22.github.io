@@ -1,4 +1,4 @@
 ---
-title: Talks
+title: Talks & Publications
 groupByYear: false
 ---
