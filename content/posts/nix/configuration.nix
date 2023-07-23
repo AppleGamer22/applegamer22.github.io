@@ -126,6 +126,8 @@ in
     python311Full
     nodejs_18
     gcc
+    mpi
+    llvmPackages_16.openmp
     # Python libraies
     python311Packages.jupyter
     python311Packages.pandas
@@ -135,6 +137,12 @@ in
     # Node.js packages
     nodePackages.tailwindcss
     # utilities
+    bison
+    gawk
+    flex
+    gnused
+    gnugrep
+    tree
     zip
     unzip
     gnumake
