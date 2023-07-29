@@ -110,6 +110,11 @@ in
 
   environment.shells = [pkgs.zsh];
   environment.wordlist.enable = true;
+  # environment.plasma5.excludePackages = with pkgs; [
+  #   libsForQt5.kate
+  #   libsForQt5.kwrited
+  #   xterm
+  # ];
   environment.systemPackages = with pkgs; [
     # shell
     zsh
@@ -168,6 +173,7 @@ in
     ansible
     tailscale
     mongodb-tools
+    arduino-cli
     # LaTeX
     pandoc
     pandoc-lua-filters
@@ -197,6 +203,7 @@ in
     vlc
     audacity
     remmina
+    libsForQt5.kasts
     # games
     steam
     minecraft
