@@ -1,5 +1,6 @@
 ---
 title: LaTeX Settings for VSCode
+description: LaTeX Settings for VSCode
 date: 2023-05-13
 tags: [TeX, LaTeX, VSCode]
 ---
