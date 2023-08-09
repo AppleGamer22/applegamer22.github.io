@@ -17,50 +17,13 @@
 \usepackage[unicode, pdfpagelabels = false]{hyperref}
 \usepackage{amsmath}
 \usepackage{fontspec}
-
-\makeatletter
-	\RenewDocumentCommand{\section}{sm}{
-		\par
-		%\addvspace{1ex}
-		\phantomsection{}
-		\addcontentsline{toc}{section}{#2}
-		\strut\sectionstyle{\textbf{\Large #2}}
-		{\par\nobreak}
-		%\addvspace{0.5ex}{\@afterheading}
-	}
-\makeatother
-
-\makeatletter
-	\RenewDocumentCommand{\subsection}{sm}{
-		\par
-		%\addvspace{1ex}
-		\phantomsection{}
-		\addcontentsline{toc}{subsection}{#2}
-		\strut\subsectionstyle{\textbf{\large #2}}
-		{\par\nobreak}
-		%\addvspace{0.5ex}{\@afterheading}
-	}
-\makeatother
-
-\newcommand\ghurl[1]{\href{https://github.com/#1}{\nolinkurl{#1} on GitHub}}
-
-\renewcommand{\dateseparator}{-}
-\renewcommand{\labelitemi}{$\bullet$}
-\renewcommand{\labelitemii}{$\circ$}
-
-\setmonofont[
-	Contextuals = Alternate,
-	Scale = MatchLowercase,
-	BoldFont = FiraCode-Medium.ttf,
-	SlantedFont = FiraCode-Regular.ttf,
-	SlantedFeatures = FakeSlant
-]{Fira Code}
-\setlength{\hintscolumnwidth}{0.2\textwidth}
+% overrides for ModernCV class
+\usepackage{cv}
 
 \name{Omri}{Bornstein}
-% \photo[69pt]{assets/author.png}
+% \photo[60pt]{assets/author.png}
 \title{Software Engineer}
-% \address{Greater Melbourne Area}{}{Australia}
+\quote{Go \& Linux enthusiast, looking for learning \& professional development}
 \email{omribor@gmail.com}
 \homepage{applegamer22.github.io}
 \social[linkedin]{omri-bornstein}

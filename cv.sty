@@ -1,0 +1,103 @@
+\makeatletter
+	\RenewDocumentCommand{\section}{sm}{
+		\par
+		%\addvspace{1ex}
+		\phantomsection{}
+		\addcontentsline{toc}{section}{#2}
+		\strut\sectionstyle{\textbf{\Large #2}}
+		{\par\nobreak}
+		%\addvspace{0.5ex}{\@afterheading}
+	}
+\makeatother
+
+\makeatletter
+	\RenewDocumentCommand{\subsection}{sm}{
+		\par
+		%\addvspace{1ex}
+		\phantomsection{}
+		\addcontentsline{toc}{subsection}{#2}
+		\strut\subsectionstyle{\textbf{\large #2}}
+		{\par\nobreak}
+		%\addvspace{0.5ex}{\@afterheading}
+	}
+\makeatother
+
+\newcommand\ghurl[1]{\href{https://github.com/#1}{\nolinkurl{#1} on GitHub}}
+
+\renewcommand{\dateseparator}{-}
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\circ$}
+
+\setmonofont[
+	Contextuals = Alternate,
+	Scale = MatchLowercase,
+	BoldFont = FiraCode-Medium.ttf,
+	SlantedFont = FiraCode-Regular.ttf,
+	SlantedFeatures = FakeSlant
+]{Fira Code}
+\setlength{\hintscolumnwidth}{0.2\textwidth}
+
+\makeatletter
+	\RenewDocumentCommand{\makecvhead}{sm}{%
+	% recompute lengths (in case we are switching from letter to resume, or vice versa)
+	\recomputecvlengths%
+	% optional detailed information (pre-rendering)
+	\@initializebox{\makecvheaddetailsbox}%
+	\if@details%
+	  \def\phonesdetails{}%
+	  \collectionloop{phones}{% the key holds the phone type (=symbol command prefix), the item holds the number
+		\protected@edef\phonesdetails{\phonesdetails\protect\makenewline\csname\collectionloopkey phonesymbol\endcsname\collectionloopitem}}%
+	  \def\socialsdetails{}%
+	  \collectionloop{socials}{% the key holds the social type (=symbol command prefix), the item holds the link
+		\protected@edef\socialsdetails{\socialsdetails\protect\makenewline\csname\collectionloopkey socialsymbol\endcsname\collectionloopitem}}%
+	  \savebox{\makecvheaddetailsbox}{%
+		\addressfont\color{color2}%
+		\if@left\begin{tabular}[b]{@{}r@{}}\fi%
+		\if@right\begin{tabular}[b]{@{}l@{}}\fi%
+		  \ifthenelse{\isundefined{\@addressstreet}}{}{\makenewline\addresssymbol\@addressstreet%
+			\ifthenelse{\equal{\@addresscity}{}}{}{\makenewline\@addresscity}% if \addresstreet is defined, \addresscity and addresscountry will always be defined but could be empty
+			\ifthenelse{\equal{\@addresscountry}{}}{}{\makenewline\@addresscountry}}%
+		  \ifthenelse{\isundefined{\@born}}{}{\makenewline\bornsymbol\@born}%
+		  \phonesdetails% needs to be pre-rendered as loops and tabulars seem to conflict
+		  \ifthenelse{\isundefined{\@email}}{}{\makenewline\emailsymbol\emaillink{\@email}}%
+		  \ifthenelse{\isundefined{\@homepage}}{}{\makenewline\homepagesymbol\httpslink{\@homepage}}%
+		  \socialsdetails% needs to be pre-rendered as loops and tabulars seem to conflict
+		  \ifthenelse{\isundefined{\@extrainfo}}{}{\makenewline\@extrainfo}%
+		\end{tabular}
+	  }\fi%
+	% optional photo (pre-rendering)
+	\@initializebox{\makecvheadpicturebox}%
+	\savebox{\makecvheadpicturebox}{%
+	  \ifthenelse{\isundefined{\@photo}}%
+		{}%
+		{%
+		  \if@left%
+			\hspace*{\separatorcolumnwidth}\fi%
+		  \color{color1}%
+		  \setlength{\fboxrule}{\@photoframewidth}%
+		  \ifdim\@photoframewidth=0pt%
+			\setlength{\fboxsep}{0pt}\fi%
+		  \framebox{\includegraphics[width=\@photowidth]{\@photo}}}%
+		  \if@right%
+			\hspace*{\separatorcolumnwidth}\fi}%
+	% name and title (pre-rendering)
+	\@initializelength{\makecvheaddetailswidth}\settowidth{\makecvheaddetailswidth}{\usebox{\makecvheaddetailsbox}}%
+	\@initializelength{\makecvheadpicturewidth}\settowidth{\makecvheadpicturewidth}{\usebox{\makecvheadpicturebox}}%
+	\ifthenelse{\lengthtest{\makecvheadnamewidth=0pt}}% check for dummy value (equivalent to \ifdim\makecvheadnamewidth=0pt)
+	  {\setlength{\makecvheadnamewidth}{\textwidth-\makecvheaddetailswidth-\makecvheadpicturewidth}}%
+	  {}%
+	% rendering
+	\begin{minipage}[b]{\makecvheadnamewidth}%
+		\if@left\raggedright\fi%
+		\if@right\raggedleft\fi%
+		\namestyle{\@firstname\ \@lastname}%
+		\ifthenelse{\equal{\@title}{}}{}{\\[1.25em]\titlestyle{\@title}}%
+		% optional quote
+		\ifthenelse{\isundefined{\@quote}}{}{{\\[0.5em]\quotestyle{\@quote}}}%
+	  \end{minipage}
+	\hfill%
+	\llap{\usebox{\makecvheaddetailsbox}}% \llap is used to suppress the width of the box, allowing overlap if the value of makecvheadnamewidth is forced
+	\usebox{\makecvheadpicturebox}%
+	\\[1em]%
+	\par}% to avoid weird spacing bug at the first section if no blank line is left after \makecvhead
+\makeatother
