@@ -1,34 +1,95 @@
 <article class="mt-6 flex max-w-prose flex-row">
 	{{- $images := $.Resources.ByType "image"}}
-	{{- $thumbnail := $images.GetMatch (.Params.thumbnail | default "*thumb*")}}
-	{{- $feature := $images.GetMatch (.Params.feature | default "*feature*") | default $thumbnail}}
-	{{- with $feature}}
-		<div class="flex-none pe-4 sm:pe-6">
-			<a href="{{with $.Params.externalUrl}}{{.}}{{else}}{{$.RelPermalink}}{{end}}" aria-label="{{$.Title | emojify}}">
-				<img
-					alt="{{$.Params.featureAlt | default $.Params.thumbnailAlt | default ``}}"
-					class="w-24{{if $.Params.roundedCorners | default true}} rounded-md{{end}} sm:w-40"
-					{{if or (eq .MediaType.SubType `svg`) (eq .MediaType.SubType `gif`)}}
-						src="{{.RelPermalink}}"
-					{{else}}
-						srcset="{{if ge .Width 160}}
-							{{- (.Resize `160x`).RelPermalink}} 160w,
-						{{- end}}
-						{{if ge .Width 320}}
-							{{- (.Resize `320x`).RelPermalink}} 2x
-						{{- end}}"
-						src="{{if ge .Width 160}}
-							{{- (.Resize `160x`).RelPermalink}}
-						{{- else}}
-							{{- .RelPermalink}}
-						{{- end}}"
-					{{end}}
-					{{if $.Site.Params.enableImageLazyLoading | default true}}
-						loading="lazy"
-					{{end}}
-				>
-			</a>
-		</div>
+	{{- if .Params.prefersColorScheme}}
+		{{- $thumbnailDark := $images.GetMatch (.Params.thumbnail | default "*thumb*_light*")}}
+		{{- with $thumbnailDark}}
+			<div class="flex-none pe-4 sm:pe-6 hidden dark:block">
+				<a href="{{with $.Params.externalUrl}}{{.}}{{else}}{{$.RelPermalink}}{{end}}" aria-label="{{$.Title | emojify}}">
+					<img
+						alt="{{$.Params.featureAlt | default $.Params.thumbnailAlt | default ``}}"
+						class="w-24{{if $.Params.roundedCorners | default true}} rounded-md{{end}} sm:w-40"
+						{{if or (eq .MediaType.SubType `svg`) (eq .MediaType.SubType `gif`)}}
+							src="{{.RelPermalink}}"
+						{{else}}
+							srcset="{{if ge .Width 160}}
+								{{- (.Resize `160x`).RelPermalink}} 160w,
+							{{- end}}
+							{{if ge .Width 320}}
+								{{- (.Resize `320x`).RelPermalink}} 2x
+							{{- end}}"
+							src="{{if ge .Width 160}}
+								{{- (.Resize `160x`).RelPermalink}}
+							{{- else}}
+								{{- .RelPermalink}}
+							{{- end}}"
+						{{end}}
+						{{if $.Site.Params.enableImageLazyLoading | default true}}
+							loading="lazy"
+						{{end}}
+					>
+				</a>
+			</div>
+		{{- end}}
+		{{- $thumbnailLight := $images.GetMatch (.Params.thumbnail | default "*thumb*_dark*")}}
+		{{- with $thumbnailLight}}
+			<div class="flex-none pe-4 sm:pe-6 dark:hidden">
+				<a href="{{with $.Params.externalUrl}}{{.}}{{else}}{{$.RelPermalink}}{{end}}" aria-label="{{$.Title | emojify}}">
+					<img
+						alt="{{$.Params.featureAlt | default $.Params.thumbnailAlt | default ``}}"
+						class="w-24{{if $.Params.roundedCorners | default true}} rounded-md{{end}} sm:w-40"
+						{{if or (eq .MediaType.SubType `svg`) (eq .MediaType.SubType `gif`)}}
+							src="{{.RelPermalink}}"
+						{{else}}
+							srcset="{{if ge .Width 160}}
+								{{- (.Resize `160x`).RelPermalink}} 160w,
+							{{- end}}
+							{{if ge .Width 320}}
+								{{- (.Resize `320x`).RelPermalink}} 2x
+							{{- end}}"
+							src="{{if ge .Width 160}}
+								{{- (.Resize `160x`).RelPermalink}}
+							{{- else}}
+								{{- .RelPermalink}}
+							{{- end}}"
+						{{end}}
+						{{if $.Site.Params.enableImageLazyLoading | default true}}
+							loading="lazy"
+						{{end}}
+					>
+				</a>
+			</div>
+		{{- end}}
+	{{- else}}
+		{{- $thumbnail := $images.GetMatch (.Params.thumbnail | default "*thumb*")}}
+		{{- $feature := $images.GetMatch (.Params.feature | default "*feature*") | default $thumbnail}}
+		{{- with $feature}}
+			<div class="flex-none pe-4 sm:pe-6">
+				<a href="{{with $.Params.externalUrl}}{{.}}{{else}}{{$.RelPermalink}}{{end}}" aria-label="{{$.Title | emojify}}">
+					<img
+						alt="{{$.Params.featureAlt | default $.Params.thumbnailAlt | default ``}}"
+						class="w-24{{if $.Params.roundedCorners | default true}} rounded-md{{end}} sm:w-40"
+						{{if or (eq .MediaType.SubType `svg`) (eq .MediaType.SubType `gif`)}}
+							src="{{.RelPermalink}}"
+						{{else}}
+							srcset="{{if ge .Width 160}}
+								{{- (.Resize `160x`).RelPermalink}} 160w,
+							{{- end}}
+							{{if ge .Width 320}}
+								{{- (.Resize `320x`).RelPermalink}} 2x
+							{{- end}}"
+							src="{{if ge .Width 160}}
+								{{- (.Resize `160x`).RelPermalink}}
+							{{- else}}
+								{{- .RelPermalink}}
+							{{- end}}"
+						{{end}}
+						{{if $.Site.Params.enableImageLazyLoading | default true}}
+							loading="lazy"
+						{{end}}
+					>
+				</a>
+			</div>
+		{{- end}}
 	{{- end}}
 	<div>
 		<h3 class="flex items-center text-xl font-semibold">

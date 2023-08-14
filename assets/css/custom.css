@@ -136,3 +136,7 @@ ul > li > ul {
 .last\:pb-0:last-child {
 	padding-bottom: 0px;
 }
+
+:is(.dark .dark\:block) {
+	display: block;
+}
