@@ -1,5 +1,6 @@
 ---
 title: Continuous Integration with GoReleaser
+description: Go (Programming Language) Continuous Integration with GoReleaser
 _build: {list: never}
 showDate: false
 showDateUpdated: false
@@ -9,6 +10,7 @@ showEdit: false
 sharingLinks: false
 xml: false
 externalUrl: /posts/go/goreleaser/
+thumbnail: /posts/go/goreleaser/thumbnail.png
 ---
 * **This page has been [moved](/posts/go/goreleaser/)...**
 	* If you are still connected to the internet, your browser will redirect you automatically. Otherwise, you should take note of the address of the above-mentioned link.

@@ -26,6 +26,7 @@
 		<meta name="robots" content="{{.}}">
 	{{end}}
 	{{with .Params.externalUrl}}
+		<meta property="og:image" content="{{absURL $.Params.thumbnail}}">
 		<meta http-equiv="refresh" content="0;url={{.}}">
 	{{end}}
 	<link rel="canonical" href="{{with .Params.externalUrl}}{{absURL .}}{{else}}{{.Permalink}}{{end}}">
