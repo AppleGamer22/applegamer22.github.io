@@ -1,5 +1,5 @@
 ---
-title: "From JavaScript to Go: Quicker & Simpler Web Scraping"
+title: "From JavaScript to Go: Quicker & Simpler Web Page Scraping"
 date: 2023-08-24
 draft: true
 tags: [Go, JavaScript, TypeScript, Angular, NestJS, GoReleaser, logging, dependencies]
