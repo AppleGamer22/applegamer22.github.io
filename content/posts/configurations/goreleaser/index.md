@@ -10,7 +10,7 @@ showEdit: false
 sharingLinks: false
 xml: false
 externalUrl: /posts/go/goreleaser/
-thumbnail: /posts/go/goreleaser/thumbnail.png
+thumbnail: /posts/configurations/goreleaser/thumbnail.png
 ---
 * **This page has been [moved](/posts/go/goreleaser/)...**
 	* If you are still connected to the internet, your browser will redirect you automatically. Otherwise, you should take note of the address of the above-mentioned link.
