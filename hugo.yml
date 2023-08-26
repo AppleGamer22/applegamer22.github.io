@@ -87,7 +87,7 @@ languages:
         - email: mailto:omribor@gmail.com
         - linkedin: https://www.linkedin.com/in/omri-bornstein/
         - github: https://github.com/AppleGamer22
-        # - youtube: https://www.youtube.com/@AppleGamer22
+        - youtube: https://www.youtube.com/@AppleGamer22
         # - gitlab: https://gitlab.com/AppleGamer22
         # - gitea: https://gitea.com/AppleGamer22
         - stack-overflow: https://stackoverflow.com/users/7148921/
