@@ -1,5 +1,5 @@
 ---
-title: DownUnderCTF Discord
+title: DownUnderCTF Discord 2022
 date: 2022-09-23T00:00:01
 description: DownUnderCTF 2022 Discord challenge
 tags: [DownUnderCTF, MonSec]

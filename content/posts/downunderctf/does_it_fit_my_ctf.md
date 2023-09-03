@@ -13,6 +13,7 @@ tags: [DownUnderCTF, MonSec, OSINT]
 # Solution
 1. Search for `23HONK` on YouTube
 1. The first [result](https://youtu.be/-aIYaOV04g8) from the [Mighty Car Mods](https://www.youtube.com/c/mightycarmods) channel features a NSW vehicle registration plate of `23HONK`:
+
 	<iframe width="560" height="315" src="https://www.youtube.com/embed/-aIYaOV04g8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 **Flag**: `DUCTF{MightyCarMods}`
