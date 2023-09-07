@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM golang:1.21.0-alpine AS hugo
+FROM --platform=$BUILDPLATFORM golang:1.21.1-alpine AS hugo
 WORKDIR /hugo
 RUN apk add --no-cache tzdata hugo git
 COPY assets assets
