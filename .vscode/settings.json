@@ -48,7 +48,9 @@
 		"urlcolor",
 		"Vought",
 		"XMAPF",
-		"zstyle"
+		"zstyle",
+		"YubiKey",
+		"Yubico"
 	],
 	"latex-workshop.latex.tools": [
 		{
