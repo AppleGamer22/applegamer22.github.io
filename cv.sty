@@ -22,21 +22,6 @@
 	}
 \makeatother
 
-\newcommand\ghurl[1]{\href{https://github.com/#1}{\nolinkurl{#1} on GitHub}}
-
-\renewcommand{\dateseparator}{-}
-\renewcommand{\labelitemi}{$\bullet$}
-\renewcommand{\labelitemii}{$\circ$}
-
-\setmonofont[
-	Contextuals = Alternate,
-	Scale = MatchLowercase,
-	BoldFont = FiraCode-Medium.ttf,
-	SlantedFont = FiraCode-Regular.ttf,
-	SlantedFeatures = FakeSlant
-]{Fira Code}
-\setlength{\hintscolumnwidth}{0.2\textwidth}
-
 \makeatletter
 	\RenewDocumentCommand{\makecvhead}{sm}{%
 	% recompute lengths (in case we are switching from letter to resume, or vice versa)
@@ -101,3 +86,20 @@
 	\\[1em]%
 	\par}% to avoid weird spacing bug at the first section if no blank line is left after \makecvhead
 \makeatother
+
+\nopagenumbers
+
+\newcommand\ghurl[1]{\href{https://github.com/#1}{\nolinkurl{#1} on GitHub}}
+
+\renewcommand{\dateseparator}{-}
+\renewcommand{\labelitemi}{$\bullet$}
+\renewcommand{\labelitemii}{$\circ$}
+
+\setmonofont[
+	Contextuals = Alternate,
+	Scale = MatchLowercase,
+	BoldFont = FiraCode-Medium.ttf,
+	SlantedFont = FiraCode-Regular.ttf,
+	SlantedFeatures = FakeSlant
+]{Fira Code}
+\setlength{\hintscolumnwidth}{0.2\textwidth}

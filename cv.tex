@@ -10,7 +10,7 @@
 ]{moderncv}
 \moderncvtheme[black]{classic}
 
-\usepackage[margin = 15mm, top = 10mm]{geometry}
+\usepackage[margin = 15mm, top = 5mm, bottom = 5mm]{geometry}
 \usepackage[english]{babel}
 \usepackage[none]{hyphenat}
 \usepackage[yyyymmdd]{datetime}
@@ -21,9 +21,9 @@
 \usepackage{cv}
 
 \name{Omri}{Bornstein}
-% \photo[60pt]{assets/author.png}
+\photo[60pt]{assets/author.png}
 \title{Software Engineer}
-\quote{Go/Linux enthusiast, couriously seeking challenges \& professional development}
+\quote{Go \& Linux enthusiast\\couriously seeking challenges \& professional development}
 \email{omribor@gmail.com}
 \homepage{applegamer22.github.io}
 \social[linkedin]{omri-bornstein}
@@ -37,47 +37,12 @@
 	% \cventry{2017 --- 2019}{SACE}{\href{https://asms.sa.edu.au}{Australian Science \& Mathematics School} (ASMS)}{Adelaide}{}{}
 
 	\section{Skills}\label{sec:skills}
-	% \subsection{Computer Programming Languages}
-	% \cvitemwithcomment{\href{https://go.dev}{Go}}{
-	% 	\hyperlink{raker}{\texttt{raker}},
-	% 	\hyperlink{stalk}{\texttt{stalk}} \&
-	% 	\hyperlink{cocainate}{\texttt{cocainate}}
-	% }{server-side \& command-line interfaces (CLIs)}
-	% \cvitemwithcomment{JavaScript}{\hyperlink{FIT3144}{FIT3144 research project}, \hyperlink{scr}{scr-web}}{full-stack}
-	% % \cvitemwithcomment{JavaScript}{}{client-side on web browsers}
-	% \cvitemwithcomment{\href{https://python.org}{Python}}{\hyperlink{FIT2082}{FIT2082 research project}}{data analysis}
-	% \cvitemwithcomment{\href{https://kotlinlang.org}{Kotlin}/Java}{\hyperlink{sp}{\texttt{sp}}}{Minecraft plugins}
-	% \cvitemwithcomment{C/C++}{\hyperlink{FIT2082}{FIT2082 research project}}{}
-
-	% \subsection{Document Markup Languages}
-	% \cvitemwithcomment{HTML \& CSS}{}{client-side UI on web browsers}
-	% \cvitemwithcomment{\href{https://www.latex-project.org}{\TeX/\LaTeX}}{}{PDF document typesetting}
-	% \cvitemwithcomment{Markdown}{}{technical documentation and communication}
-	% \subsection{Natural Languages}
-	% \cvitemwithcomment{English}{full professional proficiency}{}
-	% \cvitemwithcomment{Hebrew}{native or bilingual proficiency}{}
-
-	% \subsection{Tools}
-	% \cvitemwithcomment{\href{https://git-scm.com}{Git}}{\hyperref[sec:open-source]{open-source projects}}{source code version control}
-	% \cvitemwithcomment{\href{https://github.com}{GitHub}/\href{https://gitlab.com}{GitLab}}{\hyperref[sec:open-source]{open-source projects}}{collaboration \& CI/CD}
-	% \cvitemwithcomment{\href{https://www.mongodb.com}{MongoDB}}{
-		% \hyperlink{raker}{\texttt{raker}} \& \hyperlink{scr}{scr-web}
-	% }{document non-relational database}
-	% \cvitemwithcomment{SQL}{}{relational database querying}
-	% \cvitemwithcomment{\href{https://www.docker.com}{Docker}}{
-	% 	\hyperlink{raker}{\texttt{raker}} \& \hyperlink{scr}{scr-web}
-	% }{container-style packaging}
-	% \cvitemwithcomment{\href{https://kubernetes.io}{Kubernetes}}{}{container orchestration}
-	% \cvitemwithcomment{\href{https://vagrantup.com}{Vagrant}}{}{virtual machine (VM) management}
-	% \cvitemwithcomment{\href{https://terraform.io}{Terraform}}{}{infrustracture definitions as code}
-
-	% \subsection{Other}
 	\begin{itemize}
 		\item \textbf{Programming Languages}: \textbf{Go}, JavaScript/TypeScript, Python, Kotlin/Java, C/C++
 		\item \textbf{Tools}: \textbf{Git} (with GitHub/GitLab), MongoDB, \textbf{Docker}, \textbf{Terraform}, \href{https://gohugo.io}{Hugo}
 		\item \textbf{Platforms}: \textbf{Linux}, \textbf{cloud-native}, web servers/browsers, macOS, Windows, Azure, Firebase
 		\item \textbf{Design \& Implementation}: algorithms \& data structures, object-oriented programming, test-driven development
-		\item \textbf{Soft Skills}: technical writing, critical/analytical thinking, presenting/public speaking, research, troubleshooting/debugging, explaining, collaboration/teamwork
+		% \item \textbf{Soft Skills}: technical writing, critical/analytical thinking, presenting/public speaking, research, troubleshooting/debugging, explaining, collaboration/teamwork
 		\item \textbf{Hobbies}: \href{https://applegamer22.github.io/about/#hobbies}{playing guitar}, listening to/analysing music, self-directed learning, personal projects
 	\end{itemize}
 
@@ -123,9 +88,7 @@
 	\subsection{Research}
 	\hypertarget{FIT3144}{
 		\cventry{2023 Semester 1 \& 2}{Research Assistant}{Monash University's \href{https://handbook.monash.edu/2023/units/FIT3144}{FIT3144 unit}}{\hyperref[sec:skills]{JavaScript, Git}}{}{
-			\begin{itemize}
-				\item \href{https://github.com/AppleGamer22/FIT3144}{Extended (available on GitHub)} a browser-based tool \href{https://arxiv.org/abs/2302.06277}{(Wagner et al., 2023)} used for building evolutionary algorithms in educational settings. Supervised by \href{https://research.monash.edu/en/persons/markus-wagner}{Dr. Markus Wagner}.
-			\end{itemize}
+			\href{https://github.com/AppleGamer22/FIT3144}{Extended (available on GitHub)} a browser-based tool \href{https://arxiv.org/abs/2302.06277}{(Wagner et al., 2023)} used for building evolutionary algorithms in educational settings. Supervised by \href{https://research.monash.edu/en/persons/markus-wagner}{Dr. Markus Wagner}.
 		}
 	}
 	\hypertarget{FIT2082}{
@@ -142,59 +105,37 @@
 	}
 
 	\subsection{Freelancing}
-	\cventry{2021 Q3 --- Q4}{Software Engineer}{Contract}{Melbourne}{\hyperref[sec:skills]{Go \& test-driven development}}{\begin{itemize}
-		\item Implemented a custom asynchronous fault-tolerant file back-up system that enables the continuation of file transferring from a variably-approximate point in time before the disruption. Available at \ghurl{AppleGamer22/rb}.
-	\end{itemize}}
+	\cventry{2023 Semester 2}{Associate Software Engineer}{Radio Monash}{Clayton}{volunteering}{
+		Advised the leadership team on software deployment and server migration of their audio stream.
+	}
+	\cventry{2021 Q3 --- Q4}{Software Engineer}{Contract}{Melbourne}{\hyperref[sec:skills]{Go \& test-driven development}}{
+		Implemented a custom asynchronous fault-tolerant file back-up system that enables the continuation of file transferring from a variably-approximate point in time before the disruption. Available at \ghurl{AppleGamer22/rb}.
+	}
 
 	\section{Open-Source Projects}\label{sec:open-source}
 	\hypertarget{raker}{
 		\cventry{since May 2022}{\texttt{raker}}{\ghurl{AppleGamer22/raker}}{\hyperref[sec:skills]{Go, Docker \& MongoDB}}{}{
-			\begin{itemize}
-				\item A social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
-				% \item Server-side is built with \href{https://go.dev}{Go}, \href{https://www.mongodb.com}{MongoDB}, \href{https://jwt.io}{JSON Web Tokens} (JWTs) and \href{https://www.docker.com}{Docker}.
-				% \item Client-side is built with HTML/CSS (\href{https://getbootstrap.com}{Bootstrap}).
-				% \item The companion CLI utility and configuration are built with \href{https://cobra.dev}{Cobra} and \href{https://github.com/spf13/viper}{Viper}.
-			\end{itemize}
+			A social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database.
 		}
 	}
 	\hypertarget{stalk}{
 		\cventry{since May 2022}{\texttt{stalk}}{\ghurl{AppleGamer22/stalk}}{\hyperref[sec:skills]{Go, Linux \& macOS}}{}{
-			\begin{itemize}
-				\item A cross-platform file-watcher that can run a command after each file-system operation on a given set of files or simply wait once until a file is changed.
-				% \item Built with \href{https://go.dev}{Go}, \href{https://cobra.dev}{Cobra} and \href{https://github.com/fsnotify/fsnotify}{FSnotify}.
-			\end{itemize}
+			A cross-platform file-watcher that can run a command after each file-system operation on a given set of files or simply wait once until a file is changed.
 		}
 	}
 	\hypertarget{cocainate}{
 		\cventry{since January 2022}{\texttt{cocainate}}{\ghurl{AppleGamer22/cocainate}}{\hyperref[sec:skills]{Go, macOS \& Linux}}{}{
-			\begin{itemize}
-				\item A cross-platform re-implementation of the macOS utility \href{https://github.com/apple-oss-distributions/PowerManagement/tree/main/caffeinate}{\texttt{caffeinate}} that keeps the screen turned on either until stopped, for a set duration of time or while another process still runs.
-				% \item Built with \href{https://go.dev}{Go} and \href{https://cobra.dev}{Cobra}.
-			\end{itemize}
+			A cross-platform re-implementation of the macOS utility \href{https://github.com/apple-oss-distributions/PowerManagement/tree/main/caffeinate}{\texttt{caffeinate}} that keeps the screen turned on either until stopped, for a set duration of time or while another process still runs.
 		}
 	}
-	% \cventry{December 2021}{CTFtime Discord Bot}{\ghurl{monsec/ctftime-discord-bot}}{}{}{
-	% 	\begin{itemize}
-	% 		\item A Discord bot for \href{https://monsec.io/contact/}{MonSec}'s Discord server, that fetches statistics about competing \href{https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)}{Capture the Flag} (CTF) teams from \href{https://ctftime.org}{CTFtime}, and displays them in the Discord interface.
-	% 		\item Built with \href{https://go.dev}{Go}.
-	% 	\end{itemize}
-	% }
 	\hypertarget{sp}{
 		\cventry{2020 --- 2021}{\texttt{sp}}{\ghurl{AppleGamer22/sp}}{\hyperref[sec:skills]{Kotlin/Java}}{}{
-			\begin{itemize}
-				\item A \href{https://papermc.io}{Minecraft server plugin} that enforces password authentication on player before allowing client-server interaction.
-				% \item Built with \href{https://kotlinlang.org}{Kotlin}.
-			\end{itemize}
+			A \href{https://papermc.io}{Minecraft server plugin} that enforces password authentication on player before allowing client-server interaction.
 		}
 	}
 	\hypertarget{scr}{
 		\cventry{2019 --- 2022}{scr-web}{\ghurl{AppleGamer22/scr-web}}{\hyperref[sec:skills]{TypeScript, Angular, Docker \& MongoDB}}{}{
-			\begin{itemize}
-				\item My previous attempt at building a full-stack (and a CLI) social media scraper with a single-page website framework and a RESTful server.
-				% \item Server-side is built with \href{https://typescriptlang.org}{TypeScript} \& \href{https://nestjs.com}{Nest} (with a \href{https://nodejs.org}{Node.js} runtime) \href{https://www.mongodb.com}{MongoDB}, \href{https://jwt.io}{JSON Web Tokens} (JWTs) and \href{https://www.docker.com}{Docker}.
-				% \item Client-side is built with \href{https://angular.io}{Angular} and \href{https://ionicframework.com}{Ionic}.
-				% \item The full-stack package is bundled with \href{https://nx.dev}{Nx}.
-			\end{itemize}
+			My previous attempt at building a full-stack (and a CLI) social media scraper with a single-page website framework and a RESTful server.
 		}
 	}
 	\end{document}
