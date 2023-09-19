@@ -1,5 +1,6 @@
 ---
 title: Git Commit Signing with GPG & YubiKey
+description: Git Commit Signing with GPG and YubiKey
 date: 2023-09-14
 tags: [Git, GitHub, GPG, YubiKey]
 draft: true
