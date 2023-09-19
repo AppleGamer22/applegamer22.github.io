@@ -10,7 +10,7 @@ draft: true
 According to GitHub's GPG Guide[^1]:
 
 1. Generate a key pair.
-	* Make sure to specify your preferred cryptosystem algorithm and your [`gitconfig` contact details](#/posts/shell/#git)
+	* Make sure to specify your preferred cryptosystem algorithm and your [`gitconfig` contact details](/posts/shell/#git)
 
 	```sh
 	$ gpg --full-generate-key
