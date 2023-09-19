@@ -13,4 +13,4 @@ xml: false
 roundedCorners: false
 authors: [markus_wagner]
 ---
-Extending a browser-based tool [(Wagner et al., 2023)](https://arxiv.org/abs/2302.06277) used for building evolutionary algorithms in educational settings.
+Extending a browser-based tool [(Wagner et al., 2023)](https://dl.acm.org/doi/abs/10.1145/3583133.3590723) used for building evolutionary algorithms in educational settings.
