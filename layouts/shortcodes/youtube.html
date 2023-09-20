@@ -1,4 +1,4 @@
-<iframe class="py-2 first:pt-0 last:pb-0"
+<iframe class="ml-auto mr-auto py-2 first:pt-0 last:pb-0"
 	{{if eq `short` (.Get `type`)}}
 		height="560"
 		width="315"
@@ -7,8 +7,10 @@
 		height="315"
 	{{end}}
 	src="https://www.youtube.com/embed/{{with .Get `id`}}{{.}}{{end}}"
-	title="YouTube video player" frameborder="0"
+	title="YouTube video player"
+	frameborder="0"
 	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 	allowfullscreen
 	>
 </iframe>
+<!-- text-neutral-900 dark:text-neutral -->
