@@ -16,7 +16,7 @@ At the moment I'm studying a bachelor's degree in computer science. So far, I ha
 # Hobbies
 In my spare time, I like to play the guitar and learn genres such as rock and blues.
 
-![Radio Monash Vibe Night 2023S2](radmon_vibe_night_2023s2.jpg "Radio Monash Vibe Night 2023v2")
+![Radio Monash Vibe Night 2023 Semester 2](radmon_vibe_night_2023s2.jpg "Radio Monash Vibe Night 2023 Semester 2")
 
 {{<youtube id="T0oav_k5ZlY">}}
 {{<youtube type="short" id="We9uCvzGWbU">}}
