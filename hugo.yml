@@ -19,7 +19,7 @@ outputs:
 params:
   images: [android-chrome-512x512.png]
   colorScheme: fruit
-  # defaultAppearance: dark
+  defaultAppearance: dark
   enableCodeCopy: true
   enableSearch: true
   enableImageLazyLoading: true

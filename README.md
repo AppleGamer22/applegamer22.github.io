@@ -91,12 +91,12 @@ The following `layouts/partials/extend-head.html` code is based on [Docsy's diag
 				pre.textContent = text;
 				diagram.parentElement.replaceWith(pre);
 			}
-			const colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
-			colorScheme.addEventListener("change", () => location.reload());
-			let scheme = localStorage.getItem("appearance");
-			if (scheme === null) {
-				scheme = colorScheme.matches ? "dark" : "light";
+			for (const appearanceSwitcher of document.querySelectorAll("[id^='appearance-switcher']")) {
+				appearanceSwitcher.addEventListener("click", () => location.reload())
 			}
+			window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => location.reload());
+			let scheme = localStorage.getItem("appearance");
+			if (scheme === null) scheme = "dark";
 			const textColor = scheme === "dark" ? "white" : "black";
 			mermaid.initialize({
 				theme: "base",

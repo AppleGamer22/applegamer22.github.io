@@ -125,9 +125,7 @@ The following `layouts/partials/extend-head.html` code is based on [Docsy's diag
 			const colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
 			colorScheme.addEventListener("change", () => location.reload());
 			let scheme = localStorage.getItem("appearance");
-			if (scheme === null) {
-				scheme = colorScheme.matches ? "dark" : "light";
-			}
+			if (scheme === null) scheme = "dark";
 			const textColor = scheme === "dark" ? "white" : "black";
 			mermaid.initialize({
 				theme: "base",

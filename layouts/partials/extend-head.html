@@ -77,13 +77,13 @@
 				diagram.parentElement.replaceWith(pre);
 			}
 
-			const colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
-			colorScheme.addEventListener("change", () => location.reload());
+			for (const appearanceSwitcher of document.querySelectorAll("[id^='appearance-switcher']")) {
+				appearanceSwitcher.addEventListener("click", () => location.reload())
+			}
+			window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => location.reload());
 
 			let scheme = localStorage.getItem("appearance");
-			if (scheme === null) {
-				scheme = colorScheme.matches ? "dark" : "light";
-			}
+			if (scheme === null) scheme = "dark";
 			
 			const textColor = scheme === "dark" ? "white" : "black";
 			mermaid.initialize({
@@ -119,8 +119,7 @@
 {{end}}
 
 <script defer>
-	window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => localStorage.removeItem("appearance"));
-
+	// window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => localStorage.removeItem("appearance"));
 	if ("serviceWorker" in navigator) {
 		(async () => {
 			try {
