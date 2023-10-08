@@ -1,6 +1,6 @@
 ---
-title: Summary of My MonSec Experience
-description: Lessons from My Monash Cyber Security Club Experience
+title: My MonSec Experience
+description: My Monash Cyber Security Club Experience
 date: 2023-12-01
 tags: [MonSec]
 draft: true
