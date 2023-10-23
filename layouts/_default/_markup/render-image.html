@@ -25,6 +25,8 @@
 				{{if or (eq .MediaType.SubType `svg`) (eq .MediaType.SubType `gif`)}}
 					src="{{.RelPermalink}}"
 				{{else}}
+					width="{{.Width}}"
+					height="{{.Height}}"
 					srcset="{{if ge .Width 330}}
 						{{- (.Resize `330x`).RelPermalink}} 330w,
 					{{- end}}

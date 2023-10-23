@@ -70,9 +70,8 @@ languages:
     title: Omri Bornstein
     params:
       description: Omri Bornstein's personal website
-      isoCode: en-AU
       languageName: English
-      rtl: false
+      languageDirection: ltr
       dateFormat: "2006-01-02"
       mainSections:
         - talks
