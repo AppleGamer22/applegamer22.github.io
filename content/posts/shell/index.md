@@ -146,6 +146,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 complete -o nospace -C $(which vault) vault
 complete -o nospace -C $(which nomad) nomad
+complete -o nospace -C $(which consul) consul
 ```
 
 ### macOS
