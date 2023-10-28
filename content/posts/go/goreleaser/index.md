@@ -144,12 +144,20 @@ nfpms:
     contents:
       - src: "{{.ProjectName}}.1"
         dst: /usr/share/man/man1/{{.ProjectName}}.1
+        file_info:
+          mode: 0644
       - src: "{{.ProjectName}}.bash"
         dst: /usr/share/bash-completion/completions/{{.ProjectName}}
+        file_info:
+          mode: 0644
       - src: "{{.ProjectName}}.fish"
         dst: /usr/share/fish/completions/{{.ProjectName}}.fish
+        file_info:
+          mode: 0644
       - src: "{{.ProjectName}}.zsh"
         dst: /usr/share/zsh/site-functions/_{{.ProjectName}}
+        file_info:
+          mode: 0644
 ```
 
 # Checksums
