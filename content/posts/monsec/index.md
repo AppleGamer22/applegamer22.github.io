@@ -11,7 +11,11 @@ My first year in university wasn't normal, due to the COVID-19 pandemic I had to
 ## Assistant Member Training Officer
 It turns out that there were some available positions in the MonSec committee at the beginning of 2021, I was pondering if I should try applying. I asked Leo about it during a Java class we both attended, and he said that I should go for it. In the application form, I wrote a short summary about myself, with [a link to my GitHub](https://github.com/AppleGamer22), in order to showcase my previous experience as evidence to my work ethic. That seemed to make the difference, because after a few weeks, the committee announced that I got accepted, and I asked them why it turns out I was of a few people that included external hyperlinks as evidence to my projects.
 
+During this period of a semester and a bit, I learned about how MonSec works from behind the scenes, ran an online workshop whose demo didn't go as planned (immensely valuable for troubleshooting future workshops). The conversation I remember the most from this period was my introduction to the then-secretary, Luke who told that the MonSec team culture is based on recognising that the MonSec committee members are students, thus being relatively relaxed with deadlines is a requirement. At the time, I didn't understand how critical it was that we made that part of the team culture official from the start of each term, but it made [my presidency](#president) much more enjoyable.
+
 ## Secretary
+The following year I moved to a more paperwork-heavy and administrative role, that involved record keeping of the committee and general meetings. I found it hard to parallelise the functions of documenting the meeting, and being attentive to what is being said. This struggle lead me to use several methods of documentation, such as a multi-media recording of the meeting, thus diversifying the dependency from one source of truth to multiple. In addition, I saw an opportunity to automate some repetitive routines, mainly the generation of plots for the semi-annual general meeting reports. I wrote a Python script that ingests the membership log of the club, and produces a set of plots for the secretary to use in their report.
+
 ## Vice-President
 
 ![](cybercon_2022.jpg "AISA CyberCon 2022")
