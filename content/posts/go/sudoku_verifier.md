@@ -38,7 +38,7 @@ During the interview, I thought I understood the rules of Sudoku, but in actuali
 For every $0 \leq i < 9$, a row and column count arrays are maintained, such that the row array counts the number of times each digit appears in $(i, j)$, and the column array counts the number of times each digit appears in $(j, i)$, where $0 \leq j < 9$. After each time the count arrays was updated for $j = 8$, they are iterated through to check for any counts that are not strictly 1.
 
 ## Sub-boxes
-For every $0 \leq i < 9$ (such that $i \equiv 1\ (\bmod\ 3)$), and every $0 \leq j < 9$ (such that $j \equiv 1\ (\bmod\ 3)$), the matrix coordinate $(i, j)$ is the upper-left corner of a given $3 \times 3$ Sudoku sub-box. A count array is maintained for every sub-box $(i, j)$ with coordinate $(y, x)$, such that $j \leq y < j + 3$, and such that $i \leq x < i + 3$. After all values of the coordinates in the $3 \times 3$ sub-box with upper-left corner $(i, j)$ have been recorded in the count array, it's iterated through to check for any counts that are not strictly 1.
+For every $0 \leq i < 9$ (such that $i \equiv 0\ (\bmod\ 3)$), and every $0 \leq j < 9$ (such that $j \equiv 0\ (\bmod\ 3)$), the matrix coordinate $(i, j)$ is the upper-left corner of a given $3 \times 3$ Sudoku sub-box. A count array is maintained for every sub-box $(i, j)$ with coordinate $(y, x)$, such that $j \leq y < j + 3$, and such that $i \leq x < i + 3$. After all values of the coordinates in the $3 \times 3$ sub-box with upper-left corner $(i, j)$ have been recorded in the count array, it's iterated through to check for any counts that are not strictly 1.
 
 ## Go Implementation
 ```go
