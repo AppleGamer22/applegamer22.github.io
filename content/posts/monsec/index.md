@@ -14,15 +14,22 @@ It turns out that there were some available positions in the MonSec committee at
 During this period of a semester and a bit, I learned about how MonSec works from behind the scenes, ran an online workshop whose demo didn't go as planned (immensely valuable for troubleshooting future workshops). The conversation I remember the most from this period was my introduction to the then-secretary, Luke who told that the MonSec team culture is based on recognising that the MonSec committee members are students, thus being relatively relaxed with deadlines is a requirement. At the time, I didn't understand how critical it was that we made that part of the team culture official from the start of each term, but it made [my presidency](#president) much more enjoyable.
 
 ## Secretary
-The following year I moved to a more paperwork-heavy and administrative role, that involved record keeping of the committee and general meetings. I found it hard to parallelise the functions of documenting the meeting, and being attentive to what is being said. This struggle lead me to use several methods of documentation, such as a multi-media recording of the meeting, thus diversifying the dependency from one source of truth to multiple. In addition, I saw an opportunity to automate some repetitive routines, mainly the generation of plots for the semi-annual general meeting reports. I wrote a Python script that ingests the membership log of the club, and produces a set of plots for the secretary to use in their report.
+The following year I moved to a more paperwork-heavy and administrative role, that involved record keeping of the committee and general meetings. I found it hard to parallelise the functions of documenting the meeting, and being attentive to what is being said. This struggle lead me to use several methods of documentation, such as a multi-media recording of the meeting, thus diversifying the dependency from one source of truth to multiple. In addition, I saw an opportunity to automate some repetitive routines, mainly the generation of plots for the semi-annual general meeting reports. I wrote a Python script that ingests the membership log of the club, and produces a set of plots for future secretaries to use in their report.
 
 ## Vice-President
+Towards the end of 2022's first semester, the then-president Peter notified the committee of his intention to resign during the Ordinary General Meeting (OGM). As expected from a relatively-niche club of the size we where at the time, it wasn't a guarantee that we could fill the vacancy by having someone new (to the committee) putting their name on the ballot for such a senior role. In order to keep MonSec running, we had to step up and be ready to accept a role with more responsibility, and teach what we learned to the person that replaces us in the previous role. After more than a year later, it's safe to say that the MonSec team showed their versatility as most of the committee had to learn and perform a new role at the same time with far less preparation time. It should also be noted that this versatility positively impacted the committee transition to [2023](#president).
 
-![](cybercon_2022.jpg "AISA CyberCon 2022")
+![MonSec at AISA CyberCon 2022](cybercon_2022.jpg? "MonSec at AISA CyberCon 2022")
+
+This role was an amazing preparation to the next year, as I got to talk to academic and industry stakeholders such as researchers, university staff, sponsors and partners and plan future engagements with them.
+
+# President
+Before Peter's role ended, he handled the paperwork required to register MonSec as a [non-profit organisation](https://www.acnc.gov.au/charity/charities/5e6985b5-f1e2-ec11-bb3e-002248116a15/profile), which intended to be used for discounted digital infrastructure. Initially, we intended to focus on transitioning our CTFd server to Microsoft Azure, since they offer a non-profit grant that will be substantially cheaper for us. Our systems administrator Matti, did a tremendous work learning [Infrastructure as Code](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/infrastructure-as-code) in order to have our Azure resources documented. His work enabled the next system administrator, Kar Jun to up-skill himself, and it also gave me an excuse to learn [Terraform](https://terraform.io) as well.
+
+With the 2023 committee assembled, I had some plans to make the club's mission reach more people through improved social media.
 
 ![](agm_2022.jpg "MonSec's 2022 Annual General Meeting")
 
-# President
 ## Preparation
 ## 2023 Semester 1
 
