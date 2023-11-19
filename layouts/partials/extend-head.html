@@ -81,6 +81,7 @@
 				appearanceSwitcher.addEventListener("click", () => location.reload())
 			}
 			window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => location.reload());
+			// document.querySelector("button#appearance-switcher-0").addEventListener("click", () => location.reload());
 
 			let scheme = localStorage.getItem("appearance");
 			if (scheme === null) scheme = "dark";
@@ -112,8 +113,6 @@
 					fontSize: "16px"
 				}
 			});
-
-			document.querySelector("button#appearance-switcher-0").addEventListener("click", () => location.reload());
 		});
 	</script>
 {{end}}
