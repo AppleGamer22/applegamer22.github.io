@@ -28,12 +28,17 @@ Before Peter's role ended, he handled the paperwork required to register MonSec 
 
 With the 2023 committee assembled, I had some plans to make the club's mission reach more people through improved social media.
 
-![](agm_2022.jpg "MonSec's 2022 Annual General Meeting")
+![MonSec's 2022 Annual General Meeting"](agm_2022.jpg "MonSec's 2022 Annual General Meeting")
 
 ## Preparation
+We started by planning the events we will have during semester 1, which included our weekly workshops and the promotional activities during the orientation festival. Since I haven't worked extensively with most of the team beforehand, I got to know them and their goals for the club and their roles throughout the summer break. I wanted to be sure that all of the team members understand their part in the club's mission and the time commitment the team members can expect from each other. I felt this was important to define since the team is composed of university students, thus making it unrealistic to expect the same level of commitment of everyone regardless of their individual circumstances.
+
 ## 2023 Semester 1
+We started the semester 1 at the orientation stall, where the team introduced MonSec to new students, with goal of getting Monash University students to attend our weekly workshops.
 
 ![The MonSec Team at The 2023S1 Orientation Festival](oweek1_2023s1.jpg "The MonSec Team at The 2023S1 Orientation Festival")
+
+We used the classic analogy of lock-picking to explain the philosophy of hacking to new MonSec members. This method has been demonstrated in every orientation festival to be very effective in attracting curious students to attend our events.
 
 ![Newly-registered MonSec Members Try Lock-picking](oweek2_2023s1.jpg "Newly-registered MonSec Members Try Lock-picking")
 
@@ -49,6 +54,26 @@ With the 2023 committee assembled, I had some plans to make the club's mission r
 ![Me & Sarah with Nick from The Legal Forecast](tlf_2023s2.jpg "Me & Sarah with Nick from The Legal Forecast")
 
 ![MonSec 2023 Committee's Last Team Photo](committee_2023.jpg "MonSec 2023 Committee's Last Team Photo")
+
+# The Future
+
+![MonSec & Friends at ANZ UnConference23](anz_unconference23.jpg "MonSec & Friends at ANZ UnConference23")
+
+# Credits
+* Leo
+* Peter
+* Akbar
+* Matti
+* Yuki
+* Sean
+* Jamie
+* Elias
+* Kar Jun
+* Preeti
+* Sarah
+* Oscar
+* Rahul
+* Chloe
 
 # Main Takeaways
 This post would have been meaningless if I wouldn't have laid out my key lessons from being part of MonSec:
