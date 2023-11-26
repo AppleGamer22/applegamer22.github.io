@@ -76,8 +76,8 @@ This journey has not been possible without my teammates and friends that made th
 * Kar Jun
 * Preeti
 * Sarah
-* Oscar
-* Rahul and Chloe
+* Oscar has been essential in the recent engagements with industry stakeholders such as sponsors and partners, and I reckon the results of his current work will become visible soon. The quality of his work can be described by the positive remarks of a certain automotive journalist.
+* Rahul and Chloe helped my team with designing high-quality posters for our weekly workshops' social media publications. The distinct quality of their work can be easily observed when compared to our other publications.
 * Rohan has been the bridge between the Faculty of Information Technology's student engagement operations and MonSec, and he made these discussions a breeze.
 
 # Main Takeaways
