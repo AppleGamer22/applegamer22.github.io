@@ -122,37 +122,10 @@ The following `layouts/partials/extend-head.html` code is based on [Docsy's diag
 				pre.textContent = text;
 				diagram.parentElement.replaceWith(pre);
 			}
-			const colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
-			colorScheme.addEventListener("change", () => location.reload());
-			let scheme = localStorage.getItem("appearance");
-			if (scheme === null) scheme = "dark";
-			const textColor = scheme === "dark" ? "white" : "black";
-			mermaid.initialize({
-				theme: "base",
-				themeVariables: {
-					background: tuple2RGB("--color-neutral"),
-					primaryColor: tuple2RGB("--color-primary-200"),
-					secondaryColor: tuple2RGB("--color-secondary-200"),
-					tertiaryColor: tuple2RGB("--color-neutral-100"),
-					primaryBorderColor: tuple2RGB("--color-primary-400"),
-					secondaryBorderColor: tuple2RGB("--color-secondary-400"),
-					tertiaryBorderColor: tuple2RGB("--color-neutral-400"),
-					lineColor: tuple2RGB("--color-neutral-600"),
-					textColor: textColor,
-					loopTextColor: textColor,
-					actorTextColor: textColor,
-					mainBkg: (() => {
-						switch (scheme === "dark") {
-						case true:
-							return tuple2RGB("--color-neutral-800");
-						case false:
-							return tuple2RGB("--color-neutral");
-						}
-					})(),
-					fontFamily: "ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,noto sans,sans-serif",
-					fontSize: "16px"
-				}
-			});
+			for (const appearanceSwitcher of document.querySelectorAll("[id^='appearance-switcher']")) {
+				appearanceSwitcher.addEventListener("click", () => location.reload())
+			}
+			// window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => location.reload());
 			document.querySelector("button#appearance-switcher-0").addEventListener("click", () => location.reload());
 		});
 	</script>
