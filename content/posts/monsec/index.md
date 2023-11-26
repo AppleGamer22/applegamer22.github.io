@@ -34,7 +34,7 @@ With the 2023 committee assembled, I had some plans to make the club's mission r
 We started by planning the events we will have during semester 1, which included our weekly workshops and the promotional activities during the orientation festival. Since I haven't worked extensively with most of the team beforehand, I got to know them and their goals for the club and their roles throughout the summer break. I wanted to be sure that all of the team members understand their part in the club's mission and the time commitment the team members can expect from each other. I felt this was important to define since the team is composed of university students, thus making it unrealistic to expect the same level of commitment of everyone regardless of their individual circumstances.
 
 ## 2023 Semester 1
-We started the semester 1 at the orientation stall, where the team introduced MonSec to new students, with goal of getting Monash University students to attend our weekly workshops.
+We started the semester 1[^1] at the orientation stall, where the team introduced MonSec to new students, with goal of getting Monash University students to attend our weekly workshops.
 
 ![The MonSec Team at The 2023S1 Orientation Festival](oweek1_2023s1.jpg "The MonSec Team at The 2023S1 Orientation Festival")
 
@@ -47,6 +47,8 @@ We used the classic analogy of lock-picking to explain the philosophy of hacking
 ![MonSec's 2023 Ordinary General Meeting](ogm_2023.jpg "MonSec's 2023 Ordinary General Meeting")
 
 ## 2023 Semester 2
+[^2]
+
 ![The MonSec Team at The 2023S2 Orientation Festival](ofest_2023s2.jpg "The MonSec Team at The 2023S2 Orientation Festival")
 
 ![My Reverse Shell Workshop](reverse_shell_2023s2.jpg "My Reverse Shell Workshop")
@@ -60,10 +62,13 @@ We used the classic analogy of lock-picking to explain the philosophy of hacking
 ![MonSec & Friends at ANZ UnConference23](anz_unconference23.jpg "MonSec & Friends at ANZ UnConference23")
 
 # Credits
-* Leo
-* Peter
-* Akbar
-* Matti
+This journey has not been possible without my teammates and friends that made this experience one of the highlights of my degree.
+
+* Leo has been instrumental in shaping how MonSec runs its technical workshops, which is evident by the unique taste and style of the educational content he produced.
+* Peter was immensely helpful in registering MonSec as a not-for-profit organisation, along with providing the committee with meaningful guidance.
+* Emily, Luke, James and Luca were crucial in showing how to be a productive team member in a stressful time such as in during the COVID-19 pandemic.
+* Akbar has been instrumental in maintaining our media pipeline and our website, along with being a diligent secretary.
+* Matti was the cornerstone of MonSec's cloud migration effort, which is safe to say he nailed. In addition he taught me a lot regarding server administration throughout his time with MonSec.
 * Yuki
 * Sean
 * Jamie
@@ -72,8 +77,8 @@ We used the classic analogy of lock-picking to explain the philosophy of hacking
 * Preeti
 * Sarah
 * Oscar
-* Rahul
-* Chloe
+* Rahul and Chloe
+* Rohan has been the bridge between the Faculty of Information Technology's student engagement operations and MonSec, and he made these discussions a breeze.
 
 # Main Takeaways
 This post would have been meaningless if I wouldn't have laid out my key lessons from being part of MonSec:
@@ -87,3 +92,6 @@ This post would have been meaningless if I wouldn't have laid out my key lessons
 I'm sure MonSec will continue being just as or even more of a wholesome group of passionate ethical hackers, and even though I'm no longer involved in its leadership I'll always be happy to help them out where I can.
 
 ![](thumbnail.jpg "Hopefully [Mutahar](https://x.com/OrdinaryGamers/status/1594182587194359809) appreciates this meme… (made with [GIMP](https://gimp.org))")
+
+[^1]: Bornstein, O. (2023, February 19). 2023 Semester 1. Monash Cyber Security Club. <https://monsec.io/posts/2023s1/>
+[^2]: Bornstein, O. (2023, July 19). 2023 Semester 2. Monash Cyber Security Club. <https://monsec.io/posts/2023s2/>
