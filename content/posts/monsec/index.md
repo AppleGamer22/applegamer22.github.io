@@ -16,12 +16,16 @@ During this period of a semester and a bit, I learned about how MonSec works fro
 ## Secretary
 The following year I moved to a more paperwork-heavy and administrative role, that involved record keeping of the committee and general meetings. I found it hard to parallelise the functions of documenting the meeting, and being attentive to what is being said. This struggle lead me to use several methods of documentation, such as a multi-media recording of the meeting, thus diversifying the dependency from one source of truth to multiple. In addition, I saw an opportunity to automate some repetitive routines, mainly the generation of plots for the semi-annual general meeting reports. I wrote a Python script that ingests the membership log of the club, and produces a set of plots for future secretaries to use in their report.
 
+During this semester I ran my first workshop for the year on [reverse-engineering](https://youtu.be/893L13SxDUg), sadly from home due to a COVID-19-positive test result.
+
 ## Vice-President
 Towards the end of 2022's first semester, the then-president Peter notified the committee of his intention to resign during the Ordinary General Meeting (OGM). As expected from a relatively-niche club of the size we where at the time, it wasn't a guarantee that we could fill the vacancy by having someone new (to the committee) putting their name on the ballot for such a senior role. In order to keep MonSec running, we had to step up and be ready to accept a role with more responsibility, and teach what we learned to the person that replaces us in the previous role. After more than a year later, it's safe to say that the MonSec team showed their versatility as most of the committee had to learn and perform a new role at the same time with far less preparation time. It should also be noted that this versatility positively impacted the committee transition to [2023](#president).
 
 ![MonSec at AISA CyberCon 2022](cybercon_2022.jpg? "MonSec at AISA CyberCon 2022")
 
 This role was an amazing preparation to the next year, as I got to talk to academic and industry stakeholders such as researchers, university staff, sponsors and partners and plan future engagements with them.
+
+During this semester, I ran a [beginner-level workshop](https://youtu.be/oc_Ndi7p3Eg) about steganography, the art of hiding information in plain sight within other pieces of information.
 
 # President
 Before Peter's role ended, he handled the paperwork required to register MonSec as a [non-profit organisation](https://www.acnc.gov.au/charity/charities/5e6985b5-f1e2-ec11-bb3e-002248116a15/profile), which intended to be used for discounted digital infrastructure. Initially, we intended to focus on transitioning our CTFd server to Microsoft Azure, since they offer a non-profit grant that will be substantially cheaper for us. Our systems administrator Matti, did a tremendous work learning [Infrastructure as Code](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/infrastructure-as-code) in order to have our Azure resources documented. His work enabled the next system administrator, Kar Jun to up-skill himself, and it also gave me an excuse to learn [Terraform](https://terraform.io) as well.
@@ -42,14 +46,22 @@ We used the classic analogy of lock-picking to explain the philosophy of hacking
 
 ![Newly-registered MonSec Members Try Lock-picking](oweek2_2023s1.jpg "Newly-registered MonSec Members Try Lock-picking")
 
+We featured a several guest speakers that showcased our shared passion for cyber-security and the curiosity that it entails.
+
 ![Digital Forensics & Incident Response Workshop](dfir_workshop2.jpg "Digital Forensics & Incident Response Workshop")
 
+Due to Elias graduating in semester 1, we had to elect a new vice-president, and to fill a vacant sponsorship officer position. We enthusiastically welcomed Sarah as VP and Oscar as sponsorship officer.
+
 ![MonSec's 2023 Ordinary General Meeting](ogm_2023.jpg "MonSec's 2023 Ordinary General Meeting")
+
+On a more personal note, during this semester I ran a [beginner-level workshop](https://youtu.be/WXTVsIHrAKM) about one of my favourite topics, the Linux command-line interface and how to use it's user permission system.
 
 ## 2023 Semester 2
 [^2]
 
 ![The MonSec Team at The 2023S2 Orientation Festival](ofest_2023s2.jpg "The MonSec Team at The 2023S2 Orientation Festival")
+
+During this semester I ran 2 workshops about [reverse-engineering (2nd iteration)](https://youtu.be/pCxelNdDQvM) and about [reverse shells](https://youtu.be/xLVxnu9vgos).
 
 ![My Reverse Shell Workshop](reverse_shell_2023s2.jpg "My Reverse Shell Workshop")
 
@@ -58,8 +70,11 @@ We used the classic analogy of lock-picking to explain the philosophy of hacking
 ![MonSec 2023 Committee's Last Team Photo](committee_2023.jpg "MonSec 2023 Committee's Last Team Photo")
 
 # The Future
+The committee is in the the midst of the handover period, and I'm beyond impressed by their dedication. Planning for next year's events is underway, and I'm sure next year's MonSec members will be pleased with the breadth of workshop concepts and guest speaker sessions that will be featured.
 
 ![MonSec & Friends at ANZ UnConference23](anz_unconference23.jpg "MonSec & Friends at ANZ UnConference23")
+
+I should emphasise that Rohan, Oscar and myself aren't officially related to Cloudflare, as we just think their shirt looks cool.
 
 # Credits
 This journey has not been possible without my teammates and friends that made this experience one of the highlights of my degree.
