@@ -57,7 +57,7 @@ Due to Elias graduating in semester 1, we had to elect a new vice-president, and
 On a more personal note, during this semester I ran a [beginner-level workshop](https://youtu.be/WXTVsIHrAKM) about one of my favourite topics, the Linux command-line interface and how to use it's user permission system.
 
 ## 2023 Semester 2
-[^2]
+We started semester 2[^2] by planning the progression of weekly events, which (like all good plans) we had to modify several times throughout the semester. We also took part in a smaller orientation festival, which surprisingly yielded more members.
 
 ![The MonSec Team at The 2023S2 Orientation Festival](ofest_2023s2.jpg "The MonSec Team at The 2023S2 Orientation Festival")
 
@@ -65,7 +65,11 @@ During this semester I ran 2 workshops about [reverse-engineering (2nd iteration
 
 ![My Reverse Shell Workshop](reverse_shell_2023s2.jpg "My Reverse Shell Workshop")
 
+We also had a couple of workshops that are a bit different then what we usually have been doing. We partnered with Nick from The Legal Forecast to run a workshop/discussion with our members about the various legal frameworks that seek to guard our privacy.
+
 ![Me & Sarah with Nick from The Legal Forecast](tlf_2023s2.jpg "Me & Sarah with Nick from The Legal Forecast")
+
+Overall, I'm very happy with the impact I had on MonSec throughout the last year, especially with how we work with each other and other organisations.
 
 ![MonSec 2023 Committee's Last Team Photo](committee_2023.jpg "MonSec 2023 Committee's Last Team Photo")
 
@@ -77,17 +81,17 @@ The committee is in the the midst of the handover period, and I'm beyond impress
 I should emphasise that Rohan, Oscar and myself aren't officially related to Cloudflare, as we just think their shirt looks cool.
 
 # Credits
-This journey has not been possible without my teammates and friends that made this experience one of the highlights of my degree.
+This journey was not possible without my teammates and friends that made this experience one of the highlights of my degree.
 
 * Leo has been instrumental in shaping how MonSec runs its technical workshops, which is evident by the unique taste and style of the educational content he produced.
 * Peter was immensely helpful in registering MonSec as a not-for-profit organisation, along with providing the committee with meaningful guidance.
 * Emily, Luke, James and Luca were crucial in showing how to be a productive team member in a stressful time such as in during the COVID-19 pandemic.
 * Akbar has been instrumental in maintaining our media pipeline and our website, along with being a diligent secretary.
 * Matti was the cornerstone of MonSec's cloud migration effort, which is safe to say he nailed. In addition he taught me a lot regarding server administration throughout his time with MonSec.
-* Yuki
-* Sean
-* Jamie
-* Elias
+* Yuki has been a joy to work with, especially due to his passion for cyber-security and due to his ability to go above and beyond with organising the club's files and workflows, running and helping with technical workshops and being a go-to person for many of our members.
+* Sean was essential for maintaining the club's financial records during my presidency, which he did flawlessly even throughout his industry internship.
+* Jamie has transformed the club's media pipeline with Canva, which enabled a more diverse design capability and tighter collaboration, while maintaining a vibrant social media presence for the club.
+* Elias has been an amazing friend and vice-president, and because of his persistance we managed to secure a sponsor for the [Beginner CTF](https://monsec.io/posts/2023s2/#beginner-ctf). Moreover, he also went above and beyond to run a weekly CTF-like walkthrough on the club's Discord server.
 * Kar Jun
 * Preeti
 * Sarah
