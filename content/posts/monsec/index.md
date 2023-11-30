@@ -16,7 +16,7 @@ During this period of a semester and a bit, I learned about how MonSec works fro
 ## Secretary
 The following year I moved to a more paperwork-heavy and administrative role, that involved record keeping of the committee and general meetings. I found it hard to parallelise the functions of documenting the meeting, and being attentive to what is being said. This struggle lead me to use several methods of documentation, such as a multi-media recording of the meeting, thus diversifying the dependency from one source of truth to multiple. In addition, I saw an opportunity to automate some repetitive routines, mainly the generation of plots for the semi-annual general meeting reports. I wrote a Python script that ingests the membership log of the club, and produces a set of plots for future secretaries to use in their report.
 
-During this semester I ran my first workshop for the year on [reverse-engineering](https://youtu.be/893L13SxDUg), sadly from home due to a COVID-19-positive test result.
+During this semester I ran [my first workshop](https://youtu.be/893L13SxDUg) for the year on reverse-engineering, sadly from home due to a COVID-19-positive test result.
 
 ## Vice-President
 Towards the end of 2022's first semester, the then-president Peter notified the committee of his intention to resign during the Ordinary General Meeting (OGM). As expected from a relatively-niche club of the size we where at the time, it wasn't a guarantee that we could fill the vacancy by having someone new (to the committee) putting their name on the ballot for such a senior role. In order to keep MonSec running, we had to step up and be ready to accept a role with more responsibility, and teach what we learned to the person that replaces us in the previous role. After more than a year later, it's safe to say that the MonSec team showed their versatility as most of the committee had to learn and perform a new role at the same time with far less preparation time. It should also be noted that this versatility positively impacted the committee transition to [2023](#president).
@@ -54,10 +54,15 @@ Due to Elias graduating in semester 1, we had to elect a new vice-president, and
 
 ![MonSec's 2023 Ordinary General Meeting](ogm_2023.jpg "MonSec's 2023 Ordinary General Meeting")
 
-On a more personal note, during this semester I ran a [beginner-level workshop](https://youtu.be/WXTVsIHrAKM) about one of my favourite topics, the Linux command-line interface and how to use it's user permission system.
+During this semester I ran a [beginner-level workshop](https://youtu.be/WXTVsIHrAKM) about one of my favourite topics, the Linux command-line interface and how to use it's user permission system.
+
+### Beginner CTF
+We held our annual beginner-friendly [Capture The Flag](https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)) event, this time with support from EY that provided the catering and some of their talented consultants. With their help, the CTF participants had a better understanding of the challenges and of the cyber-security industry.
+
+![MonSec Committee & EY’s Advanced Security Center’s consultants](beginner_ctf_ey_monsec.jpg "MonSec Committee & EY’s Advanced Security Center’s consultants")
 
 ## 2023 Semester 2
-We started semester 2[^2] by planning the progression of weekly events, which (like all good plans) we had to modify several times throughout the semester. We also took part in a smaller orientation festival, which surprisingly yielded more members.
+We started semester 2[^2] by planning the progression of weekly events, which (like all good plans) we had to modify several times throughout the semester. We also took part in a smaller orientation festival, which surprisingly yielded more members. In addition, we also worked on a [new sponsorship prospectus](https://go.monsec.io/prospectus) and a [slightly-revised website](https://monsec.io/posts/2023s2/#website), both to serve as a long-term framework for further enhancements in our online presence.
 
 ![The MonSec Team at The 2023S2 Orientation Festival](ofest_2023s2.jpg "The MonSec Team at The 2023S2 Orientation Festival")
 
@@ -67,11 +72,11 @@ During this semester I ran 2 workshops about [reverse-engineering (2nd iteration
 
 We also had a couple of workshops that are a bit different then what we usually have been doing. We partnered with Nick from The Legal Forecast to run a workshop/discussion with our members about the various legal frameworks that seek to guard our privacy.
 
-![Me & Sarah with Nick from The Legal Forecast](tlf_2023s2.jpg "Me & Sarah with Nick from The Legal Forecast")
+![Sarah & myself with Nick from The Legal Forecast](tlf_2023s2.jpg "Sarah & myself with Nick from The Legal Forecast")
 
 Overall, I'm very happy with the impact I had on MonSec throughout the last year, especially with how we work with each other and other organisations.
 
-![MonSec 2023 Committee's Last Team Photo](committee_2023.jpg "MonSec 2023 Committee's Last Team Photo")
+![MonSec 2023 committee's last team photo](committee_2023.jpg "MonSec 2023 committee's last team photo")
 
 # The Future
 The committee is in the the midst of the handover period, and I'm beyond impressed by their dedication. Planning for next year's events is underway, and I'm sure next year's MonSec members will be pleased with the breadth of workshop concepts and guest speaker sessions that will be featured.
@@ -91,11 +96,11 @@ This journey was not possible without my teammates and friends that made this ex
 * Yuki has been a joy to work with, especially due to his passion for cyber-security and due to his ability to go above and beyond with organising the club's files and workflows, running and helping with technical workshops and being a go-to person for many of our members.
 * Sean was essential for maintaining the club's financial records during my presidency, which he did flawlessly even throughout his industry internship.
 * Jamie has transformed the club's media pipeline with Canva, which enabled a more diverse design capability and tighter collaboration, while maintaining a vibrant social media presence for the club.
-* Elias has been an amazing friend and vice-president, and because of his persistance we managed to secure a sponsor for the [Beginner CTF](https://monsec.io/posts/2023s2/#beginner-ctf). Moreover, he also went above and beyond to run a weekly CTF-like walkthrough on the club's Discord server.
+* Elias has been an amazing friend and vice-president, and because of his persistance we managed to secure a sponsor for the [Beginner CTF](#beginner-ctf). Moreover, he also went above and beyond to run a weekly CTF-like walkthrough on the club's Discord server.
 * Kar Jun maintained the clubs cloud infrastructure for the CTFd server we use in our events, which was executed perfectly while learning our management practices and troubleshooting in real-time.
 * Preeti has been vital for the club's engagement with members, as she's been helping to troubleshoot and clarify issues during our workshops.
 * Sarah has been expanding the club's relations with the industry, the university and the greater community, which will be utilised next year. In addition she has also been editing the workshop recordings and helping with the social media publications, preparing and running several workshops, and helping the members to troubleshoot.
-* Oscar has been essential in the recent engagements with industry stakeholders such as sponsors and partners, and I reckon the results of his current work will become visible soon. The quality of his work can be described by the positive remarks of a certain automotive journalist.
+* Oscar has been essential in the recent engagements with industry stakeholders such as sponsors and partners, and I reckon the results of his current work will become visible soon. He also professionally captured the photos of our events throughout 2023.
 * Rahul and Chloe helped my team with designing high-quality posters for our weekly workshops' social media publications. The distinct quality of their work can be easily observed when compared to our other publications.
 * Rohan has been the bridge between the Faculty of Information Technology's student engagement operations and MonSec, and he made these discussions a breeze.
 
