@@ -5,6 +5,8 @@ date: 2023-12-01
 tags: [MonSec]
 draft: true
 ---
+As I conclude my time at the [Monash Cyber Security Club (MonSec)](https://monsec.io) committee, I've written this summary of my journey with this incredible club.
+
 # The Beginning
 My first year in university wasn't normal, due to the COVID-19 pandemic I had to adjust to both learning from home and to socialising in a complexly new environment with more restrictive means of interactions. The following year's orientation week, I noticed some familiar names on the cohort's Discord server mentioning they will be representing the cyber-security club at the student association's orientation festival. Since I didn't know anybody else that went to that event, I decided to check their booth out. The first 2 people I met from MonSec were Leo and Luca, who were super-friendly, they asked me of my previous experience and presented me with nifty lock-picking and cryptography challenges. The most memorable part was when Leo asked me of my previous experience, and I jokingly said "~~[I use Arch by the way](https://knowyourmeme.com/memes/btw-i-use-arch)~~" (note to self: that joke went horribly in retrospective).
 
@@ -28,7 +30,7 @@ This role was an amazing preparation to the next year, as I got to talk to acade
 During this semester, I ran a [beginner-level workshop](https://youtu.be/oc_Ndi7p3Eg) about steganography, the art of hiding information in plain sight within other pieces of information.
 
 # President
-Before Peter's role ended, he handled the paperwork required to register MonSec as a [non-profit organisation](https://www.acnc.gov.au/charity/charities/5e6985b5-f1e2-ec11-bb3e-002248116a15/profile), which intended to be used for discounted digital infrastructure. Initially, we intended to focus on transitioning our CTFd server to Microsoft Azure, since they offer a non-profit grant that will be substantially cheaper for us. Our systems administrator Matti, did a tremendous work learning [Infrastructure as Code (IaC)](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/infrastructure-as-code) in order to have our Azure resources documented. His work enabled the next system administrator, Kar Jun to up-skill himself, and it also gave me an excuse to learn [Terraform](https://terraform.io) as well.
+Before Peter's role ended, he handled the paperwork required to register MonSec as a [non-profit organisation](https://www.acnc.gov.au/charity/charities/5e6985b5-f1e2-ec11-bb3e-002248116a15/profile), which he intended to be used for discounted digital infrastructure. Initially, we intended to focus on transitioning our CTFd server to Microsoft Azure, since they offer a non-profit grant that will be substantially cheaper for us. Our systems administrator Matti, did a tremendous work learning [Infrastructure as Code (IaC)](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/infrastructure-as-code) in order to have our Azure resources documented. His work enabled the next system administrator, Kar Jun to up-skill himself, and it also gave me an excuse to learn [Terraform](https://terraform.io) as well.
 
 With the 2023 committee assembled, I had some plans to make the club's mission reach more people through improved social media.
 
@@ -100,9 +102,17 @@ This journey was not possible without my teammates and friends that made this ex
 * Kar Jun maintained the clubs cloud infrastructure for the CTFd server we use in our events, which was executed perfectly while learning our management practices and troubleshooting in real-time.
 * Preeti has been vital for the club's engagement with members, as she's been helping to troubleshoot and clarify issues during our workshops.
 * Sarah has been expanding the club's relations with the industry, the university and the greater community, which will be utilised next year. In addition she has also been editing the workshop recordings and helping with the social media publications, preparing and running several workshops, and helping the members to troubleshoot.
-* Oscar has been essential in the recent engagements with industry stakeholders such as sponsors and partners, and I reckon the results of his current work will become visible soon. He also professionally captured the photos of our events throughout 2023.
+* Oscar has been essential in the recent engagements with industry stakeholders such as sponsors and partners, and I reckon the outcome of his current work will become visible soon. He also professionally captured the photos of our events throughout 2023.
 * Rahul and Chloe helped my team with designing high-quality posters for our weekly workshops' social media publications. The distinct quality of their work can be easily observed when compared to our other publications.
 * Rohan has been the bridge between the Faculty of Information Technology's student engagement operations and MonSec, and he made these discussions a breeze.
+
+Moreover, MonSec owes many thanks to our friends in the university and industry:
+
+* Shujie Cui, Xingliang Yuan, Carsten Rudolph, Monica Whitty and Pierre Le Bodic from the Faculty of Information Technology have been tremendously helpful by helping MonSec book venues on campus, advertising our events through the faculty's social media, helping to finance our events throughout our history and connecting us with the wider education ecosystem.
+* Catherine Karavias and the faculty's student engagement team were incredibly supportive by advertising MonSec in the student newsletter and helping us with event financing.
+* Dan Maslin with his team, and Sajeeb Lohani were immensely influential by helping MonSec to expand its university and industry networks.
+
+And of course, none of this wouldn't have been possible without our awesome members, sponsors and partners.
 
 # Main Takeaways
 This post would have been meaningless if I wouldn't have laid out my key lessons from being part of MonSec:
