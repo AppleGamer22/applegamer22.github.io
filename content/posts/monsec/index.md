@@ -28,7 +28,7 @@ This role was an amazing preparation to the next year, as I got to talk to acade
 During this semester, I ran a [beginner-level workshop](https://youtu.be/oc_Ndi7p3Eg) about steganography, the art of hiding information in plain sight within other pieces of information.
 
 # President
-Before Peter's role ended, he handled the paperwork required to register MonSec as a [non-profit organisation](https://www.acnc.gov.au/charity/charities/5e6985b5-f1e2-ec11-bb3e-002248116a15/profile), which intended to be used for discounted digital infrastructure. Initially, we intended to focus on transitioning our CTFd server to Microsoft Azure, since they offer a non-profit grant that will be substantially cheaper for us. Our systems administrator Matti, did a tremendous work learning [Infrastructure as Code](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/infrastructure-as-code) in order to have our Azure resources documented. His work enabled the next system administrator, Kar Jun to up-skill himself, and it also gave me an excuse to learn [Terraform](https://terraform.io) as well.
+Before Peter's role ended, he handled the paperwork required to register MonSec as a [non-profit organisation](https://www.acnc.gov.au/charity/charities/5e6985b5-f1e2-ec11-bb3e-002248116a15/profile), which intended to be used for discounted digital infrastructure. Initially, we intended to focus on transitioning our CTFd server to Microsoft Azure, since they offer a non-profit grant that will be substantially cheaper for us. Our systems administrator Matti, did a tremendous work learning [Infrastructure as Code (IaC)](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/infrastructure-as-code) in order to have our Azure resources documented. His work enabled the next system administrator, Kar Jun to up-skill himself, and it also gave me an excuse to learn [Terraform](https://terraform.io) as well.
 
 With the 2023 committee assembled, I had some plans to make the club's mission reach more people through improved social media.
 
@@ -78,23 +78,23 @@ The committee is in the the midst of the handover period, and I'm beyond impress
 
 ![MonSec & Friends at ANZ UnConference23](anz_unconference23.jpg "MonSec & Friends at ANZ UnConference23")
 
-I should emphasise that Rohan, Oscar and myself aren't officially related to Cloudflare, as we just think their shirt looks cool.
+I should emphasise that Rohan, Oscar and myself **aren't** officially related to Cloudflare, as we just think their shirt looks cool.
 
 # Credits
 This journey was not possible without my teammates and friends that made this experience one of the highlights of my degree.
 
 * Leo has been instrumental in shaping how MonSec runs its technical workshops, which is evident by the unique taste and style of the educational content he produced.
 * Peter was immensely helpful in registering MonSec as a not-for-profit organisation, along with providing the committee with meaningful guidance.
-* Emily, Luke, James and Luca were crucial in showing how to be a productive team member in a stressful time such as in during the COVID-19 pandemic.
+* Emily, Luke, James, Luca and Marcus were crucial in showing how to be a productive team member in a stressful time such as in during the COVID-19 pandemic.
 * Akbar has been instrumental in maintaining our media pipeline and our website, along with being a diligent secretary.
 * Matti was the cornerstone of MonSec's cloud migration effort, which is safe to say he nailed. In addition he taught me a lot regarding server administration throughout his time with MonSec.
 * Yuki has been a joy to work with, especially due to his passion for cyber-security and due to his ability to go above and beyond with organising the club's files and workflows, running and helping with technical workshops and being a go-to person for many of our members.
 * Sean was essential for maintaining the club's financial records during my presidency, which he did flawlessly even throughout his industry internship.
 * Jamie has transformed the club's media pipeline with Canva, which enabled a more diverse design capability and tighter collaboration, while maintaining a vibrant social media presence for the club.
 * Elias has been an amazing friend and vice-president, and because of his persistance we managed to secure a sponsor for the [Beginner CTF](https://monsec.io/posts/2023s2/#beginner-ctf). Moreover, he also went above and beyond to run a weekly CTF-like walkthrough on the club's Discord server.
-* Kar Jun
-* Preeti
-* Sarah
+* Kar Jun maintained the clubs cloud infrastructure for the CTFd server we use in our events, which was executed perfectly while learning our management practices and troubleshooting in real-time.
+* Preeti has been vital for the club's engagement with members, as she's been helping to troubleshoot and clarify issues during our workshops.
+* Sarah has been expanding the club's relations with the industry, the university and the greater community, which will be utilised next year. In addition she has also been editing the workshop recordings and helping with the social media publications, preparing and running several workshops, and helping the members to troubleshoot.
 * Oscar has been essential in the recent engagements with industry stakeholders such as sponsors and partners, and I reckon the results of his current work will become visible soon. The quality of his work can be described by the positive remarks of a certain automotive journalist.
 * Rahul and Chloe helped my team with designing high-quality posters for our weekly workshops' social media publications. The distinct quality of their work can be easily observed when compared to our other publications.
 * Rohan has been the bridge between the Faculty of Information Technology's student engagement operations and MonSec, and he made these discussions a breeze.
