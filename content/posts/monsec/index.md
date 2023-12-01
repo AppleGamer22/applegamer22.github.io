@@ -3,7 +3,6 @@ title: My MonSec Experience
 description: My Monash Cyber Security Club Experience
 date: 2023-12-01
 tags: [MonSec]
-draft: true
 ---
 As I conclude my time at the [Monash Cyber Security Club (MonSec)](https://monsec.io) committee, I've written this summary of my journey with this incredible club.
 

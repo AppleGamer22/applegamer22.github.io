@@ -31,13 +31,31 @@ directories:
 # yaml-language-server: $schema=https://json.schemastore.org/buf.gen.json
 version: v1
 plugins:
+  - plugin: buf.build/protocolbuffers/go
+    out: gen/go
+    opt: paths=source_relative
+  - plugin: buf.build/grpc/go
+    out: gen/go
+    opt: paths=source_relative
+  - plugin: buf.build/grpc-ecosystem/gateway
+    out: gen/go
+    opt:
+      - paths=source_relative
+      - generate_unbound_methods=true
+  - plugin: buf.build/grpc-ecosystem/openapiv2
+    out: gen/openapiv2
+```
+
+```yaml
+# yaml-language-server: $schema=https://json.schemastore.org/buf.gen.json
+version: v1
+plugins:
   - plugin: go
     out: gen/go
     opt: paths=source_relative
   - name: go-grpc
     out: gen/go
-    opt:
-      - paths=source_relative
+    opt: paths=source_relative
   - name: grpc-gateway
     out: gen/go
     opt:
