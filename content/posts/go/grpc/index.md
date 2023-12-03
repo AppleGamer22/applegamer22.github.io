@@ -15,6 +15,13 @@ breaking:
 lint:
   use:
     - DEFAULT
+  except:
+    - ENUM_VALUE_PREFIX
+    - ENUM_ZERO_VALUE_SUFFIX
+    - SERVICE_SUFFIX
+    - RPC_REQUEST_STANDARD_NAME
+    - RPC_RESPONSE_STANDARD_NAME
+    - RPC_REQUEST_RESPONSE_UNIQUE
 deps:
   - buf.build/googleapis/googleapis
   - buf.build/grpc-ecosystem/grpc-gateway
@@ -53,14 +60,14 @@ plugins:
   - plugin: go
     out: gen/go
     opt: paths=source_relative
-  - name: go-grpc
+  - plugin: go-grpc
     out: gen/go
     opt: paths=source_relative
-  - name: grpc-gateway
+  - plugin: grpc-gateway
     out: gen/go
     opt:
       - paths=source_relative
       - generate_unbound_methods=true
-  - name: openapiv2
+  - plugin: openapiv2
     out: gen/openapiv2
 ```
