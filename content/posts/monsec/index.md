@@ -22,7 +22,7 @@ During this semester I ran [my first workshop](https://youtu.be/893L13SxDUg) for
 ## Vice-President
 Towards the end of 2022's first semester, the then-president Peter notified the committee of his intention to resign during the Ordinary General Meeting (OGM). As expected from a relatively-niche club of the size we where at the time, it wasn't a guarantee that we could fill the vacancy by having someone new (to the committee) putting their name on the ballot for such a senior role. In order to keep MonSec running, we had to step up and be ready to accept a role with more responsibility, and teach what we learned to the person that replaces us in the previous role. After more than a year later, it's safe to say that the MonSec team showed their versatility as most of the committee had to learn and perform a new role at the same time with far less preparation time. It should also be noted that this versatility positively impacted the committee transition to [2023](#president).
 
-![MonSec at AISA CyberCon 2022](cybercon_2022.jpg? "MonSec at AISA CyberCon 2022")
+![MonSec at AISA CyberCon 2022](aisa_cybercon_2022.jpg? "MonSec at AISA CyberCon 2022")
 
 This role was an amazing preparation to the next year, as I got to talk to academic and industry stakeholders such as researchers, university staff, sponsors and partners and plan future engagements with them.
 
@@ -49,7 +49,7 @@ We used the classic analogy of lock-picking to explain the philosophy of hacking
 
 We featured a several guest speakers that showcased our shared passion for cyber-security and the curiosity that it entails.
 
-![Digital Forensics & Incident Response Workshop](dfir_workshop2.jpg "Digital Forensics & Incident Response Workshop")
+![Callum, Harris & Natasha with our members after their insightful talk about DFIR & industry landscape](dfir_workshop2.jpg "Callum, Harris & Natasha with our members after their insightful talk about DFIR & industry landscape")
 
 Due to Elias graduating in semester 1, we had to elect a new vice-president, and to fill a vacant sponsorship officer position. We enthusiastically welcomed Sarah as VP and Oscar as sponsorship officer.
 
@@ -109,6 +109,8 @@ Moreover, MonSec owes many thanks to our friends in the university and industry:
 
 * Shujie Cui, Xingliang Yuan, Carsten Rudolph, Monica Whitty and Pierre Le Bodic from the Faculty of Information Technology have been tremendously helpful by helping MonSec book venues on campus, advertising our events through the faculty's social media, helping to finance our events throughout our history and connecting us with the wider education ecosystem.
 * Catherine Karavias and the faculty's student engagement team were incredibly supportive by advertising MonSec in the student newsletter and helping us with event financing.
+* Harris Wassylko, Callum Rogers, Natasha Doyle and Chathura Abeydeera have been extremely helpful with collaborating on industry workshop with us.
+* Nicholas Dyson from The Legal Forecast delivered an insightful workshop on the various privacy regulations and how they affect cyber-security practitioners.
 * Dan Maslin with his team, and Sajeeb Lohani were immensely influential by helping MonSec to expand its university and industry networks.
 
 And of course, none of this wouldn't have been possible without our awesome members, sponsors and partners.
