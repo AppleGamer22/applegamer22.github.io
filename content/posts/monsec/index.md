@@ -26,7 +26,7 @@ Towards the end of 2022's first semester, the then-president Peter notified the 
 
 This role was an amazing preparation to the next year, as I got to talk to academic and industry stakeholders such as researchers, university staff, sponsors and partners and plan future engagements with them.
 
-During this semester, I ran a [beginner-level workshop](https://youtu.be/oc_Ndi7p3Eg) about steganography, the art of hiding information in plain sight within other pieces of information.
+During this semester, I ran a [beginner-level workshop](https://youtu.be/oc_Ndi7p3Eg) about steganography, the art of hiding information in plain sight within other pieces of information. In addition, Akbar and myself began working on the Kali Linux set-up guide[^1] around this time, as we saw commonalities in the troubleshooting methodologies we employed to help our members get their virtual machine running running.
 
 # President
 Before Peter's role ended, he handled the paperwork required to register MonSec as a [non-profit organisation](https://www.acnc.gov.au/charity/charities/5e6985b5-f1e2-ec11-bb3e-002248116a15/profile), which he intended to be used for discounted digital infrastructure. Initially, we intended to focus on transitioning our CTFd server to Microsoft Azure, since they offer a non-profit grant that will be substantially cheaper for us. Our systems administrator Matti, did a tremendous work learning [Infrastructure as Code (IaC)](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/infrastructure-as-code) in order to have our Azure resources documented. His work enabled the next system administrator, Kar Jun to up-skill himself, and it also gave me an excuse to learn [Terraform](https://terraform.io) as well.
@@ -39,7 +39,7 @@ With the 2023 committee assembled, I had some plans to make the club's mission r
 We started by planning the events we will have during semester 1, which included our weekly workshops and the promotional activities during the orientation festival. Since I haven't worked extensively with most of the team beforehand, I got to know them and their goals for the club and their roles throughout the summer break. I wanted to be sure that all of the team members understand their part in the club's mission and the time commitment the team members can expect from each other. I felt this was important to define since the team is composed of university students, thus making it unrealistic to expect the same level of commitment of everyone regardless of their individual circumstances.
 
 ## 2023 Semester 1
-We started the semester 1[^1] at the orientation stall, where the team introduced MonSec to new students, with goal of getting Monash University students to attend our weekly workshops.
+We started the semester 1[^2] at the orientation stall, where the team introduced MonSec to new students, with goal of getting Monash University students to attend our weekly workshops.
 
 ![The MonSec Team at The 2023S1 Orientation Festival](oweek1_2023s1.jpg "The MonSec Team at The 2023S1 Orientation Festival")
 
@@ -63,7 +63,7 @@ We held our annual beginner-friendly [Capture The Flag](https://en.wikipedia.org
 ![MonSec Committee & EY’s Advanced Security Center’s consultants](beginner_ctf_ey_monsec.jpg "MonSec Committee & EY’s Advanced Security Center’s consultants")
 
 ## 2023 Semester 2
-We started semester 2[^2] by planning the progression of weekly events, which (like all good plans) we had to modify several times throughout the semester. We also took part in a smaller orientation festival, which surprisingly yielded more members. In addition, we also worked on a [new sponsorship prospectus](https://go.monsec.io/prospectus) and a [slightly-revised website](https://monsec.io/posts/2023s2/#website), both to serve as a long-term framework for further enhancements in our online presence.
+We started semester 2[^3] by planning the progression of weekly events, which (like all good plans) we had to modify several times throughout the semester. We also took part in a smaller orientation festival, which surprisingly yielded more members. In addition, we also worked on a [new sponsorship prospectus](https://go.monsec.io/prospectus) and a [slightly-revised website](https://monsec.io/posts/2023s2/#website), both to serve as a long-term framework for further enhancements in our online presence.
 
 ![The MonSec Team at The 2023S2 Orientation Festival](ofest_2023s2.jpg "The MonSec Team at The 2023S2 Orientation Festival")
 
@@ -128,5 +128,6 @@ I'm sure MonSec will continue being just as or even more of a wholesome group of
 
 ![](thumbnail.jpg "Hopefully [Mutahar](https://x.com/OrdinaryGamers/status/1594182587194359809) appreciates this meme… (made with [GIMP](https://gimp.org))")
 
-[^1]: Bornstein, O. (2023, February 19). 2023 Semester 1. Monash Cyber Security Club. <https://monsec.io/posts/2023s1/>
-[^2]: Bornstein, O. (2023, July 19). 2023 Semester 2. Monash Cyber Security Club. <https://monsec.io/posts/2023s2/>
+[^1]: Bornstein O. & Fadiansyah A. (2022). Kali Linux Set-up. Monash Cyber Security Club. https://monsec.io/resources/kali/
+[^2]: Bornstein O. (2023, February 19). 2023 Semester 1. Monash Cyber Security Club. <https://monsec.io/posts/2023s1/>
+[^3]: Bornstein O. (2023, July 19). 2023 Semester 2. Monash Cyber Security Club. <https://monsec.io/posts/2023s2/>
