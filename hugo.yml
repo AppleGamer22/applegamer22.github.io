@@ -80,8 +80,8 @@ languages:
     author:
       name: Omri Bornstein
       image: "/author.png"
-      headline: Computer Science Student, Gopher, TeXnician
-      bio: Computer Science Student, Gopher, TeXnician
+      headline: Software Engineer, Gopher, TeXnician
+      bio: Software Engineer, Gopher, TeXnician
       links:
         - email: mailto:omribor@gmail.com
         - linkedin: https://www.linkedin.com/in/omri-bornstein/
