@@ -3,11 +3,21 @@ title: Git Commit Signing with GPG & YubiKey
 description: Git Commit Signing with GPG and YubiKey
 date: 2024-01-01
 tags: [Git, GitHub, GPG, YubiKey]
-draft: true
 ---
+After learning about how GitHub displays names and profile pictures next to commits, and how this mechanism can be [abused](https://dev.to/martiliones/how-i-got-linus-torvalds-in-my-contributors-on-github-3k4g) rather easily, I decided to enhance the integrity of my public-facing activity on GitHub by attaching digital signatures to my commits.
+
+This document is a summary of all of the online resources I used to set-up my GPG key pair to work seamless across my machines, my [YubiKey hardware-based security key](#import-key-pair-to-yubikey) and on GitHub. I used my name and email for demo purposes only, which means that if you copy **my** details and use them in **your** key pair, it will look **goofy** in your commit log.
+
+# Required Software
+* [`git`](https://git-scm.com)
+* [`gpg`](https://www.gnupg.org)
+* [YubiKey Manager](https://www.yubico.com/support/download/yubikey-manager/)
+* A [GitHub](https://github.com) account
 
 # Generate Key Pair
-According to GitHub's GPG Guide[^1]:
+The key pair first has to be generated on your local machine, such that its metadata is associated to your GitHub account's public-facing details, and its cryptographic algorithm is suitable to your requirements.
+
+According to GitHub's GPG keys Guide[^1]:
 
 1. Generate a key pair.
 	* Make sure to specify your preferred cryptosystem algorithm and your [`gitconfig` contact details](#enable-commit-and-tag-signature)
@@ -41,18 +51,35 @@ According to GitHub's GPG Guide[^1]:
 1. Follow [GitHub's guide](https://docs.github.com/en/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account) to add your public key to your account.
 
 ## Back-up Your Key Pair
-According to Yubico's guide[^2], you can export an ASCII text version of your private key. If you want to save a copy from your YubiKey, make sure it's plugged-in and detected before running the following command.
-
+You can export an ASCII text version of your private key in case you wish to have a back-up version available at a **secure location**.
 
 ```sh
-$ gpg --export-secret-key --armor 4DAFB02B4734FE52
+$ gpg --export-secret-key --armor $KEY
 -----BEGIN PGP PRIVATE KEY BLOCK-----
 # ...
 -----END PGP PRIVATE KEY BLOCK-----
 ```
 
+# Enable Commit and Tag Signature
+You can enable commit signing by default by editing your `~/.gitconfig` file. Your details must match to the details you provided when creating your key pair.
+
+```
+[user]
+	name = Omri Bornstein
+	email = omribor@gmail.com
+[commit]
+	gpgSign = true
+[tag]
+	gpgSign = true
+```
+
+## Graphical PIN Entry
+By default, `gpg` asks for your key's PIN to be entered to its command-line prompt before the private key is used for signing. In case you want to use GPG from a non-TUI environment, the [Arch Linux wiki](https://wiki.archlinux.org/title/GnuPG#pinentry) covers how to enable PIN entry from a graphical interface.
+
 # Import Key Pair to YubiKey
-Tom Stuart has an awesome video on YouTube[^3] showing how ot transfer a key pair to a hardware-based security key like a YubiKey. A similar guide can be found in a written form on [`@drduh`](https://github.com/drduh)'s YubiKey guide[^4].
+At this point, you can utilise your key pair from your local machine with `git` perfectly fine in such a way that GitHub will display a [*verified* badge](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification) next to your commit messages. In case you have a OpenPGP-capable hardware-based security key, you can optionally move your key pair to it, such that it can be used seamlessly and securely across machines.
+
+Tom Stuart has an awesome video on YouTube[^2] showing how ot transfer a key pair to a hardware-based security key like a YubiKey. A similar guide can be found in a written form on [`@drduh`](https://github.com/drduh)'s YubiKey guide[^4].
 
 1. Connect your YubiKey to your machine.
 1. `gpg` lists each of the keys in the key pair according to their role. The first-listed key is intended to be used for digital signatures (labeled by `[SC]`), and the second-listed key is meant to be used for encryption.
@@ -89,21 +116,8 @@ Tom Stuart has an awesome video on YouTube[^3] showing how ot transfer a key pai
 	Save changes? (y/N) y
 	```
 
-# Enable Commit and Tag Signature
-After your key pair is set-up with `gpg` and your YubiKey, you can enable commit signing by default by editing your `~/.gitconfig` file. Your details must match to the details you provided when creating your key pair.
-
-```
-[user]
-	name = Omri Bornstein
-	email = omribor@gmail.com
-[commit]
-	gpgSign = true
-[tag]
-	gpgSign = true
-```
-
-# Add Hardware-backed Key Pair to Another Machine
-In case you want to use the same YubiKey across multiple machines, [`@drduh`](https://github.com/drduh)'s YubiKey guide[^4] covers how to inform `gpg` (installed on another machine) of the key pair you already transferred to your YubiKey from a different machine.
+# Add YubiKey-backed Key Pair to Another Machine
+In case you want to use the same YubiKey across multiple machines, [`@drduh`](https://github.com/drduh)'s YubiKey guide[^3] covers how to inform `gpg` (installed on another machine) of the key pair you already transferred to your YubiKey from a different machine.
 
 From the original machine with your YubiKey plugged-in, you'll need to make a copy of the public key alongside a list of the trusted GPG keys.
 
@@ -147,6 +161,5 @@ Copy both files to the second machine (with `gpg` installed). Then, on the secon
 Now you can use the YubiKey on your multiple machine seamlessly.
 
 [^1]: GitHub. (2016). Generating a new GPG key. GitHub Docs. <https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key>
-[^2]: Yubico. (2020, May 12). Using Your YubiKey with OpenPGP. Yubico. <https://support.yubico.com/hc/en-us/articles/360013790259-Using-Your-YubiKey-with-OpenPGP>
-[^3]: Stuart, T. (2022). How to set up Git commit signing with GPG and a YubiKey on macOS [YouTube Video]. In YouTube. <https://youtu.be/7LuMTyhFA-g>
-[^4]: `drduh/YubiKey-Guide` (2023). Guide to using YubiKey for GPG and SSH. (2023). GitHub. <https://github.com/drduh/YubiKey-Guide?tab=readme-ov-file#multiple-hosts>
+[^2]: Stuart, T. (2022). How to set up Git commit signing with GPG and a YubiKey on macOS [YouTube Video]. In YouTube. <https://youtu.be/7LuMTyhFA-g>
+[^3]: `drduh/YubiKey-Guide` (2023). Guide to using YubiKey for GPG and SSH. (2023). GitHub. <https://github.com/drduh/YubiKey-Guide?tab=readme-ov-file#multiple-hosts>
