@@ -160,6 +160,17 @@ Copy both files to the second machine (with `gpg` installed). Then, on the secon
 
 Now you can use the YubiKey on your multiple machine seamlessly.
 
+# Result
+Git will now use the key pair stored on your YubiKey, and attach a digital signature to all future commits issues from your machine. As a result, GitHub will show a verified badge in the commit's details page, showing your fellow contributors the integrity of the identity shown in relation to the changes you made (like in [commit `74f9009`](https://github.com/AppleGamer22/raker/commit/74f90090539057313d56c2d0d679fa651bd7708b) from [`raker`](https://github.com/AppleGamer22/raker)). Similarly, the `git verify-commit` and `git verify-tag` commands can be used locally to ensure your digital signature is recognised as valid by Git.
+
+```
+$ git verify-commit 74f9009
+gpg: Signature made Sat 30 Dec 2023 20:48:50 AEDT
+gpg:                using RSA key ________________________4DAFB02B4734FE52
+gpg:                issuer "omribor@gmail.com"
+gpg: Good signature from "Omri Bornstein <omribor@gmail.com>" [ultimate]
+```
+
 [^1]: GitHub. (2016). Generating a new GPG key. GitHub Docs. <https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key>
 [^2]: Stuart, T. (2022). How to set up Git commit signing with GPG and a YubiKey on macOS [YouTube Video]. In YouTube. <https://youtu.be/7LuMTyhFA-g>
 [^3]: `drduh/YubiKey-Guide` (2023). Guide to using YubiKey for GPG and SSH. (2023). GitHub. <https://github.com/drduh/YubiKey-Guide?tab=readme-ov-file#multiple-hosts>
