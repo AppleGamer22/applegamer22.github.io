@@ -27,7 +27,7 @@ jobs:
           hugo-version: latest
           extended: true
       - name: Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             /tmp/hugo_cache
