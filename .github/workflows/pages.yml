@@ -26,14 +26,14 @@ jobs:
         with:
           hugo-version: latest
           extended: true
-      - name: Cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            /tmp/hugo_cache
-            resources/_gen/images
-          key: ${{runner.os}}-hugomod-${{hashFiles('**/go.sum')}}
-          restore-keys: ${{runner.os}}-hugomod-
+      # - name: Cache
+      #   uses: actions/cache@v4
+      #   with:
+      #     path: |
+      #       /tmp/hugo_cache
+      #       resources/_gen/images
+      #     key: ${{runner.os}}-hugomod-${{hashFiles('**/go.sum')}}
+      #     restore-keys: ${{runner.os}}-hugomod-
       # - name: Install LaTeX
       #   run: sudo apt install texlive texlive-latex-extra fonts-firacode
       - name: Build
