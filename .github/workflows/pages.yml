@@ -26,22 +26,25 @@ jobs:
         with:
           hugo-version: latest
           extended: true
-      # - name: Cache
-      #   uses: actions/cache@v4
-      #   with:
-      #     path: |
-      #       /tmp/hugo_cache
-      #       resources/_gen/images
-      #     key: ${{runner.os}}-hugomod-${{hashFiles('**/go.sum')}}
-      #     restore-keys: ${{runner.os}}-hugomod-
+      - name: Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            /home/runner/.cache/hugo_cache
+            /tmp/hugo_cache_runner
+            resources/_gen/images
+          key: ${{runner.os}}-hugomod-${{hashFiles('**/go.sum')}}
+          restore-keys: ${{runner.os}}-hugomod-
       # - name: Install LaTeX
       #   run: sudo apt install texlive texlive-latex-extra fonts-firacode
       - name: Build
-        run: |
-          # printf "\ngoogleAnalytics: $GOOGLE_ANALYTICS" >> hugo.yml
-          make website
         env:
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
           GOOGLE_ANALYTICS: ${{secrets.GOOGLE_ANALYTICS}}
+        run: |
+          printf "\ngoogleAnalytics: $GOOGLE_ANALYTICS" >> hugo.yml
+          make website
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/master'

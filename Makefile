@@ -9,7 +9,7 @@ cv.pdf: cv.tex
 	latexmk -pdf -lualatex -interaction=errorstopmode cv.tex
 
 website:
-	hugo --minify
+	hugo --gc --minify
 
 watch:
 	hugo server --noHTTPCache --buildDrafts --buildFuture
