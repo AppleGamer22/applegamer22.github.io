@@ -43,9 +43,17 @@
 		{{$jsSearch := resources.Get "js/search.js"}}
 		{{$assets.Add "js" (slice $jsFuse $jsSearch)}}
 	{{end}}
+	{{if or (eq .Site.Params.header.layout "hamburger") (eq .Site.Params.header.layout "hybrid")}}
+		{{$jsMenu := resources.Get "js/menu.js"}}
+		{{$assets.Add "js" (slice $jsMenu)}}
+	{{end}}
 	{{if .Site.Params.enableCodeCopy | default false}}
 		{{$jsCode := resources.Get "js/code.js"}}
 		{{$assets.Add "js" (slice $jsCode)}}
+	{{end}}
+	{{if or (eq .Site.Params.header.layout "hamburger") (eq .Site.Params.header.layout "hybrid")}}
+		{{$jsMenu := resources.Get "js/menu.js"}}
+		{{$assets.Add "js" (slice $jsMenu)}}
 	{{end}}
 	{{if eq (site.Language.LanguageDirection | default "ltr") "rtl"}}
 		{{$jsRTL := resources.Get "js/rtl.js"}}
@@ -121,7 +129,7 @@
 	{{/* Schema */}}
 	{{partial "schema.html" .}}
 	{{/* Me */}}
-	{{with .Site.Author.name}}<meta name="author" content="{{.}}">{{end}}
+	{{with .Site.Language.Params.Author.name}}<meta name="author" content="{{.}}">{{end}}
 	{{with .Site.Author.links}}
 		{{range $links := .}}
 			{{range $name, $url := $links}}<link href="{{$url}}" rel="me">{{end}}

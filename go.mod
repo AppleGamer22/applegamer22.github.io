@@ -2,4 +2,4 @@ module github.com/AppleGamer22/applegamer22.github.io
 
 go 1.18
 
-require github.com/jpanther/congo/v2 v2.7.6 // indirect
+require github.com/jpanther/congo/v2 v2.8.0 // indirect
