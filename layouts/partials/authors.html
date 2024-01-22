@@ -1,18 +1,16 @@
-{{if .Params.showAuthor | default (.Site.Params.article.showAuthor | default true)}}
+{{if .Params.showAuthor | default (site.Params.article.showAuthor | default true)}}
 	{{range .Params.authors}}
 		{{- $author := index site.Data . -}}
 		{{if $author}}
-			<div class="flex py-2 first:pt-0 last:pb-0">
+			<div class="flex">
+				{{$lazy := $.Params.enableImageLazyLoading | default site.Params.enableImageLazyLoading | default true}}
+				{{$altText := ($author.name | default "Author")}}
 				{{with $author.image}}
-					{{- $image := (resources.Get .).Resize `160x` -}}
-					<img
-						class="!mb-0 !mt-0 me-4 aspect-auto w-24 rounded-full"
-						alt="{{$author.name | default `Author`}}"
-						src="{{$image.RelPermalink}}"
-						{{if $.Site.Params.enableImageLazyLoading | default true}}
-							loading="lazy"
-						{{end}}
-					>
+					{{$authorImage := resources.Get .}}
+					{{if $authorImage}}
+						{{$imgClass := "!mb-0 !mt-0 me-4 w-24 h-auto rounded-full"}}
+						{{partial "picture.html" (dict "img" $authorImage "alt" $altText "class" $imgClass "lazy" $lazy)}}
+					{{end}}
 				{{end}}
 				<div class="place-self-center">
 					{{with $author.name | markdownify | emojify}}
