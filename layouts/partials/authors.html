@@ -4,7 +4,7 @@
 		{{if $author}}
 			<div class="flex py-2 first:pt-0 last:pb-0">
 				{{with $author.image}}
-					{{- $image := (resources.GetRemote .).Resize `160x` -}}
+					{{- $image := (resources.Get .).Resize `160x` -}}
 					<img
 						class="!mb-0 !mt-0 me-4 aspect-auto w-24 rounded-full"
 						alt="{{$author.name | default `Author`}}"

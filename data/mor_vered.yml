@@ -1,6 +1,7 @@
 name: Mor Vered
 role: supervisor
-image: https://research.monash.edu/files-asset/271862319/Mor_Vered.jpg?w=160
+# image: https://research.monash.edu/files-asset/271862319/Mor_Vered.jpg?w=160
+image: mor_vered.jpg
 links:
   - email: mailto:mor.vered@monash.edu
   - link: https://research.monash.edu/en/persons/mor-vered

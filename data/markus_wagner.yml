@@ -1,6 +1,7 @@
 name: Markus Wagner
 role: supervisor
-image: https://research.monash.edu/files-asset/429112391/Screen_Shot_2023_01_10_at_8.43.35_pm.png?w=160
+# image: https://research.monash.edu/files-asset/429112391/Screen_Shot_2023_01_10_at_8.43.35_pm.png?w=160
+image: markus_wagner.jpeg
 links:
   - email: mailto:markus.wagner@monash.edu
   - link: https://research.monash.edu/en/persons/markus-wagner

@@ -14,7 +14,6 @@ paginate: 15
 summaryLength: 0
 outputs:
   home:
-    - HTML
     - RSS
     - JSON
 params:
@@ -24,6 +23,7 @@ params:
   enableCodeCopy: true
   enableSearch: true
   enableImageLazyLoading: true
+  enableImageWebp: false
   homepage:
     layout: profile
     showRecent: true
