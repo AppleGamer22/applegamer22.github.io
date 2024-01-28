@@ -40,9 +40,12 @@ jobs:
           hugo-version: latest
           extended: true
       - name: Cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
-          path: /tmp/hugo_cache
+          path: |
+            /home/runner/.cache/hugo_cache
+            /tmp/hugo_cache_runner
+            resources/_gen/images
           key: ${{runner.os}}-hugomod-${{hashFiles('**/go.sum')}}
           restore-keys: ${{runner.os}}-hugomod-
       - name: Build
