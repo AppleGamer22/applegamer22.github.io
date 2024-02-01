@@ -76,7 +76,7 @@ languages:
       languageDirection: ltr
       dateFormat: "2006-01-02"
       mainSections:
-        - talks
+        # - talks
         - posts
         - projects
       author:
