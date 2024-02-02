@@ -456,12 +456,6 @@ languages:
         - name: Projects
           pageRef: projects
           weight: 4
-        - name: CV
-          pageRef: cv
-          weight: 5
-        - name: Tags
-          pageRef: tags
-          weight: 6
 ```
 
 ### Articles

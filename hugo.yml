@@ -125,9 +125,9 @@ languages:
           params:
             target: _blank
           weight: 5
-        - name: Tags
-          pageRef: tags
-          weight: 6
+        # - name: Tags
+        #   pageRef: tags
+        #   weight: 6
       footer:
         - name: Privacy
           pageRef: privacy
