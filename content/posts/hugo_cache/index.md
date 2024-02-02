@@ -1,9 +1,8 @@
 ---
 title: When Hugo's Cache Expires in GitHub Actions
 description: When Hugo's Cache Expires in GitHub Actions
-date: 2024-01-22
-tags: [Hugo, GitHub, CI/CD, cache]
-draft: true
+date: 2024-02-02
+tags: [Hugo, GitHub, CI/CD, cache, Mutahar]
 ---
 The whole ordeal began when I updated the theme of this website to [version 2.8.0](https://github.com/jpanther/congo/releases/tag/v2.8.0), which includes useful improvements such as scrollable table contents for desktop viewports. When I tested the correctness of the rendering with the updated applied, everything seemed normal on my machine, so I pushed it to be built and published through my continuous deployment pipeline. What followed was a 4 hour journey full of local-to-CI-to-local debugging cycles, learning about the speed-ups that Hugo's cache offers and GitHub Actions' caching policy.
 
@@ -80,6 +79,7 @@ Congo 2.8.0 introduced more aggressive image optimisation support by automatical
 params:
   # ...
   enableImageWebp: false
+  # ...
 ```
 
 While it definitely reduced to the total bundle size of the website, it didn't affect the build time.
@@ -130,10 +130,14 @@ After I realised the culprit for the build time issue, I wanted to debug the bui
 	  # ...
 	```
 
-<!-- ![](thumbnail.jpg "Hopefully [Mutahar](https://x.com/OrdinaryGamers/status/1591224077976764417) appreciates this meme… (made with GIMP)") -->
+<details>
+<summary>For the meme connoisseurs out there...</summary>
+
+![](thumbnail.jpg "Hopefully [Mutahar](https://x.com/OrdinaryGamers/status/1591224077976764417) appreciates this meme… (made with GIMP)")
+</details>
+
 
 [^1]: Hugo Contributors. (2024, February 1). Configure Hugo: `timeout`. `gohugo.io`. <https://gohugo.io/getting-started/configuration/#timeout>
 [^2]: Hugo Contributors. (2024, February 1). Configure Hugo: `cacheDir`. `gohugo.io`. <https://gohugo.io/getting-started/configuration/#configure-cachedir>
 [^3]: `peaceiris`. (2022, October 23). `peaceiris/actions-hugo`: GitHub Actions for Hugo - Caching Hugo Modules. GitHub. <https://github.com/peaceiris/actions-hugo?tab=readme-ov-file#%EF%B8%8F-caching-hugo-modules>
 [^4]: GitHub. (2024). Caching dependencies to speed up workflows - Usage limits and eviction policy. GitHub Documentation. <https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy>
-[^5]: Hugo Contributors. (2024, January 26). Host on GitHub Pages. `gohugo.io`. <https://gohugo.io/hosting-and-deployment/hosting-on-github/>
