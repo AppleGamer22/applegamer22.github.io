@@ -6,6 +6,8 @@ tags: [Hugo, GitHub, CI/CD, cache, Mutahar]
 ---
 The whole ordeal began when I updated the theme of this website to [version 2.8.0](https://github.com/jpanther/congo/releases/tag/v2.8.0), which includes useful improvements such as scrollable table contents for desktop viewports. When I tested the correctness of the rendering with the updated applied, everything seemed normal on my machine, so I pushed it to be built and published through my continuous deployment pipeline. What followed was a 4 hour journey full of local-to-CI-to-local debugging cycles, learning about the speed-ups that Hugo's cache offers and GitHub Actions' caching policy.
 
+For a shorter walk-through of the actual issue and the solution you are welcome to read from [here](#expired-cache) about the cache expiry.
+
 # The Error
 The journey began when the CI build of this website [failed](https://github.com/AppleGamer22/applegamer22.github.io/actions/runs/7605067673/job/20708815913#step:5:14) at running `hugo --minify`, which converts the website's source code of Markdown files into a complete tree of static web pages comprised of vanilla HTML, CSS and JavaScript files alongside the relevant media assets displayed at each static page.
 
@@ -47,7 +49,7 @@ Like any good CI error, replicating it was a classic game of elimination of vari
 I tried checking the effect of the following variables on the build time in the CI environment. In retrospect, some of these seem to not have as much as a profound effect on the build time, but it's worth checking all possibilities nonetheless
 
 ### Hugo Versions
-The main thing I wanted to check is performance regressions in the latest version of Hugo that is used in the CI environment in comparison the slightly older version that is shipped in software distributions such as [Nix](https://nixos.org) or [Arch Linux](https://archlinux.org). The CI version of Hugo is the latest (`0.121.2` at the time of writing), and is packaged by the Hugo maintainers and shipped through their website. On my local set-up I install Hugo with a package manager, but I don't believe it's fundamentally different than the first-party package.
+The main thing I wanted to check is performance regressions in the latest version of Hugo that is used in the CI environment in comparison the slightly older version that is shipped in software distributions such as [Nix](https://nixos.org) or [Arch Linux](https://archlinux.org). The CI version of Hugo is the latest (`0.121.2` at the time of writing), and is packaged by the Hugo maintainers and shipped through their website. On my local machine, I usually install Hugo with the platform-appropriate package manager, but I don't believe it's fundamentally different than the first-party package.
 
 I tested the effects of reverting to an older version of Hugo by manually defining the version in the input variables of the set-up stage.
 
@@ -88,7 +90,7 @@ While it definitely reduced to the total bundle size of the website, it didn't a
 I think I explored this possibility last because Hugo abstract its caching mechanism so well. Regardless, here is my reasoning as to how the caching discrepancy occurred:
 
 1. With each change, Hugo only updated the changed pages and using the cache for the rest of the pages, thus keeping the build times snappy.
-1. The CI workflow that builds and deploys the website after every commit pushed into the `master` branch has its own Hugo cache that closely follows the local one on my machine. As long as the CI cache as maintained, the build times should roughly match between the local and CI environments.
+1. The CI workflow that builds and deploys the website after every commit pushed into the `master` branch has its own Hugo cache that closely follows the local one on my machine. As long as the CI cache is maintained, the build times should roughly match between the local and CI environments.
 1. Due to an older Hugo update and [GitHub's cache expiry policy](#github-actions-caching-policy), the local and CI caches diverted out of sync, with the local cache remaining and the CI cache no longer available.
 1. With the CI cache expired, building the website in the current and more resource heavy form proved to take more than the default timeout[^1] of 30 seconds.
 
