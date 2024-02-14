@@ -9,6 +9,7 @@ sharingLinks: false
 I've been programming and learning about computing since the age of 15, and I've been playing with [Swift](https://www.swift.org), JavaScript/[TypeScript](https://typescriptlang.org), Java/[Kotlin](https://kotlinlang.org), C/C++, [Python](https://python.org), and nowadays I focus on [Go](https://go.dev). In addition, I am enthusiastic about open-source software (mainly in the Linux ecosystem), and maintain several personal projects on [GitHub](https://github.com/AppleGamer22). In my personal projects, I like to use modern tools such as [Docker](https://www.docker.com), [Buf](https://buf.build), [GoReleaser](https://goreleaser.com), [GitHub Actions](https://github.com/features/actions), [Nix](https://nixos.org), [Terraform](https://www.terraform.io), and [Vagrant](https://www.vagrantup.com), as well as modern practices such as [CI/CD](/tags/ci/cd/).
 
 ## Open-Source Contributions
+* [`google/osv-scanner`](https://github.com/google/osv-scanner/pulls?q=author%3AAppleGamer22)
 * [`sigstore/cosign`](https://github.com/sigstore/cosign/pulls?q=author%3AAppleGamer22)
 * [ELEA](https://github.com/HPI-ELEA/elea/pulls?q=author%3AAppleGamer22)
 * [Lazy CBS fork](https://github.com/AppleGamer22/FIT2082)
