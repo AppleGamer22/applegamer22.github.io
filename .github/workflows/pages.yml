@@ -3,8 +3,8 @@ name: GitHub Pages
 on:
   workflow_dispatch:
     inputs: {}
-  push:
-    branches: [master]
+  # push:
+  #   branches: [master]
   pull_request:
     branches: [master]
   # schedule:
