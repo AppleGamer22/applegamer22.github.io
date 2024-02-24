@@ -2,7 +2,7 @@
 title: Colourful Logging in Go
 description: Colourful Logging in Go
 date: 2023-05-20
-tags: [Go, Charm, VHS, CLI]
+tags: [Go, Charm, VHS, CLI, Temporal]
 ---
 # Why?
 Whenever you debug a program that produces a large amount of logs, sifting through them when a bug arises is only a matter of time. This tasks becomes more annoying when there is no consistent pattern you focus on with `grep`, especially when you want to find a pattern between related log lines that aren't immediately next to each other in the log file. When I resort to manually looking through logs of programs I'm debugging, having colour-coded logs tends to make the experience more fun.
@@ -78,3 +78,38 @@ log.Fatal("goodbye")
 ```
 
 ![](error_fatal.png)
+
+# Using in Other Libraries
+## Temporal
+The Go SDK for Temporal's durable execution framework allows the developer to [substitute a custom logger](https://docs.temporal.io/dev-guide/go/observability#custom-logger) in order to suit the logging format of any project. Using the SDK's [structured logging support](https://pkg.go.dev/go.temporal.io/sdk/log#NewStructuredLogger), the Charm logger can be used within the [Temporal logging stack](https://docs.temporal.io/dev-guide/go/observability#logging).
+
+```go
+import (
+	"log/slog"
+	"time"
+
+	// ...
+	"github.com/charmbracelet/log"
+	"go.temporal.io/sdk/client"
+	tlog "go.temporal.io/sdk/log"
+	"go.temporal.io/sdk/worker"
+)
+
+func main() {
+	options := client.Options{
+		Logger: tlog.NewStructuredLogger(slog.New(log.Default())),
+	}
+	c, err := client.Dial(options)
+	if err != nil {
+		log.Fatal("Unable to create client", err)
+	}
+	defer c.Close()
+
+	w := worker.New(c, "task-queue", worker.Options{})
+	// ...
+
+	if err := w.Run(worker.InterruptCh()); err != nil {
+		log.Fatal("Unable to start worker", err)
+	}
+}
+```
