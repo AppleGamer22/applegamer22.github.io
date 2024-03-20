@@ -48,7 +48,7 @@ params:
       - linkedin
       - mastodon
       - reddit
-      - twitter
+      - x-twitter
       - facebook
       - pinterest
   list:
