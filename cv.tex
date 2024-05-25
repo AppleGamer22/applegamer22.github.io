@@ -22,7 +22,7 @@
 
 \name{Omri}{Bornstein}
 % \photo[60pt]{assets/author.png}
-\title{Software Engineer}
+\title{Software/Security Engineer}
 \quote{Go/Linux enthusiast, curiously seeking challenges \& professional development}
 \email{omribor@gmail.com}
 \homepage{applegamer22.github.io}
@@ -33,15 +33,16 @@
 \raggedleft\raggedright\begin{document}
 	\maketitle
 	\section{Education}
-	\cventry{2020 --- 2023}{Bachelor of Computer Science}{\href{https://www.monash.edu/it}{Monash University}}{Melbourne}{}{}
-	% \cventry{2017 --- 2019}{SACE}{\href{https://asms.sa.edu.au}{Australian Science \& Mathematics School} (ASMS)}{Adelaide}{}{}
+	\cventry{2020 --- 2023}{Bachelor of Computer Science}{\href{https://www.monash.edu/it}{Monash University}}{Clayton VIC}{}{}
+	% \cventry{2017 --- 2019}{SACE}{\href{https://asms.sa.edu.au}{Australian Science \& Mathematics School} (ASMS)}{Bedford Park SA}{}{}
 
 	\section{Skills}\label{sec:skills}
 	\begin{itemize}
-		\item \textbf{Programming Languages}: \textbf{Go}, JavaScript/TypeScript, Python, Kotlin/Java, C/C++
+		\item \textbf{Programming Languages}: \textbf{Go}, JavaScript/TypeScript, \textbf{Python}, Kotlin/Java, C/C++
 		\item \textbf{Tools}: \textbf{Git} (with GitHub/GitLab), MongoDB, \textbf{Docker}, \textbf{Terraform}, gRPC/Protocol Buffers, \href{https://gohugo.io}{Hugo}
 		\item \textbf{Platforms}: \textbf{Linux}, \textbf{cloud-native}, web servers/browsers, macOS, Windows, Azure, Firebase
 		\item \textbf{Design \& Implementation}: algorithms \& data structures, object-oriented programming, test-driven development
+		\item \textbf{Security Analysis}: reverse-engineering (Ghidra), network analysis (Wireshark), Burp Suite, entry analysis (\texttt{nmap}, \texttt{gobuster}, \texttt{sqlmap}), credential brute-forcing (\texttt{hydra}, \texttt{john}, \texttt{hashcat})
 		% \item \textbf{Soft Skills}: technical writing, critical/analytical thinking, presenting/public speaking, research, troubleshooting/debugging, explaining, collaboration/teamwork
 		\item \textbf{Hobbies}: \href{https://applegamer22.github.io/about/#hobbies}{playing guitar}, listening to/analysing music, self-directed learning, personal projects
 	\end{itemize}
@@ -100,9 +101,8 @@
 	}
 
 	\subsection{Freelancing}
-	\cventry{2023 Q3---Q4}{Associate Software Engineer}{Radio Monash}{Clayton}{volunteering}{
-		Advised the leadership team on software deployment and server migration of their audio stream.
-	}
+	\cventry{2023 Q3---Q4}{Associate Software Engineer}{Radio Monash}{Clayton}{volunteering}{}
+		% Advised the leadership team on software deployment and server migration of their audio stream.
 	\cventry{2021 Q3---Q4}{Software Engineer}{Contract}{Melbourne}{\hyperref[sec:skills]{Go \& test-driven development}}{
 		Implemented a custom asynchronous fault-tolerant file back-up system that enables the continuation of file transferring from a variably-approximate point in time before the disruption. Available at \ghurl{AppleGamer22/rb}.
 	}
@@ -123,11 +123,11 @@
 			A cross-platform re-implementation of the macOS utility \href{https://github.com/apple-oss-distributions/PowerManagement/tree/main/caffeinate}{\texttt{caffeinate}} that keeps the screen turned on either until stopped, for a set duration of time or while another process still runs.
 		}
 	}
-	\hypertarget{sp}{
-		\cventry{2020 --- 2021}{\texttt{sp}}{\ghurl{AppleGamer22/sp}}{\hyperref[sec:skills]{Kotlin/Java}}{}{
-			A \href{https://papermc.io}{Minecraft server plugin} that enforces password authentication on player before allowing client-server interaction.
-		}
-	}
+	% \hypertarget{sp}{
+	% 	\cventry{2020 --- 2021}{\texttt{sp}}{\ghurl{AppleGamer22/sp}}{\hyperref[sec:skills]{Kotlin/Java}}{}{
+	% 		A \href{https://papermc.io}{Minecraft server plugin} that enforces password authentication on player before allowing client-server interaction.
+	% 	}
+	% }
 	\hypertarget{scr}{
 		\cventry{2019 --- 2022}{scr-web}{\ghurl{AppleGamer22/scr-web}}{\hyperref[sec:skills]{TypeScript, Angular, Docker \& MongoDB}}{}{
 			My previous attempt at building a full-stack (and a CLI) social media scraper with a single-page website framework and a RESTful server.
