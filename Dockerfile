@@ -12,7 +12,7 @@ COPY go.sum .
 ARG BASE="/"
 RUN hugo --minify --baseURL "$BASE"
 
-FROM --platform=$BUILDPLATFORM caddy:2.8.1-alpine as caddy
+FROM --platform=$BUILDPLATFORM caddy:2.8.4-alpine as caddy
 WORKDIR /var/www/html
 COPY --from=hugo /hugo/public .
 EXPOSE 80
