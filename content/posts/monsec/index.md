@@ -128,6 +128,6 @@ I'm sure MonSec will continue being just as or even more of a wholesome group of
 
 ![](thumbnail.jpg "Hopefully [Mutahar](https://x.com/OrdinaryGamers/status/1594182587194359809) appreciates this meme… (made with [GIMP](https://gimp.org))")
 
-[^1]: Bornstein O. & Fadiansyah A. (2022). Kali Linux Set-up. Monash Cyber Security Club. https://monsec.io/resources/kali/
+[^1]: Bornstein O. & Fadiansyah A. (2022). Kali Linux Set-up. Monash Cyber Security Club. https://monsec.io/posts/resources/kali/
 [^2]: Bornstein O. (2023, February 19). 2023 Semester 1. Monash Cyber Security Club. <https://monsec.io/posts/2023s1/>
 [^3]: Bornstein O. (2023, July 19). 2023 Semester 2. Monash Cyber Security Club. <https://monsec.io/posts/2023s2/>
