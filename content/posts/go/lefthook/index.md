@@ -33,4 +33,6 @@ list-test:
     test:
       glob: "*.go"
       run: go test -cpu 24 -race -count=1 -timeout=30s .
+    hog:
+      run: trufflehog filesystem --no-update {staged_files}
 ```
