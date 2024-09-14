@@ -15,7 +15,7 @@ I've been programming and learning about computing since the age of 15, and I've
 * [Lazy CBS fork](https://github.com/AppleGamer22/FIT2082)
 
 ## Experience
-Between 2020 to 2023 I studied a bachelor's degree in computer science. So far, I have some experience as source code [contributor](https://github.com/AppleGamer22/FIT2082) in a research project, and I've been a committee member in the Monash Cyber Security Club (colloquially known as [MonSec](https://monsec.io/team/#2023-team)), while fulfilling the roles of general representative, secretary, vice president and president from 2021 to 2023. In addition, I have recently been assisting my friends at [Radio Monash](https://www.radiomonash.online) in software deployments and server migrations of their digital infrastructure.
+Between 2020 to 2023 I studied a bachelor's degree in computer science. So far, I have some experience as source code [contributor](https://github.com/AppleGamer22/FIT2082) in a research project, and I've been a committee member in the Monash Cyber Security Club (colloquially known as [MonSec](https://monsec.io/contact_team/#2023-team)), while fulfilling the roles of general representative, secretary, vice president and president from 2021 to 2023. In addition, I have recently been assisting my friends at [Radio Monash](https://www.radiomonash.online) in software deployments and server migrations of their digital infrastructure.
 
 ![MonSec & Monash University's Faculty of IT Engaging with Secondary Schools](parameter-based_access_control.jpg "MonSec & Monash University's Faculty of IT Engaging with Secondary Schools")
 
