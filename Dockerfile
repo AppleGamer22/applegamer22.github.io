@@ -1,6 +1,6 @@
-FROM --platform=$BUILDPLATFORM golang:1.23.1-alpine AS hugo
+FROM ghcr.io/gohugoio/hugo:v0.135.0 AS hugo
 WORKDIR /hugo
-RUN apk add --no-cache tzdata hugo git
+RUN apk add --no-cache tzdata
 COPY assets assets
 COPY content content
 COPY layouts layouts
