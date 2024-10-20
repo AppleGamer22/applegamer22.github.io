@@ -10,7 +10,8 @@ enableEmoji: true
 enableRobotsTXT: true
 defaultContentLanguage: en
 title: Omri Bornstein
-paginate: 15
+pagination:
+  pagerSize: 15
 summaryLength: 0
 outputs:
   home:
