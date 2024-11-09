@@ -2,7 +2,7 @@
 title: Continuous Integration with GoReleaser
 description: Go (Programming Language) Continuous Integration with GoReleaser
 date: 2023-02-19
-tags: [GoReleaser, Go, Docker, Git, GitHub, CI/CD, SBoM, VHS]
+tags: [GoReleaser, Go, Docker, Nix, Git, GitHub, CI, SBoM, VHS]
 ---
 This document summarises how I set-up [GoReleaser](https://goreleaser.com) Continuous Integration/Deployment (CI/CD) for my [Go (Programming Language)](/tags/go/) projects, such that I have a portable configuration for compilation, packaging and releasing settings. This is especially useful for projects that ship a software package with several files and need a portable way to define how it should be built/packaged based on operating system, processor architecture and environment (development, testing or production).
 
@@ -28,10 +28,12 @@ GoReleaser [supports](https://goreleaser.com/customization/hooks/) a list of com
 
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
-project_name: {{.ProjectName}}
+project_name: project_name
+version: 2
 before:
   hooks:
     - make completion manual
+# ...
 ```
 
 The `Makefile` used to define the commands to generate the shell completion scripts and user manuals is listed below. The [Cobra library](https://cobra.dev) for Go is used to set-up the CLI and the shell completion generation, and [Mango](https://github.com/muesli/mango-cobra) is used to generate a user manual from the object-oriented definitions of the commands.
@@ -63,6 +65,7 @@ Depending on the complexity of the build process, it might be easier to [define 
 
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+# ...
 builds:
   - id: linux
     goos:
@@ -93,6 +96,7 @@ After the builds are complete, each of them can be [referenced](https://goreleas
 
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+# ...
 archives:
   - id: unix
     builds:
@@ -209,15 +213,51 @@ As far as I have been able to check in the [documentation](https://goreleaser.co
 
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+# ...
 release:
   # no templates available
   github:
     owner: AppleGamer22
-    name: cocainate
+    name: "{{.ProjectName}}"
   discussion_category_name: General
   prerelease: auto
   footer: |
     ## Installation
+    ### Nix Flakes
+    ```nix
+    {
+      inputs = {
+        # or your preferred NixOS channel
+        nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+        applegamer22.url = "github:AppleGamer22/nur";
+      };
+      outputs = { nixpkgs }: {
+        nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            pkgs = import nixpkgs {
+              # ...
+              overlays = [
+                (final: prev: {
+                  # ...
+                  ag22 = applegamer22.packages."<your_system>";
+                })
+              ];
+            };
+          };
+          modules = [
+            # or in a separate Nix file
+            ({ pkgs, ... }: {
+              programs.nix-ld.enable = true;
+              environment.systemPackages = with pkgs; [
+                ag22.{{.ProjectName}}
+              ];
+            })
+            # ...
+          ];
+        };
+      };
+    }
+    ```
     ### Arch Linux Distributions
     * [`yay`](https://github.com/Jguer/yay):
     ```bash
@@ -228,7 +268,7 @@ release:
     paru -S {{.ProjectName}}-bin
     ```
     ### macOS
-    * [Homebrew Tap](https://github.com/AppleGamer22/homebrew-{{.ProjectName}}):
+    * [Homebrew Tap](https://github.com/AppleGamer22/homebrew-tap):
     ```bash
     brew install AppleGamer22/tap/{{.ProjectName}}
     ```
@@ -237,12 +277,12 @@ release:
 ## Arch User Repository
 The [AUR](https://aur.archlinux.org) is repository with a wide range of installation scripts that are not available in the official Arch Linux distribution through the official package manager. After releasing to [GitHub](#github) or GitLab, your [custom](https://goreleaser.com/customization/aur/) installation script can be uploaded to the AUR, thus allowing Arch Linux user of [`yay`](https://github.com/Jguer/yay) or [`paru`](https://github.com/Morganamilo/paru) to get your software more easily.
 
-
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+# ...
 aurs:
     # no templates available
-  - homepage: https://github.com/AppleGamer22/cocainate
+  - homepage: https://github.com/AppleGamer22/{{.ProjectName}}
     description: description
     license: GPL3
     maintainers:
@@ -251,7 +291,7 @@ aurs:
       - Omri Bornstein <omribor@gmail.com>
     private_key: "{{.Env.AUR_SSH_PRIVATE_KEY}}"
     # no templates available
-    git_url: ssh://aur@aur.archlinux.org/cocainate-bin.git
+    git_url: ssh://aur@aur.archlinux.org/{{.ProjectName}}-bin.git
     depends:
       - dbus
     optdepends:
@@ -260,23 +300,24 @@ aurs:
       - zsh
     # no templates available
     package: |-
-      install -Dm755 cocainate "${pkgdir}/usr/bin/cocainate"
-      install -Dm644 cocainate.1 "${pkgdir}/usr/share/man/man1/cocainate.1"
-      install -Dm644 cocainate.bash "${pkgdir}/usr/share/bash-completion/completions/cocainate"
-      install -Dm644 cocainate.fish "${pkgdir}/usr/share/fish/vendor_completions.d/cocainate.fish"
-      install -Dm644 cocainate.zsh "${pkgdir}/usr/share/zsh/site-functions/_cocainate"
+      install -Dm755 {{.ProjectName}} "${pkgdir}/usr/bin/{{.ProjectName}}"
+      install -Dm644 {{.ProjectName}}.1 "${pkgdir}/usr/share/man/man1/{{.ProjectName}}.1"
+      install -Dm644 {{.ProjectName}}.bash "${pkgdir}/usr/share/bash-completion/completions/{{.ProjectName}}"
+      install -Dm644 {{.ProjectName}}.fish "${pkgdir}/usr/share/fish/vendor_completions.d/{{.ProjectName}}.fish"
+      install -Dm644 {{.ProjectName}}.zsh "${pkgdir}/usr/share/zsh/site-functions/_{{.ProjectName}}"
     commit_author:
       name: Omri Bornstein
       email: omribor@gmail.com
 ```
 
 ## Homebrew Tap
-[Homebrew](https://brew.sh) is a popular package repository among macOS users, which allows the additions of third-party repositories, colloquially known as Taps. Similarly to the AUR, tap repositories host installation scripts that the `brew` CLI can understand.  After releasing to [GitHub](#github) or GitLab, your [custom](https://goreleaser.com/customization/homebrew/) installation script can be uploaded to your tab repository on **GitHub**.
+[Homebrew](https://brew.sh) is a popular package repository among macOS users, which allows the additions of third-party repositories, colloquially known as Taps. Similarly to the [AUR](#arch-user-repository), tap repositories host installation scripts that the `brew` CLI can understand. After releasing to [GitHub](#github) or GitLab, your [custom](https://goreleaser.com/customization/homebrew/) installation script can be uploaded to your tab repository.
 
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+# ...
 brews:
-  - tap:
+  - repository:
       owner: AppleGamer22
       name: homebrew-tap
       token: "{{.Env.TAP_GITHUB_TOKEN}}"
@@ -284,15 +325,40 @@ brews:
     commit_author:
       name: Omri Bornstein
       email: omribor@gmail.com
-    homepage: https://github.com/AppleGamer22/cocainate
+    homepage: https://github.com/AppleGamer22/{{.ProjectName}}
     description: description
     license: GPL-3.0
     install: |
-      bin.install "cocainate"
-      man1.install "cocainate.1"
-      bash_completion.install "cocainate.bash" => "cocainate"
-      fish_completion.install "cocainate.fish"
-      zsh_completion.install "cocainate.zsh" => "_cocainate"
+      bin.install "{{.ProjectName}}"
+      man1.install "{{.ProjectName}}.1"
+      bash_completion.install "{{.ProjectName}}.bash" => "{{.ProjectName}}"
+      fish_completion.install "{{.ProjectName}}.fish"
+      zsh_completion.install "{{.ProjectName}}.zsh" => "_{{.ProjectName}}"
+```
+
+## Nix Flakes
+The Nix configuration can be used for defining reproducible software packaging instructions for individual packages or for entire Linux operating systems. Similarly to the [AUR](#arch-user-repository) and [Homebrew Tap](#homebrew-tap), Nix Flakes are repositories that host Nix derivation which allow the Nix build system to install packages hosted by third parties. After releasing to [GitHub](#github) or GitLab, your [custom](https://goreleaser.com/customization/nix/) installation script can be uploaded to your flake repository.
+
+```yml
+# ...
+nix:
+  - repository:
+      owner: AppleGamer22
+      name: nur
+      token: "{{.Env.TAP_GITHUB_TOKEN}}"
+    commit_author:
+      name: Omri Bornstein
+      email: omribor@gmail.com
+    homepage: https://github.com/AppleGamer22/{{.ProjectName}}
+    description: a description
+    license: gpl3Only
+    ids:
+      - unix
+    install: |
+      mkdir -p $out/bin
+      cp -vr ./{{.ProjectName}} $out/bin/{{.ProjectName}}
+      installManPage ./{{.ProjectName}}.1
+      installShellCompletion ./{{.ProjectName}}.*sh
 ```
 
 ## Container Images
@@ -300,6 +366,7 @@ A lot of projects written in Go are meant to run as a server with corresponding 
 
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+# ...
 dockers:
   - use: buildx
     image_templates:
@@ -331,6 +398,7 @@ In order to allow easier automated security analysis by third-parties, GoRelease
 
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+# ...
 sboms:
   - artifacts: source
   - artifacts: package
@@ -344,7 +412,7 @@ Since debugging continuos integration configurations purely by running your CI w
 * [`goreleaser check`](https://goreleaser.com/cmd/goreleaser_check/) is useful for validating your configuration's syntax.
 * [`goreleaser build`](https://goreleaser.com/cmd/goreleaser_build/) is useful for building the binaries for later inspection.
 * [`goreleaser release`](https://goreleaser.com/cmd/goreleaser_release/) is used to build, package and release the artifacts.
-	* The `--skip-publish` flag is useful for inspecting the packages without publishing.
+	* The `--skip publish` (shown as the older `--skip-publish` option in the GIF below) flag is useful for inspecting the packages without publishing.
 	* The `--snapshot` flag is useful for ignoring the version tag.
 	* The `--clean` flag is useful for cleaning-up the filesystem after publishing the artifacts.
 
@@ -358,6 +426,7 @@ I use GoReleaser [GitHub Actions integration](https://goreleaser.com/ci/actions/
 
 ```yml
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+# ...
 name: Release
 on:
   push:
@@ -394,6 +463,10 @@ jobs:
           password: ${{secrets.DOCKER_TOKEN}}
       - name: Set-up Syft
         uses: anchore/sbom-action/download-syft@v0.13.3
+      - name: Set-up Nix
+        uses: cachix/install-nix-action@v30
+        with:
+          github_access_token: ${{secrets.GITHUB_TOKEN}}
       - name: Build, Package & Distribute
         uses: goreleaser/goreleaser-action@v4
         with:
