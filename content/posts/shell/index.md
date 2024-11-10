@@ -177,6 +177,13 @@ ln -s $etc/docker.zsh-completion $(brew --prefix)/share/zsh/site-functions/_dock
 ln -s $etc/docker-compose.zsh-completion $(brew --prefix)/share/zsh/site-functions/_docker-compose
 ```
 
+## Command History Search
+[`fzf`](https://github.com/junegunn/fzf) provides an interactive TUI for searching through your command history, invoked with the default <kbd>ctrl</kbd>+<kbd>R</kbd> keyboard shortcut. After [installing](https://github.com/junegunn/fzf?tab=readme-ov-file#linux-packages), the utility can be enabled by adding the following to your `.zshrc` file:
+
+```sh
+source <(fzf --zsh)
+```
+
 # Core Utilities on macOS
 I find the GNU core utilities more feature-rich than the BSD core utilities that are shipped with macOS. As a result, when I need the GNU core utilities on macOS, I install them with the [Homebrew](https://brew.sh) package manager by running: `brew install coreutils binutils gnu-tar gnu-sed grep gawk make bison flex`. These utilities can be enabled from your `~/.zshrc` file:
 
@@ -337,7 +344,7 @@ I use a `~/.gitconfig`[^4] file to configure:
 
 My Visual Studio Code font family settings are descried below, with the integrated terminal's font set to follow the editor's:
 
-```json
+```jsonc
 {
 	// ...
 	"editor.fontFamily": "'Fira Code', 'FiraCode Nerd Font', 'Cascadia Code', 'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
