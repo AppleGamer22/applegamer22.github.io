@@ -41,3 +41,6 @@ In my spare time, I like to play the guitar and learn genres such as rock and bl
 
 {{<youtube id="T0oav_k5ZlY">}}
 {{<youtube type="short" id="We9uCvzGWbU">}}
+
+# GitHub Commit Link
+{{<commit>}}

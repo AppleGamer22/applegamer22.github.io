@@ -1,0 +1,7 @@
+<p>
+	This site was built from commit
+	<a href="https://github.com/AppleGamer22/applegamer22.github.io/commit/{{.Page.GitInfo.Hash}}" target="_blank" rel="noreferrer noopener">
+		<code>{{.Page.GitInfo.AbbreviatedHash}}</code>
+	</a>
+	on {{now.Format (site.Params.dateFormat | default ":date_long")}}.
+</p>
