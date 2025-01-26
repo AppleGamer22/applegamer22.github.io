@@ -8,12 +8,14 @@ After learning about how GitHub displays names and profile pictures next to comm
 
 This document is a summary of all of the online resources I used to set-up my GPG key pair to work seamless across my machines, my [YubiKey hardware-based security key](#import-key-pair-to-yubikey) and on GitHub. I used my name and email for demo purposes only, which means that if you copy **my** details and use them in **your** key pair, it will look **goofy** in your commit log.
 
-# Required Software
-* [`git`](https://git-scm.com)
-* [`gpg`](https://www.gnupg.org)
-* [`ssh`](https://www.openssh.com)
-* [Yubico Authenticator](https://www.yubico.com/products/yubico-authenticator/)
-* A [GitHub](https://github.com) account
+# Pre-requisites
+1. Install the following software packages on your machine:
+	* [`git`](https://git-scm.com)
+	* [`gpg`](https://www.gnupg.org)
+	* [`ssh`](https://www.openssh.com)
+	* [Yubico Authenticator](https://www.yubico.com/products/yubico-authenticator/) and/or [`ykman`](https://docs.yubico.com/software/yubikey/tools/ykman/Using_the_ykman_CLI.html)
+1. Authenticate to your [GitHub](https://github.com) account.
+1. Set-up PIN codes for the functionalities you need in your YubiKey. Daniel Bucy from Yubico wrote an article[^0] explaining the default PINS.
 
 # Git Commit Signing
 ## Generate Key Pair
@@ -206,7 +208,7 @@ services = {
   udev.packages = with pkgs; [ yubikey-personalization ];
   pcscd.enable = true;
 };
-environment.systemPackages = with pkgs; [pinentry-qt yubikey-manager yubioath-flutter];
+environment.systemPackages = with pkgs; [ pinentry-qt yubikey-manager yubioath-flutter ];
 programs.gnupg.agent = {
   enable = true;
   enableSSHSupport = true;
@@ -256,8 +258,11 @@ users.users.applegamer22.openssh.authorizedKeys.keys = [
 ];
 ```
 
+[^0]: Bucy, D. (2021, June 24). Understanding YubiKey PINs. Yubico. <https://support.yubico.com/hc/en-us/articles/4402836718866-Understanding-YubiKey-PINs>
 [^1]: GitHub. (2016). Generating a new GPG key. GitHub Docs. <https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key>
 [^2]: Stuart, T. (2022). How to set up Git commit signing with GPG and a YubiKey on macOS [YouTube Video]. In YouTube. <https://youtu.be/7LuMTyhFA-g>
 [^3]: `drduh/YubiKey-Guide` (2023). Guide to using YubiKey for GPG and SSH. (2023). GitHub. <https://github.com/drduh/YubiKey-Guide?tab=readme-ov-file#multiple-hosts>
 [^4]: Yubico. (2025). Securing SSH with FIDO2. Yubico. <https://developers.yubico.com/SSH/Securing_SSH_with_FIDO2.html>
 [^5]: Legitt, M. (2022, May 5). Resolving GPG’s CCID conflicts. Yubico. <https://support.yubico.com/hc/en-us/articles/4819584884124-Resolving-GPG-s-CCID-conflicts>
+
+
