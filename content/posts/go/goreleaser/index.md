@@ -362,33 +362,85 @@ nix:
 ```
 
 ## Container Images
-A lot of projects written in Go are meant to run as a server with corresponding TCP or UDP port(s), and the standard for packaging such software is the [Open Container Initiative](https://opencontainers.org) (OCI). If you have never heard of this standard, you might have heard of [Docker](https://docker.com), which is the first implementation of this standard's specification. [Configuring](https://goreleaser.com/customization/docker/) GoReleaser to build/publish OCI-compliant container images allows easier multi-registry publishing, multi-platform builds, and injecting environment variables to linker flags.
+A lot of projects written in Go are meant to run as a server with corresponding TCP or UDP port(s), and the standard for packaging such software is the [Open Container Initiative](https://opencontainers.org) (OCI). If you have never heard of this standard, you might have heard of [Docker](https://docker.com), which is the first implementation of this standard's specification. [Configuring](https://goreleaser.com/customization/docker/) GoReleaser to build/publish OCI-compliant container images allows easier multi-registry publishing, multi-platform builds, and injecting environment variables to linker flags by reusing the binaries it already built.
+
+This snippet allows GoReleaser to build a binary similarly to the CLI binary shown above, only with CGo disabled and a different path for the `main` package and `Version` variable. These binaries can be reused for the container build (by `COPY`ing the binary directly to the container) to generate a platform-specific images, which are merged to a single manifest for your new version.
 
 ```yml
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
 # ...
+builds:
+  - id: linux
+    env: [CGO_ENABLED=0]
+    dir: server
+    goos:
+      - linux
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -X 'github.com/AppleGamer22/raker/shared.Version={{.Version}}'
+      - -X 'github.com/AppleGamer22/raker/shared.Hash={{.FullCommit}}'
+# ...
 dockers:
   - use: buildx
+    goarch: amd64
     image_templates:
-      # Docker Hub
-      - "docker.io/applegamer22/{{.ProjectName}}:{{.Version}}"
-      - "docker.io/applegamer22/{{.ProjectName}}:latest"
-      # GitHub Container Registry
-      - "ghcr.io/applegamer22/{{.ProjectName}}:{{.Version}}"
-      - "ghcr.io/applegamer22/{{.ProjectName}}:latest"
+      - docker.io/applegamer22/{{.ProjectName}}:{{.Version}}-amd64
+      - ghcr.io/applegamer22/{{.ProjectName}}:{{.Version}}-amd64
     build_flag_templates:
-      - "--pull"
-      - "--platform=linux/amd64,linux/arm64"
-      - "--label=org.opencontainers.image.created={{.Date}}"
-      - "--label=org.opencontainers.image.title={{.ProjectName}}"
-      - "--label=org.opencontainers.image.revision={{.FullCommit}}"
-      - "--label=org.opencontainers.image.version={{.Version}}"
-      # imitating linker flags
-      - "--build-arg VERSION={{.Version}}"
-      - "--build-arg HASH={{.FullCommit}}"
-    extra_files:
-      - templates
-      - assets
+      - --pull
+      - --platform=linux/amd64
+      - --label=org.opencontainers.image.created={{.Date}}
+      - --label=org.opencontainers.image.title={{.ProjectName}}
+      - --label=org.opencontainers.image.revision={{.FullCommit}}
+      - --label=org.opencontainers.image.version={{.Version}}
+  - use: buildx
+    goarch: arm64
+    image_templates:
+      - docker.io/applegamer22/{{.ProjectName}}:{{.Version}}-arm64
+      - ghcr.io/applegamer22/{{.ProjectName}}:{{.Version}}-arm64
+    build_flag_templates:
+      - --pull
+      - --platform=linux/arm64
+      - --label=org.opencontainers.image.created={{.Date}}
+      - --label=org.opencontainers.image.title={{.ProjectName}}
+      - --label=org.opencontainers.image.revision={{.FullCommit}}
+      - --label=org.opencontainers.image.version={{.Version}}
+docker_manifests:
+  - name_template: docker.io/applegamer22/{{.ProjectName}}:{{.Version}}
+    image_templates:
+      - docker.io/applegamer22/{{.ProjectName}}:{{.Version}}-amd64
+      - docker.io/applegamer22/{{.ProjectName}}:{{.Version}}-arm64
+  - name_template: ghcr.io/applegamer22/{{.ProjectName}}:{{.Version}}
+    image_templates:
+      - ghcr.io/applegamer22/{{.ProjectName}}:{{.Version}}-amd64
+      - ghcr.io/applegamer22/{{.ProjectName}}:{{.Version}}-arm64
+```
+
+In order to reference external files, you can either list them in the `extra_files` (or `templated_extra_files`) array. Another way would be embedding the files inside your Go binary using the `embed` package. Here is a summary of how I used it to embed HTML templates and static assets.
+
+```go
+//go:embed templates/*.html
+var templates        embed.FS
+Templates = template.Must(template.New("").Funcs(funcs).ParseFS(templates, "*.html"))
+// ...
+//go:embed assets/*
+var assets embed.FS
+mux.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.FS(assets))))
+```
+
+In order to make your `Dockerfile` work well with GoReleaser, the main application binary would have to be sourced by a `COPY` command (with the appropriate executable name). Other adjustments like external dependencies can be done as usual.
+
+```dockerfile
+FROM alpine:3.21.3
+WORKDIR /raker
+COPY raker .
+RUN apk add ffmpeg
+ENV STORAGE="/raker/storage"
+ENV DATABASE="raker"
+EXPOSE 4100
+CMD ./raker
 ```
 
 # Software Bill of Materials
@@ -438,6 +490,7 @@ on:
 permissions:
   contents: write
   packages: write
+  id-token: write
 jobs:
   github_release:
     runs-on: ubuntu-latest
@@ -461,6 +514,12 @@ jobs:
         with:
           username: ${{secrets.DOCKER_USERNAME}}
           password: ${{secrets.DOCKER_TOKEN}}
+      - name: Sign-in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
       - name: Set-up Syft
         uses: anchore/sbom-action/download-syft@v0.13.3
       - name: Set-up Nix
