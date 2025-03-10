@@ -91,6 +91,18 @@ builds:
       - arm64
 ```
 
+It's important to make sure that the overrides done in the linker flags shown above are done on variables and not constants, such that the correct information is passed during the CI pipeline's run.
+
+```go
+package commands
+
+var (
+	// default value to be overridden in the CI pipeline by GoReleaser
+	Version        = "development"
+	Hash           = "development"
+)
+```
+
 # Archive Packages
 After the builds are complete, each of them can be [referenced](https://goreleaser.com/customization/archive/) to be packaged differently. In the following example, Linux and macOS builds are to packaged as a `gzip` archive (due to its availability in these environment), along with command completion scripts for command-line shells that usually ship with these environments. On the other hand, Windows doesn't normally ship the same archive format compatibility, which is why it is packaged using `zip`, along a PowerShell completion script. I also like to define the template for the archive, such that it includes the project name, package version, operating system and processor architecture. For better clarity for macOS users, I like to utilise the name template for the package in order to substitute the substring `darwin` (the name of macOS's kernel) with `mac`.
 
@@ -372,15 +384,16 @@ This snippet allows GoReleaser to build a binary similarly to the CLI binary sho
 builds:
   - id: linux
     env: [CGO_ENABLED=0]
-    dir: server
+    main: ./server
     goos:
       - linux
     goarch:
       - amd64
       - arm64
     ldflags:
-      - -X 'github.com/AppleGamer22/raker/shared.Version={{.Version}}'
-      - -X 'github.com/AppleGamer22/raker/shared.Hash={{.FullCommit}}'
+      - -s -w
+      - -X 'github.com/AppleGamer22/{{.ProjectName}}/shared.Version={{.Version}}'
+      - -X 'github.com/AppleGamer22/{{.ProjectName}}/shared.Hash={{.FullCommit}}'
 # ...
 dockers:
   - use: buildx
