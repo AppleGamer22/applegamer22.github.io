@@ -4,6 +4,6 @@ date: 2023-07-26
 showDateUpdated: false
 tags: [MonSec, reversing, Ghidra, C, Kali, Linux, YouTube]
 externalUrl: https://youtu.be/pCxelNdDQvM
-_build: {render: never}
+build: {render: never}
 xml: false
 ---

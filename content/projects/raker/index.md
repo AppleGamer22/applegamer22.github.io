@@ -6,7 +6,7 @@ showReadingTime: false
 showWordCount: false
 tags: [Go, HTML, CSS, Bootstrap, CLI, server, client, full-stack, regex, Docker, Linux, macOS, Windows]
 xml: false
-_build: {render: never}
+build: {render: never}
 externalUrl: https://github.com/AppleGamer22/raker
 monoFont: true
 ---
