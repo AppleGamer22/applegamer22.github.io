@@ -43,6 +43,7 @@
 		"precommand",
 		"SAVEHIST",
 		"setopt",
+		"Syncthing",
 		"TERMCAP",
 		"TeXnician",
 		"UACTF",

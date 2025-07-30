@@ -1,5 +1,6 @@
 ---
-title: Self-hosted DNS with Caddy and CoreDNS
+title: Self-hosted DNS with NixOS, Caddy & CoreDNS
+description: Self-hosted DNS with NixOS, Caddy & CoreDNS
 date: 2025-07-27
 tags: [Nix, NixOS, Caddy, CoreDNS]
 draft: true
