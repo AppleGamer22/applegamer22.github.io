@@ -80,6 +80,28 @@ log.Fatal("goodbye")
 ![](error_fatal.png)
 
 # Using in Other Libraries
+## Structured Logs
+The default logger for the structured logging library can be [re-defined](https://pkg.go.dev/log/slog#SetDefault) with any compliant logger:
+
+```go
+import (
+	"log/slog"
+	"time"
+
+	// ...
+	"github.com/charmbracelet/log"
+)
+
+func init() {
+	logger := slog.New(log.Default())
+	slog.SetDefault(logger)
+}
+
+func main() {
+	slog.Info("Compressed Payloads workflow started", "name", name)
+}
+```
+
 ## Temporal
 The Go SDK for Temporal's durable execution framework allows the developer to [substitute a custom logger](https://docs.temporal.io/dev-guide/go/observability#custom-logger) in order to suit the logging format of any project. Using the SDK's [structured logging support](https://pkg.go.dev/go.temporal.io/sdk/log#NewStructuredLogger), the Charm logger can be used within the [Temporal logging stack](https://docs.temporal.io/dev-guide/go/observability#logging).
 
@@ -106,10 +128,17 @@ func main() {
 	defer c.Close()
 
 	w := worker.New(c, "task-queue", worker.Options{})
+	w.RegisterWorkflow(Workflow)
 	// ...
 
 	if err := w.Run(worker.InterruptCh()); err != nil {
 		log.Fatal("Unable to start worker", err)
 	}
+}
+
+func Workflow(ctx workflow.Context, name string) error {
+	logger := workflow.GetLogger(ctx)
+	logger.Info("Workflow started", "name", name)
+	return nil
 }
 ```
