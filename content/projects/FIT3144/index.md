@@ -7,7 +7,7 @@ showReadingTime: false
 showWordCount: false
 tags: [JavaScript, EA, Blockly, research]
 externalUrl: https://elea-toolkit.netlify.app
-_build: {render: never}
+build: {render: never}
 xml: false
 roundedCorners: false
 authors: [markus_wagner]

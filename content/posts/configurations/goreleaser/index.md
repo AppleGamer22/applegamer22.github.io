@@ -1,7 +1,7 @@
 ---
 title: Continuous Integration with GoReleaser
 description: Go (Programming Language) Continuous Integration with GoReleaser
-_build: {list: never}
+build: {list: never}
 showDate: false
 showDateUpdated: false
 showReadingTime: false
