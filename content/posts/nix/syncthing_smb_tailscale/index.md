@@ -1,7 +1,7 @@
 ---
 title: An Overly-configured NAS with NixOS, Syncthing, SMB & Tailscale
 description: An Overly-configured NAS with NixOS, Syncthing, SMB & Tailscale
-date: 2025-07-30
+date: 2025-08-19
 tags: [Nix, NixOS, Syncthing, SMB, Tailscale]
 ---
 Since discovering Tailscale, I've consolidate my storage of important files in an over-engineered and overly-configured manner using Tailscale, NixOS ~~(by the way)~~, Syncthing, and SMB. Here is how I configured everything with Nix.
