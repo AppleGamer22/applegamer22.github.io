@@ -83,7 +83,7 @@ Once in a while I still need to approve peers after running system updates. I pl
 * [`Catfriend1`](https://github.com/Catfriend1)'s [Syncthing Android client](https://f-droid.org/en/packages/com.github.catfriend1.syncthingandroid/) is an excellent fork of the [discontinued official client](https://github.com/syncthing/syncthing-android).
 
 # SMB
-A remote filesystem can be configured
+A remote SMB filesystem can be configured to only accept connections through Tailscale's `tailscale0` network interface.
 
 ```nix
 services.samba-wsdd = {
@@ -97,9 +97,6 @@ services.samba = {
   settings = {
     global = {
       "security" = "user";
-      #use sendfile = yes
-      #max protocol = smb2
-      "hosts deny" = "0.0.0.0/0";
       "interfaces" = "lo tailscale0";
       "bind interfaces only" = "yes";
       "guest account" = "nobody";
@@ -118,12 +115,26 @@ services.samba = {
 };
 ```
 
+If there are no tailnet IP addresses defined in the global `hosts allow` Samba setting, Tailscale won't expose port 445 to devices with such addresses on your tailnet. The following command[^1] can be run to serve this port to the tailnet. Regardless of how this port is exposed to the tailnet, only devices that satisfy your tailnet's [access control settings](https://tailscale.com/kb/1324/grants) will be able to access this port and [Syncthing](#syncthing)'s port 22000.
+
+```sh
+tailscale serve --bg --tcp 445 tcp://localhost:445
+```
+
+Services exposed to the tailnet can be [disabled](https://tailscale.com/kb/1242/tailscale-serve) with a similar command.
+
+```sh
+tailscale serve --tcp 445 off
+```
+
+NixOS clients can mount a CIFS filesystem that points to the SMB server. The `x-systemd.requires=tailscaled.service`[^2] makes sure the filesystem is unmounted before Tailscale's daemon is stopped, which very useful for speeding up your client's shutdowns.
+
 ```nix
 environment.systemPackages = with pkgs; [ cifs-utils ];
 fileSystems."/run/media/applegamer22/RPI4HDD" = {
+  # replace with your SMB server's tailnet IP address
   device = "//100.121.142.2/hdd";
   fsType = "cifs";
-  # https://www.reddit.com/r/Tailscale/comments/1e672v7/use_these_options_if_you_want_to_mount_a_samba/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
   options = [
     "x-systemd.automount"
     "x-systemd.requires=tailscaled.service"
@@ -143,3 +154,9 @@ fileSystems."/run/media/applegamer22/RPI4HDD" = {
   ];
 };
 ```
+
+## 3rd-Party Clients
+* The VLC [Android app](https://www.videolan.org/vlc/download-android.html) has an SMB capability that is enough for reading files.
+
+[^1]: <https://github.com/tailscale/tailscale/issues/6856#issuecomment-1485385748>
+[^2]: <https://www.reddit.com/r/Tailscale/comments/1e672v7/use_these_options_if_you_want_to_mount_a_samba/>
