@@ -80,6 +80,25 @@ You can enable commit signing by default by editing your `~/.gitconfig` file. Yo
 ### Graphical PIN Entry
 By default, `gpg` asks for your key's PIN to be entered to its command-line prompt before the private key is used for signing. In case you want to use GPG from a non-TUI environment, the [Arch Linux wiki](https://wiki.archlinux.org/title/GnuPG#pinentry) covers how to enable PIN entry from a graphical interface.
 
+#### Linux
+After installing the relevant PIN entry program for your desktop environment, make sure the reference its binary's path in `~/.gnupg/gpg-agent.conf`:
+
+```
+pinentry-program /usr/bin/pinentry-qt
+```
+
+#### macOS
+After installing the relevant packages (`brew install pinentry pinentry-mac`), make sure the reference its binary's path in `~/.gnupg/gpg-agent.conf`:
+
+* Apple Silicon Macs:
+	```
+	pinentry-program /opt/homebrew/bin/pinentry-mac
+	```
+* Intel Macs
+	```
+	pinentry-program /usr/local/bin/pinentry-mac
+	```
+
 ## Import Key Pair to YubiKey
 At this point, you can utilise your key pair from your local machine with `git` perfectly fine in such a way that GitHub will display a [*verified* badge](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification) next to your commit messages. In case you have a OpenPGP-capable hardware-based security key, you can optionally move your key pair to it, such that it can be used seamlessly and securely across machines.
 
@@ -208,10 +227,11 @@ services = {
   udev.packages = with pkgs; [ yubikey-personalization ];
   pcscd.enable = true;
 };
-environment.systemPackages = with pkgs; [ pinentry-qt yubikey-manager yubioath-flutter ];
+environment.systemPackages = with pkgs; [ yubikey-manager yubioath-flutter ];
 programs.gnupg.agent = {
   enable = true;
   enableSSHSupport = true;
+  pinentryPackage = pkgs.pinentry-qt;
 };
 ```
 
