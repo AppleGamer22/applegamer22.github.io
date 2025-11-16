@@ -32,9 +32,10 @@ output "tailnet_key" {
 }
 ```
 
-# Automatic Device Enrolment
+Devices that join the tailnet with this key will automatically be included in the access controls defined by `tag:vpn` and any other tags included.
 
-Tailscale provides a cloud-init[^3] configuration that can be added to most cloud providers' compute instances in order to automatically connect them to your tailnet.
+# Automatic Device Enrolment
+Once a fresh VM is booted, it will need to know how to connect to the tailnet. Tailscale provides a cloud-init[^3] configuration that can be added to most cloud providers' compute instances in order to automatically connect a compute instance to a tailnet.
 
 ```yml
 #cloud-config
@@ -64,11 +65,12 @@ data "template_cloudinit_config" "config" {
 ```
 
 # Authorising The Device
+Tailscale Terraform provider can reference the device through it's [`tailscale_device` resource](https://registry.terraform.io/providers/tailscale/tailscale/latest/docs/data-sources/device). In this example it depends on an Azure Linux VM, but this can be changed for any other cloud provider's OpenTofu/Terraform compute resource that accepts a [cloud-init configuration](#automatic-device-enrolment) similar to the one mentioned above.
+
 ```tf
 data "tailscale_device" "azVM" {
-  hostname   = azurerm_linux_virtual_machine.azVM.computer_name
-  wait_for   = "120s"
-  depends_on = [azurerm_linux_virtual_machine.azVM]
+  hostname = azurerm_linux_virtual_machine.azVM.computer_name
+  wait_for = "120s"
 }
 ```
 
@@ -117,15 +119,15 @@ However, using this provisioner by itself gives OpenTofu/Terraform no knowledge 
 Luckily there is an easy fix.
 
 ## Correcting The Resource Dependency Graph
-This issue stems from the fact that Tailscale's Terraform provider doesn't track the decommissioning of the [`tailscale_device` resource](https://registry.terraform.io/providers/tailscale/tailscale/latest/docs/data-sources/device), which means I had to implement a similar behaviour on my own. When additional resources are derived from the device's data resource, the device's destroy-time provisioner need to have a similar dependency graph in order to ensure it runs after all of the device's derived resources are destroyed.
+This issue stems from the fact that Tailscale's Terraform provider doesn't track the decommissioning of the `tailscale_device` resource (currently being discussed on [GitHub](https://github.com/tailscale/terraform-provider-tailscale/issues/68)), which means I had to implement a similar behaviour on my own. When additional resources are derived from the device's data resource, the device's destroy-time provisioner need to have a similar dependency graph in order to ensure it runs after all of the device's derived resources are destroyed.
 
 ```mermaid
 flowchart TD
     D[Taiscale Device] -->|depends on| VM
     DA[Device Authorization] -->|depends on| D
     DSR[Device Subnet Routes] -->|depends on| D
-    DA[Device Authorization] -->|depends on| DC[Device Clean-up]
-    DSR[Device Subnet Routes] -->|depends on| DC
+    DA -->|depends on| DC[Device Clean-up]
+    DSR -->|depends on| DC
 ```
 
 These additional dependencies can be defined declaratively by adding `terraform_data.tailscale_device_cleanup` to the `depends_on` attribute of `tailscale_device_authorization` and `tailscale_device_subnet_routes`.
