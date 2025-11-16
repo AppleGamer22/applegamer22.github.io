@@ -4,9 +4,10 @@ date: 2025-11-15
 tags: [Tailscale, OpenTofu, Terraform, cloud-init, IaC]
 diagrams: true
 ---
-I've been looking for a infrastructure as Code (IaC) use case for my personal life, and I've recently found one that delivers both utility and cost-effectiveness: provisioning and connecting VPN servers into my tailnet seamlessly. In this post, I'll be be adding on top of other approaches [^1] [^2] with a fix I incorporated for an [issue](https://github.com/tailscale/terraform-provider-tailscale/issues/68) with Tailscale's Terraform provider.
+I've been looking for a infrastructure as Code (IaC) use case for my personal life, and I've recently found one that delivers both utility and cost-effectiveness: provisioning and connecting VPN servers into my tailnet seamlessly. In this post, I'll be be adding on top of other approaches [^1] [^2] with a fix I incorporated for an [issue](https://github.com/tailscale/terraform-provider-tailscale/issues/68) with [Tailscale's Terraform provider](https://registry.terraform.io/providers/tailscale/tailscale/latest/docs).
 
 # Provisioning a Key
+Tailscale requires automatic device deployments to provide an authentication key when they join the tailnet, which can be easily provisioned and reused by the rest of the Terraform resources.
 
 ```tf
 provider "tailscale" {
@@ -32,7 +33,19 @@ output "tailnet_key" {
 ```
 
 # Automatic Device Enrolment
-[^3]
+
+Tailscale provides a cloud-init[^3] configuration that can be added to most cloud providers' compute instances in order to automatically connect them to your tailnet.
+
+```yml
+#cloud-config
+# yaml-language-server: $schema=https://raw.githubusercontent.com/canonical/cloud-init/main/cloudinit/config/schemas/versions.schema.cloud-config.json
+runcmd:
+  - curl -fsSL https://tailscale.com/install.sh | sh
+  - ['sh', '-c', "echo 'net.ipv4.ip_forward = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf && echo 'net.ipv6.conf.all.forwarding = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf && sudo sysctl -p /etc/sysctl.d/99-tailscale.conf" ]
+  - tailscale up --advertise-exit-node --ssh --accept-routes --advertise-routes=${routes} --accept-dns=${accept_dns} --authkey=${tailscale_auth_key}
+```
+
+This file can be used by OpenTofu/Terraform[^4] to fill-in the automatically-provisioned tailnet key.
 
 ```tf
 
@@ -50,17 +63,7 @@ data "template_cloudinit_config" "config" {
 }
 ```
 
-Tailscale provides a cloud-init[^4] configuration that can be added to most cloud providers' compute instances in order to automatically connect them to your tailnet.
-
-```yml
-#cloud-config
-# yaml-language-server: $schema=https://raw.githubusercontent.com/canonical/cloud-init/main/cloudinit/config/schemas/versions.schema.cloud-config.json
-runcmd:
-  - curl -fsSL https://tailscale.com/install.sh | sh
-  - ['sh', '-c', "echo 'net.ipv4.ip_forward = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf && echo 'net.ipv6.conf.all.forwarding = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf && sudo sysctl -p /etc/sysctl.d/99-tailscale.conf" ]
-  - tailscale up --advertise-exit-node --ssh --accept-routes --advertise-routes=${routes} --accept-dns=${accept_dns} --authkey=${tailscale_auth_key}
-```
-
+# Authorising The Device
 ```tf
 data "tailscale_device" "azVM" {
   hostname   = azurerm_linux_virtual_machine.azVM.computer_name
@@ -87,7 +90,34 @@ resource "tailscale_device_subnet_routes" "azVM" {
 }
 ```
 
-Since I wanted to automatically have the device authorized and ready with routes, the order of destruction for these resources need to align with the device's state in [Tailscale's API](https://tailscale.com/api#tag/devices/delete/device/{deviceId}). When additional resources are derived from the device's data resource, the device's destroy-time provisioner need to have a similar dependency graph in order to ensure it runs after all of the device's derived resources are destroyed.
+# Decommissioning The Device On-Demand
+OpenTofu/Terraform can run external commands in order to fill the gaps that a given provider hasn't yet addressed, but these capability should be used as [**a last resort**](https://opentofu.org/docs/language/resources/provisioners/syntax/#provisioners-are-a-last-resort). By using a provisioner that is run on `tofu destroy`, the [Tailscale API](https://tailscale.com/api#tag/devices/delete/device/{deviceId}) is invoked directly in order to remove the decommissioned device off the tailnet.
+
+```tf
+resource "terraform_data" "tailscale_device_cleanup" {
+  input = {
+    device_id         = data.tailscale_device.azVM.id
+    tailscale_api_key = var.tailscale_api_key
+  }
+  provisioner "local-exec" {
+    when       = destroy
+    # in case the device has been removed manually
+    on_failure = continue
+    command = <<EOT
+      curl 'https://api.tailscale.com/api/v2/device/${self.input.device_id}' \
+        --request DELETE \
+        --header 'Authorization: Bearer ${self.input.tailscale_api_key}'
+    EOT
+  }
+}
+```
+
+However, using this provisioner by itself gives OpenTofu/Terraform no knowledge of the dependency graph. This was demonstrated on the first time I tried to run `tofu destroy`, after which I expected the Tailscale device entry for the VM to be cleanly removed alongside the rest of the `tailscale_device_authorization` and `tailscale_device_subnet_routes` resources. However, the provisioner for `terraform_data.tailscale_device_cleanup` was run as soon as possible, which happened to be before the above-mentioned resources were decommissioned cleanly. This sloppy order of execution prevented the clean continuation for the rest of the pipeline.
+
+Luckily there is an easy fix.
+
+## Correcting The Resource Dependency Graph
+This issue stems from the fact that Tailscale's Terraform provider doesn't track the decommissioning of the [`tailscale_device` resource](https://registry.terraform.io/providers/tailscale/tailscale/latest/docs/data-sources/device), which means I had to implement a similar behaviour on my own. When additional resources are derived from the device's data resource, the device's destroy-time provisioner need to have a similar dependency graph in order to ensure it runs after all of the device's derived resources are destroyed.
 
 ```mermaid
 flowchart TD
@@ -98,7 +128,7 @@ flowchart TD
     DSR[Device Subnet Routes] -->|depends on| DC
 ```
 
-Here is my config for the Tailscale resources:
+These additional dependencies can be defined declaratively by adding `terraform_data.tailscale_device_cleanup` to the `depends_on` attribute of `tailscale_device_authorization` and `tailscale_device_subnet_routes`.
 
 ```tf
 resource "tailscale_device_authorization" "azVM" {
@@ -118,21 +148,11 @@ resource "tailscale_device_subnet_routes" "azVM" {
     "::/0",
   ]
 }
-
-resource "terraform_data" "tailscale_device_cleanup" {
-  input = {
-    device_id         = data.tailscale_device.azVM.id
-    tailscale_api_key = var.tailscale_api_key
-  }
-  provisioner "local-exec" {
-    when       = destroy
-    on_failure = continue
-    command = "curl 'https://api.tailscale.com/api/v2/device/${self.input.device_id}' --request DELETE --header 'Authorization: Bearer ${self.input.tailscale_api_key}'"
-  }
-}
 ```
+
+With these small modifications, cloud-hosted VMs can be added to the tailnet seamlessly with ACL tags and routing authorisations pre-defined, and be decommissioned just as easily together with their tailnet connections.
 
 [^1]: <https://hsps.in/post/setup-on-demand-tailscale-exit-node-using-terraform-and-digital-ocean/>
 [^2]: <https://rossedman.io/blog/computers/scale-homelab-with-tailscale/>
-[^3]: <https://www.phillipsj.net/posts/cloud-init-with-terraform/>
-[^4]: <https://tailscale.com/kb/1293/cloud-init>
+[^3]: <https://tailscale.com/kb/1293/cloud-init>
+[^4]: <https://www.phillipsj.net/posts/cloud-init-with-terraform/>
