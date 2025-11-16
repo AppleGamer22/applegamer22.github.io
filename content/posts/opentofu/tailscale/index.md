@@ -4,8 +4,54 @@ date: 2025-11-15
 tags: [Tailscale, OpenTofu, Terraform, cloud-init, IaC]
 diagrams: true
 ---
+I've been looking for a infrastructure as Code (IaC) use case for my personal life, and I've recently found one that delivers both utility and cost-effectiveness: provisioning and connecting VPN servers into my tailnet seamlessly. In this post, I'll be be adding on top of other approaches [^1] [^2] with a fix I incorporated for an [issue](https://github.com/tailscale/terraform-provider-tailscale/issues/68) with Tailscale's Terraform provider.
+
+# Provisioning a Key
+
+```tf
+provider "tailscale" {
+  api_key = var.tailscale_api_key
+  tailnet = var.tailnet_name
+}
+
+resource "tailscale_tailnet_key" "tailscale_key" {
+  reusable      = true
+  ephemeral     = false
+  preauthorized = true
+  tags          = ["tag:vpn"]
+  expiry        = 7776000
+  description   = "IaC Tailscale key for 90 days"
+}
+
+output "tailnet_key" {
+  value       = tailscale_tailnet_key.tailscale_key.key
+  sensitive   = true
+  depends_on  = [tailscale_tailnet_key.tailscale_key]
+  description = "IaC Tailnet Key"
+}
+```
 
 # Automatic Device Enrolment
+[^3]
+
+```tf
+
+data "template_cloudinit_config" "config" {
+  gzip          = true
+  base64_encode = true
+  part {
+    content_type = "text/cloud-config"
+    content = templatefile("${path.module}/../../cloud_init.yml", {
+      tailscale_auth_key = module.ts.tailnet_key
+      routes             = "10.1.0.0/24,168.63.129.16/32"
+      accept_dns         = false
+    })
+  }
+}
+```
+
+Tailscale provides a cloud-init[^4] configuration that can be added to most cloud providers' compute instances in order to automatically connect them to your tailnet.
+
 ```yml
 #cloud-config
 # yaml-language-server: $schema=https://raw.githubusercontent.com/canonical/cloud-init/main/cloudinit/config/schemas/versions.schema.cloud-config.json
@@ -41,7 +87,7 @@ resource "tailscale_device_subnet_routes" "azVM" {
 }
 ```
 
-Since I wanted to automatically have the device authorized and ready with routes, the order of destruction for these resources need to align with the device's state in Tailscale's API. When additional resources are derived from the device's data resource, the device's destory-time provisioner need to have a similar dependency graph in order to ensure it runs after all of the device's derived resources are destroyed.
+Since I wanted to automatically have the device authorized and ready with routes, the order of destruction for these resources need to align with the device's state in [Tailscale's API](https://tailscale.com/api#tag/devices/delete/device/{deviceId}). When additional resources are derived from the device's data resource, the device's destroy-time provisioner need to have a similar dependency graph in order to ensure it runs after all of the device's derived resources are destroyed.
 
 ```mermaid
 flowchart TD
@@ -85,3 +131,8 @@ resource "terraform_data" "tailscale_device_cleanup" {
   }
 }
 ```
+
+[^1]: <https://hsps.in/post/setup-on-demand-tailscale-exit-node-using-terraform-and-digital-ocean/>
+[^2]: <https://rossedman.io/blog/computers/scale-homelab-with-tailscale/>
+[^3]: <https://www.phillipsj.net/posts/cloud-init-with-terraform/>
+[^4]: <https://tailscale.com/kb/1293/cloud-init>
