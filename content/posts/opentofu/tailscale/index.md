@@ -11,28 +11,54 @@ Tailscale requires automatic device deployments to provide an authentication key
 
 ```tf
 provider "tailscale" {
-  api_key = var.tailscale_api_key
-  tailnet = var.tailnet_name
+	api_key = var.tailscale_api_key
+	tailnet = var.tailnet_name
 }
 
 resource "tailscale_tailnet_key" "tailscale_key" {
-  reusable      = true
-  ephemeral     = false
-  preauthorized = true
-  tags          = ["tag:vpn"]
-  expiry        = 7776000
-  description   = "IaC Tailscale key for 90 days"
+	reusable      = true
+	ephemeral     = false
+	preauthorized = true
+	tags          = ["tag:vpn"]
+	expiry        = 7776000
+	description   = "IaC Tailscale key for 90 days"
 }
 
 output "tailnet_key" {
-  value       = tailscale_tailnet_key.tailscale_key.key
-  sensitive   = true
-  depends_on  = [tailscale_tailnet_key.tailscale_key]
-  description = "IaC Tailnet Key"
+	value       = tailscale_tailnet_key.tailscale_key.key
+	sensitive   = true
+	depends_on  = [tailscale_tailnet_key.tailscale_key]
+	description = "IaC Tailnet Key"
 }
 ```
 
 Devices that join the tailnet with this key will automatically be included in the access controls defined by `tag:vpn` and any other tags included.
+
+```jsonc
+{
+	"tagOwners": {
+		"tag:vpn": ["autogroup:admin"],
+	},
+	"acls": [
+		// ...
+		{
+			"action": "accept",
+			"Users":  ["autogroup:admin"],
+			"Ports":  ["*:*"],
+		},
+	],
+	"grants": [
+		// ...
+		{
+			"src": ["group:vpn"],
+			"dst": ["autogroup:internet"],
+			"ip":  ["*"],
+			"via": ["tag:vpn"],
+		},
+	],
+	// ..
+}
+```
 
 # Automatic Device Enrolment
 Once a fresh VM is booted, it will need to know how to connect to the tailnet. Tailscale provides a cloud-init[^3] configuration that can be added to most cloud providers' compute instances in order to automatically connect a compute instance to a tailnet.
@@ -41,9 +67,9 @@ Once a fresh VM is booted, it will need to know how to connect to the tailnet. T
 #cloud-config
 # yaml-language-server: $schema=https://raw.githubusercontent.com/canonical/cloud-init/main/cloudinit/config/schemas/versions.schema.cloud-config.json
 runcmd:
-  - curl -fsSL https://tailscale.com/install.sh | sh
-  - ['sh', '-c', "echo 'net.ipv4.ip_forward = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf && echo 'net.ipv6.conf.all.forwarding = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf && sudo sysctl -p /etc/sysctl.d/99-tailscale.conf" ]
-  - tailscale up --advertise-exit-node --ssh --accept-routes --advertise-routes=${routes} --accept-dns=${accept_dns} --authkey=${tailscale_auth_key}
+	- curl -fsSL https://tailscale.com/install.sh | sh
+	- ['sh', '-c', "echo 'net.ipv4.ip_forward = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf && echo 'net.ipv6.conf.all.forwarding = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf && sudo sysctl -p /etc/sysctl.d/99-tailscale.conf" ]
+	- tailscale up --advertise-exit-node --ssh --accept-routes --advertise-routes=${routes} --accept-dns=${accept_dns} --authkey=${tailscale_auth_key}
 ```
 
 This file can be used by OpenTofu/Terraform[^4] to fill-in the automatically-provisioned tailnet key.
@@ -51,16 +77,16 @@ This file can be used by OpenTofu/Terraform[^4] to fill-in the automatically-pro
 ```tf
 
 data "template_cloudinit_config" "config" {
-  gzip          = true
-  base64_encode = true
-  part {
-    content_type = "text/cloud-config"
-    content = templatefile("${path.module}/../../cloud_init.yml", {
-      tailscale_auth_key = module.ts.tailnet_key
-      routes             = "10.1.0.0/24,168.63.129.16/32"
-      accept_dns         = false
-    })
-  }
+	gzip          = true
+	base64_encode = true
+	part {
+		content_type = "text/cloud-config"
+		content = templatefile("${path.module}/../../cloud_init.yml", {
+			tailscale_auth_key = module.ts.tailnet_key
+			routes             = "10.1.0.0/24,168.63.129.16/32"
+			accept_dns         = false
+		})
+	}
 }
 ```
 
@@ -69,48 +95,52 @@ Tailscale Terraform provider can reference the device through it's [`tailscale_d
 
 ```tf
 data "tailscale_device" "azVM" {
-  hostname = azurerm_linux_virtual_machine.azVM.computer_name
-  wait_for = "120s"
+	hostname = azurerm_linux_virtual_machine.azVM.computer_name
+	wait_for = "120s"
 }
 ```
+
+The `tailscale_device` resource waits for 2 minutes for the VM to boot (counting from its provisioning time), run the script in its cloud-init configuration and join the tailnet. This resource can be used to declaratively pre-authorise the device into the tailnet and define it's routes.
 
 ```tf
 resource "tailscale_device_authorization" "azVM" {
-  device_id  = data.tailscale_device.azVM.node_id
-  authorized = true
+	device_id  = data.tailscale_device.azVM.node_id
+	authorized = true
 }
 
 resource "tailscale_device_subnet_routes" "azVM" {
-  device_id = data.tailscale_device.azVM.node_id
-  routes = [
-    "10.1.0.0/24",
-    "168.63.129.16/32",
-    # Configure as an exit node
-    "0.0.0.0/0",
-    "::/0",
-  ]
+	device_id = data.tailscale_device.azVM.node_id
+	routes = [
+		"10.1.0.0/24",
+		"168.63.129.16/32",
+		# Configure as an exit node
+		"0.0.0.0/0",
+		"::/0",
+	]
 }
 ```
+
+Af this stage the automatically-provisioned VM is acting is a regular exit node in the tailnet that is accessible by any user with the `vpn` tag.
 
 # Decommissioning The Device On-Demand
 OpenTofu/Terraform can run external commands in order to fill the gaps that a given provider hasn't yet addressed, but these capability should be used as [**a last resort**](https://opentofu.org/docs/language/resources/provisioners/syntax/#provisioners-are-a-last-resort). By using a provisioner that is run on `tofu destroy`, the [Tailscale API](https://tailscale.com/api#tag/devices/delete/device/{deviceId}) is invoked directly in order to remove the decommissioned device off the tailnet.
 
 ```tf
 resource "terraform_data" "tailscale_device_cleanup" {
-  input = {
-    device_id         = data.tailscale_device.azVM.id
-    tailscale_api_key = var.tailscale_api_key
-  }
-  provisioner "local-exec" {
-    when       = destroy
-    # in case the device has been removed manually
-    on_failure = continue
-    command = <<EOT
-      curl 'https://api.tailscale.com/api/v2/device/${self.input.device_id}' \
-        --request DELETE \
-        --header 'Authorization: Bearer ${self.input.tailscale_api_key}'
-    EOT
-  }
+	input = {
+		device_id         = data.tailscale_device.azVM.id
+		tailscale_api_key = var.tailscale_api_key
+	}
+	provisioner "local-exec" {
+		when       = destroy
+		# in case the device has been removed manually
+		on_failure = continue
+		command = <<EOT
+			curl 'https://api.tailscale.com/api/v2/device/${self.input.device_id}' \
+				--request DELETE \
+				--header 'Authorization: Bearer ${self.input.tailscale_api_key}'
+		EOT
+	}
 }
 ```
 
@@ -123,32 +153,32 @@ This issue stems from the fact that Tailscale's Terraform provider doesn't track
 
 ```mermaid
 flowchart TD
-    D[Taiscale Device] -->|depends on| VM
-    DA[Device Authorization] -->|depends on| D
-    DSR[Device Subnet Routes] -->|depends on| D
-    DA -->|depends on| DC[Device Clean-up]
-    DSR -->|depends on| DC
+		D[Taiscale Device] -->|depends on| VM
+		DA[Device Authorization] -->|depends on| D
+		DSR[Device Subnet Routes] -->|depends on| D
+		DA -->|depends on| DC[Device Clean-up]
+		DSR -->|depends on| DC
 ```
 
 These additional dependencies can be defined declaratively by adding `terraform_data.tailscale_device_cleanup` to the `depends_on` attribute of `tailscale_device_authorization` and `tailscale_device_subnet_routes`.
 
 ```tf
 resource "tailscale_device_authorization" "azVM" {
-  device_id  = data.tailscale_device.azVM.node_id
-  depends_on = [terraform_data.tailscale_device_cleanup]
-  authorized = true
+	device_id  = data.tailscale_device.azVM.node_id
+	depends_on = [terraform_data.tailscale_device_cleanup]
+	authorized = true
 }
 
 resource "tailscale_device_subnet_routes" "azVM" {
-  device_id  = data.tailscale_device.azVM.node_id
-  depends_on = [terraform_data.tailscale_device_cleanup]
-  routes = [
-    "10.1.0.0/24",
-    "168.63.129.16/32",
-    # Configure as an exit node
-    "0.0.0.0/0",
-    "::/0",
-  ]
+	device_id  = data.tailscale_device.azVM.node_id
+	depends_on = [terraform_data.tailscale_device_cleanup]
+	routes = [
+		"10.1.0.0/24",
+		"168.63.129.16/32",
+		# Configure as an exit node
+		"0.0.0.0/0",
+		"::/0",
+	]
 }
 ```
 
