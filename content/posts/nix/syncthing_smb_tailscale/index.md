@@ -1,6 +1,6 @@
 ---
 title: An Overly-configured NAS with NixOS, Syncthing, SMB & Tailscale
-description: An Overly-configured NAS with NixOS, Syncthing, SMB & Tailscale
+description: An Overly-configured NAS with NixOS, Syncthing, SMB and Tailscale
 date: 2025-08-19
 tags: [Nix, NixOS, Syncthing, SMB, Tailscale]
 ---
