@@ -1,6 +1,6 @@
 ---
 title: YubiKey for GPG & SSH
-description: YubiKey for GPG & SSH
+description: YubiKey for GPG and SSH
 date: 2024-01-01
 tags: [Git, GitHub, GPG, SSH, YubiKey, Nix]
 ---
