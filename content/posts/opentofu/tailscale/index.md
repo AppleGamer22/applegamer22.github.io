@@ -7,12 +7,7 @@ diagrams: true
 ---
 I've been looking for an Infrastructure as Code (IaC) use case for my personal life, and I've recently found one that delivers both utility and cost-effectiveness: provisioning and connecting VPN servers into my [tailnet](https://tailscale.com) seamlessly. In this post, I'll be be adding on top of other approaches [^1] [^2] with a fix I incorporated for an [issue](https://github.com/tailscale/terraform-provider-tailscale/issues/68) with [Tailscale's Terraform provider](https://registry.terraform.io/providers/tailscale/tailscale/latest/docs).
 
-<details>
-<summary>This meme has the same energy as this post:</summary>
-
-![a meme about automations that take longer to design compared to he time they save](https://i.redd.it/auaip6x4yuyb1.jpg "from [r/ProgrammerHumor](https://www.reddit.com/r/ProgrammerHumor/comments/17pmugu/programmermove/)")
-
-</details>
+![a meme about automations that take longer to design compared to he time they save](https://i.redd.it/auaip6x4yuyb1.jpg "An [r/ProgrammerHumor](https://www.reddit.com/r/ProgrammerHumor/comments/17pmugu/programmermove/) meme describing the time it takes to automate a manual process reliably")
 
 # Pre-requisites
 Before you get started, you'll need the following:
@@ -201,7 +196,7 @@ resource "tailscale_device_subnet_routes" "azVM" {
 
 With these small modifications, cloud-hosted VMs can be added to the tailnet seamlessly with ACL tags and routing authorisations pre-defined, and be decommissioned just as easily.
 
-[^1]: <https://hsps.in/post/setup-on-demand-tailscale-exit-node-using-terraform-and-digital-ocean/>
-[^2]: <https://rossedman.io/blog/computers/scale-homelab-with-tailscale/>
+[^1]: P S, H. (2024, October 8). Setup on Demand Tailscale Exit Node Using Terraform & DigitalOcean. Harisankar P S. <https://hsps.in/post/setup-on-demand-tailscale-exit-node-using-terraform-and-digital-ocean/>
+[^2]: Edman, R. (2021, February 21). Build A Portable Lab In The Cloud Using Tailscale, Terraform & DigitalOcean. Ross Edman. <https://rossedman.io/blog/computers/scale-homelab-with-tailscale/>
 [^3]: <https://tailscale.com/kb/1293/cloud-init>
-[^4]: <https://www.phillipsj.net/posts/cloud-init-with-terraform/>
+[^4]: Phillips, J. (2021, January 25). Cloud-Init With Terraform. Jamie Phillips. <https://www.phillipsj.net/posts/cloud-init-with-terraform/>
