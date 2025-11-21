@@ -1,10 +1,25 @@
 ---
-title: Self-rolling a VPN with Tailscale and OpenTofu
+title: Self-rolling a VPN with Tailscale & OpenTofu
+description: Self-rolling a VPN with Tailscale and OpenTofu
 date: 2025-11-15
 tags: [Tailscale, OpenTofu, Terraform, cloud-init, IaC]
 diagrams: true
 ---
-I've been looking for a infrastructure as Code (IaC) use case for my personal life, and I've recently found one that delivers both utility and cost-effectiveness: provisioning and connecting VPN servers into my tailnet seamlessly. In this post, I'll be be adding on top of other approaches [^1] [^2] with a fix I incorporated for an [issue](https://github.com/tailscale/terraform-provider-tailscale/issues/68) with [Tailscale's Terraform provider](https://registry.terraform.io/providers/tailscale/tailscale/latest/docs).
+I've been looking for an Infrastructure as Code (IaC) use case for my personal life, and I've recently found one that delivers both utility and cost-effectiveness: provisioning and connecting VPN servers into my [tailnet](https://tailscale.com) seamlessly. In this post, I'll be be adding on top of other approaches [^1] [^2] with a fix I incorporated for an [issue](https://github.com/tailscale/terraform-provider-tailscale/issues/68) with [Tailscale's Terraform provider](https://registry.terraform.io/providers/tailscale/tailscale/latest/docs).
+
+<details>
+<summary>This meme has the same energy as this post:</summary>
+
+![a meme about automations that take longer to design compared to he time they save](https://i.redd.it/auaip6x4yuyb1.jpg "from [r/ProgrammerHumor](https://www.reddit.com/r/ProgrammerHumor/comments/17pmugu/programmermove/)")
+
+</details>
+
+# Pre-requisites
+Before you get started, you'll need the following:
+
+* A Tailscale account
+* An account with a cloud provider
+* A working [OpenTofu](https://opentofu.org)/[Terraform](https://developer.hashicorp.com/terraform) deployment pipeline for a compute instance compatible with [cloud-init](https://cloud-init.io).
 
 # Provisioning a Key
 Tailscale requires automatic device deployments to provide an authentication key when they join the tailnet, which can be easily provisioned and reused by the rest of the Terraform resources.
@@ -32,33 +47,35 @@ output "tailnet_key" {
 }
 ```
 
-Devices that join the tailnet with this key will automatically be included in the access controls defined by `tag:vpn` and any other tags included.
+Devices that join the tailnet with this key will automatically be included in the access controls [grants](#grants-for-tagged-devices--users) defined by the `vpn` tag and any other tags included.
+
+## Grants for Tagged Devices & Users
+The grants for users and devices assigned to the `vpn` tag can be defined as follows:
 
 ```jsonc
 {
 	"tagOwners": {
 		"tag:vpn": ["autogroup:admin"],
 	},
-	"acls": [
-		// ...
-		{
-			"action": "accept",
-			"Users":  ["autogroup:admin"],
-			"Ports":  ["*:*"],
-		},
-	],
 	"grants": [
 		// ...
 		{
+			"src": ["autogroup:admin"],
+			"dst": ["*"],
+			"ip": ["*"],
+		},
+		{
 			"src": ["group:vpn"],
 			"dst": ["autogroup:internet"],
-			"ip":  ["*"],
+			"ip": ["*"],
 			"via": ["tag:vpn"],
 		},
 	],
 	// ..
 }
 ```
+
+Such configuration allows users in the `vpn` group (as defined by the tailnet's administrator) to use devices in the same group as exit nodes.
 
 # Automatic Device Enrolment
 Once a fresh VM is booted, it will need to know how to connect to the tailnet. Tailscale provides a cloud-init[^3] configuration that can be added to most cloud providers' compute instances in order to automatically connect a compute instance to a tailnet.
@@ -182,7 +199,7 @@ resource "tailscale_device_subnet_routes" "azVM" {
 }
 ```
 
-With these small modifications, cloud-hosted VMs can be added to the tailnet seamlessly with ACL tags and routing authorisations pre-defined, and be decommissioned just as easily together with their tailnet connections.
+With these small modifications, cloud-hosted VMs can be added to the tailnet seamlessly with ACL tags and routing authorisations pre-defined, and be decommissioned just as easily.
 
 [^1]: <https://hsps.in/post/setup-on-demand-tailscale-exit-node-using-terraform-and-digital-ocean/>
 [^2]: <https://rossedman.io/blog/computers/scale-homelab-with-tailscale/>
