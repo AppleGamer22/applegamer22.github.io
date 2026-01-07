@@ -1,4 +1,4 @@
-FROM ghcr.io/gohugoio/hugo:v0.154.2 AS hugo
+FROM ghcr.io/gohugoio/hugo:v0.154.3 AS hugo
 WORKDIR /hugo
 RUN apk add --no-cache tzdata
 COPY assets assets
