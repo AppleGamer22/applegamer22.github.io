@@ -7,9 +7,11 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
-  # schedule:
-  #   # Melbourne new year converted to UTC
-  #   - cron: 1 13 31 12 *
+  schedule:
+    # At 00:01 on day-of-month 1 in January
+    # https://crontab.guru/#1_0_1_1_*
+    - cron: 1 0 1 1 *
+      timezone: Australia/Melbourne
 jobs:
   pages:
     runs-on: ubuntu-latest
