@@ -35,8 +35,6 @@ jobs:
           path: /home/runner/.cache/hugo_cache
           key: ${{runner.os}}-hugomod-${{hashFiles('**/go.sum')}}
           restore-keys: ${{runner.os}}-hugomod-
-      # - name: Install LaTeX
-      #   run: sudo apt install texlive texlive-latex-extra fonts-firacode
       - name: Build
         env:
           HUGO_ENVIRONMENT: production
