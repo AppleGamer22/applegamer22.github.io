@@ -22,7 +22,7 @@
 
 \name{Omri}{Bornstein}
 % \photo[60pt]{assets/author.png}
-\title{Software/Security Engineer}
+\title{Software Engineer}
 \quote{Go/Linux enthusiast, curiously seeking challenges \& professional development}
 \email{omribor@gmail.com}
 \homepage{applegamer22.github.io}
@@ -38,22 +38,25 @@
 
 	\section{Skills}\label{sec:skills}
 	\begin{itemize}
-		\item \textbf{Programming Languages}: \textbf{Go}, JavaScript/TypeScript, \textbf{Python}, Kotlin/Java, C/C++,C\#
-		\item \textbf{Tools}: \textbf{Git} (with GitHub/GitLab), MongoDB, \textbf{Docker}, \textbf{Terraform}, gRPC/Protocol Buffers, \href{https://gohugo.io}{Hugo}, \href{https://nixos.org}{NixOS}
+		\item \textbf{Programming Languages}: \textbf{Go}, JavaScript/\textbf{TypeScript}, Python, Kotlin/Java, C/C++,C\#
+		\item \textbf{Tools}: \textbf{Git}, Postgres, \textbf{Docker}, \textbf{Terraform}, gRPC/Protocol Buffers, \href{https://nixos.org}{NixOS}
 		\item \textbf{Platforms}: \textbf{Linux}, \textbf{cloud-native}, web servers/browsers, macOS, Windows, Azure, Firebase
 		\item \textbf{Design \& Implementation}: algorithms \& data structures, object-oriented programming, test-driven development
-		\item \textbf{Security Analysis}: reverse-engineering (Ghidra), network analysis (Wireshark), Burp Suite, entry analysis (\texttt{nmap}, \texttt{gobuster}, \texttt{sqlmap}), credential brute-forcing (\texttt{hydra}, \texttt{john}, \texttt{hashcat})
+		% \item \textbf{Security Analysis}: reverse-engineering (Ghidra), network analysis (Wireshark), Burp Suite, entry analysis (\texttt{nmap}, \texttt{gobuster}, \texttt{sqlmap}), credential brute-forcing (\texttt{hydra}, \texttt{john}, \texttt{hashcat})
 		% \item \textbf{Soft Skills}: technical writing, critical/analytical thinking, presenting/public speaking, research, troubleshooting/debugging, explaining, collaboration/teamwork
 		\item \textbf{Hobbies}: \href{https://applegamer22.github.io/about/#hobbies}{playing guitar}, listening to/analysing music, self-directed learning, personal projects
 	\end{itemize}
 
 	\section{Experience}
-	\cventry{since June 2024}{Associate Software Engineer}{Altera Digital Health}{Melbourne (remote)}{.NET, Angular, MSSQL}{\begin{itemize}
+	\cventry{Q2 2026}{Software Engineer}{Altera Digital Health}{}{C\#.NET, Angular, MSSQL, GitHub Copilot}{}
+	\cventry{Q3 2024---Q2 2026}{Associate Software Engineer}{Altera Digital Health}{}{C\#.NET, Angular, MSSQL, GitHub Copilot}{\begin{itemize}
 		\item Contributed enhancements and fixes to existing products.
 		\item Co-lead PoC and custom implementation projects based on requirements set by APAC clients.
+		\item Designed CI/CI pipelines for building and signing releases.
+		\item Used coding agents to develop a PoC for a product rewrite, which was near feature-complete in 1 month.
 	\end{itemize}}
 	\subsection{\href{https://monsec.io/contact_team/\#2023-team}{Monash Cyber Security Club} (MonSec)}
-	\cventry{2023}{President}{}{}{\hyperref[sec:skills]{Terraform, Azure, Git, Hugo}}{\begin{itemize}
+	\cventry{2023}{President}{}{}{\hyperref[sec:skills]{Terraform, Azure, Git}}{\begin{itemize}
 		% \item Coordinated collaboration with the university's \href{https://www.monash.edu/it}{Faculty of Information Technology} for purposes of events and advertising.
 		\item Involved with industry relations for the purposes of sponsorship deals and collaborations.
 		\item Overhauled the \href{https://monsec.io}{club's website} for greater usability.
@@ -80,7 +83,7 @@
 	\cventry{2021 Q3---Q4}{Assistant Member Training Officer}{}{}{}{
 		\begin{itemize}
 			\item Helped to organise and ran a workshop about brute-forcing tools used for penetration testing.
-			\item Assisted in the club's management and operations.
+			% \item Assisted in the club's management and operations.
 			% \item Participated in \href{https://applegamer22.github.io/posts/angstromctf/}{{\aa}ngstromCTF}.
 		\end{itemize}
 	}
@@ -105,16 +108,16 @@
 	}
 
 	\subsection{Freelancing}
-	\cventry{2023 Q3---Q4}{Associate Software Engineer}{Radio Monash}{Clayton}{volunteering}{}
+	% \cventry{2023 Q3---Q4}{Associate Software Engineer}{Radio Monash}{Clayton}{volunteering}{}
 		% Advised the leadership team on software deployment and server migration of their audio stream.
-	\cventry{2021 Q3---Q4}{Software Engineer}{Contract}{Melbourne}{\hyperref[sec:skills]{Go \& test-driven development}}{
+	\cventry{2021 Q3---Q4}{Software Engineer}{Contract}{Melbourne}{\hyperref[sec:skills]{Go}}{
 		Implemented a custom asynchronous fault-tolerant file back-up system that enables the continuation of file transferring from a variably-approximate point in time before the disruption. Available at \ghurl{AppleGamer22/rb}.
 	}
 
 	\section{\texorpdfstring{Projects \small \href{https://applegamer22.github.io/about/\#open-source-contributions}{external contributions}}{Projects}}
 	\hypertarget{raker}{
-		\cventry{since May 2022}{\texttt{raker}}{\ghurl{AppleGamer22/raker}}{\hyperref[sec:skills]{Go, Docker \& MongoDB}}{}{
-			A social media scraper that is interfaced via a server-side rendered HTML user interface (or a CLI), and is managed by a REST API and a NoSQL database. I presented this project at \href{https://www.meetup.com/golang-mel/events/293777783/}{Melbourne's Go meet-up}.
+		\cventry{since May 2022}{\texttt{raker}}{\ghurl{AppleGamer22/raker}}{\hyperref[sec:skills]{Go, React, Docker, Postgres, gRPC}}{}{
+			A social media scraper that is interfaced via a React web interface, and is managed by a \href{https://connectrpc.com}{Connect RPC} API and a Postgres SQL database. I presented an early iteration of project at \href{https://www.meetup.com/golang-mel/events/293777783/}{Melbourne's Go meet-up}.
 		}
 	}
 	\hypertarget{stalk}{
@@ -133,8 +136,13 @@
 	% 	}
 	% }
 	\hypertarget{scr}{
-		\cventry{2019 --- 2022}{scr-web}{\ghurl{AppleGamer22/scr-web}}{\hyperref[sec:skills]{TypeScript, Angular, Docker \& MongoDB}}{}{
+		\cventry{2019 --- 2022}{scr-web}{\ghurl{AppleGamer22/scr-web}}{\hyperref[sec:skills]{TypeScript, Angular, Puppeteer, Docker \& MongoDB}}{}{
 			My previous attempt at building a full-stack (and a CLI) social media scraper with a single-page website framework and a RESTful server.
+		}
+	}
+	\hypertarget{IaC}{
+		\cventry{since 2025}{IaC}{\ghurl{AppleGamer22/IaC}}{\hyperref[sec:skills]{Terraform, Tailscale, Azure}}{}{
+			My infrastructure-as-code experiments, including a self-managed VPN set-up (more details in my \href{https://applegamer22.github.io/posts/opentofu/tailscale/}{blog}).
 		}
 	}
 	\end{document}
